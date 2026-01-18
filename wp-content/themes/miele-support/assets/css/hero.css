@@ -1,0 +1,183 @@
+/* Базовая обертка */
+
+.hero {
+    position: relative;
+    min-height: 620px;
+    color: var(--hero-text-color);
+    font-family: var(--hero-font-main);
+    overflow: hidden;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+}
+
+.hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay-color);
+}
+
+/* Контент */
+
+.container {
+    max-width: 1440px;
+    padding-inline: 80px;
+    margin-inline: auto;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 1;
+    padding-top: 140px;
+    padding-bottom: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero__eyebrow {
+    color: var(--white-100, #FFF);
+    text-align: center;
+
+    /* H1 */
+    font-family: var(--font-family);
+    font-size: 66px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 68px; /* 103.03% */
+}
+
+.hero__title {
+    color: var(--white-100, #FFF);
+    text-align: center;
+
+    /* H1 */
+    font-family: var(--font-family);
+    font-size: 66px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 68px; /* 103.03% */
+}
+
+.hero__text {
+    color: var(--white-100, #FFF);
+    text-align: center;
+
+    /* Body */
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 137.5% */
+    padding: 40px 0;
+    max-width: 756px;
+}
+
+/* Кнопки */
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn--primary {
+    background: var(--Red, #CC2229);
+    border: none;
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    background-color: var(--Red, #CC2229);
+    transform: translateY(-1px);
+}
+
+.btn--outline {
+    border: 1px solid var(--white-100, #FFF);
+    background-color: transparent;
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+}
+
+.btn--outline:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
+}
+
+/* Иконка в кнопке телефона */
+
+.btn__icon {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Простейшая адаптивность */
+
+@media (max-width: 1024px) {
+    .container {
+        padding-inline: 40px;
+    }
+
+    .hero__title {
+        font-size: 40px;
+    }
+
+    .hero__content {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-inline: 20px;
+    }
+
+    .hero {
+        min-height: 520px;
+    }
+
+    .hero__title {
+        font-size: 32px;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

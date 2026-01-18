@@ -1,0 +1,83 @@
+{
+  "key": "group_service_final",
+  "title": "Service — Final Page",
+  "fields": [
+    {
+      "key": "field_advantages",
+      "label": "Advantages",
+      "name": "advantages",
+      "type": "repeater",
+      "min": 4,
+      "max": 4,
+      "sub_fields": [
+        {
+          "key": "field_adv_icon",
+          "label": "Icon",
+          "name": "icon",
+          "type": "image"
+        },
+        {
+          "key": "field_adv_title",
+          "label": "Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_adv_text",
+          "label": "Text",
+          "name": "text",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "key": "field_models",
+      "label": "Models",
+      "name": "models",
+      "type": "repeater",
+      "sub_fields": [
+        {
+          "key": "field_model_image",
+          "label": "Image",
+          "name": "image",
+          "type": "image"
+        },
+        {
+          "key": "field_model_name",
+          "label": "Name",
+          "name": "name",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "field_faq",
+      "label": "FAQ",
+      "name": "faq",
+      "type": "repeater",
+      "sub_fields": [
+        {
+          "key": "field_faq_q",
+          "label": "Question",
+          "name": "question",
+          "type": "text"
+        },
+        {
+          "key": "field_faq_a",
+          "label": "Answer",
+          "name": "answer",
+          "type": "wysiwyg"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "service"
+      }
+    ]
+  ]
+}

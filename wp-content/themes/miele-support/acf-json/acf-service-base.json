@@ -1,0 +1,67 @@
+{
+  "key": "group_service_base",
+  "title": "Service — Base",
+  "fields": [
+    {
+      "key": "field_intro_text",
+      "label": "Intro Text",
+      "name": "intro_text",
+      "type": "wysiwyg",
+      "required": 1,
+      "media_upload": 0
+    },
+    {
+      "key": "field_hero_image",
+      "label": "Hero Image",
+      "name": "hero_image",
+      "type": "image",
+      "return_format": "url",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_show_booking",
+      "label": "Show Booking Button",
+      "name": "show_booking",
+      "type": "true_false",
+      "default_value": 1
+    },
+    {
+      "key": "field_booking_link",
+      "label": "Booking Link",
+      "name": "booking_link",
+      "type": "url",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_show_booking",
+            "operator": "==",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_show_phone",
+      "label": "Show Phone Button",
+      "name": "show_phone",
+      "type": "true_false",
+      "default_value": 1
+    },
+    {
+      "key": "field_show_emergency",
+      "label": "Show Emergency Block",
+      "name": "show_emergency",
+      "type": "true_false",
+      "default_value": 1
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "service"
+      }
+    ]
+  ]
+}

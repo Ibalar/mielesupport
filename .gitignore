@@ -1,0 +1,24 @@
+/.osp
+
+# WordPress Core
+/wp-config.php
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+
+# Системные файлы
+.DS_Store
+.htaccess
+*.log
+
+# Зависимости
+/vendor/
+/node_modules/
+
+# IDE
+.idea/
+.vscode/
+
+# Локальные настройки
+.env
+*.local.php

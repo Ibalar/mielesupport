@@ -1,0 +1,587 @@
+/* Базовая ширина макетов:
+   mobile: 390px
+   tablet: 744px
+   desktop: 1440px
+*/
+
+.site-header {
+    background: #000;
+    color: #fff;
+}
+
+/* Верхний ряд */
+
+.header-inner {
+    margin: 0 auto;
+    padding: 18.5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 24px;
+}
+
+/* CTA */
+
+.header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #d82424;
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    white-space: nowrap;
+}
+
+.header-cta__icon {
+    font-size: 16px;
+}
+
+.header-cta__text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 88%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+}
+
+/* Логотип */
+
+.header-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 8px;
+}
+
+
+
+/* Правая часть */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: flex-end;
+}
+
+.header-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 88%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+}
+
+.header-phone__icon {
+    font-size: 16px;
+}
+
+.header-phone__label {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 88%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+}
+
+/* Бургер */
+
+.burger {
+    width: 28px;
+    height: 22px;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.burger__line {
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Основное меню под хедером (desktop / tablet) */
+
+.main-nav {
+    border: none;
+}
+
+.main-nav__list {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 10px 16px 14px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.main-nav__link {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    position: relative;
+}
+
+.main-nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width 0.2s ease;
+}
+
+.main-nav__link:hover::after {
+    width: 100%;
+}
+
+/* Offcanvas меню */
+
+.offcanvas {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.offcanvas__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.offcanvas__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(420px, 100%);
+    height: 100%;
+    background: #111;
+    padding: 24px 24px 32px;
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.offcanvas__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 28px;
+    color: #fff;
+}
+
+/* Контент внутри offcanvas */
+
+.offcanvas__block {
+    color: #fff;
+}
+
+.offcanvas__block--primary .offcanvas__list a {
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+}
+
+.offcanvas__block--services .offcanvas__services-title {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.offcanvas__list--sub a {
+    display: block;
+    font-size: 14px;
+    padding: 6px 0;
+    opacity: 0.9;
+}
+
+/* Состояние открытого меню */
+
+.offcanvas--open {
+    pointer-events: auto;
+}
+
+.offcanvas--open .offcanvas__overlay {
+    opacity: 1;
+}
+
+.offcanvas--open .offcanvas__panel {
+    transform: translateX(0);
+}
+
+.burger--active .burger__line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.burger--active .burger__line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger--active .burger__line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Модалка быстрой формы */
+
+.quick-form-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: none;
+}
+
+.quick-form-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.quick-form-modal__panel {
+    position: relative;
+    max-width: 420px;
+    margin: 80px auto;
+    background: #111;
+    padding: 24px 24px 28px;
+    border-radius: 4px;
+}
+
+.quick-form-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.quick-form__title {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.quick-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.quick-form__field span {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.quick-form__field input {
+    padding: 8px 10px;
+    border-radius: 2px;
+    border: 1px solid #444;
+    background: #000;
+    color: #fff;
+}
+
+.quick-form__submit {
+    margin-top: 8px;
+    width: 100%;
+    padding: 10px 0;
+    background: #d82424;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+}
+
+/* состояние открытой модалки */
+
+.quick-form-modal--open {
+    display: block;
+}
+
+/* ---------- Адаптив ---------- */
+
+/* Мобильный (до 480, макет 390) */
+@media (max-width: 480px) {
+    .header-inner {
+        grid-template-columns: 1fr auto;
+        column-gap: 12px;
+        padding: 10px 12px;
+    }
+
+    .header-cta {
+        display: none;
+    }
+
+    .header-logo-wrap {
+        justify-content: flex-start;
+    }
+
+    .header-right {
+        gap: 12px;
+    }
+
+    .header-phone {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+    }
+
+    .header-phone__label {
+        display: none; /* по макету можно оставить только номер */
+    }
+
+    .main-nav {
+        display: none; /* на мобиле все через бургер */
+    }
+
+    /* в offcanvas показываем только 3 уровень, 4 (подпункты) скрываем */
+    .offcanvas__list--sub {
+        display: none;
+    }
+
+    .quick-form-modal__panel {
+        margin: 40px 16px;
+    }
+}
+
+/* Планшет (481–1024, макет 744) */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .header-inner {
+        grid-template-columns: auto 1fr auto;
+        padding: 12px 24px;
+    }
+
+    .header-cta {
+        display: none; /* при 744 по твоему желанию можно включить/выключить */
+    }
+
+    .header-logo-wrap {
+        justify-content: center;
+    }
+
+    .main-nav__list {
+        padding-inline: 24px;
+        gap: 32px;
+    }
+
+    /* на планшете можем оставить 3 и 4 уровень в offcanvas */
+}
+
+/* Десктоп (от 1025, макет 1440) */
+@media (min-width: 1025px) {
+    .header-inner {
+        padding-inline: 40px;
+    }
+
+    .main-nav__list {
+        padding-inline: 40px;
+    }
+}
+
+
+
+.main-nav__item {
+    position: relative;
+}
+
+.main-nav__toggle {
+    background: none;
+    border: 0;
+    padding: 0 0 0 4px;
+    cursor: pointer;
+}
+
+/* стрелочка */
+.main-nav__arrow {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 2px solid currentColor;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg);
+    transition: transform .2s;
+    position: absolute;
+    right: -15px;
+    bottom: 3px;
+}
+
+.mega-menu__arrow {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 2px solid currentColor;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg);
+    transition: transform .2s;
+    position: absolute;
+    right: -15px;
+    bottom: 9px;
+}
+
+.js-nav-toggle.is-open .main-nav__arrow {
+    transform: rotate(225deg);
+}
+
+.js-nav-toggle.is-open .mega-menu__arrow {
+    transform: rotate(225deg);
+}
+
+
+/* сам оверлей на всю ширину и высоту, если нужно */
+.mega-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 134px;
+    bottom: 0;
+    background: #000;
+    color: #fff;
+    z-index: 1000;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* внутренняя «решётка» с колонками, ограниченная по ширине */
+.mega-menu__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    column-gap: 60px;
+}
+
+.mega-menu__col {
+    flex: 0 1 30%;
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 20px;
+}
+
+.mega-menu__col:last-child {
+    border-right: none;
+}
+
+.mega-menu__title {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 186%;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--whitef6);
+    margin-bottom: 10px;
+}
+
+.mega-menu__item {
+    margin-bottom: 10px;
+}
+
+.mega-menu__link {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 186%;
+    letter-spacing: 0.07em;
+    color: var(--white);
+    position: relative;
+}
+
+.mega-menu__item--has-sub button{
+    color: var(--red);
+}
+
+.mega-menu__sub a {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 186%;
+    letter-spacing: 0.07em;
+    color: var(--grayc5);
+    padding: 10px 0;
+}
+
+@media (min-width: 1025px) {
+    .mega-menu {
+        position: fixed;      /* шапка обычная, не fixed */
+        left: 0;
+        right: 0;
+        top: 134px;           /* высота твоего header'а; подгони под фактическую */
+        bottom: 0;            /* если нужно только по контенту — просто убери */
+        background: #000;
+        color: #fff;
+        z-index: 1000;
+    }
+
+    .mega-menu__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1.5fr;
+        column-gap: 60px;
+    }
+}
+
+/* скрыто по умолчанию */
+.mega-menu[hidden] {
+    display: none;
+}
+
+.main-nav__link {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 86%;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #f6f6f6;
+}
+
+/* подчёркивание для кнопки-триггера тоже */
+.main-nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width 0.2s ease;
+}
+
+.main-nav__link:hover::after,
+.main-nav__link:focus-visible::after {
+    width: 100%;
+}

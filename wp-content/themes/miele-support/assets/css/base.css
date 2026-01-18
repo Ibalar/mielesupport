@@ -1,0 +1,66 @@
+/* base.css */
+:root {
+    /* Цвета (примерные) */
+    --primary-color: #c5c5c5;
+    --hover-button: #9b1116;
+    --black19: #191919;
+    --black22: #222;
+    --red: #cc2229;
+    --red-hover: #9b1116;
+    --black: #000;
+    --yellow: #f59b00;
+    --gray3d: #3d3d3d;
+    --grayd9: #d9d9d9;
+    --grayc5: #c5c5c5;
+    --white200: rgba(255, 255, 255, 0.2);
+    --whitef6: #f6f6f6;
+    --white: #fff;
+    --black-bg: #000000;
+
+    /* Шрифты (переменные) */
+    --font-family: "Poppins", sans-serif;
+    --second-family: "Noto Sans", sans-serif;
+    --third-family: "Roboto", sans-serif;
+    --font3: "Inter", sans-serif;
+
+    /* Отступы */
+    --gap-xs: 8px;
+    --gap-sm: 16px;
+    --gap-md: 24px;
+    --gap-lg: 32px;
+    --gap-xl: 48px;
+
+    /* Брейкпоинты */
+    --mobile: 390px;
+    --tablet: 744px;
+    --desktop: 1440px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.5;
+    color: var(--primary-color);
+    background: #000000;
+}
+
+/* Контейнеры */
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--gap-sm);
+}
+
+@media (min-width: 744px) {
+    .container {
+        padding: 0 var(--gap-md);
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        padding: 0 var(--gap-lg);
+    }
+}

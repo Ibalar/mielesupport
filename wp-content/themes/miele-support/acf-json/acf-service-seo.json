@@ -1,0 +1,27 @@
+{
+  "key": "group_service_seo",
+  "title": "Service — SEO / Extras",
+  "fields": [
+    {
+      "key": "field_seo_title",
+      "label": "SEO Title",
+      "name": "seo_title",
+      "type": "text"
+    },
+    {
+      "key": "field_seo_text",
+      "label": "SEO Text",
+      "name": "seo_text",
+      "type": "wysiwyg"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "service"
+      }
+    ]
+  ]
+}

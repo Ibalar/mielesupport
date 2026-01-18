@@ -1,0 +1,33 @@
+{
+  "key": "group_theme_options",
+  "title": "Theme Settings",
+  "fields": [
+    {
+      "key": "field_hero_title",
+      "label": "Hero Title",
+      "name": "hero_title",
+      "type": "text"
+    },
+    {
+      "key": "field_hero_subtitle",
+      "label": "Hero Subtitle",
+      "name": "hero_subtitle",
+      "type": "textarea"
+    },
+    {
+      "key": "field_hero_bg",
+      "label": "Hero Background",
+      "name": "hero_bg",
+      "type": "image"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "theme-settings"
+      }
+    ]
+  ]
+}
