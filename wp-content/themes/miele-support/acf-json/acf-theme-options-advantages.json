@@ -1,0 +1,71 @@
+{
+  "key": "group_advantages_options",
+  "title": "Advantages Section",
+  "fields": [
+    {
+      "key": "field_advantages_title",
+      "label": "Advantages Title",
+      "name": "advantages_title",
+      "type": "text"
+    },
+    {
+      "key": "field_advantages_subtitle",
+      "label": "Advantages Subtitle",
+      "name": "advantages_subtitle",
+      "type": "textarea"
+    },
+    {
+      "key": "field_advantages_bg_390px",
+      "label": "Advantages BG Mobile (390px)",
+      "name": "advantages_bg_390px",
+      "type": "image"
+    },
+    {
+      "key": "field_advantages_bg_744px",
+      "label": "Advantages BG Tablet (744px)",
+      "name": "advantages_bg_744px",
+      "type": "image"
+    },
+    {
+      "key": "field_advantages_bg_1440px",
+      "label": "Advantages BG Desktop (1440px)",
+      "name": "advantages_bg_1440px",
+      "type": "image"
+    },
+    {
+      "key": "field_advantages_cards",
+      "label": "Advantage Cards",
+      "name": "advantages_cards",
+      "type": "repeater",
+      "sub_fields": [
+        {
+          "key": "field_advantage_icon",
+          "label": "Icon Type",
+          "name": "icon",
+          "type": "select",
+          "choices": {
+            "warranty": "Warranty",
+            "service": "Service",
+            "parts": "Parts",
+            "experience": "Experience"
+          }
+        },
+        {
+          "key": "field_advantage_text",
+          "label": "Advantage Text",
+          "name": "text",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "theme-settings"
+      }
+    ]
+  ]
+}
