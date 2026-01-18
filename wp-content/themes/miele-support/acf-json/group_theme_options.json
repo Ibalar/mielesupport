@@ -223,6 +223,203 @@
                     "parent_repeater": "field_advantages_items"
                 }
             ]
+        },
+        {
+            "key": "field_section3_title",
+            "label": "Section 3 Title",
+            "name": "section3_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_section3_description",
+            "label": "Section 3 Description",
+            "name": "section3_description",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_section3_items",
+            "label": "Section 3 Items",
+            "name": "section3_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": false,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add List Item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_section3_item_icon",
+                    "label": "Icon",
+                    "name": "item_icon",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Upload icon image or leave empty for default SVG",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_section3_items"
+                },
+                {
+                    "key": "field_section3_item_text",
+                    "label": "Text",
+                    "name": "item_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 150,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_section3_items"
+                }
+            ]
+        },
+        {
+            "key": "field_section3_button_text",
+            "label": "Section 3 Button Text",
+            "name": "section3_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "If empty, will use link title",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 50,
+            "placeholder": "Learn More",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_section3_button_link",
+            "label": "Section 3 Button Link",
+            "name": "section3_button_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_section3_image",
+            "label": "Section 3 Image",
+            "name": "section3_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_section3_bg",
+            "label": "Section 3 Background",
+            "name": "section3_bg",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
         }
     ],
     "location": [
@@ -244,5 +441,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1768746865
+    "modified": 1768760071
 }

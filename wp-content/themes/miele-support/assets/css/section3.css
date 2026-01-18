@@ -6,7 +6,6 @@
     color: var(--white, #ffffff);
     font-family: var(--font-family);
     overflow: hidden;
-    background: var(--black19, #191919);
 }
 
 .section3__bg {
@@ -45,6 +44,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: var(--black22, #222);
+    padding: 34px 50px;
 }
 
 .section3__title {
