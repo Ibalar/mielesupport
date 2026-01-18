@@ -1,0 +1,228 @@
+/* Advantages Section */
+
+.advantages {
+    position: relative;
+    padding: 150px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    overflow: hidden;
+}
+
+.advantages__bg {
+    position: absolute;
+    inset: 0;
+}
+
+.advantages__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.advantages__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 5, 0.85);
+}
+
+.advantages__wrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.advantages__title {
+    color: var(--white, #ffffff);
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 20px;
+}
+
+.advantages__subtitle {
+    color: var(--grayc5, #c5c5c5);
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 138%;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid Layout - БЕЗ GAP */
+
+.advantages__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 40px;
+}
+
+/* Advantage Item - DESKTOP (3 КОЛОНКИ) */
+
+.advantage-item {
+    padding: 48px 32px;
+    text-align: center;
+    border-right: 1px solid #3D3D3D;
+    border-bottom: 1px solid #3D3D3D;
+    transition: all 0.3s ease;
+}
+
+/* Убрать right у 3n (3-й, 6-й, 9-й...) */
+.advantage-item:nth-child(3n) {
+    border-right: none;
+}
+
+/* Убрать bottom у последних 3 элементов */
+.advantage-item:nth-last-child(-n + 3) {
+    border-bottom: none;
+}
+
+.advantage-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.advantage-item__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.advantage-item__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+}
+
+.advantage-item__title {
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 127%;
+    margin-bottom: 12px;
+}
+
+.advantage-item__text {
+    color: var(--grayc5, #c5c5c5);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 138%;
+}
+
+/* Tablet: 1024px - 2 КОЛОНКИ */
+
+@media (max-width: 1024px) {
+    .container {
+        padding-inline: 63px;
+    }
+
+    .advantages {
+        padding: 100px 0;
+    }
+
+    .advantages__title {
+        font-size: 36px;
+    }
+
+    .advantages__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* СБРОСИТЬ старые селекторы для 3 колонок */
+    .advantage-item:nth-child(3n) {
+        border-right: 1px solid #3D3D3D;
+    }
+
+    .advantage-item:nth-last-child(-n + 3) {
+        border-bottom: 1px solid #3D3D3D;
+    }
+
+    /* НОВЫЕ селекторы для 2 колонок */
+    .advantage-item:nth-child(2n) {
+        border-right: none;
+    }
+
+    .advantage-item:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+
+    .advantage-item {
+        padding: 40px 24px;
+    }
+}
+
+/* Mobile: 640px - 1 КОЛОНКА */
+
+@media (max-width: 640px) {
+    .container {
+        padding-inline: 53px;
+    }
+
+    .advantages {
+        padding: 80px 0;
+    }
+
+    .advantages__title {
+        font-size: 28px;
+    }
+
+    .advantages__subtitle {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
+    .advantages__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ПОЛНЫЙ СБРОС - убрать все селекторы nth-child */
+    .advantage-item:nth-child(2n) {
+        border-right: none;
+    }
+
+    .advantage-item:nth-child(3n) {
+        border-right: none;
+    }
+
+    .advantage-item:nth-last-child(-n + 2) {
+        border-bottom: 1px solid #3D3D3D;
+    }
+
+    /* НОВЫЕ селекторы для 1 колонки */
+    .advantage-item {
+        border-right: none;
+        border-bottom: 1px solid #3D3D3D;
+        padding: 32px 20px;
+    }
+
+    .advantage-item:last-child {
+        border-bottom: none;
+    }
+
+    .advantage-item__icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .advantage-item__title {
+        font-size: 18px;
+    }
+
+    .advantage-item__text {
+        font-size: 13px;
+    }
+}
