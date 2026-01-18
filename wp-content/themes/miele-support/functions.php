@@ -8,11 +8,6 @@ add_action('after_setup_theme', function () {
     add_theme_support('custom-logo');
 });
 
-/* ASSETS */
-add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('main-css', get_template_directory_uri() . '/assets/css/main.css', [], '1.0');
-    wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js', [], '1.0', true);
-});
 
 /* MENUS */
 register_nav_menus([
@@ -98,11 +93,7 @@ function theme_script($handle, $file, $deps = [], $in_footer = true) {
     );
 }
 
-add_action('wp_enqueue_scripts', function () {
 
-    theme_script('header-js', 'header.js');
-
-});
 
 
 
@@ -118,9 +109,16 @@ function theme_style($handle, $file, $deps = []) {
 }
 
 add_action('wp_enqueue_scripts', function () {
+
+    // CSS
     theme_style('reset', 'reset.css');
     theme_style('base', 'base.css', ['reset']);
     theme_style('header', 'header.css', ['base']);
     theme_style('hero', 'hero.css', ['base']);
     theme_style('benefits', 'benefits.css', ['base']);
+
+    // JS
+    theme_script('header-js', 'header.js');
+
 });
+

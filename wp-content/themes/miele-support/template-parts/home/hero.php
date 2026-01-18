@@ -6,25 +6,40 @@ declare(strict_types=1);
  * Hero section for front page
  * Template part: template-parts/home/hero.php
  */
+
+$title = get_field('hero_title', 'option');
+$text = get_field('hero_subtitle', 'option');
+$bg = get_field('hero_bg', 'option');
+
 ?>
 
 <section class="hero">
     <div class="hero__bg">
-        <img src="<?= get_template_directory_uri() ?>/assets/images/hero-bg.jpg" alt="Miele Professional Equipment" loading="eager">
+        <?php if ($bg): ?>
+            <img
+                    src="<?= esc_url($bg['url']); ?>"
+                    alt="<?= esc_attr($bg['alt']); ?>"
+                    loading="eager"
+            >
+        <?php endif; ?>
     </div>
     
     <div class="hero__overlay"></div>
     
     <div class="container">
         <div class="hero__content">
-            <div class="hero__eyebrow">MINIMIERUNG VON</div>
-            
-            <h1 class="hero__title">AUSFALLZEITEN</h1>
-            
-            <p class="hero__text">
-                Unsere Spezialisten sorgen dafür, dass Ihre MIELE Professional Anlagen jederzeit einwandfrei funktionieren – 
-                schnell, zuverlässig und nach den höchsten Qualitätsstandards.
-            </p>
+
+            <?php if ($title): ?>
+                <h1 class="hero__title">
+                    <?= esc_html($title); ?>
+                </h1>
+            <?php endif; ?>
+
+            <?php if ($text): ?>
+                <p class="hero__text">
+                    <?= esc_html($text); ?>
+                </p>
+            <?php endif; ?>
             
             <div class="hero__actions">
                 <a href="#tel:+41791234567" class="btn btn--primary">
