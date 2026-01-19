@@ -8,6 +8,7 @@
     <?php wp_head(); ?>
 
     <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/section3.css">
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/css/home-catalog.css">
 </head>
 <body <?php body_class(); ?>>
 

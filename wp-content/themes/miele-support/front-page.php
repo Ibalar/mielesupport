@@ -5,6 +5,7 @@
     get_template_part('template-parts/home/hero');
     get_template_part('template-parts/home/advantages');
     get_template_part('template-parts/home/section3');
+    get_template_part('template-parts/home/home-catalog');
     get_template_part('template-parts/home/services');
     get_template_part('template-parts/home/gallery');
     get_template_part('template-parts/home/faq');
