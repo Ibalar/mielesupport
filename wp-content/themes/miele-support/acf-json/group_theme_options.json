@@ -823,7 +823,7 @@
                             "name": "description",
                             "aria-label": "",
                             "type": "wysiwyg",
-                            "instructions": "Описание/текст блока",
+                            "instructions": "Описание\/текст блока",
                             "required": false,
                             "conditional_logic": false,
                             "wrapper": {
@@ -904,5 +904,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770486105
+    "modified": 1770493843
 }
