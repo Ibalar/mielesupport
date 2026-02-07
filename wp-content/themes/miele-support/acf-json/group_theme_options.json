@@ -640,8 +640,116 @@
             "max_height": 0,
             "max_size": 0,
             "mime_types": ""
-        }
-    ],
+            },
+            {
+            "key": "field_page_sections",
+            "label": "Page Sections (Flexible Content)",
+            "name": "page_sections",
+            "aria-label": "",
+            "type": "flexible_content",
+            "instructions": "Добавляйте акцентные блоки section5 на страницу. Можно добавлять неограниченное количество.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "section5_layout": {
+                    "key": "section5_layout",
+                    "name": "section5",
+                    "label": "Section 5 - Accent Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_section5_title",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Заголовок блока (например: Запишитесь на консультацию)",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Запишитесь на консультацию",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_section5_subtitle",
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "Подзаголовок/описание блока",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Наши специалисты помогут вам выбрать оптимальное решение для вашего дома",
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_section5_button_text",
+                            "label": "Button Text",
+                            "name": "button_text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Текст кнопки",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ",
+                            "maxlength": 50,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_section5_button_link",
+                            "label": "Button Link",
+                            "name": "button_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Ссылка для кнопки",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Section 5",
+            "min": 0,
+            "max": 0,
+            "pagination": false,
+            "instructions_placement": "label"
+            }
+            ],
     "location": [
         [
             {
