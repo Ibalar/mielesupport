@@ -26,8 +26,8 @@ if (!$catalog_categories || !is_array($catalog_categories)) {
                     <?php if (!empty($category['category_items']) && is_array($category['category_items'])) : ?>
                         <div class="home-catalog__grid">
                             <?php foreach ($category['category_items'] as $item) : ?>
-                                <?php if (!empty($item['item_link']) && !empty($item['item_title'])) : ?>
-                                    <a href="<?php echo esc_url($item['item_link']); ?>" class="home-catalog__item">
+                                <?php if (!empty($item['item_link']['url']) && !empty($item['item_title'])) : ?>
+                                    <a href="<?php echo esc_url($item['item_link']['url']); ?>" class="home-catalog__item">
                                         <?php if (!empty($item['item_image']) && is_array($item['item_image'])) : ?>
                                             <img 
                                                 src="<?php echo esc_url($item['item_image']['url']); ?>" 
