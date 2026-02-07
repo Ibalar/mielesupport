@@ -822,8 +822,8 @@
                             "label": "Description",
                             "name": "description",
                             "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Описание блока",
+                            "type": "wysiwyg",
+                            "instructions": "Описание/текст блока",
                             "required": false,
                             "conditional_logic": false,
                             "wrapper": {
@@ -832,10 +832,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "rows": 4
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 1,
+                            "delay": 0
                         },
                         {
                             "key": "field_section6_button_text",
