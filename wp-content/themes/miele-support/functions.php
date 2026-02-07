@@ -116,6 +116,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('header', 'header.css', ['base']);
     theme_style('hero', 'hero.css', ['base']);
     theme_style('advantages', 'advantages.css', ['base']);
+    theme_style('home-catalog', 'home-catalog.css', ['base']);
     theme_style('benefits', 'benefits.css', ['base']);
 
     // JS
