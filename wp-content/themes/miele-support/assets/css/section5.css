@@ -1,0 +1,191 @@
+/* Section 5 - Accent Block with Decorative Circles */
+
+.section5 {
+    position: relative;
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--black-bg, #000000) 0%, var(--black19, #191919) 100%);
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    overflow: hidden;
+}
+
+/* Декоративный фон с кружками */
+.section5__bg-decoration {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Кружки слева-сверху (3x3) */
+.section5__bg-decoration--top-left {
+    top: 40px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-image: 
+        radial-gradient(circle, rgba(197, 197, 197, 0.3) 50%, transparent 50%);
+    background-size: 18px 18px;
+    background-repeat: repeat;
+    background-position: 0 0;
+}
+
+/* Кружки справа-снизу (3x3) */
+.section5__bg-decoration--bottom-right {
+    bottom: 40px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-image: 
+        radial-gradient(circle, rgba(197, 197, 197, 0.3) 50%, transparent 50%);
+    background-size: 18px 18px;
+    background-repeat: repeat;
+    background-position: 0 0;
+}
+
+.section5__content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section5__title {
+    margin: 0 0 24px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -0.5px;
+}
+
+.section5__subtitle {
+    margin: 0 0 40px 0;
+    color: var(--grayc5, #c5c5c5);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section5__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .section5 {
+        padding: 150px 0;
+    }
+
+    .section5__bg-decoration--top-left {
+        top: 60px;
+        left: 80px;
+        width: 72px;
+        height: 72px;
+        background-size: 20px 20px;
+    }
+
+    .section5__bg-decoration--bottom-right {
+        bottom: 60px;
+        right: 80px;
+        width: 72px;
+        height: 72px;
+        background-size: 20px 20px;
+    }
+
+    .section5__title {
+        font-size: 48px;
+        margin-bottom: 32px;
+    }
+
+    .section5__subtitle {
+        font-size: 18px;
+        margin-bottom: 48px;
+    }
+}
+
+/* Tablet (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .section5 {
+        padding: 120px 0;
+    }
+
+    .section5__bg-decoration--top-left {
+        top: 50px;
+        left: 40px;
+        width: 66px;
+        height: 66px;
+        background-size: 19px 19px;
+    }
+
+    .section5__bg-decoration--bottom-right {
+        bottom: 50px;
+        right: 40px;
+        width: 66px;
+        height: 66px;
+        background-size: 19px 19px;
+    }
+
+    .section5__title {
+        font-size: 36px;
+        margin-bottom: 28px;
+    }
+
+    .section5__subtitle {
+        font-size: 17px;
+        margin-bottom: 44px;
+    }
+}
+
+/* Mobile (390px - 639px) */
+@media (max-width: 639px) {
+    .section5 {
+        padding: 80px 0;
+    }
+
+    .section5__bg-decoration {
+        opacity: 0.5;
+    }
+
+    .section5__bg-decoration--top-left {
+        top: 20px;
+        left: 12px;
+        width: 48px;
+        height: 48px;
+        background-size: 16px 16px;
+    }
+
+    .section5__bg-decoration--bottom-right {
+        bottom: 20px;
+        right: 12px;
+        width: 48px;
+        height: 48px;
+        background-size: 16px 16px;
+    }
+
+    .section5__title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .section5__subtitle {
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+
+    .section5__actions {
+        flex-direction: column;
+    }
+
+    .section5__actions .btn {
+        width: 100%;
+    }
+}
