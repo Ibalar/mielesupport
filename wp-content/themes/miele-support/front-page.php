@@ -37,6 +37,16 @@
                         'button_link' => $section['button_link'] ?? []
                     ]
                 );
+            } elseif ($section['acf_fc_layout'] === 'home_slider') {
+                get_template_part(
+                    'template-parts/blocks/home-slider',
+                    null,
+                    [
+                        'title' => $section['title'] ?? '',
+                        'subtitle' => $section['subtitle'] ?? '',
+                        'slides' => $section['slides'] ?? []
+                    ]
+                );
             }
         }
     }

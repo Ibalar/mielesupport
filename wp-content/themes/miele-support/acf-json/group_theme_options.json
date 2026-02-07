@@ -766,6 +766,75 @@
                     "min": "",
                     "max": ""
                 },
+                "home_slider_layout": {
+                    "key": "home_slider_layout",
+                    "name": "home_slider",
+                    "label": "Home Slider - Image Slider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_home_slider_title",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Заголовок блока",
+                            "required": false,
+                            "default_value": "Наши работы",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_home_slider_subtitle",
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "Подзаголовок/описание",
+                            "required": false,
+                            "default_value": "Примеры выполненных ремонтов",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_home_slider_slides",
+                            "label": "Slides",
+                            "name": "slides",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Добавьте изображения для слайдера",
+                            "required": false,
+                            "layout": "block",
+                            "button_label": "Add Slide",
+                            "min": 0,
+                            "max": 0,
+                            "sub_fields": [
+                                {
+                                    "key": "field_home_slider_slide_image",
+                                    "label": "Slide Image",
+                                    "name": "image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Изображение слайда",
+                                    "required": false,
+                                    "return_format": "array",
+                                    "preview_size": "medium",
+                                    "library": "all"
+                                },
+                                {
+                                    "key": "field_home_slider_slide_caption",
+                                    "label": "Caption",
+                                    "name": "caption",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Подпись к изображению (опционально)",
+                                    "required": false,
+                                    "maxlength": 100
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "section6_layout": {
                     "key": "section6_layout",
                     "name": "section6",

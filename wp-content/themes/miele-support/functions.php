@@ -120,6 +120,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('section6', 'section6.css', ['base']);
     theme_style('home-catalog', 'home-catalog.css', ['base']);
     theme_style('benefits', 'benefits.css', ['base']);
+    theme_style('home-slider', 'home-slider.css', ['base']);
 
     // JS
     theme_script('header-js', 'header.js');
