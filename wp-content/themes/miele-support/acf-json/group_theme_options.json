@@ -5,7 +5,7 @@
         {
             "key": "field_hero_tab",
             "label": "Hero",
-            "name": "hero_tab",
+            "name": "",
             "aria-label": "",
             "type": "tab",
             "instructions": "",
@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_hero_title",
@@ -87,7 +88,7 @@
         {
             "key": "field_advantages_tab",
             "label": "Advantages",
-            "name": "advantages_tab",
+            "name": "",
             "aria-label": "",
             "type": "tab",
             "instructions": "",
@@ -99,7 +100,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_advantages_title",
@@ -259,178 +261,9 @@
             ]
         },
         {
-            "key": "field_catalog_tab",
-            "label": "Catalog",
-            "name": "catalog_tab",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_catalog_title",
-            "label": "Catalog Title",
-            "name": "catalog_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Заголовок секции 'Что мы ремонтируем'",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Что мы ремонтируем",
-            "maxlength": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_catalog_categories",
-            "label": "Catalog Categories",
-            "name": "catalog_categories",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Добавьте категории с товарами",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "pagination": false,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Category",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_catalog_category_title",
-                    "label": "Category Title",
-                    "name": "category_title",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Название категории (например: Холодильники)",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_catalog_categories"
-                },
-                {
-                    "key": "field_catalog_category_items",
-                    "label": "Category Items",
-                    "name": "category_items",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "Карточки товаров/услуг в категории",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "block",
-                    "pagination": false,
-                    "min": 0,
-                    "max": 0,
-                    "collapsed": "",
-                    "button_label": "Add Item",
-                    "rows_per_page": 20,
-                    "parent_repeater": "field_catalog_categories",
-                    "sub_fields": [
-                        {
-                            "key": "field_catalog_item_image",
-                            "label": "Item Image",
-                            "name": "item_image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "Изображение карточки (рекомендуемый размер: 300x300px)",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": 0,
-                            "min_height": 0,
-                            "min_size": 0,
-                            "max_width": 0,
-                            "max_height": 0,
-                            "max_size": 0,
-                            "mime_types": "",
-                            "parent_repeater": "field_catalog_category_items"
-                        },
-                        {
-                            "key": "field_catalog_item_title",
-                            "label": "Item Title",
-                            "name": "item_title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Название товара/услуги",
-                            "required": true,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 100,
-                            "placeholder": "например: Холодильники Bosch",
-                            "prepend": "",
-                            "append": "",
-                            "parent_repeater": "field_catalog_category_items"
-                        },
-                        {
-                            "key": "field_catalog_item_link",
-                            "label": "Item Link",
-                            "name": "item_link",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "Ссылка на страницу товара или категорию",
-                            "required": true,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "parent_repeater": "field_catalog_category_items"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "key": "field_section3_tab",
             "label": "Section 3",
-            "name": "section3_tab",
+            "name": "",
             "aria-label": "",
             "type": "tab",
             "instructions": "",
@@ -442,7 +275,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_section3_title",
@@ -640,8 +474,198 @@
             "max_height": 0,
             "max_size": 0,
             "mime_types": ""
+        },
+        {
+            "key": "field_catalog_tab",
+            "label": "Catalog",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            {
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_catalog_title",
+            "label": "Catalog Title",
+            "name": "catalog_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Заголовок секции 'Что мы ремонтируем'",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Что мы ремонтируем",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_catalog_categories",
+            "label": "Catalog Categories",
+            "name": "catalog_categories",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Добавьте категории с товарами",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": false,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Category",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_catalog_category_title",
+                    "label": "Category Title",
+                    "name": "category_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Название категории (например: Холодильники)",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_catalog_categories"
+                },
+                {
+                    "key": "field_catalog_category_items",
+                    "label": "Category Items",
+                    "name": "category_items",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Карточки товаров\/услуг в категории",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": false,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Item",
+                    "rows_per_page": 20,
+                    "parent_repeater": "field_catalog_categories",
+                    "sub_fields": [
+                        {
+                            "key": "field_catalog_item_image",
+                            "label": "Item Image",
+                            "name": "item_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Изображение карточки (рекомендуемый размер: 300x300px)",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": "",
+                            "parent_repeater": "field_catalog_category_items"
+                        },
+                        {
+                            "key": "field_catalog_item_title",
+                            "label": "Item Title",
+                            "name": "item_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Название товара\/услуги",
+                            "required": true,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": 100,
+                            "placeholder": "например: Холодильники Bosch",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_catalog_category_items"
+                        },
+                        {
+                            "key": "field_catalog_item_link",
+                            "label": "Item Link",
+                            "name": "item_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "Ссылка на страницу товара или категорию",
+                            "required": true,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "parent_repeater": "field_catalog_category_items"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_page_sections_tab",
+            "label": "Page Sections",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_page_sections",
             "label": "Page Sections (Flexible Content)",
             "name": "page_sections",
@@ -688,7 +712,7 @@
                             "name": "subtitle",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "Подзаголовок/описание блока",
+                            "instructions": "Подзаголовок\/описание блока",
                             "required": false,
                             "conditional_logic": false,
                             "wrapper": {
@@ -748,8 +772,8 @@
             "max": 0,
             "pagination": false,
             "instructions_placement": "label"
-            }
-            ],
+        }
+    ],
     "location": [
         [
             {
@@ -769,5 +793,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1738935600
+    "modified": 1770486105
 }
