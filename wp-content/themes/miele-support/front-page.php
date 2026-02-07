@@ -11,7 +11,7 @@
     get_template_part('template-parts/home/section3');
     get_template_part('template-parts/home/home-catalog');
     
-    // Вывести section5 блоки если есть
+    // Вывести section5 и section6 блоки если есть
     if ($page_sections && is_array($page_sections)) {
         foreach ($page_sections as $section) {
             if ($section['acf_fc_layout'] === 'section5') {
@@ -21,6 +21,18 @@
                     [
                         'title' => $section['title'] ?? '',
                         'subtitle' => $section['subtitle'] ?? '',
+                        'button_text' => $section['button_text'] ?? '',
+                        'button_link' => $section['button_link'] ?? []
+                    ]
+                );
+            } elseif ($section['acf_fc_layout'] === 'section6') {
+                get_template_part(
+                    'template-parts/blocks/section6',
+                    null,
+                    [
+                        'image' => $section['image'] ?? [],
+                        'title' => $section['title'] ?? '',
+                        'description' => $section['description'] ?? '',
                         'button_text' => $section['button_text'] ?? '',
                         'button_link' => $section['button_link'] ?? []
                     ]
