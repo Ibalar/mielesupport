@@ -1333,8 +1333,17 @@
                             "type": "text",
                             "instructions": "Заголовок блока",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "default_value": "Районы обслуживания в Нью-Йорке",
-                            "maxlength": ""
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         },
                         {
                             "key": "field_service_areas_subtitle",
@@ -1342,10 +1351,19 @@
                             "name": "subtitle",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "Подзаголовок/описание",
+                            "instructions": "Подзаголовок\/описание",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "default_value": "Мы работаем по всему Манхэттену и близлежащим районам",
-                            "rows": 3
+                            "rows": 3,
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": ""
                         },
                         {
                             "key": "field_service_areas_list",
@@ -1355,8 +1373,17 @@
                             "type": "textarea",
                             "instructions": "Список районов, каждый с новой строки. Будет отображаться в алфавитном порядке в 4 колонки.",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "default_value": "Alphabet City\nBattery Park City\nBowery\nCarnegie Hill\nCentral Park South\nChelsea\nChinatown\nColumbus Circle\nDiamond District\nEast Village (EV)\nFinancial District (FiDi)\nFive Points\nFlatiron\nFort George\nGarment District\nGramercy Park\nGreenwich Village\nHamilton Heights\nHarlem\nHell's Kitchen\nHerald Square\nHudson Heights\nHudson Square\nHudson Yards\nInwood\nKips Bay\nKoreatown\nLenox Hill\nLincoln Square\nLittle Australia\nLittle Brazil\nLittle Italy\nLower East Side (LES)\nMadison Square\nManhattan\nManhattan Valley\nManhattanville\nMarble Hill\nMeatpacking District\nMidtown East\nMidtown West\nMurray Hill\nNolita\nNoMad\nPeter Cooper Village\nRose Hill\nSoho\nSouth Street Seaport\nStuy town\nSugar Hill\nSutton Place\nTheater District\nTimes Square\nTribeca\nTudor City\nTurtle Bay\nTwo Bridges\nUnion Square\nUpper East Side (UES)\nUpper West Side (UWS)\nWashington Heights\nWest Harlem\nWest Village (WV)\nYorkville",
-                            "rows": 20
+                            "rows": 20,
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": ""
                         },
                         {
                             "key": "field_service_areas_map_embed",
@@ -1366,8 +1393,17 @@
                             "type": "textarea",
                             "instructions": "Вставьте iframe код Google Maps (с центром на Нью-Йорк)",
                             "required": false,
-                            "default_value": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976397304603!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1234567890\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-                            "rows": 5
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976397304603!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1234567890\" width=\"100%\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+                            "rows": 5,
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -1400,5 +1436,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770533294
+    "modified": 1770543507
 }
