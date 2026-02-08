@@ -67,6 +67,17 @@
                         'reviews' => $section['reviews'] ?? []
                     ]
                 );
+            } elseif ($section['acf_fc_layout'] === 'service_areas') {
+                get_template_part(
+                    'template-parts/blocks/service-areas',
+                    null,
+                    [
+                        'title' => $section['title'] ?? '',
+                        'subtitle' => $section['subtitle'] ?? '',
+                        'areas_list' => $section['areas_list'] ?? '',
+                        'map_embed' => $section['map_embed'] ?? ''
+                    ]
+                );
             }
         }
     }

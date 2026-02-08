@@ -123,6 +123,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('home-slider', 'home-slider.css', ['base']);
     theme_style('faq', 'faq.css', ['base']);
     theme_style('reviews', 'reviews.css', ['base']);
+    theme_style('service-areas', 'service-areas.css', ['base']);
 
     // JS
     theme_script('header-js', 'header.js');

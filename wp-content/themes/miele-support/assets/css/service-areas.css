@@ -1,0 +1,143 @@
+/* Service Areas Block with Map */
+
+.service-areas {
+    position: relative;
+    padding: 80px 0;
+    background: var(--black-bg, #000000);
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+}
+
+.service-areas__title {
+    margin: 0 0 16px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 120%;
+    text-align: center;
+}
+
+.service-areas__subtitle {
+    margin: 0 0 48px 0;
+    color: var(--grayc5, #c5c5c5);
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-areas__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 60px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.service-areas__item {
+    color: var(--grayc5, #c5c5c5);
+    font-size: 15px;
+    line-height: 140%;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.service-areas__item:last-child {
+    border-bottom: none;
+}
+
+/* Map */
+.service-areas__map {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.service-areas__map-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.service-areas__map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(0.3) brightness(0.9);
+    pointer-events: none; /* Неинтерактивная по умолчанию */
+    transition: filter 0.3s ease;
+}
+
+.service-areas__map:hover .service-areas__map-container iframe,
+.service-areas__map-container iframe:focus {
+    pointer-events: auto; /* Интерактивная при наведении */
+    filter: grayscale(0) brightness(1);
+}
+
+/* Tablet (640px+) - 2 колонки */
+@media (min-width: 640px) {
+    .service-areas {
+        padding: 100px 0;
+    }
+
+    .service-areas__title {
+        font-size: 40px;
+    }
+
+    .service-areas__subtitle {
+        font-size: 18px;
+        margin-bottom: 60px;
+    }
+
+    .service-areas__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px 24px;
+        margin-bottom: 80px;
+    }
+
+    .service-areas__item {
+        font-size: 16px;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .service-areas__map-container {
+        height: 400px;
+    }
+}
+
+/* Desktop (1024px+) - 4 колонки */
+@media (min-width: 1024px) {
+    .service-areas {
+        padding: 120px 0;
+    }
+
+    .service-areas__title {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .service-areas__subtitle {
+        font-size: 20px;
+        margin-bottom: 80px;
+    }
+
+    .service-areas__list {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px 32px;
+    }
+
+    .service-areas__item {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+
+    .service-areas__map-container {
+        height: 450px;
+    }
+}
