@@ -780,8 +780,17 @@
                             "type": "text",
                             "instructions": "Заголовок блока",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "default_value": "Наши работы",
-                            "maxlength": ""
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         },
                         {
                             "key": "field_home_slider_subtitle",
@@ -789,10 +798,19 @@
                             "name": "subtitle",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "Подзаголовок/описание",
+                            "instructions": "Подзаголовок\/описание",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "default_value": "Примеры выполненных ремонтов",
-                            "rows": 3
+                            "rows": 3,
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": ""
                         },
                         {
                             "key": "field_home_slider_slides",
@@ -802,10 +820,18 @@
                             "type": "repeater",
                             "instructions": "Добавьте изображения для слайдера",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "layout": "block",
                             "button_label": "Add Slide",
                             "min": 0,
                             "max": 0,
+                            "rows_per_page": 20,
+                            "collapsed": "",
                             "sub_fields": [
                                 {
                                     "key": "field_home_slider_slide_image",
@@ -815,9 +841,23 @@
                                     "type": "image",
                                     "instructions": "Изображение слайда",
                                     "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
                                     "return_format": "array",
                                     "preview_size": "medium",
-                                    "library": "all"
+                                    "library": "all",
+                                    "min_width": 0,
+                                    "min_height": 0,
+                                    "min_size": 0,
+                                    "max_width": 0,
+                                    "max_height": 0,
+                                    "max_size": 0,
+                                    "mime_types": "",
+                                    "parent_repeater": "field_home_slider_slides"
                                 },
                                 {
                                     "key": "field_home_slider_slide_caption",
@@ -827,7 +867,18 @@
                                     "type": "text",
                                     "instructions": "Подпись к изображению (опционально)",
                                     "required": false,
-                                    "maxlength": 100
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "maxlength": 100,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_home_slider_slides"
                                 }
                             ]
                         }
@@ -849,8 +900,17 @@
                             "type": "text",
                             "instructions": "Заголовок блока FAQ",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "default_value": "Часто задаваемые вопросы",
-                            "maxlength": ""
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         },
                         {
                             "key": "field_faq_description",
@@ -858,8 +918,14 @@
                             "name": "description",
                             "aria-label": "",
                             "type": "wysiwyg",
-                            "instructions": "Описание/подзаголовок блока",
+                            "instructions": "Описание\/подзаголовок блока",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "default_value": "",
                             "tabs": "all",
                             "toolbar": "basic",
@@ -874,10 +940,18 @@
                             "type": "repeater",
                             "instructions": "Добавьте вопросы и ответы",
                             "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "layout": "block",
                             "button_label": "Add FAQ Item",
                             "min": 0,
                             "max": 0,
+                            "rows_per_page": 20,
+                            "collapsed": "",
                             "sub_fields": [
                                 {
                                     "key": "field_faq_question",
@@ -887,7 +961,18 @@
                                     "type": "text",
                                     "instructions": "Вопрос",
                                     "required": true,
-                                    "maxlength": 200
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "maxlength": 200,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_faq_items"
                                 },
                                 {
                                     "key": "field_faq_answer",
@@ -897,14 +982,24 @@
                                     "type": "wysiwyg",
                                     "instructions": "Ответ на вопрос",
                                     "required": true,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
                                     "tabs": "all",
                                     "toolbar": "basic",
                                     "media_upload": 0,
-                                    "delay": 0
+                                    "delay": 0,
+                                    "default_value": "",
+                                    "parent_repeater": "field_faq_items"
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "min": "",
+                    "max": ""
                 },
                 "section6_layout": {
                     "key": "section6_layout",
@@ -1044,5 +1139,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770493843
+    "modified": 1770533294
 }
