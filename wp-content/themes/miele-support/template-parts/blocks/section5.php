@@ -38,19 +38,23 @@ if (!empty($button_link['target'])) {
     <div class="section5__bg-decoration section5__bg-decoration--bottom-right"></div>
     
     <div class="container">
-        <div class="section5__content">
-            <?php if ($title) : ?>
-                <h2 class="section5__title">
-                    <?php echo esc_html($title); ?>
-                </h2>
-            <?php endif; ?>
+        <div class="section5__wrapper">
+            <!-- Левая колонка: текст -->
+            <div class="section5__text-group">
+                <?php if ($title) : ?>
+                    <h2 class="section5__title">
+                        <?php echo esc_html($title); ?>
+                    </h2>
+                <?php endif; ?>
 
-            <?php if ($subtitle) : ?>
-                <p class="section5__subtitle">
-                    <?php echo wp_kses_post($subtitle); ?>
-                </p>
-            <?php endif; ?>
+                <?php if ($subtitle) : ?>
+                    <p class="section5__subtitle">
+                        <?php echo wp_kses_post($subtitle); ?>
+                    </p>
+                <?php endif; ?>
+            </div>
 
+            <!-- Правая колонка: кнопка -->
             <?php if ($button_text && $link_url) : ?>
                 <div class="section5__actions">
                     <a href="<?php echo esc_url($link_url); ?>" class="btn btn--primary" <?php echo $target; ?>>
