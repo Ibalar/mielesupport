@@ -41,8 +41,8 @@ if (!$title && !$description && !$image_url) {
 ?>
 
 <section class="section6">
-    <div class="container">
-        <div class="section6__inner">
+
+        <div class="section6__wrapper">
             <?php if ($image_url): ?>
                 <div class="section6__image">
                     <img
@@ -79,5 +79,4 @@ if (!$title && !$description && !$image_url) {
                 <?php endif; ?>
             </div>
         </div>
-    </div>
 </section>
