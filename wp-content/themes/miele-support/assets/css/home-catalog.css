@@ -42,20 +42,28 @@
     margin: 0;
     color: var(--white, #ffffff);
     font-family: var(--font-family);
-    text-align: center;
     font-size: 24px;
     font-weight: 500;
     line-height: 130%;
 }
 
+/* Горизонтальный скролл с центрированием */
 .home-catalog__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    justify-content: center;
     overflow-x: auto;
-    scrollbar-color: var(--gray3d, #3d3d3d) var(--black19, #191919);
+    overflow-y: hidden;
     scrollbar-width: thin;
+    scrollbar-color: var(--gray3d, #3d3d3d) var(--black19, #191919);
     padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+}
+
+.home-catalog__grid:active {
+    cursor: grabbing;
 }
 
 .home-catalog__grid::-webkit-scrollbar {
@@ -76,6 +84,7 @@
     background: var(--grayc5, #c5c5c5);
 }
 
+/* Карточка товара */
 .home-catalog__item {
     display: flex;
     flex-direction: column;
@@ -86,7 +95,8 @@
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-width: 0;
+    flex-shrink: 0;
+    width: 160px;
 }
 
 .home-catalog__item:hover {
@@ -99,10 +109,9 @@
 }
 
 .home-catalog__item-image {
-    max-width: 180px;
-    height: 100%;
-    padding: 10px 10px 0 10px;
-    object-fit: contain;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
     display: block;
 }
 
@@ -119,6 +128,7 @@
     transition: color 0.3s ease;
 }
 
+/* Tablet */
 @media (min-width: 640px) {
     .home-catalog {
         padding: 120px 0;
@@ -133,10 +143,20 @@
         margin-bottom: 60px;
     }
 
+    .home-catalog__category-title {
+        font-size: 28px;
+    }
 
     .home-catalog__grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
+        gap: 20px;
+    }
+
+    .home-catalog__item {
+        width: 180px;
+    }
+
+    .home-catalog__item-image {
+        height: 160px;
     }
 
     .home-catalog__item-title {
@@ -145,7 +165,12 @@
     }
 }
 
+/* Desktop */
 @media (min-width: 1024px) {
+    .home-catalog {
+        padding: 120px 0;
+    }
+
     .home-catalog__container {
         padding-inline: 80px;
     }
@@ -155,12 +180,20 @@
         margin-bottom: 80px;
     }
 
+    .home-catalog__category-title {
+        font-size: 32px;
+    }
 
     .home-catalog__grid {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 16px;
-        overflow-x: visible;
-        padding-bottom: 0;
+        gap: 24px;
+    }
+
+    .home-catalog__item {
+        width: 200px;
+    }
+
+    .home-catalog__item-image {
+        height: 180px;
     }
 
     .home-catalog__item-title {
