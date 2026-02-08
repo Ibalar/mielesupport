@@ -60,7 +60,7 @@ if (is_array($bg)) {
 
     <div class="section3__overlay"></div>
 
-    <div class="section3__container">
+    <div class="section3__wrapper">
         <div class="section3__content">
             <?php if ($title): ?>
                 <h2 class="section3__title"><?= esc_html($title); ?></h2>
@@ -102,26 +102,26 @@ if (is_array($bg)) {
             <?php endif; ?>
 
             <?php if ($button_text && $button_url): ?>
-                <a
-                    href="<?= esc_url($button_url); ?>"
-                    class="btn btn--primary section3__button"
-                    <?= $button_target ? 'target="' . esc_attr($button_target) . '"' : ''; ?>
-                    <?= $button_target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>
-                >
-                    <?= esc_html((string) $button_text); ?>
-                </a>
+                <div class="section3__actions">
+                    <a
+                        href="<?= esc_url($button_url); ?>"
+                        class="btn btn--primary section3__button"
+                        <?= $button_target ? 'target="' . esc_attr($button_target) . '"' : ''; ?>
+                        <?= $button_target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>
+                    >
+                        <?= esc_html((string) $button_text); ?>
+                    </a>
+                </div>
             <?php endif; ?>
         </div>
 
         <?php if ($image_url): ?>
             <div class="section3__image">
-                <div class="section3__image-wrapper">
-                    <img
-                        src="<?= esc_url($image_url); ?>"
-                        alt="<?= esc_attr($image_alt); ?>"
-                        loading="eager"
-                    >
-                </div>
+                <img
+                    src="<?= esc_url($image_url); ?>"
+                    alt="<?= esc_attr($image_alt); ?>"
+                    loading="eager"
+                >
             </div>
         <?php endif; ?>
     </div>
