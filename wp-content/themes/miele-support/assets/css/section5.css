@@ -2,8 +2,9 @@
 
 .section5 {
     position: relative;
-    padding: 100px 0;
-    background: linear-gradient(135deg, var(--black-bg, #000000) 0%, var(--black19, #191919) 100%);
+    padding: 100px 50px;
+    background: linear-gradient(90deg, #8c0014 17.79%, #cc2229 100%);
+    margin: 0 50px;
     color: var(--white, #ffffff);
     font-family: var(--font-family);
     overflow: hidden;
@@ -18,26 +19,34 @@
 
 /* Кружки слева-сверху (3x3) */
 .section5__bg-decoration--top-left {
-    top: 40px;
-    left: 20px;
-    width: 60px;
-    height: 60px;
-    background-image: 
-        radial-gradient(circle, rgba(197, 197, 197, 0.3) 50%, transparent 50%);
-    background-size: 18px 18px;
+    top: 0;
+    left: 0;
+    width: 555px;
+    height: 85px;
+    background-image:
+            radial-gradient(
+                    circle 4.5px at 19.5px 19.5px,
+                    rgba(217, 217, 217, 0.5) 50%,
+                    transparent 50%
+            );
+    background-size: 30px 30px;
     background-repeat: repeat;
     background-position: 0 0;
 }
 
 /* Кружки справа-снизу (3x3) */
 .section5__bg-decoration--bottom-right {
-    bottom: 40px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-image: 
-        radial-gradient(circle, rgba(197, 197, 197, 0.3) 50%, transparent 50%);
-    background-size: 18px 18px;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 85px;
+    background-image:
+            radial-gradient(
+                    circle 4.5px at 19.5px 19.5px,
+                    rgba(217, 217, 217, 0.5) 50%,
+                    transparent 50%
+            );
+    background-size: 30px 30px;
     background-repeat: repeat;
     background-position: 0 0;
 }
@@ -54,7 +63,7 @@
     margin: 0 0 24px 0;
     color: var(--white, #ffffff);
     font-family: var(--font-family);
-    font-size: 32px;
+    font-size: 44px;
     font-weight: 600;
     line-height: 120%;
     letter-spacing: -0.5px;
@@ -79,38 +88,19 @@
     gap: 16px;
 }
 
-/* Desktop (1024px+) */
-@media (min-width: 1024px) {
-    .section5 {
-        padding: 150px 0;
-    }
-
-    .section5__bg-decoration--top-left {
-        top: 60px;
-        left: 80px;
-        width: 72px;
-        height: 72px;
-        background-size: 20px 20px;
-    }
-
-    .section5__bg-decoration--bottom-right {
-        bottom: 60px;
-        right: 80px;
-        width: 72px;
-        height: 72px;
-        background-size: 20px 20px;
-    }
-
-    .section5__title {
-        font-size: 48px;
-        margin-bottom: 32px;
-    }
-
-    .section5__subtitle {
-        font-size: 18px;
-        margin-bottom: 48px;
-    }
+.section5__actions .btn--primary {
+    border: 1px solid #fff;
+    padding: 20px 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 88%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    background: none;
 }
+
 
 /* Tablet (640px - 1023px) */
 @media (min-width: 640px) and (max-width: 1023px) {
@@ -118,21 +108,6 @@
         padding: 120px 0;
     }
 
-    .section5__bg-decoration--top-left {
-        top: 50px;
-        left: 40px;
-        width: 66px;
-        height: 66px;
-        background-size: 19px 19px;
-    }
-
-    .section5__bg-decoration--bottom-right {
-        bottom: 50px;
-        right: 40px;
-        width: 66px;
-        height: 66px;
-        background-size: 19px 19px;
-    }
 
     .section5__title {
         font-size: 36px;
@@ -155,21 +130,6 @@
         opacity: 0.5;
     }
 
-    .section5__bg-decoration--top-left {
-        top: 20px;
-        left: 12px;
-        width: 48px;
-        height: 48px;
-        background-size: 16px 16px;
-    }
-
-    .section5__bg-decoration--bottom-right {
-        bottom: 20px;
-        right: 12px;
-        width: 48px;
-        height: 48px;
-        background-size: 16px 16px;
-    }
 
     .section5__title {
         font-size: 24px;
