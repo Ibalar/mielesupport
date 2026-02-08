@@ -360,10 +360,6 @@
         display: none; /* по макету можно оставить только номер */
     }
 
-    .main-nav {
-        display: none; /* на мобиле все через бургер */
-    }
-
     /* в offcanvas показываем только 3 уровень, 4 (подпункты) скрываем */
     .offcanvas__list--sub {
         display: none;
@@ -397,17 +393,24 @@
     /* на планшете можем оставить 3 и 4 уровень в offcanvas */
 }
 
-/* Десктоп (от 1025, макет 1440) */
-@media (min-width: 1025px) {
+/* Десктоп (от 1170, макет 1440) */
+@media (min-width: 1170px) {
     .header-inner {
-        padding-inline: 40px;
-    }
-
-    .main-nav__list {
         padding-inline: 40px;
     }
 }
 
+@media (max-width: 1110px) {
+    .main-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-phone__number {
+        display: none;
+    }
+}
 
 
 .main-nav__item {
@@ -433,7 +436,7 @@
     transition: transform .2s;
     position: absolute;
     right: -15px;
-    bottom: 3px;
+    bottom: 6px;
 }
 
 .mega-menu__arrow {
