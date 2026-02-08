@@ -835,6 +835,77 @@
                     "min": "",
                     "max": ""
                 },
+                "faq_layout": {
+                    "key": "faq_layout",
+                    "name": "faq",
+                    "label": "FAQ - Вопросы и ответы",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_faq_title",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Заголовок блока FAQ",
+                            "required": false,
+                            "default_value": "Часто задаваемые вопросы",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_faq_description",
+                            "label": "Description",
+                            "name": "description",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "Описание/подзаголовок блока",
+                            "required": false,
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_faq_items",
+                            "label": "FAQ Items",
+                            "name": "faq_items",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Добавьте вопросы и ответы",
+                            "required": false,
+                            "layout": "block",
+                            "button_label": "Add FAQ Item",
+                            "min": 0,
+                            "max": 0,
+                            "sub_fields": [
+                                {
+                                    "key": "field_faq_question",
+                                    "label": "Question",
+                                    "name": "question",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Вопрос",
+                                    "required": true,
+                                    "maxlength": 200
+                                },
+                                {
+                                    "key": "field_faq_answer",
+                                    "label": "Answer",
+                                    "name": "answer",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "Ответ на вопрос",
+                                    "required": true,
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                }
+                            ]
+                        }
+                    ]
+                },
                 "section6_layout": {
                     "key": "section6_layout",
                     "name": "section6",

@@ -47,6 +47,16 @@
                         'slides' => $section['slides'] ?? []
                     ]
                 );
+            } elseif ($section['acf_fc_layout'] === 'faq') {
+                get_template_part(
+                    'template-parts/blocks/faq',
+                    null,
+                    [
+                        'title' => $section['title'] ?? '',
+                        'description' => $section['description'] ?? '',
+                        'faq_items' => $section['faq_items'] ?? []
+                    ]
+                );
             }
         }
     }

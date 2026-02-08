@@ -121,9 +121,11 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('home-catalog', 'home-catalog.css', ['base']);
     theme_style('benefits', 'benefits.css', ['base']);
     theme_style('home-slider', 'home-slider.css', ['base']);
+    theme_style('faq', 'faq.css', ['base']);
 
     // JS
     theme_script('header-js', 'header.js');
+    theme_script('faq-js', 'faq.js');
 
 });
 
