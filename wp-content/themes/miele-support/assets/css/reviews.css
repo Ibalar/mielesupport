@@ -1,0 +1,234 @@
+/* Reviews Block with Carousel */
+
+.reviews {
+    position: relative;
+    padding: 80px 0;
+    background: var(--black-bg, #000000);
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    overflow: hidden;
+}
+
+.reviews__title {
+    margin: 0 0 16px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 120%;
+    text-align: center;
+}
+
+.reviews__subtitle {
+    margin: 0 0 48px 0;
+    color: var(--grayc5, #c5c5c5);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+}
+
+.reviews__wrapper {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray3d, #3d3d3d) var(--black19, #191919);
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+}
+
+.reviews__wrapper:active {
+    cursor: grabbing;
+}
+
+.reviews__wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.reviews__wrapper::-webkit-scrollbar-track {
+    background: var(--black19, #191919);
+    border-radius: 4px;
+}
+
+.reviews__wrapper::-webkit-scrollbar-thumb {
+    background: var(--gray3d, #3d3d3d);
+    border-radius: 4px;
+}
+
+.reviews__wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--grayc5, #c5c5c5);
+}
+
+.reviews__track {
+    display: flex;
+    gap: 24px;
+    padding: 0 20px;
+}
+
+.reviews__card {
+    flex-shrink: 0;
+    width: 320px;
+    padding: 24px;
+    background: var(--black19, #191919);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.reviews__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.reviews__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.reviews__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reviews__avatar--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray3d, #3d3d3d);
+    color: var(--grayc5, #c5c5c5);
+}
+
+.reviews__author {
+    flex: 1;
+    min-width: 0;
+}
+
+.reviews__name {
+    color: var(--white, #ffffff);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.reviews__city {
+    color: var(--grayc5, #c5c5c5);
+    font-size: 14px;
+}
+
+.reviews__card-title {
+    color: var(--white, #ffffff);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    line-height: 140%;
+}
+
+.reviews__text {
+    color: var(--grayc5, #c5c5c5);
+    font-size: 15px;
+    line-height: 160%;
+    margin: 0 0 20px 0;
+}
+
+.reviews__rating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reviews__stars {
+    display: flex;
+    gap: 4px;
+}
+
+.reviews__star {
+    color: var(--gray3d, #3d3d3d);
+    transition: color 0.2s ease;
+}
+
+.reviews__star.is-active {
+    color: #f59e0b;
+}
+
+.reviews__rating-text {
+    color: var(--grayc5, #c5c5c5);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Tablet (640px+) */
+@media (min-width: 640px) {
+    .reviews {
+        padding: 100px 0;
+    }
+
+    .reviews__title {
+        font-size: 40px;
+    }
+
+    .reviews__subtitle {
+        font-size: 18px;
+        margin-bottom: 60px;
+    }
+
+    .reviews__track {
+        gap: 32px;
+        padding: 0 40px;
+    }
+
+    .reviews__card {
+        width: 380px;
+        padding: 32px;
+    }
+
+    .reviews__avatar {
+        width: 64px;
+        height: 64px;
+    }
+
+    .reviews__name {
+        font-size: 20px;
+    }
+
+    .reviews__card-title {
+        font-size: 20px;
+    }
+
+    .reviews__text {
+        font-size: 16px;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .reviews {
+        padding: 120px 0;
+    }
+
+    .reviews__title {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .reviews__subtitle {
+        font-size: 20px;
+        margin-bottom: 80px;
+    }
+
+    .reviews__track {
+        gap: 40px;
+        padding: 0 80px;
+    }
+
+    .reviews__card {
+        width: 420px;
+    }
+}
