@@ -129,8 +129,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const rootItem = document.querySelector(".main-nav__item--has-mega");
     if (rootItem) {
         const rootBtn = rootItem.querySelector(".js-nav-toggle");
-        rootItem.addEventListener("mouseenter", () => togglePanel(rootBtn, true));
-        // НИЧЕГО не делаем на mouseleave — закрытие только по клику вне
+        let hoverTimeout;
+
+        rootItem.addEventListener("mouseenter", () => {
+            clearTimeout(hoverTimeout);
+            togglePanel(rootBtn, true);
+        });
+
+        rootItem.addEventListener("mouseleave", (e) => {
+            // Проверяем, не перешла ли мышь на mega-menu
+            hoverTimeout = setTimeout(() => {
+                // Если мышь не на mega-menu, закрываем
+                if (!megaMenu || !megaMenu.matches(':hover')) {
+                    togglePanel(rootBtn, false);
+                }
+            }, 100);
+        });
+
+        // Обработчик для mega-menu
+        if (megaMenu) {
+            megaMenu.addEventListener("mouseenter", () => {
+                clearTimeout(hoverTimeout);
+            });
+
+            megaMenu.addEventListener("mouseleave", () => {
+                togglePanel(rootBtn, false);
+            });
+        }
     }
 
     // клик вне меню и мега-меню — закрыть

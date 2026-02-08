@@ -473,6 +473,15 @@
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Показываем меню когда не hidden */
+.mega-menu:not([hidden]) {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* внутренняя «решётка» с колонками, ограниченная по ширине */
