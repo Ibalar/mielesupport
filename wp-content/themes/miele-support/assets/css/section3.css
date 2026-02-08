@@ -103,28 +103,28 @@
     align-items: center;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 743px) {
     .section3__button {
         width: auto;
     }
 }
 
 /* Mobile - остается column */
-@media (max-width: 639px) {
+@media (max-width: 743px) {
     .section3 {
         padding: 60px 0;
     }
 
     .section3__content {
         width: 100%;
-        padding: 0 20px 40px;
+        padding: 34px 20px 40px;
         order: 1;
         gap: 20px;
     }
 
     .section3__image {
         width: 100%;
-        height: 300px; /* Фиксированная высота на мобильном */
+        height: 470px;
         position: relative;
         overflow: hidden;
         order: 2;
@@ -145,8 +145,14 @@
     }
 }
 
+@media (max-width: 391px) {
+    .section3__image {
+        height: 370px;
+    }
+}
+
 /* Tablet - 50/50 split */
-@media (min-width: 640px) and (max-width: 1023px) {
+@media (min-width: 744px) and (max-width: 1023px) {
     .section3 {
         padding: 0;
     }
@@ -195,7 +201,7 @@
 /* Desktop - 50/50 split без отступа */
 @media (min-width: 1024px) {
     .section3 {
-        padding: 0; /* Убрать padding у секции */
+        padding: 0 50px;
     }
 
     .section3__wrapper {
