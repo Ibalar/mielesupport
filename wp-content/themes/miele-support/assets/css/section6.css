@@ -2,7 +2,6 @@
 
 .section6 {
     position: relative;
-    padding: 80px 0;
     background: var(--black22, #222);
     color: var(--white, #ffffff);
     font-family: var(--font-family);
@@ -10,16 +9,16 @@
 }
 
 .section6__inner {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    align-items: center;
 }
 
 .section6__image {
     width: 100%;
-    max-width: 400px;
-    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .section6__image img {
@@ -27,22 +26,19 @@
     height: auto;
     display: block;
     object-fit: cover;
-    border-radius: 8px;
 }
 
 .section6__content {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    text-align: center;
-    max-width: 500px;
+    background-color: var(--black22, #222);
 }
 
 .section6__title {
     margin: 0;
     color: var(--white, #ffffff);
     font-family: var(--font-family);
-    font-size: 28px;
     font-weight: 600;
     line-height: 120%;
     letter-spacing: -0.5px;
@@ -52,7 +48,6 @@
     margin: 0;
     color: var(--grayc5, #c5c5c5);
     font-family: var(--font-family);
-    font-size: 15px;
     font-weight: 400;
     line-height: 150%;
 }
@@ -62,107 +57,157 @@
     width: 100%;
 }
 
-/* Tablet (>= 640px) */
-
-@media (min-width: 640px) {
+/* Mobile (<= 639px) - column with image on top */
+@media (max-width: 639px) {
     .section6 {
-        padding: 100px 0;
+        padding: 80px 0;
     }
 
     .section6__inner {
-        flex-direction: row;
-        justify-content: center;
-        gap: 48px;
+        flex-direction: column;
+        min-height: auto;
     }
 
     .section6__image {
-        max-width: 450px;
-        flex: 0 0 auto;
+        width: 100%;
+        height: 300px;
+        order: 1; /* Изображение сверху */
+    }
+
+    .section6__image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .section6__content {
+        width: 100%;
+        padding: 40px 20px;
+        order: 2; /* Контент снизу */
+        text-align: center;
+    }
+
+    .section6__title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .section6__description {
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
+
+    .section6__button {
+        width: 100%;
+    }
+}
+
+/* Tablet (640px+) - 50/50 split with image on left */
+@media (min-width: 640px) {
+    .section6 {
+        padding: 0; /* Убрать padding у секции */
+    }
+
+    .section6__inner {
+        display: flex;
+        flex-direction: row;
+        min-height: 500px;
+    }
+
+    .section6__image {
+        width: 50%;
+        position: relative;
+        overflow: hidden;
+        order: 1; /* Изображение слева */
+    }
+
+    .section6__image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .section6__content {
+        width: 50%;
+        padding: 60px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        order: 2; /* Контент справа */
         text-align: left;
-        max-width: 450px;
     }
 
     .section6__title {
         font-size: 36px;
+        margin-bottom: 24px;
     }
 
     .section6__description {
-        font-size: 16px;
+        font-size: 17px;
+        margin-bottom: 44px;
     }
 
     .section6__button {
         width: auto;
         align-self: flex-start;
+        margin-top: 0;
     }
 }
 
-/* Desktop (>= 1024px) */
-
+/* Desktop (1024px+) - 50/50 split without gap */
 @media (min-width: 1024px) {
     .section6 {
-        padding: 150px 0;
+        padding: 0;
     }
 
     .section6__inner {
-        gap: 80px;
+        display: flex;
+        flex-direction: row;
+        min-height: 600px;
     }
 
     .section6__image {
-        max-width: 600px;
+        width: 50%;
+        position: relative;
+        overflow: hidden;
+        order: 1; /* Изображение слева */
+    }
+
+    .section6__image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
     .section6__content {
-        max-width: 520px;
+        width: 50%;
+        padding: 100px 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        order: 2; /* Контент справа */
+        text-align: left;
     }
 
     .section6__title {
         font-size: 48px;
+        margin-bottom: 24px;
     }
 
     .section6__description {
         font-size: 18px;
-    }
-}
-
-/* Large Desktop (>= 1440px) */
-
-@media (min-width: 1440px) {
-    .section6__image {
-        max-width: 700px;
-    }
-
-    .section6__content {
-        max-width: 580px;
-    }
-}
-
-/* Mobile Small (<= 389px) */
-
-@media (max-width: 389px) {
-    .section6 {
-        padding: 60px 0;
-    }
-
-    .section6__inner {
-        gap: 32px;
-    }
-
-    .section6__image {
-        max-width: 100%;
-    }
-
-    .section6__content {
-        max-width: 100%;
-    }
-
-    .section6__title {
-        font-size: 24px;
-    }
-
-    .section6__description {
-        font-size: 14px;
+        margin-bottom: 48px;
     }
 }
