@@ -122,6 +122,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('benefits', 'benefits.css', ['base']);
     theme_style('home-slider', 'home-slider.css', ['base']);
     theme_style('faq', 'faq.css', ['base']);
+    theme_style('reviews', 'reviews.css', ['base']);
 
     // JS
     theme_script('header-js', 'header.js');

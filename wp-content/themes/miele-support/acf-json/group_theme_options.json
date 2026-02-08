@@ -1111,6 +1111,213 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "reviews_layout": {
+                    "key": "reviews_layout",
+                    "name": "reviews",
+                    "label": "Reviews - Отзывы клиентов",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_reviews_title",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Заголовок блока отзывов",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Отзывы наших клиентов",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_reviews_subtitle",
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "Подзаголовок блока",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Узнайте, что говорят о нас",
+                            "new_lines": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "rows": 3
+                        },
+                        {
+                            "key": "field_reviews_items",
+                            "label": "Reviews",
+                            "name": "reviews",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Добавьте отзывы клиентов",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "pagination": false,
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Review",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_review_avatar",
+                                    "label": "Avatar",
+                                    "name": "avatar",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Аватар автора отзыва",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": 0,
+                                    "min_height": 0,
+                                    "min_size": 0,
+                                    "max_width": 0,
+                                    "max_height": 0,
+                                    "max_size": 0,
+                                    "mime_types": "",
+                                    "parent_repeater": "field_reviews_items"
+                                },
+                                {
+                                    "key": "field_review_name",
+                                    "label": "Name",
+                                    "name": "name",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "ФИО автора",
+                                    "required": true,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "maxlength": 100,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_reviews_items"
+                                },
+                                {
+                                    "key": "field_review_city",
+                                    "label": "City",
+                                    "name": "city",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Город автора",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "maxlength": 50,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_reviews_items"
+                                },
+                                {
+                                    "key": "field_review_title",
+                                    "label": "Review Title",
+                                    "name": "review_title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Заголовок отзыва",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "maxlength": 150,
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_reviews_items"
+                                },
+                                {
+                                    "key": "field_review_text",
+                                    "label": "Review Text",
+                                    "name": "review_text",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "Текст отзыва",
+                                    "required": true,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "new_lines": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "rows": 4,
+                                    "parent_repeater": "field_reviews_items"
+                                },
+                                {
+                                    "key": "field_review_rating",
+                                    "label": "Rating",
+                                    "name": "rating",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "Оценка от 1 до 5",
+                                    "required": true,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 5,
+                                    "min": 1,
+                                    "max": 5,
+                                    "step": 1,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_reviews_items"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Section 5",

@@ -57,6 +57,16 @@
                         'faq_items' => $section['faq_items'] ?? []
                     ]
                 );
+            } elseif ($section['acf_fc_layout'] === 'reviews') {
+                get_template_part(
+                    'template-parts/blocks/reviews',
+                    null,
+                    [
+                        'title' => $section['title'] ?? '',
+                        'subtitle' => $section['subtitle'] ?? '',
+                        'reviews' => $section['reviews'] ?? []
+                    ]
+                );
             }
         }
     }
