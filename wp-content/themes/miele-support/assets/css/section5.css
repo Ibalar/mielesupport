@@ -4,7 +4,7 @@
     position: relative;
     padding: 100px 50px;
     background: linear-gradient(90deg, #8c0014 17.79%, #cc2229 100%);
-    margin: 0 50px;
+    margin: 60px 50px;
     color: var(--white, #ffffff);
     font-family: var(--font-family);
     overflow: hidden;
@@ -154,21 +154,6 @@
         padding: 150px 0;
     }
 
-    .section5__bg-decoration--top-left {
-        top: 60px;
-        left: 80px;
-        width: 72px;
-        height: 72px;
-        background-size: 20px 20px;
-    }
-
-    .section5__bg-decoration--bottom-right {
-        bottom: 60px;
-        right: 80px;
-        width: 72px;
-        height: 72px;
-        background-size: 20px 20px;
-    }
 
     /* Две колонки: текст слева, кнопка справа */
     .section5__wrapper {
