@@ -45,6 +45,7 @@
     font-size: 24px;
     font-weight: 500;
     line-height: 130%;
+    text-align: center;
 }
 
 /* Горизонтальный скролл с центрированием */
@@ -111,8 +112,9 @@
 .home-catalog__item-image {
     width: 100%;
     height: 140px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
+    padding: 16px 10px 0 10px;
 }
 
 .home-catalog__item-title {
@@ -136,15 +138,6 @@
 
     .home-catalog__container {
         padding-inline: 40px;
-    }
-
-    .home-catalog__title {
-        font-size: 36px;
-        margin-bottom: 60px;
-    }
-
-    .home-catalog__category-title {
-        font-size: 28px;
     }
 
     .home-catalog__grid {
@@ -175,14 +168,6 @@
         padding-inline: 80px;
     }
 
-    .home-catalog__title {
-        font-size: 48px;
-        margin-bottom: 80px;
-    }
-
-    .home-catalog__category-title {
-        font-size: 32px;
-    }
 
     .home-catalog__grid {
         gap: 24px;
