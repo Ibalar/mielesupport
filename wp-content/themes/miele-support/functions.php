@@ -128,7 +128,9 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('service-category-grid', 'service-category-grid.css', ['base']);
     theme_style('service-models', 'service-models.css', ['base']);
     theme_style('service-problems', 'service-problems.css', ['base']);
+    theme_style('service-error-codes', 'service-error-codes.css', ['base']);
     theme_style('service-pricing-table', 'service-pricing-table.css', ['base']);
+    theme_style('service-trust-cta', 'service-trust-cta.css', ['base']);
     theme_style('footer', 'footer.css', ['base']);
 
     // JS

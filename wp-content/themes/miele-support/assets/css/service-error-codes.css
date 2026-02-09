@@ -1,0 +1,151 @@
+/* Service Error Codes Section */
+
+.service-error-codes {
+    padding: 70px 0;
+    background: var(--whitef6, #f6f6f6);
+    color: var(--black22, #222);
+    font-family: var(--font-family);
+}
+
+.service-error-codes__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.service-error-codes__header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.service-error-codes__title {
+    margin: 0 0 12px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 120%;
+    color: var(--black22, #222);
+}
+
+.service-error-codes__subtitle {
+    margin: 0 auto;
+    max-width: 640px;
+    color: var(--gray66, #666);
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.service-error-codes__list {
+    display: grid;
+    gap: 16px;
+}
+
+.service-error-codes__item {
+    border: 1px solid var(--graye5, #e5e5e5);
+    border-radius: 12px;
+    background: var(--white, #ffffff);
+    padding: 0 22px;
+}
+
+.service-error-codes__summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 0;
+    cursor: pointer;
+    list-style: none;
+}
+
+.service-error-codes__summary::-webkit-details-marker {
+    display: none;
+}
+
+.service-error-codes__summary::marker {
+    content: '';
+}
+
+.service-error-codes__code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--red, #cc2229);
+    color: var(--white, #ffffff);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.service-error-codes__label {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black22, #222);
+}
+
+.service-error-codes__toggle {
+    margin-left: auto;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--graye5, #e5e5e5);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--red, #cc2229);
+    font-size: 20px;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.service-error-codes__item[open] .service-error-codes__toggle {
+    transform: rotate(45deg);
+}
+
+.service-error-codes__content {
+    padding-bottom: 22px;
+    color: var(--gray66, #666);
+    font-size: 15px;
+    line-height: 160%;
+}
+
+.service-error-codes__content p {
+    margin: 0 0 12px;
+}
+
+.service-error-codes__content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 743px) {
+    .service-error-codes {
+        padding: 50px 0;
+    }
+
+    .service-error-codes__container {
+        padding: 0 16px;
+    }
+
+    .service-error-codes__title {
+        font-size: 26px;
+    }
+
+    .service-error-codes__summary {
+        gap: 12px;
+    }
+
+    .service-error-codes__label {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .service-error-codes {
+        padding: 90px 0;
+    }
+
+    .service-error-codes__title {
+        font-size: 38px;
+    }
+}
