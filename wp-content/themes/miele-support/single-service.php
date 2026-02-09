@@ -45,7 +45,7 @@ if ($level === 1) {
     // Уровень 3: Конечная услуга - показать все секции
     get_template_part('template-parts/service/advantages');
     get_template_part('template-parts/service/models');
-    get_template_part('template-parts/service/issues');
+    get_template_part('template-parts/service/problems');
     get_template_part('template-parts/service/pricing-table');
     get_template_part('template-parts/service/cta-secondary');
     get_template_part('template-parts/service/error-codes');
