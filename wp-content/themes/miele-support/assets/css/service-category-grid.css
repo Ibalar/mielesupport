@@ -1,0 +1,212 @@
+/* Service Category Grid - Level 2 Service Types Cards */
+
+.service-category-grid {
+    padding: 80px 0;
+    background: var(--black-bg, #000000);
+    color: var(--white, #ffffff);
+}
+
+.service-category-grid__title {
+    margin: 0 0 48px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 120%;
+    text-align: center;
+}
+
+.service-category-grid__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+/* Card Styles */
+.service-category-grid__card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background: var(--black19, #191919);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.service-category-grid__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(255, 255, 255, 0.08);
+    border-color: var(--gray3d, #3d3d3d);
+}
+
+.service-category-grid__card:hover .service-category-grid__card-title {
+    color: var(--primary-color, #c5c5c5);
+}
+
+.service-category-grid__card:hover .service-category-grid__card-arrow {
+    transform: translateX(4px);
+}
+
+/* Card Image */
+.service-category-grid__card-image-wrapper {
+    width: 100%;
+    height: 180px;
+    background: var(--black22, #222222);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.service-category-grid__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.service-category-grid__card:hover .service-category-grid__card-image {
+    transform: scale(1.05);
+}
+
+.service-category-grid__card-placeholder {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray3d, #3d3d3d);
+}
+
+.service-category-grid__card-icon {
+    width: 100%;
+    height: 100%;
+}
+
+/* Card Content */
+.service-category-grid__card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-category-grid__card-title {
+    margin: 0 0 12px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 130%;
+    transition: color 0.3s ease;
+}
+
+.service-category-grid__card-description {
+    margin: 0 0 20px 0;
+    color: var(--grayc5, #c5c5c5);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    flex-grow: 1;
+}
+
+.service-category-grid__card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color, #c5c5c5);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    margin-top: auto;
+}
+
+.service-category-grid__card-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+    .service-category-grid {
+        padding: 100px 0;
+    }
+
+    .service-category-grid__title {
+        font-size: 32px;
+        margin-bottom: 56px;
+    }
+
+    .service-category-grid__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .service-category-grid__card-image-wrapper {
+        height: 200px;
+    }
+
+    .service-category-grid__card-content {
+        padding: 28px;
+    }
+
+    .service-category-grid__card-title {
+        font-size: 20px;
+    }
+
+    .service-category-grid__card-description {
+        font-size: 15px;
+    }
+}
+
+/* Desktop Small */
+@media (min-width: 1024px) {
+    .service-category-grid {
+        padding: 120px 0;
+    }
+
+    .service-category-grid__title {
+        font-size: 36px;
+        margin-bottom: 64px;
+    }
+
+    .service-category-grid__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .service-category-grid__card-image-wrapper {
+        height: 220px;
+    }
+
+    .service-category-grid__card-content {
+        padding: 32px;
+    }
+
+    .service-category-grid__card-title {
+        font-size: 22px;
+    }
+}
+
+/* Desktop Large */
+@media (min-width: 1280px) {
+    .service-category-grid__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .service-category-grid__card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .service-category-grid__card:hover .service-category-grid__card-image {
+        transform: none;
+    }
+}
