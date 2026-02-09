@@ -37,10 +37,11 @@
     scrollbar-color: var(--gray3d, #3d3d3d) var(--black19, #191919);
     padding-bottom: 16px;
     -webkit-overflow-scrolling: touch;
-    cursor: grab;
+    scroll-behavior: smooth;
+    user-select: none;
 }
 
-.reviews__wrapper:active {
+.reviews__wrapper.active {
     cursor: grabbing;
 }
 
@@ -220,5 +221,14 @@
 
     .reviews__card {
         width: 384px;
+    }
+
+    .reviews__wrapper:hover {
+        cursor: grab;
+    }
+
+    .reviews__wrapper:active,
+    .reviews__wrapper.active {
+        cursor: grabbing;
     }
 }
