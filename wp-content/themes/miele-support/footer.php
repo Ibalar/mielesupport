@@ -11,7 +11,7 @@
         <!-- Логотип -->
         <div class="footer__logo">
             <a href="<?php echo esc_url(home_url('/')); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png" alt="Miele Support" class="footer__logo-img">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.svg" alt="Miele Support" class="footer__logo-img">
             </a>
         </div>
 
