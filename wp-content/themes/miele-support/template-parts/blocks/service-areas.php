@@ -16,6 +16,21 @@ $subtitle = $args['subtitle'] ?? '';
 $areas_list = $args['areas_list'] ?? '';
 $map_embed = $args['map_embed'] ?? '';
 
+// Разрешенные теги и атрибуты для iframe (Google Maps)
+$allowed_iframe = [
+    'iframe' => [
+        'src'             => [],
+        'width'           => [],
+        'height'          => [],
+        'frameborder'     => [],
+        'style'           => [],
+        'allowfullscreen' => [],
+        'loading'         => [],
+        'referrerpolicy'  => [],
+        'title'           => [],
+    ],
+];
+
 // Преобразовать список в массив и отсортировать
 $areas = [];
 if ($areas_list) {
@@ -46,7 +61,7 @@ if ($areas_list) {
         <?php if ($map_embed) : ?>
             <div class="service-areas__map">
                 <div class="service-areas__map-container">
-                    <?php echo wp_kses_post($map_embed); ?>
+                    <?php echo wp_kses($map_embed, $allowed_iframe); ?>
                 </div>
             </div>
         <?php endif; ?>
