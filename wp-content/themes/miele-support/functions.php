@@ -113,6 +113,7 @@ add_action('wp_enqueue_scripts', function () {
     // CSS
     theme_style('reset', 'reset.css');
     theme_style('base', 'base.css', ['reset']);
+    theme_style('breadcrumbs', 'breadcrumbs.css', ['base']);
     theme_style('header', 'header.css', ['base']);
     theme_style('hero', 'hero.css', ['base']);
     theme_style('advantages', 'advantages.css', ['base']);

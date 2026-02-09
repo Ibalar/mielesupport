@@ -1,0 +1,89 @@
+/* breadcrumbs.css */
+
+.breadcrumbs {
+    padding: var(--gap-sm) 0;
+    background: transparent;
+}
+
+.breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--gap-xs);
+}
+
+.breadcrumbs__item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs__link {
+    color: var(--grayc5);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs__link:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.breadcrumbs__current {
+    color: var(--white);
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.breadcrumbs__separator {
+    display: flex;
+    align-items: center;
+    color: var(--grayc5);
+    user-select: none;
+}
+
+.breadcrumbs__separator-icon {
+    font-size: 12px;
+    line-height: 1;
+}
+
+/* Mobile styles */
+@media (max-width: 743px) {
+    .breadcrumbs {
+        padding: var(--gap-xs) 0;
+    }
+
+    .breadcrumbs__link,
+    .breadcrumbs__current {
+        font-size: 13px;
+    }
+
+    /* Truncate long breadcrumbs on mobile */
+    .breadcrumbs__list {
+        gap: 6px;
+    }
+}
+
+/* Tablet and up */
+@media (min-width: 744px) {
+    .breadcrumbs {
+        padding: var(--gap-md) 0;
+    }
+
+    .breadcrumbs__link,
+    .breadcrumbs__current {
+        font-size: 14px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+    .breadcrumbs {
+        padding: var(--gap-lg) 0;
+    }
+}
