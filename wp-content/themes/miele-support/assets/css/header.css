@@ -228,6 +228,57 @@
     opacity: 0.9;
 }
 
+/* Burger submenu toggle button */
+.offcanvas__sub-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 6px 0;
+    cursor: pointer;
+    text-align: left;
+}
+
+.offcanvas__sub-arrow {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 2px solid currentColor;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg);
+    transition: transform 0.2s;
+    margin-left: 8px;
+}
+
+.offcanvas__sub-toggle.is-open .offcanvas__sub-arrow {
+    transform: rotate(225deg);
+}
+
+/* Burger sub-list */
+.offcanvas__sub-list {
+    padding-left: 16px;
+    margin-top: 4px;
+}
+
+.offcanvas__sub-list[hidden] {
+    display: none;
+}
+
+.offcanvas__sub-list li {
+    margin-bottom: 4px;
+}
+
+.offcanvas__sub-list a {
+    font-size: 13px;
+    padding: 4px 0;
+    opacity: 0.8;
+}
+
 /* Состояние открытого меню */
 
 .offcanvas--open {

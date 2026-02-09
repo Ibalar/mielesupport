@@ -1,0 +1,159 @@
+{
+    "key": "group_service_level2",
+    "title": "Service — Level 2 (Appliance Type)",
+    "fields": [
+        {
+            "key": "field_level2_short_desc",
+            "label": "Short Description",
+            "name": "short_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Brief description shown in mega menu and cards",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": 150,
+            "placeholder": "Enter short description...",
+            "rows": 2
+        },
+        {
+            "key": "field_level2_hero_image",
+            "label": "Hero Image",
+            "name": "hero_image_level2",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Hero image for appliance type page",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_level2_brands",
+            "label": "Brands",
+            "name": "brands",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "List of brands applicable to this appliance type",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "layout": "table",
+            "button_label": "Add Brand",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_level2_brand_name",
+                    "label": "Brand Name",
+                    "name": "brand_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., Miele",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_level2_brands"
+                },
+                {
+                    "key": "field_level2_brand_logo",
+                    "label": "Brand Logo",
+                    "name": "brand_logo",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_level2_brands"
+                }
+            ]
+        },
+        {
+            "key": "field_level2_show_in_menu",
+            "label": "Show in Mega Menu",
+            "name": "show_in_mega_menu",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Display this appliance type in the mega menu",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "message": "",
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Fields for Level 2 appliance types (has parent, has children)",
+    "show_in_rest": false
+}
