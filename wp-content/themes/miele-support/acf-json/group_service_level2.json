@@ -155,5 +155,7 @@
     "hide_on_screen": [],
     "active": true,
     "description": "Fields for Level 2 appliance types (has parent, has children)",
-    "show_in_rest": false
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1770646521
 }

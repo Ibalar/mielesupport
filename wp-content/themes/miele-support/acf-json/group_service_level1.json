@@ -110,5 +110,7 @@
     "hide_on_screen": [],
     "active": true,
     "description": "Fields for Level 1 service categories (post_parent == 0)",
-    "show_in_rest": false
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1770646517
 }
