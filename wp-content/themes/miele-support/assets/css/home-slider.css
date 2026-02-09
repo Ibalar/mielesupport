@@ -38,9 +38,14 @@
     padding-bottom: 16px;
     -webkit-overflow-scrolling: touch;
     cursor: grab;
+    user-select: none;
 }
 
 .home-slider__wrapper:active {
+    cursor: grabbing;
+}
+
+.home-slider__wrapper.active {
     cursor: grabbing;
 }
 

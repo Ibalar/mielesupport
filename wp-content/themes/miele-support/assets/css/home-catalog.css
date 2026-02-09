@@ -61,9 +61,14 @@
     padding-bottom: 16px;
     -webkit-overflow-scrolling: touch;
     cursor: grab;
+    user-select: none;
 }
 
 .home-catalog__grid:active {
+    cursor: grabbing;
+}
+
+.home-catalog__grid.active {
     cursor: grabbing;
 }
 
