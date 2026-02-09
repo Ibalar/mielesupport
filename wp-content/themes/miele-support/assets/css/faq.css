@@ -109,7 +109,7 @@
 /* Tablet (640px+) */
 @media (min-width: 640px) {
     .faq {
-        padding: 100px 0;
+        padding: 600px 0;
     }
 
     .faq__question {
@@ -126,7 +126,7 @@
 /* Desktop (1024px+) */
 @media (min-width: 1024px) {
     .faq {
-        padding: 120px 0;
+        padding: 75px 0;
     }
 
     .faq__question {

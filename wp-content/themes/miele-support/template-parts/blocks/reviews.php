@@ -74,6 +74,7 @@ if (empty($reviews)) {
                             $rating = max(1, min(5, $rating));
                         ?>
                             <div class="reviews__rating">
+                                <span class="reviews__rating-text"><?php echo $rating; ?>/5</span>
                                 <div class="reviews__stars">
                                     <?php for ($i = 1; $i <= 5; $i++) : ?>
                                         <svg class="reviews__star<?php echo $i <= $rating ? ' is-active' : ''; ?>" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +82,6 @@ if (empty($reviews)) {
                                         </svg>
                                     <?php endfor; ?>
                                 </div>
-                                <span class="reviews__rating-text"><?php echo $rating; ?>/5</span>
                             </div>
                         <?php endif; ?>
                     </div>
