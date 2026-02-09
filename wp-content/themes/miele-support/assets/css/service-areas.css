@@ -20,7 +20,7 @@
 
 .service-areas__subtitle {
     margin: 0 0 48px 0;
-    color: var(--grayc5, #c5c5c5);
+    color: var(--font-family);
     font-size: 16px;
     line-height: 150%;
     text-align: center;
@@ -39,15 +39,16 @@
 }
 
 .service-areas__item {
-    color: var(--grayc5, #c5c5c5);
-    font-size: 15px;
+    color: var(--white, #ffffff);
+    font-size: 18px;
     line-height: 140%;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.service-areas__item:last-child {
-    border-bottom: none;
+.service-areas__item::before {
+    content: "•";
+    display: inline-block;
+    margin-right: 8px; /* Отступ от текста */
+    color: #ffffff; /* Цвет маркера */
 }
 
 /* Map */
@@ -85,25 +86,14 @@
         padding: 100px 0;
     }
 
-    .service-areas__title {
-        font-size: 40px;
-    }
-
     .service-areas__subtitle {
-        font-size: 18px;
-        margin-bottom: 60px;
+        margin-bottom: 50px;
     }
 
     .service-areas__list {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px 24px;
         margin-bottom: 80px;
-    }
-
-    .service-areas__item {
-        font-size: 16px;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .service-areas__map-container {
@@ -118,23 +108,16 @@
     }
 
     .service-areas__title {
-        font-size: 48px;
         margin-bottom: 20px;
     }
 
     .service-areas__subtitle {
-        font-size: 20px;
-        margin-bottom: 80px;
+        margin-bottom: 50px;
     }
 
     .service-areas__list {
         grid-template-columns: repeat(4, 1fr);
         gap: 8px 32px;
-    }
-
-    .service-areas__item {
-        font-size: 16px;
-        padding: 12px 0;
     }
 
     .service-areas__map-container {

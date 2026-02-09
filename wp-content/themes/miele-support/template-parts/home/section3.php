@@ -58,7 +58,6 @@ if (is_array($bg)) {
         </div>
     <?php endif; ?>
 
-    <div class="section3__overlay"></div>
 
     <div class="section3__wrapper">
         <div class="section3__content">
