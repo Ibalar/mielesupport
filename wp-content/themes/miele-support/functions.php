@@ -130,6 +130,8 @@ add_action('wp_enqueue_scripts', function () {
     theme_script('header-js', 'header.js');
     theme_script('faq-js', 'faq.js');
     theme_script('reviews-js', 'reviews.js');
+    theme_script('home-catalog-js', 'home-catalog.js');
+    theme_script('home-slider-js', 'home-slider.js');
 
 });
 
