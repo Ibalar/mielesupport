@@ -126,6 +126,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('reviews', 'reviews.css', ['base']);
     theme_style('service-areas', 'service-areas.css', ['base']);
     theme_style('service-category-grid', 'service-category-grid.css', ['base']);
+    theme_style('service-models', 'service-models.css', ['base']);
     theme_style('footer', 'footer.css', ['base']);
 
     // JS
@@ -134,6 +135,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_script('reviews-js', 'reviews.js');
     theme_script('home-catalog-js', 'home-catalog.js');
     theme_script('home-slider-js', 'home-slider.js');
+    theme_script('service-models-js', 'service-models.js');
 
 });
 
