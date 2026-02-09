@@ -1,0 +1,319 @@
+/* Services Page - Nested Accordion */
+
+.services-page {
+    position: relative;
+    padding: 40px 0;
+    background: var(--black-bg, #000000);
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+}
+
+/* Header Section */
+.services-page__header {
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.services-page__title {
+    margin: 0 0 16px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.services-page__description {
+    margin: 0;
+    color: var(--grayc5, #c5c5c5);
+    font-size: 16px;
+    line-height: 150%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Accordion Container */
+.services-accordion {
+    margin-bottom: 64px;
+}
+
+.services-accordion__item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.services-accordion__item:last-child {
+    border-bottom: none;
+}
+
+/* Accordion Header (Level 1 - Categories) */
+.services-accordion__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 24px 0;
+    background: none;
+    border: none;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.services-accordion__header:hover {
+    color: var(--grayc5, #c5c5c5);
+}
+
+.services-accordion__title {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.services-accordion__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.services-accordion__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Active state - icon rotates 45deg to become X */
+.services-accordion__item.is-active .services-accordion__icon {
+    transform: rotate(45deg);
+}
+
+/* Accordion Content */
+.services-accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.services-accordion__item.is-active .services-accordion__content {
+    opacity: 1;
+}
+
+.services-accordion__inner {
+    padding: 0 0 24px 0;
+}
+
+/* Sub Items (Level 2 - Appliance Types) */
+.services-accordion__sub-item {
+    padding: 16px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.services-accordion__sub-item:first-child {
+    border-top: none;
+}
+
+.services-accordion__sub-title {
+    margin: 0 0 12px 0;
+    color: var(--grayc5, #c5c5c5);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+/* Services List (Level 3 - Final Services) */
+.services-accordion__services-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.services-accordion__service-item {
+    margin-bottom: 8px;
+}
+
+.services-accordion__service-item:last-child {
+    margin-bottom: 0;
+}
+
+.services-accordion__service-link {
+    display: inline-block;
+    color: var(--grayd9, #d9d9d9);
+    font-family: var(--font-family);
+    font-size: 15px;
+    line-height: 140%;
+    text-decoration: none;
+    padding: 6px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.services-accordion__service-link::before {
+    content: '→';
+    margin-right: 8px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.services-accordion__service-link:hover {
+    color: var(--red, #cc2229);
+}
+
+.services-accordion__service-link:hover::before {
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+/* Empty State */
+.services-page__empty {
+    text-align: center;
+    padding: 60px 0;
+    color: var(--grayc5, #c5c5c5);
+}
+
+.services-page__empty p {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* CTA Section */
+.services-page__cta {
+    text-align: center;
+    padding: 48px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.services-page__cta-title {
+    margin: 0 0 12px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.services-page__cta-text {
+    margin: 0 0 24px 0;
+    color: var(--grayc5, #c5c5c5);
+    font-size: 16px;
+    line-height: 150%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-page__cta-button {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--red, #cc2229);
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.services-page__cta-button:hover {
+    background: var(--hover-button, #9b1116);
+}
+
+/* Tablet (640px+) */
+@media (min-width: 640px) {
+    .services-page {
+        padding: 60px 0;
+    }
+
+    .services-page__title {
+        font-size: 42px;
+    }
+
+    .services-page__description {
+        font-size: 17px;
+    }
+
+    .services-accordion__header {
+        font-size: 22px;
+        padding: 28px 0;
+    }
+
+    .services-accordion__sub-title {
+        font-size: 17px;
+    }
+
+    .services-accordion__service-link {
+        font-size: 16px;
+    }
+
+    .services-accordion__inner {
+        padding: 0 0 32px 0;
+    }
+
+    .services-page__cta-title {
+        font-size: 28px;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .services-page {
+        padding: 80px 0;
+    }
+
+    .services-page__title {
+        font-size: 48px;
+        margin-bottom: 24px;
+    }
+
+    .services-page__description {
+        font-size: 18px;
+    }
+
+    .services-accordion__header {
+        font-size: 24px;
+        padding: 32px 0;
+    }
+
+    .services-accordion__sub-item {
+        padding: 20px 0;
+    }
+
+    .services-accordion__sub-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .services-accordion__service-item {
+        margin-bottom: 10px;
+    }
+
+    .services-accordion__inner {
+        padding: 0 0 40px 0;
+    }
+
+    .services-page__cta {
+        padding: 64px;
+    }
+
+    .services-page__cta-title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .services-page__cta-text {
+        font-size: 18px;
+        margin-bottom: 32px;
+    }
+
+    .services-page__cta-button {
+        padding: 16px 40px;
+        font-size: 18px;
+    }
+}
