@@ -167,4 +167,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
         toggles.forEach((btn) => togglePanel(btn, false));
     });
+
+    // -------- Бургер подменю --------
+
+    const burgerToggles = document.querySelectorAll(".js-burger-toggle");
+
+    function toggleBurgerSubmenu(btn, forceOpen = null) {
+        const targetSelector = btn.dataset.target;
+        const panel = document.querySelector(targetSelector);
+        if (!panel) return;
+
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        const shouldOpen = forceOpen !== null ? forceOpen : !isOpen;
+
+        btn.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+        panel.hidden = !shouldOpen;
+        btn.classList.toggle("is-open", shouldOpen);
+    }
+
+    burgerToggles.forEach((btn) => {
+        btn.addEventListener("click", () => toggleBurgerSubmenu(btn));
+    });
 });

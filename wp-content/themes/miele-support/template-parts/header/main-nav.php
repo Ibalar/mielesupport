@@ -1,137 +1,112 @@
+<?php
+/**
+ * Dynamic mega menu for services
+ * Generates menu from CPT service hierarchy
+ * Level 1: Categories (post_parent == 0)
+ * Level 2: Appliance types (has parent, has children)
+ * Level 3: Final services (has parent, no children)
+ */
+
+// Get cached level 1 services (categories)
+$level1_services = function_exists('get_cached_level1_services')
+    ? get_cached_level1_services()
+    : get_posts([
+        'post_type' => 'service',
+        'post_parent' => 0,
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'posts_per_page' => -1,
+    ]);
+
+// If no services found, don't display mega menu
+if (empty($level1_services)) {
+    return;
+}
+
+// Counter for unique IDs
+$unique_counter = 0;
+?>
+
 <div class="mega-menu" id="services-mega" hidden>
-    <div class="mega-menu__col">
-        <div class="mega-menu__title">Kitchen</div>
-        <ul class="mega-menu__list">
-            <li class="mega-menu__item mega-menu__item--has-sub">
-                <button
-                    class="mega-menu__link js-nav-toggle"
-                    type="button"
-                    data-target="#miele-ref"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                >
-                    Miele Refrigerators & Freezers Repair
-                    <span class="mega-menu__arrow"></span>
-                </button>
-                <ul class="mega-menu__sub" id="miele-ref" hidden>
-                    <li><a href="#">MasterCool</a></li>
-                    <li><a href="#">Freestanding Bottom Mounts</a></li>
-                    <li><a href="#">Built-in Refrigerators</a></li>
-                    <li><a href="#">Built-in Bottom Mounts</a></li>
-                    <li><a href="#">Built-in Freezers</a></li>
-                    <li><a href="#">Wine Units</a></li>
+    <?php foreach ($level1_services as $level1) :
+        $level1_id = $level1->ID;
+        $level1_title = $level1->post_title;
+        $level1_link = get_permalink($level1_id);
+
+        // Get custom menu label if set
+        $menu_label = get_field('menu_label', $level1_id);
+        $display_title = $menu_label ? $menu_label : $level1_title;
+
+        // Get level 2 children (appliance types)
+        $level2_services = function_exists('get_service_children')
+            ? get_service_children($level1_id)
+            : get_posts([
+                'post_type' => 'service',
+                'post_parent' => $level1_id,
+                'orderby' => 'menu_order',
+                'order' => 'ASC',
+                'posts_per_page' => -1,
+            ]);
+        ?>
+        <div class="mega-menu__col">
+            <div class="mega-menu__title">
+                <a href="<?php echo esc_url($level1_link); ?>"><?php echo esc_html($display_title); ?></a>
+            </div>
+
+            <?php if (!empty($level2_services)) : ?>
+                <ul class="mega-menu__list">
+                    <?php foreach ($level2_services as $level2) :
+                        $level2_id = $level2->ID;
+                        $level2_title = $level2->post_title;
+                        $level2_link = get_permalink($level2_id);
+
+                        // Get level 3 children (final services)
+                        $level3_services = get_posts([
+                            'post_type' => 'service',
+                            'post_parent' => $level2_id,
+                            'orderby' => 'menu_order',
+                            'order' => 'ASC',
+                            'posts_per_page' => -1,
+                        ]);
+
+                        $has_level3 = !empty($level3_services);
+                        $unique_counter++;
+                        $submenu_id = 'mega-sub-' . $level1_id . '-' . $level2_id . '-' . $unique_counter;
+                        ?>
+                        <li class="mega-menu__item <?php echo $has_level3 ? 'mega-menu__item--has-sub' : ''; ?>">
+                            <?php if ($has_level3) : ?>
+                                <button
+                                    class="mega-menu__link js-nav-toggle"
+                                    type="button"
+                                    data-target="#<?php echo esc_attr($submenu_id); ?>"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                >
+                                    <?php echo esc_html($level2_title); ?>
+                                    <span class="mega-menu__arrow"></span>
+                                </button>
+                                <ul class="mega-menu__sub" id="<?php echo esc_attr($submenu_id); ?>" hidden>
+                                    <?php foreach ($level3_services as $level3) :
+                                        $level3_id = $level3->ID;
+                                        $level3_title = $level3->post_title;
+                                        $level3_link = get_permalink($level3_id);
+                                        ?>
+                                        <li>
+                                            <a href="<?php echo esc_url($level3_link); ?>">
+                                                <?php echo esc_html($level3_title); ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php else : ?>
+                                <a href="<?php echo esc_url($level2_link); ?>" class="mega-menu__link">
+                                    <?php echo esc_html($level2_title); ?>
+                                </a>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
-            </li>
-            <li class="mega-menu__item">
-                <a href="#" class="mega-menu__link">Miele Dishwasher Repair</a>
-            </li>
-            <li class="mega-menu__item mega-menu__item--has-sub">
-                <button
-                    class="mega-menu__link js-nav-toggle"
-                    type="button"
-                    data-target="#miele-ref2"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                >
-                    Miele Range Repair
-                    <span class="mega-menu__arrow"></span>
-                </button>
-                <ul class="mega-menu__sub" id="miele-ref2" hidden>
-                    <li><a href="#">Miele Ranges</a></li>
-                    <li><a href="#">RangeTops</a></li>
-                    <li><a href="#">Range Hoods</a></li>
-                </ul>
-            </li>
-            <li class="mega-menu__item mega-menu__item--has-sub">
-                <button
-                    class="mega-menu__link js-nav-toggle"
-                    type="button"
-                    data-target="#miele-ref3"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                >
-                    Miele Cooktop Repair
-                    <span class="mega-menu__arrow"></span>
-                </button>
-                <ul class="mega-menu__sub" id="miele-ref3" hidden>
-                    <li><a href="#">Induction</a></li>
-                    <li><a href="#">Electric</a></li>
-                    <li><a href="#">Gas</a></li>
-                    <li><a href="#">CombiSets</a></li>
-                </ul>
-            </li>
-            <li class="mega-menu__item mega-menu__item--has-sub">
-                <button
-                    class="mega-menu__link js-nav-toggle"
-                    type="button"
-                    data-target="#miele-ref4"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                >
-                    Miele Ventilation Hoods Repair
-                    <span class="mega-menu__arrow"></span>
-                </button>
-                <ul class="mega-menu__sub" id="miele-ref4" hidden>
-                    <li><a href="#">Wall & Island Hoods</a></li>
-                    <li><a href="#">Ceiling Extractors</a></li>
-                    <li><a href="#">Built-in Hoods</a></li>
-                    <li><a href="#">Downdrafts</a></li>
-                </ul>
-            </li>
-            <li class="mega-menu__item mega-menu__item--has-sub">
-                <button
-                    class="mega-menu__link js-nav-toggle"
-                    type="button"
-                    data-target="#miele-ref5"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                >
-                    Miele Coffee Machines Repair
-                    <span class="mega-menu__arrow"></span>
-                </button>
-                <ul class="mega-menu__sub" id="miele-ref5" hidden>
-                    <li><a href="#">Built-in Coffee Machines</a></li>
-                    <li><a href="#">Countertop Coffee Machines</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <!-- остальные колонки -->
-    <div class="mega-menu__col">
-        <div class="mega-menu__title">Laundry</div>
-        <ul class="mega-menu__list">
-            <li class="mega-menu__item">
-                <a href="#" class="mega-menu__link">Miele Washer Repair</a>
-            </li>
-            <li class="mega-menu__item">
-                <a href="#" class="mega-menu__link">Miele Dryer Repair</a>
-            </li>
-            <li class="mega-menu__item">
-                <a href="#" class="mega-menu__link">Miele Rotary ironer Repair</a>
-            </li>
-        </ul>
-    </div>
-    <div class="mega-menu__col">
-        <div class="mega-menu__title">Vacuum cleaners</div>
-        <ul class="mega-menu__list">
-            <li class="mega-menu__item mega-menu__item--has-sub">
-                <button
-                    class="mega-menu__link js-nav-toggle"
-                    type="button"
-                    data-target="#miele-ref6"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                >
-                    Miele Vacuum Cleaners Repair
-                    <span class="mega-menu__arrow"></span>
-                </button>
-                <ul class="mega-menu__sub" id="miele-ref6" hidden>
-                    <li><a href="#">Cordless</a></li>
-                    <li><a href="#">Bagless</a></li>
-                    <li><a href="#">Bagged</a></li>
-                    <li><a href="#">Robot</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
 </div>

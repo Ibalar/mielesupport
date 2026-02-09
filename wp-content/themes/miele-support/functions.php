@@ -81,6 +81,69 @@ add_filter('acf/settings/load_json', function($paths) {
     return $paths;
 });
 
+/* MEGA MENU CACHE */
+define('MEGA_MENU_CACHE_KEY', 'miele_mega_menu_cache');
+define('MEGA_MENU_CACHE_TIME', 2 * HOUR_IN_SECONDS);
+
+/**
+ * Clear mega menu cache when service posts are updated
+ */
+function clear_mega_menu_cache($post_id) {
+    if (get_post_type($post_id) !== 'service') {
+        return;
+    }
+    delete_transient(MEGA_MENU_CACHE_KEY);
+}
+add_action('save_post_service', 'clear_mega_menu_cache');
+add_action('delete_post', 'clear_mega_menu_cache');
+
+/**
+ * Get cached level 1 services for mega menu
+ */
+function get_cached_level1_services() {
+    $cached = get_transient(MEGA_MENU_CACHE_KEY);
+
+    if ($cached !== false) {
+        return $cached;
+    }
+
+    $services = get_posts([
+        'post_type' => 'service',
+        'post_parent' => 0,
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'posts_per_page' => -1,
+    ]);
+
+    set_transient(MEGA_MENU_CACHE_KEY, $services, MEGA_MENU_CACHE_TIME);
+
+    return $services;
+}
+
+/**
+ * Get children services for a parent service
+ */
+function get_service_children($parent_id, $check_visibility = true) {
+    $args = [
+        'post_type' => 'service',
+        'post_parent' => $parent_id,
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'posts_per_page' => -1,
+    ];
+
+    $children = get_posts($args);
+
+    if ($check_visibility) {
+        $children = array_filter($children, function($child) {
+            $show_in_menu = get_field('show_in_mega_menu', $child->ID);
+            return $show_in_menu !== false;
+        });
+    }
+
+    return $children;
+}
+
 /* JS */
 
 function theme_script($handle, $file, $deps = [], $in_footer = true) {

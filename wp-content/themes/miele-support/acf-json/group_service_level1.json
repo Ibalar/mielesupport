@@ -1,0 +1,114 @@
+{
+    "key": "group_service_level1",
+    "title": "Service — Level 1 (Category)",
+    "fields": [
+        {
+            "key": "field_level1_icon",
+            "label": "Category Icon",
+            "name": "category_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Icon for the category (displayed in mega menu)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_level1_description",
+            "label": "Category Description",
+            "name": "category_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Short description for the category",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": 200,
+            "placeholder": "Enter category description...",
+            "rows": 3
+        },
+        {
+            "key": "field_level1_banner",
+            "label": "Category Banner",
+            "name": "category_banner",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Banner image for the category page",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_level1_menu_label",
+            "label": "Menu Label",
+            "name": "menu_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Custom label for mega menu column (if empty, post title will be used)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 50,
+            "placeholder": "e.g., Kitchen, Laundry",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Fields for Level 1 service categories (post_parent == 0)",
+    "show_in_rest": false
+}
