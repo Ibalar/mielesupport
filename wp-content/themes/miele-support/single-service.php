@@ -35,9 +35,7 @@ get_template_part('template-parts/service/hero');
 // Вывод шаблонов в зависимости от уровня иерархии
 if ($level === 1) {
     // Уровень 1: Категория - показать подкатегории (типы приборов)
-    // category-grid будет создан в задаче 3
-    // get_template_part('template-parts/service/category-grid');
-    get_template_part('template-parts/service/children-grid');
+    get_template_part('template-parts/service/category-grid');
 
 } elseif ($level === 2) {
     // Уровень 2: Тип прибора - показать конечные услуги

@@ -125,6 +125,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('faq', 'faq.css', ['base']);
     theme_style('reviews', 'reviews.css', ['base']);
     theme_style('service-areas', 'service-areas.css', ['base']);
+    theme_style('service-category-grid', 'service-category-grid.css', ['base']);
     theme_style('footer', 'footer.css', ['base']);
 
     // JS
