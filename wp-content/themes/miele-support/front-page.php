@@ -7,8 +7,6 @@
     
     // Остальные блоки остаются как есть (вариант A - не мигрируем)
     get_template_part('template-parts/home/hero');
-    get_template_part('template-parts/home/advantages');
-    get_template_part('template-parts/home/section3');
     get_template_part('template-parts/home/home-catalog');
     
     // Вывести section5 и section6 блоки если есть
@@ -65,6 +63,31 @@
                         'title' => $section['title'] ?? '',
                         'subtitle' => $section['subtitle'] ?? '',
                         'reviews' => $section['reviews'] ?? []
+                    ]
+                );
+            } elseif ($section['acf_fc_layout'] === 'advantages') {
+                get_template_part(
+                    'template-parts/blocks/advantages',
+                    null,
+                    [
+                        'title' => $section['title'] ?? '',
+                        'subtitle' => $section['subtitle'] ?? '',
+                        'items' => $section['items'] ?? [],
+                        'bg' => $section['bg'] ?? []
+                    ]
+                );
+            } elseif ($section['acf_fc_layout'] === 'section3') {
+                get_template_part(
+                    'template-parts/blocks/section3',
+                    null,
+                    [
+                        'title' => $section['title'] ?? '',
+                        'description' => $section['description'] ?? '',
+                        'items' => $section['items'] ?? [],
+                        'button_text' => $section['button_text'] ?? '',
+                        'button_link' => $section['button_link'] ?? [],
+                        'image' => $section['image'] ?? [],
+                        'bg' => $section['bg'] ?? []
                     ]
                 );
             } elseif ($section['acf_fc_layout'] === 'service_areas') {
