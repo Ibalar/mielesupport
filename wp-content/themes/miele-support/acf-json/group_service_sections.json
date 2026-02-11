@@ -1,6 +1,6 @@
 {
     "key": "group_service_sections",
-    "title": "Service — Sections (Flexible)",
+    "title": "Service \u2014 Sections (Flexible)",
     "fields": [
         {
             "key": "field_service_sections",
@@ -23,6 +23,66 @@
                     "label": "Service Hero",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_service_hero_eyebrow",
+                            "label": "Eyebrow Text",
+                            "name": "eyebrow",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Small text above the title (e.g., 'Professional Service').",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": 100,
+                            "placeholder": "e.g., Professional Repair Service",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_service_hero_title",
+                            "label": "Custom Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Override the default page title. Leave empty to use the page title.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": 150,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_service_hero_show_title",
+                            "label": "Show Title",
+                            "name": "show_title",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Show or hide the title in hero section.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "message": "",
+                            "ui": 1,
+                            "ui_on_text": "Show",
+                            "ui_off_text": "Hide"
+                        },
                         {
                             "key": "field_service_hero_intro_text",
                             "label": "Intro Text",
@@ -49,15 +109,15 @@
                             "name": "hero_image",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "Image used in service cards or hero area.",
+                            "instructions": "Image used in service cards or hero area. Falls back to featured image if not set.",
                             "required": false,
                             "conditional_logic": false,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "url",
+                            "return_format": "array",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": 0,
@@ -67,6 +127,190 @@
                             "max_height": 0,
                             "max_size": 0,
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_service_hero_overlay_opacity",
+                            "label": "Overlay Opacity",
+                            "name": "overlay_opacity",
+                            "aria-label": "",
+                            "type": "range",
+                            "instructions": "Adjust the darkness of the overlay (0 = transparent, 100 = fully dark).",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 50,
+                            "min": 0,
+                            "max": 100,
+                            "step": 5,
+                            "prepend": "",
+                            "append": "%"
+                        },
+                        {
+                            "key": "field_service_hero_content_align",
+                            "label": "Content Alignment",
+                            "name": "content_align",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "Choose the alignment of hero content.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "center": "Center",
+                                "left": "Left",
+                                "right": "Right"
+                            },
+                            "default_value": "center",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_service_hero_show_booking",
+                            "label": "Show Booking Button",
+                            "name": "show_booking",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "message": "",
+                            "ui": 1,
+                            "ui_on_text": "Show",
+                            "ui_off_text": "Hide"
+                        },
+                        {
+                            "key": "field_service_hero_booking_link",
+                            "label": "Booking Link",
+                            "name": "booking_link",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "Custom URL for booking button. Default: /book-online/",
+                            "required": false,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_service_hero_show_booking",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_service_hero_show_phone",
+                            "label": "Show Phone Button",
+                            "name": "show_phone",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "message": "",
+                            "ui": 1,
+                            "ui_on_text": "Show",
+                            "ui_off_text": "Hide"
+                        },
+                        {
+                            "key": "field_service_hero_phone_number",
+                            "label": "Custom Phone Number",
+                            "name": "phone_number",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Override the default phone number. Leave empty to use the default.",
+                            "required": false,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_service_hero_show_phone",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": 20,
+                            "placeholder": "+1 347 894 7974"
+                        },
+                        {
+                            "key": "field_service_hero_min_height",
+                            "label": "Minimum Height",
+                            "name": "min_height",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "Set the minimum height of the hero section.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "small": "Small (400px)",
+                                "medium": "Medium (520px)",
+                                "large": "Large (620px)",
+                                "full": "Full Screen (100vh)"
+                            },
+                            "default_value": "large",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_service_hero_custom_class",
+                            "label": "Custom CSS Class",
+                            "name": "custom_class",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Add custom CSS classes for additional styling.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "e.g., hero--compact hero--dark"
                         }
                     ],
                     "min": "",

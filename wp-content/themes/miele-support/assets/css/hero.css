@@ -45,16 +45,20 @@
     align-items: center;
 }
 
+/* Eyebrow text */
 .hero__eyebrow {
+    display: block;
     color: var(--white-100, #FFF);
     text-align: center;
-
-    /* H1 */
     font-family: var(--font-family);
-    font-size: 66px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 600;
-    line-height: 68px; /* 103.03% */
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.9;
 }
 
 .hero__title {
@@ -140,7 +144,87 @@
     justify-content: center;
 }
 
-/* Простейшая адаптивность */
+/* ========================================
+   HEIGHT VARIANTS
+   ======================================== */
+
+.hero--small {
+    min-height: 400px;
+}
+
+.hero--small .hero__content {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.hero--medium {
+    min-height: 520px;
+}
+
+.hero--medium .hero__content {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.hero--large {
+    min-height: 620px;
+}
+
+.hero--full {
+    min-height: 100vh;
+}
+
+.hero--full .hero__content {
+    padding-top: 180px;
+    padding-bottom: 180px;
+}
+
+/* ========================================
+   CONTENT ALIGNMENT
+   ======================================== */
+
+.hero--align-left .hero__content {
+    align-items: flex-start;
+    text-align: left;
+}
+
+.hero--align-left .hero__eyebrow,
+.hero--align-left .hero__title,
+.hero--align-left .hero__text {
+    text-align: left;
+}
+
+.hero--align-right .hero__content {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.hero--align-right .hero__eyebrow,
+.hero--align-right .hero__title,
+.hero--align-right .hero__text {
+    text-align: right;
+}
+
+.hero--align-center .hero__content {
+    align-items: center;
+    text-align: center;
+}
+
+/* ========================================
+   SERVICE HERO SPECIFIC
+   ======================================== */
+
+.hero--service {
+    /* Default service hero styles */
+}
+
+.hero--service .hero__title {
+    max-width: 900px;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
 
 @media (max-width: 1024px) {
     .container {
@@ -149,11 +233,21 @@
 
     .hero__title {
         font-size: 40px;
+        line-height: 1.2;
+    }
+
+    .hero__eyebrow {
+        font-size: 14px;
     }
 
     .hero__content {
         padding-top: 100px;
         padding-bottom: 100px;
+    }
+
+    .hero--full .hero__content {
+        padding-top: 140px;
+        padding-bottom: 140px;
     }
 }
 
@@ -166,17 +260,110 @@
         min-height: 520px;
     }
 
+    .hero--small {
+        min-height: 350px;
+    }
+
+    .hero--small .hero__content {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .hero--medium {
+        min-height: 450px;
+    }
+
+    .hero--full {
+        min-height: 100svh;
+    }
+
     .hero__title {
         font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .hero__eyebrow {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .hero__text {
+        padding: 24px 0;
+        font-size: 14px;
     }
 
     .hero__actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        width: 100%;
     }
 
     .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    /* On mobile, center alignment is forced for better UX */
+    .hero--align-left .hero__content,
+    .hero--align-right .hero__content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero--align-left .hero__eyebrow,
+    .hero--align-left .hero__title,
+    .hero--align-left .hero__text,
+    .hero--align-right .hero__eyebrow,
+    .hero--align-right .hero__title,
+    .hero--align-right .hero__text {
+        text-align: center;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none;
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    .hero {
+        min-height: auto;
+        color: #000;
+        background: #fff;
+    }
+
+    .hero__bg,
+    .hero__overlay {
+        display: none;
+    }
+
+    .hero__content {
+        padding: 20px 0;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero__eyebrow,
+    .hero__title,
+    .hero__text {
+        color: #000;
+        text-align: left;
+    }
+
+    .hero__actions {
+        display: none;
     }
 }
