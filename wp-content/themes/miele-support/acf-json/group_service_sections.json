@@ -381,6 +381,32 @@
                                     "placeholder": "",
                                     "rows": 3,
                                     "parent_repeater": "field_service_problems"
+                                },
+                                {
+                                    "key": "field_service_problem_image",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Optional image for this problem (used in alternating layout).",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": 0,
+                                    "min_height": 0,
+                                    "min_size": 0,
+                                    "max_width": 0,
+                                    "max_height": 0,
+                                    "max_size": 0,
+                                    "mime_types": "",
+                                    "parent_repeater": "field_service_problems"
                                 }
                             ]
                         }
