@@ -27,8 +27,8 @@ if (!$has_parent && $has_children) {
 <main class="service-page">
 
 <?php
-// Хлебные крошки
-get_template_part('template-parts/global/breadcrumbs');
+// Breadcrumbs - supports all hierarchy levels
+render_breadcrumbs();
 
 // HERO
 get_template_part('template-parts/service/hero');

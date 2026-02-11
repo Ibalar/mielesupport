@@ -3,69 +3,32 @@
 declare(strict_types=1);
 
 /**
- * Breadcrumbs template for service pages
- * Supports 3 levels: Home > Services > [Category] > [Type] > [Service]
+ * Breadcrumbs Template
+ *
+ * Supports all hierarchy levels:
+ * - Home > Services (archive)
+ * - Home > Services > [Category] (Level 1)
+ * - Home > Services > [Category] > [Appliance Type] (Level 2)
+ * - Home > Services > [Category] > [Appliance Type] > [Service] (Level 3)
+ * - Home > [Page] (regular pages)
+ * - Home > [Page] > [Child Page] (page hierarchy)
+ *
+ * @param array $args Template arguments
+ *   - breadcrumbs: Pre-built breadcrumbs array (optional)
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-$breadcrumbs = [];
+// Get breadcrumbs from args or generate them
+$breadcrumbs = $args['breadcrumbs'] ?? get_breadcrumb_items();
 
-// Home link
-$breadcrumbs[] = [
-    'url'   => home_url('/'),
-    'title' => __('Home', 'miele-support'),
-];
-
-// Services root link
-$services_page = get_page_by_path('services');
-if ($services_page) {
-    $breadcrumbs[] = [
-        'url'   => get_permalink($services_page->ID),
-        'title' => get_the_title($services_page->ID),
-    ];
-} else {
-    // Fallback to services archive
-    $breadcrumbs[] = [
-        'url'   => get_post_type_archive_link('service'),
-        'title' => __('Services', 'miele-support'),
-    ];
-}
-
-// Build ancestor chain for hierarchical service posts
-if (is_singular('service')) {
-    global $post;
-
-    // Get all ancestors (parent, grandparent, etc.)
-    $ancestors = get_post_ancestors($post->ID);
-
-    // Reverse to get them in order from oldest to current
-    $ancestors = array_reverse($ancestors);
-
-    foreach ($ancestors as $ancestor_id) {
-        $breadcrumbs[] = [
-            'url'   => get_permalink($ancestor_id),
-            'title' => get_the_title($ancestor_id),
-        ];
-    }
-
-    // Add current page (without link)
-    $breadcrumbs[] = [
-        'url'   => '',
-        'title' => get_the_title($post->ID),
-    ];
-} elseif (is_post_type_archive('service')) {
-    // On services archive, Services is the current page
-    $last_key = array_key_last($breadcrumbs);
-    $breadcrumbs[$last_key]['url'] = '';
-}
-
-// Don't show breadcrumbs if only Home exists
+// Don't show breadcrumbs if only Home exists or empty
 if (count($breadcrumbs) <= 1) {
     return;
 }
+
 ?>
 
 <div class="container">
@@ -84,7 +47,7 @@ if (count($breadcrumbs) <= 1) {
                         <span itemprop="name"><?php echo esc_html($crumb['title']); ?></span>
                     </a>
                 <?php else : ?>
-                    <span class="breadcrumbs__current" itemprop="name">
+                    <span class="breadcrumbs__current" itemprop="name" aria-current="page">
                         <?php echo esc_html($crumb['title']); ?>
                     </span>
                 <?php endif; ?>
@@ -94,7 +57,9 @@ if (count($breadcrumbs) <= 1) {
 
             <?php if ($index < count($breadcrumbs) - 1) : ?>
                 <li class="breadcrumbs__separator" aria-hidden="true">
-                    <span class="breadcrumbs__separator-icon">&gt;</span>
+                    <svg class="breadcrumbs__separator-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>

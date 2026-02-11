@@ -1,4 +1,5 @@
 /* breadcrumbs.css */
+/* Breadcrumbs navigation styles - Supports all hierarchy levels */
 
 .breadcrumbs {
     padding: var(--gap-sm) 0;
@@ -43,13 +44,21 @@
 .breadcrumbs__separator {
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--grayc5);
     user-select: none;
+    flex-shrink: 0;
 }
 
 .breadcrumbs__separator-icon {
-    font-size: 12px;
-    line-height: 1;
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+
+/* Current page indicator */
+.breadcrumbs__item--current .breadcrumbs__current {
+    color: var(--white);
 }
 
 /* Mobile styles */
@@ -63,14 +72,25 @@
         font-size: 13px;
     }
 
-    /* Truncate long breadcrumbs on mobile */
     .breadcrumbs__list {
         gap: 6px;
     }
+
+    /* Truncate very long breadcrumbs on mobile */
+    .breadcrumbs__item {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .breadcrumbs__item--current {
+        max-width: 150px;
+    }
 }
 
-/* Tablet and up */
-@media (min-width: 744px) {
+/* Tablet styles */
+@media (min-width: 744px) and (max-width: 1439px) {
     .breadcrumbs {
         padding: var(--gap-md) 0;
     }
@@ -79,11 +99,43 @@
     .breadcrumbs__current {
         font-size: 14px;
     }
+
+    .breadcrumbs__item {
+        max-width: 250px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 
-/* Desktop */
+/* Desktop styles */
 @media (min-width: 1440px) {
     .breadcrumbs {
         padding: var(--gap-lg) 0;
+    }
+
+    .breadcrumbs__link,
+    .breadcrumbs__current {
+        font-size: 14px;
+    }
+
+    .breadcrumbs__item {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* Focus styles for accessibility */
+.breadcrumbs__link:focus {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+/* Print styles - hide breadcrumbs in print */
+@media print {
+    .breadcrumbs {
+        display: none;
     }
 }

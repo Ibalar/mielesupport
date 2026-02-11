@@ -1,6 +1,9 @@
 <?php
 defined('ABSPATH') || exit;
 
+/* INCLUDES */
+require_once get_template_directory() . '/inc/breadcrumbs.php';
+
 /* THEME SETUP */
 add_action('after_setup_theme', function () {
     add_theme_support('title-tag');
