@@ -43,16 +43,77 @@ if ($level === 1) {
     get_template_part('template-parts/service/children-grid');
 
 } else {
-    // Уровень 3: Конечная услуга - показать все секции
-    get_template_part('template-parts/service/advantages');
-    get_template_part('template-parts/service/models');
-    get_template_part('template-parts/service/problems');
-    get_template_part('template-parts/service/pricing-table');
-    get_template_part('template-parts/service/cta-secondary');
-    get_template_part('template-parts/service/error-codes');
-    get_template_part('template-parts/service/reviews');
-    get_template_part('template-parts/service/areas');
-    get_template_part('template-parts/service/trust-cta');
+    // Уровень 3: Конечная услуга - выводим flexible content секции
+    $service_sections = get_field('service_sections');
+
+    if (!empty($service_sections) && is_array($service_sections)) {
+        // Выводим секции из flexible content
+        foreach ($service_sections as $section) {
+            $layout = $section['acf_fc_layout'] ?? '';
+
+            switch ($layout) {
+                case 'service_advantages':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/advantages-flexible');
+                    break;
+
+                case 'service_models':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/models-flexible');
+                    break;
+
+                case 'service_problems':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/problems-flexible');
+                    break;
+
+                case 'service_pricing_table':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/pricing-table-flexible');
+                    break;
+
+                case 'service_cta_secondary':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/cta-secondary-flexible');
+                    break;
+
+                case 'service_error_codes':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/error-codes-flexible');
+                    break;
+
+                case 'service_reviews':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/reviews-flexible');
+                    break;
+
+                case 'service_areas':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/areas-flexible');
+                    break;
+
+                case 'service_trust_cta':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/trust-cta-flexible');
+                    break;
+
+                case 'service_hero':
+                    // Hero уже выведен выше, пропускаем
+                    break;
+            }
+        }
+    } else {
+        // Fallback: выводим все секции по умолчанию
+        get_template_part('template-parts/service/advantages');
+        get_template_part('template-parts/service/models');
+        get_template_part('template-parts/service/problems');
+        get_template_part('template-parts/service/pricing-table');
+        get_template_part('template-parts/service/cta-secondary');
+        get_template_part('template-parts/service/error-codes');
+        get_template_part('template-parts/service/reviews');
+        get_template_part('template-parts/service/areas');
+        get_template_part('template-parts/service/trust-cta');
+    }
 }
 
 ?>
