@@ -31,7 +31,20 @@ if (!$has_parent && $has_children) {
 render_breadcrumbs();
 
 // HERO
-get_template_part('template-parts/service/hero');
+$service_sections = get_field('service_sections');
+$hero_section = null;
+
+if (!empty($service_sections) && is_array($service_sections)) {
+    foreach ($service_sections as $section) {
+        if (($section['acf_fc_layout'] ?? '') === 'service_hero') {
+            $hero_section = $section;
+            break;
+        }
+    }
+}
+
+set_query_var('section_data', $hero_section ?? []);
+get_template_part('template-parts/service/flexible/hero');
 
 // Вывод шаблонов в зависимости от уровня иерархии
 if ($level === 1) {
@@ -77,8 +90,6 @@ if ($level === 1) {
 
 } else {
     // Уровень 3: Конечная услуга - выводим flexible content секции
-    $service_sections = get_field('service_sections');
-
     if (!empty($service_sections) && is_array($service_sections)) {
         // Выводим секции из flexible content
         foreach ($service_sections as $section) {
