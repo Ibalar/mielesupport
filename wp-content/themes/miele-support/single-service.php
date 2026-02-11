@@ -27,9 +27,6 @@ if (!$has_parent && $has_children) {
 <main class="service-page">
 
 <?php
-// Breadcrumbs - supports all hierarchy levels
-render_breadcrumbs();
-
 // HERO
 $service_sections = get_field('service_sections');
 $hero_section = null;
@@ -45,6 +42,9 @@ if (!empty($service_sections) && is_array($service_sections)) {
 
 set_query_var('section_data', $hero_section ?? []);
 get_template_part('template-parts/service/flexible/hero');
+
+// Breadcrumbs - supports all hierarchy levels (moved after hero)
+render_breadcrumbs();
 
 // Вывод шаблонов в зависимости от уровня иерархии
 if ($level === 1) {
