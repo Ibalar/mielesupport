@@ -1488,7 +1488,9 @@
                                     "ui": 0,
                                     "ajax": 0,
                                     "placeholder": "",
-                                    "parent_repeater": "field_service_accent_buttons_buttons"
+                                    "parent_repeater": "field_service_accent_buttons_buttons",
+                                    "create_options": 0,
+                                    "save_options": 0
                                 }
                             ]
                         }
@@ -1523,5 +1525,5 @@
     "description": "Flexible content structure for service sections.",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770834395
+    "modified": 1770834759
 }
