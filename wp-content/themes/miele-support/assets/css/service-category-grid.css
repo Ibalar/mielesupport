@@ -16,6 +16,17 @@
     text-align: center;
 }
 
+.service-category-grid__description {
+    margin: -24px auto 40px;
+    max-width: 720px;
+    color: var(--grayc5, #c5c5c5);
+    font-family: var(--font-family);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+}
+
 .service-category-grid__grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -139,6 +150,12 @@
     .service-category-grid__title {
         font-size: 32px;
         margin-bottom: 56px;
+    }
+
+    .service-category-grid__description {
+        margin-top: -32px;
+        margin-bottom: 48px;
+        font-size: 16px;
     }
 
     .service-category-grid__grid {

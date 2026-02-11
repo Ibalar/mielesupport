@@ -35,8 +35,41 @@ get_template_part('template-parts/service/hero');
 
 // Вывод шаблонов в зависимости от уровня иерархии
 if ($level === 1) {
-    // Уровень 1: Категория - показать подкатегории (типы приборов)
-    get_template_part('template-parts/service/category-grid');
+    // Уровень 1: Категория - показываем flexible sections или сетку подкатегорий
+    $level1_sections = get_field('level1_sections');
+
+    if (empty($level1_sections)) {
+        $level1_sections = get_field('service_level1_sections');
+    }
+
+    if (empty($level1_sections)) {
+        $level1_sections = get_field('service_sections_level1');
+    }
+
+    if (!empty($level1_sections) && is_array($level1_sections)) {
+        foreach ($level1_sections as $section) {
+            $layout = $section['acf_fc_layout'] ?? '';
+
+            switch ($layout) {
+                case 'subcategory_grid':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/subcategory-grid');
+                    break;
+
+                case 'text_image':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/text-image');
+                    break;
+
+                case 'text_on_image':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/text-on-image');
+                    break;
+            }
+        }
+    } else {
+        get_template_part('template-parts/service/category-grid');
+    }
 
 } elseif ($level === 2) {
     // Уровень 2: Тип прибора - показать конечные услуги
