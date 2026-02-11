@@ -580,6 +580,7 @@
                                     "layout": "table",
                                     "button_label": "Add Feature",
                                     "collapsed": "",
+                                    "parent_repeater": "field_service_pricing_plans",
                                     "sub_fields": [
                                         {
                                             "key": "field_service_pricing_plan_feature_text",
@@ -602,8 +603,7 @@
                                             "append": "",
                                             "parent_repeater": "field_service_pricing_plan_features"
                                         }
-                                    ],
-                                    "parent_repeater": "field_service_pricing_plans"
+                                    ]
                                 }
                             ]
                         }
@@ -1272,5 +1272,5 @@
     "description": "Flexible content structure for service sections.",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770647000
+    "modified": 1770831370
 }
