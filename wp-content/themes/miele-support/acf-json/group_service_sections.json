@@ -1,6 +1,6 @@
 {
     "key": "group_service_sections",
-    "title": "Service \u2014 Sections (Flexible)",
+    "title": "Service — Sections (Flexible)",
     "fields": [
         {
             "key": "field_service_sections",
@@ -174,7 +174,9 @@
                             "allow_null": 0,
                             "ui": 1,
                             "ajax": 0,
-                            "placeholder": ""
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         },
                         {
                             "key": "field_service_hero_show_booking",
@@ -202,7 +204,7 @@
                             "name": "booking_link",
                             "aria-label": "",
                             "type": "url",
-                            "instructions": "Custom URL for booking button. Default: /book-online/",
+                            "instructions": "Custom URL for booking button. Default: \/book-online\/",
                             "required": false,
                             "conditional_logic": [
                                 [
@@ -218,7 +220,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "placeholder": ""
                         },
                         {
                             "key": "field_service_hero_show_phone",
@@ -264,7 +267,9 @@
                             },
                             "default_value": "",
                             "maxlength": 20,
-                            "placeholder": "+1 347 894 7974"
+                            "placeholder": "+1 347 894 7974",
+                            "prepend": "",
+                            "append": ""
                         },
                         {
                             "key": "field_service_hero_min_height",
@@ -292,7 +297,9 @@
                             "allow_null": 0,
                             "ui": 1,
                             "ajax": 0,
-                            "placeholder": ""
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         },
                         {
                             "key": "field_service_hero_custom_class",
@@ -310,7 +317,9 @@
                             },
                             "default_value": "",
                             "maxlength": "",
-                            "placeholder": "e.g., hero--compact hero--dark"
+                            "placeholder": "e.g., hero--compact hero--dark",
+                            "prepend": "",
+                            "append": ""
                         }
                     ],
                     "min": "",
@@ -1769,5 +1778,5 @@
     "description": "Flexible content structure for service sections.",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770834759
+    "modified": 1770840337
 }
