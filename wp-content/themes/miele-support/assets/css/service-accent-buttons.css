@@ -1,0 +1,212 @@
+/* Service Accent Section with Buttons (Level 3) - Accent block with multiple action buttons */
+
+.service-accent-buttons {
+    position: relative;
+    padding: 100px 50px;
+    background: linear-gradient(90deg, #8c0014 17.79%, #cc2229 100%);
+    margin: 60px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    overflow: hidden;
+}
+
+/* Декоративный фон с кружками */
+.service-accent-buttons__bg-decoration {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Кружки слева-сверху */
+.service-accent-buttons__bg-decoration--top-left {
+    top: 0;
+    left: 0;
+    width: 555px;
+    height: 85px;
+    background-image:
+        radial-gradient(
+            circle 4.5px at 19.5px 19.5px,
+            rgba(217, 217, 217, 0.5) 50%,
+            transparent 50%
+        );
+    background-size: 30px 30px;
+    background-repeat: repeat;
+    background-position: 0 0;
+}
+
+/* Кружки справа-снизу */
+.service-accent-buttons__bg-decoration--bottom-right {
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 85px;
+    background-image:
+        radial-gradient(
+            circle 4.5px at 19.5px 19.5px,
+            rgba(217, 217, 217, 0.5) 50%,
+            transparent 50%
+        );
+    background-size: 30px 30px;
+    background-repeat: repeat;
+    background-position: 0 0;
+}
+
+.service-accent-buttons__wrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.service-accent-buttons__title {
+    color: var(--white, #ffffff);
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 44px;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -0.5px;
+    margin: 0 0 24px 0;
+}
+
+.service-accent-buttons__subtitle {
+    color: var(--grayc5, #c5c5c5);
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.service-accent-buttons__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.service-accent-buttons__actions .btn {
+    padding: 20px 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 88%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.service-accent-buttons__actions .btn--primary {
+    border: 1px solid #fff;
+    color: #fff;
+    background: none;
+}
+
+.service-accent-buttons__actions .btn--primary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.service-accent-buttons__actions .btn--outline {
+    border: 1px solid #fff;
+    color: #fff;
+    background: none;
+}
+
+.service-accent-buttons__actions .btn--outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Tablet (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .service-accent-buttons {
+        padding: 80px 40px;
+        margin: 50px 0;
+    }
+
+    .service-accent-buttons__title {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .service-accent-buttons__subtitle {
+        font-size: 17px;
+        margin-bottom: 36px;
+    }
+
+    .service-accent-buttons__actions {
+        gap: 12px;
+    }
+}
+
+/* Mobile (390px - 639px) */
+@media (max-width: 639px) {
+    .service-accent-buttons {
+        padding: 60px 20px;
+        margin: 40px 0;
+    }
+
+    .service-accent-buttons__bg-decoration {
+        opacity: 0.5;
+    }
+
+    .service-accent-buttons__title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .service-accent-buttons__subtitle {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
+    .service-accent-buttons__actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .service-accent-buttons__actions .btn {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .service-accent-buttons {
+        padding: 120px 50px;
+        margin: 60px 50px;
+    }
+
+    /* Текст сверху по центру, кнопки внизу */
+    .service-accent-buttons__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .service-accent-buttons__text-group {
+        max-width: 800px;
+    }
+
+    .service-accent-buttons__title {
+        text-align: center;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .service-accent-buttons__subtitle {
+        text-align: center;
+        font-size: 18px;
+        margin: 0 auto;
+    }
+
+    .service-accent-buttons__actions {
+        justify-content: center;
+    }
+}

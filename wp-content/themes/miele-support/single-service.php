@@ -130,6 +130,16 @@ if ($level === 1) {
                     get_template_part('template-parts/service/trust-cta-flexible');
                     break;
 
+                case 'service_accent':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/accent');
+                    break;
+
+                case 'service_accent_with_buttons':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/accent_with_buttons');
+                    break;
+
                 case 'service_hero':
                     // Hero уже выведен выше, пропускаем
                     break;

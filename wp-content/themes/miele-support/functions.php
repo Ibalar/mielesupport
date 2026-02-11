@@ -197,6 +197,8 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('service-pricing-table', 'service-pricing-table.css', ['base']);
     theme_style('service-pricing-comparison', 'service-pricing-comparison.css', ['base']);
     theme_style('service-trust-cta', 'service-trust-cta.css', ['base']);
+    theme_style('service-accent', 'service-accent.css', ['base']);
+    theme_style('service-accent-buttons', 'service-accent-buttons.css', ['base']);
     theme_style('cta-secondary', 'cta-secondary.css', ['base']);
     theme_style('page-services', 'page-services.css', ['base']);
     theme_style('footer', 'footer.css', ['base']);
