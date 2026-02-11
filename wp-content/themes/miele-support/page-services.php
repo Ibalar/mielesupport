@@ -21,7 +21,7 @@ $categories = get_posts([
 
 <main class="services-page">
     <div class="container">
-        <?php get_template_part('template-parts/global/breadcrumbs'); ?>
+        <?php render_breadcrumbs(); ?>
 
         <div class="services-page__header">
             <h1 class="services-page__title">All Services</h1>

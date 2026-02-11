@@ -3,14 +3,14 @@
 declare(strict_types=1);
 
 /**
- * Template Name: Contacts
- * Contact page template with breadcrumbs
+ * Default page template
+ * Supports all page hierarchy levels with breadcrumbs
  */
 
 get_header();
 ?>
 
-<main class="page-content page-content--contacts">
+<main class="page-content">
     <div class="container">
         <?php render_breadcrumbs(); ?>
 
