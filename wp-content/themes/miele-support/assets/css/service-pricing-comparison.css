@@ -1,0 +1,387 @@
+/* Service Pricing Comparison Table Section */
+
+.pricing-comparison {
+    padding: 60px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+    color: var(--black22, #222);
+    font-family: var(--font-family);
+}
+
+.pricing-comparison__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.pricing-comparison__header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.pricing-comparison__title {
+    margin: 0 0 12px;
+    color: var(--black22, #222);
+    font-family: var(--font-family);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.pricing-comparison__subtitle {
+    margin: 0;
+    color: var(--gray66, #666);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+/* Table Wrapper - enables horizontal scroll on mobile */
+.pricing-comparison__table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Table */
+.pricing-comparison__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--white, #ffffff);
+    border: 1px solid var(--graye5, #e5e5e5);
+    border-radius: 12px;
+    overflow: hidden;
+    min-width: 600px;
+}
+
+/* Table Headers */
+.pricing-comparison__table thead tr:first-child th {
+    padding: 24px 16px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    background: var(--whitef6, #f6f6f6);
+    border-bottom: 2px solid var(--graye5, #e5e5e5);
+}
+
+.pricing-comparison__table thead tr:first-child th:first-child {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.pricing-comparison__plan-col--featured {
+    background: var(--red, #cc2229) !important;
+    color: var(--white, #ffffff) !important;
+    position: relative;
+}
+
+.pricing-comparison__badge {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.pricing-comparison__plan-name {
+    display: block;
+    font-size: 20px;
+}
+
+/* Price Row */
+.pricing-comparison__price-row td {
+    padding: 20px 16px;
+    background: var(--white, #ffffff);
+    border-bottom: 2px solid var(--graye5, #e5e5e5);
+    text-align: center;
+    font-weight: 600;
+}
+
+.pricing-comparison__price-row .pricing-comparison__plan-col--featured {
+    background: rgba(204, 34, 41, 0.05) !important;
+    color: var(--black22, #222) !important;
+}
+
+.pricing-comparison__price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+}
+
+.pricing-comparison__currency {
+    color: var(--red, #cc2229);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.pricing-comparison__amount {
+    color: var(--black22, #222);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Table Body */
+.pricing-comparison__table tbody tr {
+    border-bottom: 1px solid var(--graye5, #e5e5e5);
+}
+
+.pricing-comparison__table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.pricing-comparison__table tbody td {
+    padding: 16px;
+}
+
+.pricing-comparison__feature-col {
+    text-align: left;
+    font-weight: 500;
+    color: var(--black22, #222);
+    width: 40%;
+    background: var(--whitef6, #f6f6f6);
+}
+
+.pricing-comparison__feature-cell {
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.pricing-comparison__check-cell {
+    text-align: center;
+}
+
+.pricing-comparison__table tbody .pricing-comparison__plan-col--featured {
+    background: rgba(204, 34, 41, 0.03) !important;
+    color: var(--black22, #222) !important;
+}
+
+.pricing-comparison__check-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--red, #cc2229);
+}
+
+.pricing-comparison__cross-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--graye5, #e5e5e5);
+}
+
+/* Table Footer */
+.pricing-comparison__table tfoot td {
+    padding: 24px 16px;
+    text-align: center;
+    background: var(--whitef6, #f6f6f6);
+    border-top: 2px solid var(--graye5, #e5e5e5);
+}
+
+.pricing-comparison__table tfoot .pricing-comparison__plan-col--featured {
+    background: rgba(204, 34, 41, 0.05) !important;
+}
+
+/* CTA Button */
+.pricing-comparison__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    background: var(--red, #cc2229);
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--red, #cc2229);
+    min-width: 140px;
+}
+
+.pricing-comparison__cta:hover {
+    background: var(--red-hover, #9b1116);
+    border-color: var(--red-hover, #9b1116);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(204, 34, 41, 0.3);
+}
+
+.pricing-comparison__plan-col--featured .pricing-comparison__cta {
+    background: var(--black22, #222);
+    border-color: var(--black22, #222);
+}
+
+.pricing-comparison__plan-col--featured .pricing-comparison__cta:hover {
+    background: var(--red, #cc2229);
+    border-color: var(--red, #cc2229);
+}
+
+/* Footer */
+.pricing-comparison__footer {
+    margin-top: 32px;
+}
+
+.pricing-comparison__disclaimer {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+    background: var(--whitef6, #f6f6f6);
+    border-radius: 8px;
+    margin: 0;
+    color: var(--gray66, #666);
+    font-size: 13px;
+    line-height: 160%;
+}
+
+.pricing-comparison__disclaimer-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--red, #cc2229);
+    margin-top: 2px;
+}
+
+/* Mobile - Stack table or enable scroll */
+@media (max-width: 743px) {
+    .pricing-comparison {
+        padding: 40px 0;
+    }
+
+    .pricing-comparison__container {
+        padding: 0 15px;
+    }
+
+    .pricing-comparison__header {
+        margin-bottom: 32px;
+    }
+
+    .pricing-comparison__title {
+        font-size: 26px;
+    }
+
+    .pricing-comparison__subtitle {
+        font-size: 14px;
+    }
+
+    .pricing-comparison__table-wrapper {
+        margin: 0 -15px 40px;
+        padding: 0 15px;
+        border-radius: 0;
+    }
+
+    .pricing-comparison__table {
+        font-size: 13px;
+        min-width: 500px;
+    }
+
+    .pricing-comparison__table thead tr:first-child th {
+        padding: 16px 10px 12px;
+        font-size: 15px;
+    }
+
+    .pricing-comparison__plan-name {
+        font-size: 16px;
+    }
+
+    .pricing-comparison__amount {
+        font-size: 26px;
+    }
+
+    .pricing-comparison__currency {
+        font-size: 16px;
+    }
+
+    .pricing-comparison__table tbody td {
+        padding: 12px 10px;
+    }
+
+    .pricing-comparison__feature-cell {
+        font-size: 13px;
+    }
+
+    .pricing-comparison__check-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .pricing-comparison__cta {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 120px;
+    }
+
+    .pricing-comparison__disclaimer {
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px;
+        font-size: 12px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 744px) and (max-width: 1023px) {
+    .pricing-comparison__title {
+        font-size: 32px;
+    }
+
+    .pricing-comparison__table {
+        font-size: 14px;
+    }
+
+    .pricing-comparison__amount {
+        font-size: 28px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .pricing-comparison__title {
+        font-size: 40px;
+    }
+
+    .pricing-comparison__table thead tr:first-child th {
+        padding: 28px 20px 18px;
+        font-size: 20px;
+    }
+
+    .pricing-comparison__plan-name {
+        font-size: 22px;
+    }
+
+    .pricing-comparison__price-row td {
+        padding: 24px 20px;
+    }
+
+    .pricing-comparison__amount {
+        font-size: 36px;
+    }
+
+    .pricing-comparison__currency {
+        font-size: 22px;
+    }
+
+    .pricing-comparison__table tbody td {
+        padding: 18px 20px;
+    }
+
+    .pricing-comparison__feature-cell {
+        font-size: 15px;
+    }
+
+    .pricing-comparison__table tfoot td {
+        padding: 28px 20px;
+    }
+
+    .pricing-comparison__cta {
+        padding: 14px 32px;
+        font-size: 16px;
+        min-width: 160px;
+    }
+}
