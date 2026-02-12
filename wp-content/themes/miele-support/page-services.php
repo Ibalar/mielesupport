@@ -108,6 +108,11 @@ if (!empty($service_sections) && is_array($service_sections)) {
                     set_query_var('section_data', $section);
                     get_template_part('template-parts/service/flexible/services-catalog');
                     break;
+
+                case 'service_section3':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/section3');
+                    break;
             }
         endforeach; ?>
     <?php else : ?>
