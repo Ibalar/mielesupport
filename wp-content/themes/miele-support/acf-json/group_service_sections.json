@@ -1915,7 +1915,216 @@
                     "min": "",
                     "max": ""
                 }
+                ,
+                "service_section3_layout": {
+                    "key": "service_section3_layout",
+                    "name": "service_section3",
+                    "label": "Section 3 - Combo Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_service_section3_title",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Section title heading.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": 150,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_service_section3_description",
+                            "label": "Description",
+                            "name": "description",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "Description text below the title.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_service_section3_items",
+                            "label": "List Items",
+                            "name": "items",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Add list items with icons and text.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "pagination": false,
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add List Item",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_service_section3_item_icon",
+                                    "label": "Icon",
+                                    "name": "item_icon",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "Upload icon image or leave empty for default SVG.",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": 0,
+                                    "min_height": 0,
+                                    "min_size": 0,
+                                    "max_width": 0,
+                                    "max_height": 0,
+                                    "max_size": 0,
+                                    "mime_types": "",
+                                    "parent_repeater": "field_service_section3_items"
+                                },
+                                {
+                                    "key": "field_service_section3_item_text",
+                                    "label": "Text",
+                                    "name": "item_text",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": 150,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_service_section3_items"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_service_section3_button_text",
+                            "label": "Button Text",
+                            "name": "button_text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "If empty, will use link title.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": 50,
+                            "placeholder": "Learn More",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_service_section3_button_link",
+                            "label": "Button Link",
+                            "name": "button_link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        },
+                        {
+                            "key": "field_service_section3_image",
+                            "label": "Image",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Main image displayed in the section.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_service_section3_bg",
+                            "label": "Background Image",
+                            "name": "bg",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Optional background image for the section.",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": 0,
+                            "min_height": 0,
+                            "min_size": 0,
+                            "max_width": 0,
+                            "max_height": 0,
+                            "max_size": 0,
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
             },
+            "button_label": "Add Service Section",
             "button_label": "Add Service Section",
             "min": 0,
             "max": 0,
