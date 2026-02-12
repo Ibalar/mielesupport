@@ -1914,8 +1914,7 @@
                     ],
                     "min": "",
                     "max": ""
-                }
-                ,
+                },
                 "service_section3_layout": {
                     "key": "service_section3_layout",
                     "name": "service_section3",
@@ -2125,7 +2124,6 @@
                 }
             },
             "button_label": "Add Service Section",
-            "button_label": "Add Service Section",
             "min": 0,
             "max": 0,
             "pagination": false,
@@ -2158,5 +2156,5 @@
     "description": "Flexible content structure for service sections.",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770876290
+    "modified": 1770882270
 }
