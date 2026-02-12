@@ -14,11 +14,15 @@ if (empty($models) || !is_array($models)) {
     return;
 }
 
+// Get block_title field value, use default if not set or empty
+$block_title = get_field('block_title');
+$title = !empty($block_title) ? $block_title : 'Модели оборудования';
+
 ?>
 
 <section class="service-models">
     <div class="container">
-        <h2 class="service-models__title">Models We Repair</h2>
+        <h2 class="service-models__title"><?php echo esc_html($title); ?></h2>
 
         <div class="service-models__grid">
             <?php foreach ($models as $model) : ?>
@@ -34,8 +38,8 @@ if (empty($models) || !is_array($models)) {
                             <?php if (!empty($model['name'])) : ?>
                                 <div class="service-models__name"><?php echo esc_html($model['name']); ?></div>
                             <?php endif; ?>
-                            <?php if (!empty($model['description'])) : ?>
-                                <div class="service-models__description"><?php echo esc_html($model['description']); ?></div>
+                            <?php if (!empty($model['model_description'])) : ?>
+                                <div class="service-models__description"><?php echo esc_html($model['model_description']); ?></div>
                             <?php endif; ?>
                         </div>
                     </div>
