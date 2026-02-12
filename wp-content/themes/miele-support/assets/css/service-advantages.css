@@ -1,0 +1,228 @@
+/* Service Advantages Section - 4/2/1 Column Grid Layout */
+
+.service-advantages {
+    position: relative;
+    padding: 150px 0;
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    overflow: hidden;
+}
+
+.service-advantages__bg {
+    position: absolute;
+    inset: 0;
+}
+
+.service-advantages__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.service-advantages__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 5, 0.85);
+}
+
+.service-advantages__wrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.service-advantages__title {
+    color: var(--white, #ffffff);
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 20px;
+}
+
+.service-advantages__subtitle {
+    color: var(--grayc5, #c5c5c5);
+    text-align: center;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 138%;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid Layout - 4 Columns Desktop */
+
+.service-advantages__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 40px;
+}
+
+/* Advantage Item - DESKTOP (4 Columns) */
+
+.service-advantage-item {
+    padding: 48px 32px;
+    text-align: center;
+    border-right: 1px solid #3D3D3D;
+    border-bottom: 1px solid #3D3D3D;
+    transition: all 0.3s ease;
+}
+
+/* Remove right border on 4th, 8th, 12th... items */
+.service-advantage-item:nth-child(4n) {
+    border-right: none;
+}
+
+/* Remove bottom border on last 4 items */
+.service-advantage-item:nth-last-child(-n + 4) {
+    border-bottom: none;
+}
+
+.service-advantage-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.service-advantage-item__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.service-advantage-item__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+}
+
+.service-advantage-item__title {
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 127%;
+    margin-bottom: 12px;
+}
+
+.service-advantage-item__text {
+    color: var(--grayc5, #c5c5c5);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 138%;
+}
+
+/* Tablet: 1024px - 2 Columns */
+
+@media (max-width: 1024px) {
+    .container {
+        padding-inline: 63px;
+    }
+
+    .service-advantages {
+        padding: 100px 0;
+    }
+
+    .service-advantages__title {
+        font-size: 36px;
+    }
+
+    .service-advantages__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Reset 4-column selectors */
+    .service-advantage-item:nth-child(4n) {
+        border-right: 1px solid #3D3D3D;
+    }
+
+    .service-advantage-item:nth-last-child(-n + 4) {
+        border-bottom: 1px solid #3D3D3D;
+    }
+
+    /* New selectors for 2 columns */
+    .service-advantage-item:nth-child(2n) {
+        border-right: none;
+    }
+
+    .service-advantage-item:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+
+    .service-advantage-item {
+        padding: 40px 24px;
+    }
+}
+
+/* Mobile: 640px - 1 Column */
+
+@media (max-width: 640px) {
+    .container {
+        padding-inline: 53px;
+    }
+
+    .service-advantages {
+        padding: 80px 0;
+    }
+
+    .service-advantages__title {
+        font-size: 28px;
+    }
+
+    .service-advantages__subtitle {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
+    .service-advantages__grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Full reset - remove all nth-child selectors */
+    .service-advantage-item:nth-child(2n) {
+        border-right: none;
+    }
+
+    .service-advantage-item:nth-child(4n) {
+        border-right: none;
+    }
+
+    .service-advantage-item:nth-last-child(-n + 2) {
+        border-bottom: 1px solid #3D3D3D;
+    }
+
+    /* New selectors for 1 column */
+    .service-advantage-item {
+        border-right: none;
+        border-bottom: 1px solid #3D3D3D;
+        padding: 32px 20px;
+    }
+
+    .service-advantage-item:last-child {
+        border-bottom: none;
+    }
+
+    .service-advantage-item__icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .service-advantage-item__title {
+        font-size: 18px;
+    }
+
+    .service-advantage-item__text {
+        font-size: 13px;
+    }
+}
