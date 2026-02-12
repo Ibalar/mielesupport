@@ -97,6 +97,28 @@ add_filter('acf/settings/load_json', function($paths) {
     return $paths;
 });
 
+/* ACF BLOCKS */
+if (function_exists('acf_register_block_type')) {
+    add_action('acf/init', function() {
+        acf_register_block_type([
+            'name'            => 'services-catalog',
+            'title'           => __('Services Catalog'),
+            'description'     => __('Display service categories with items in a grid layout'),
+            'render_template' => 'template-parts/blocks/services-catalog.php',
+            'category'        => 'layout',
+            'icon'            => 'grid-view',
+            'keywords'        => ['services', 'catalog', 'grid', 'category'],
+            'mode'            => 'auto',
+            'supports'        => [
+                'align'           => true,
+                'anchor'          => true,
+                'customClassName' => true,
+                'jsx'             => true,
+            ],
+        ]);
+    });
+}
+
 /* MEGA MENU CACHE */
 define('MEGA_MENU_CACHE_KEY', 'miele_mega_menu_cache');
 define('MEGA_MENU_CACHE_TIME', 2 * HOUR_IN_SECONDS);
@@ -217,10 +239,12 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('service-accent-buttons', 'service-accent-buttons.css', ['base']);
     theme_style('cta-secondary', 'cta-secondary.css', ['base']);
     theme_style('page-services', 'page-services.css', ['base']);
+    theme_style('services-catalog', 'services-catalog.css', ['base']);
     theme_style('footer', 'footer.css', ['base']);
 
     // JS
     theme_script('header-js', 'header.js');
+    theme_script('services-catalog-js', 'services-catalog.js');
     theme_script('faq-js', 'faq.js');
     theme_script('reviews-js', 'reviews.js');
     theme_script('home-catalog-js', 'home-catalog.js');
