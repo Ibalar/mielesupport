@@ -1,7 +1,31 @@
 /**
- * Service models slider drag scroll and wheel scroll
+ * Service models grid - See More toggle and drag/wheel scroll
  */
 document.addEventListener('DOMContentLoaded', function() {
+    // See More button functionality
+    const seeMoreButtons = document.querySelectorAll('.service-models__see-more');
+    
+    seeMoreButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const grid = this.closest('.service-models').querySelector('.service-models__grid');
+            const buttonText = this.querySelector('.service-models__see-more-text');
+            const buttonIcon = this.querySelector('.service-models__see-more-icon');
+            
+            // Toggle collapsed class
+            grid.classList.toggle('service-models__grid--collapsed');
+            
+            // Update button text
+            if (grid.classList.contains('service-models__grid--collapsed')) {
+                buttonText.textContent = 'Показать еще';
+                buttonIcon.style.transform = 'rotate(0deg)';
+            } else {
+                buttonText.textContent = 'Свернуть';
+                buttonIcon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
+    // Legacy drag/wheel scroll (if wrapper exists)
     const wrappers = document.querySelectorAll('.service-models__wrapper');
     
     wrappers.forEach(function(wrapper) {

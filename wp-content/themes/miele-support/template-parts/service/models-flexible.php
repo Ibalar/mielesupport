@@ -38,11 +38,11 @@ $title = !empty($block_title) ? $block_title : 'Модели оборудова�
                             class="service-models__image"
                         >
                         <div class="service-models__content">
-                            <?php if (!empty($model['model_description'])) : ?>
-                                <div class="service-models__description"><?php echo esc_html($model['model_description']); ?></div>
-                            <?php endif; ?>
                             <?php if (!empty($model['name'])) : ?>
                                 <div class="service-models__name"><?php echo esc_html($model['name']); ?></div>
+                            <?php endif; ?>
+                            <?php if (!empty($model['model_description'])) : ?>
+                                <div class="service-models__description"><?php echo esc_html($model['model_description']); ?></div>
                             <?php endif; ?>
                         </div>
                     </div>
