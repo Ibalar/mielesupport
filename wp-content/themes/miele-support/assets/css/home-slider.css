@@ -39,6 +39,7 @@
     -webkit-overflow-scrolling: touch;
     cursor: grab;
     user-select: none;
+    scroll-padding-left: 20px;
 }
 
 .home-slider__wrapper:active {
@@ -70,11 +71,13 @@
 .home-slider__track {
     display: flex;
     gap: 16px;
+    padding: 0 20px;
 }
 
 .home-slider__slide {
     flex-shrink: 0;
-    width: 315px;
+    width: calc(100vw - 60px);
+    max-width: 315px;
     overflow: hidden;
     background: var(--black19, #191919);
 }
@@ -110,10 +113,12 @@
 
     .home-slider__track {
         gap: 18px;
+        padding: 0 10px;
     }
 
     .home-slider__slide {
         width: 315px;
+        max-width: none;
     }
 
 }
@@ -136,6 +141,7 @@
 
     .home-slider__track {
         gap: 20px;
+        padding: 0 10px;
     }
 
     .home-slider__slide {
