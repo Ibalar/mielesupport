@@ -2,7 +2,7 @@
 
 .service-advantages {
     position: relative;
-    padding: 150px 0;
+    padding: 75px 0;
     color: var(--white, #ffffff);
     font-family: var(--font-family);
     overflow: hidden;
@@ -131,7 +131,7 @@
     }
 
     .service-advantages {
-        padding: 100px 0;
+        padding: 60px 0;
     }
 
     .service-advantages__title {
@@ -173,7 +173,7 @@
     }
 
     .service-advantages {
-        padding: 80px 0;
+        padding: 50px 0;
     }
 
     .service-advantages__title {
