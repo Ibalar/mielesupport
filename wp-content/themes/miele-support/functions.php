@@ -45,6 +45,13 @@ if (function_exists('acf_add_options_page')) {
         'menu_slug'  => 'theme-settings',
         'redirect'   => false,
     ]);
+
+    acf_add_options_page([
+        'page_title' => 'Service Settings',
+        'menu_title' => 'Service Settings',
+        'menu_slug'  => 'service-settings',
+        'redirect'   => false,
+    ]);
 }
 
 /* AJAX BLOG */
