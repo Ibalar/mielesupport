@@ -105,6 +105,34 @@ $categories = get_posts([
             </div>
         <?php endif; ?>
 
+        <?php
+        $service_sections = get_field('service_sections', 'option');
+
+        if (empty($service_sections)) {
+            $service_sections = get_field('service_page_sections', 'option');
+        }
+
+        if (empty($service_sections)) {
+            $service_sections = get_field('services_page_sections', 'option');
+        }
+
+        if (!empty($service_sections) && is_array($service_sections)) {
+            foreach ($service_sections as $section) {
+                $layout = $section['acf_fc_layout'] ?? '';
+
+                if ($layout === 'services_catalog') {
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/services-catalog');
+                }
+
+                if ($layout === 'catalog-description') {
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/catalog-description');
+                }
+            }
+        }
+        ?>
+
         <!-- CTA Section -->
         <div class="services-page__cta">
             <h2 class="services-page__cta-title">
