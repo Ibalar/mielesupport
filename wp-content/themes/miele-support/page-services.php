@@ -103,6 +103,11 @@ if (!empty($service_sections) && is_array($service_sections)) {
                     set_query_var('section_data', $section);
                     get_template_part('template-parts/service/flexible/accent_with_buttons');
                     break;
+
+                case 'services_catalog':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/services-catalog');
+                    break;
             }
         endforeach; ?>
     <?php else : ?>
