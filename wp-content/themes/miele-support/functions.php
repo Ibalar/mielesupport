@@ -19,16 +19,22 @@ register_nav_menus([
 ]);
 
 /* CPT: SERVICE */
-add_action('init', function () {
+function register_service_cpt() {
     register_post_type('service', [
         'label' => 'Services',
         'public' => true,
         'hierarchical' => true,
         'menu_icon' => 'dashicons-admin-tools',
         'supports' => ['title', 'editor', 'thumbnail', 'page-attributes'],
+        'has_archive' => 'services',
         'rewrite' => ['slug' => 'services'],
         'show_in_rest' => true,
     ]);
+}
+add_action('init', 'register_service_cpt');
+add_action('after_switch_theme', function () {
+    register_service_cpt();
+    flush_rewrite_rules();
 });
 
 /* ACF OPTIONS */
