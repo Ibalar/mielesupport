@@ -12,9 +12,6 @@ $children = get_children([
 ]);
 $has_children = !empty($children);
 
-// Уровень 1: Категория (нет родителя, есть дети)
-// Уровень 2: Тип прибора (есть родитель, есть дети)
-// Уровень 3: Конечная услуга (есть родитель, нет детей)
 if (!$has_parent && $has_children) {
     $level = 1;
 } elseif ($has_parent && $has_children) {
@@ -87,6 +84,11 @@ if ($level === 1) {
                 case 'catalog-description':
                     set_query_var('section_data', $section);
                     get_template_part('template-parts/service/flexible/catalog-description');
+                    break;
+
+                case 'service_section3':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/section3');
                     break;
             }
         }
@@ -189,6 +191,11 @@ if ($level === 1) {
 
                 case 'service_hero':
                     // Hero уже выведен выше, пропускаем
+                    break;
+
+                case 'service_section3':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/section3');
                     break;
             }
         }
