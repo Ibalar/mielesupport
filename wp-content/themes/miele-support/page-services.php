@@ -1,110 +1,125 @@
 <?php
+
 declare(strict_types=1);
 
 /**
- * Template Name: All Services
- * Displays all services in a nested accordion structure
- * Level 1: Categories -> Level 2: Appliance Types -> Level 3: Final Services
+ * Template Name: Services Page
+ * Displays service page sections from ACF options (Service Settings)
  */
 
 get_header();
 
-// Get all level 1 services (categories - no parent)
-$categories = get_posts([
-    'post_type' => 'service',
-    'post_parent' => 0,
-    'orderby' => 'title',
-    'order' => 'ASC',
-    'posts_per_page' => -1,
-]);
+$service_sections = get_field('service_sections', 'option');
+
+if (empty($service_sections)) {
+    $service_sections = get_field('service_page_sections', 'option');
+}
+
+if (empty($service_sections)) {
+    $service_sections = get_field('services_page_sections', 'option');
+}
+
+$hero_section = null;
+
+if (!empty($service_sections) && is_array($service_sections)) {
+    foreach ($service_sections as $section) {
+        if (($section['acf_fc_layout'] ?? '') === 'service_hero') {
+            $hero_section = $section;
+            break;
+        }
+    }
+}
 ?>
 
 <main class="services-page">
-    <div class="container">
-        <?php render_breadcrumbs(); ?>
+    <?php
+    if ($hero_section) {
+        set_query_var('section_data', $hero_section);
+        get_template_part('template-parts/service/flexible/hero');
+    }
 
-        <div class="services-page__header">
-            <h1 class="services-page__title">All Services</h1>
-            <p class="services-page__description">
-                Browse our complete range of Miele appliance repair and maintenance services. 
-                Click on a category to explore available services for your specific appliance.
-            </p>
-        </div>
+    render_breadcrumbs();
+    ?>
 
-        <?php if ($categories): ?>
-            <div class="services-accordion">
-                <?php foreach ($categories as $category): 
-                    // Get level 2 children (appliance types)
-                    $appliance_types = get_children([
-                        'post_type' => 'service',
-                        'post_parent' => $category->ID,
-                        'orderby' => 'title',
-                        'order' => 'ASC',
-                    ]);
+    <?php if (!empty($service_sections) && is_array($service_sections)) : ?>
+        <?php foreach ($service_sections as $section) :
+            $layout = $section['acf_fc_layout'] ?? '';
 
-                    if (empty($appliance_types)) {
-                        continue;
-                    }
-                    ?>
-                    <div class="services-accordion__item" data-services-accordion-item>
-                        <button class="services-accordion__header" type="button" aria-expanded="false">
-                            <span class="services-accordion__title"><?php echo esc_html($category->post_title); ?></span>
-                            <span class="services-accordion__icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="services-accordion__content">
-                            <div class="services-accordion__inner">
-                                <?php foreach ($appliance_types as $appliance_type): 
-                                    // Get level 3 children (final services)
-                                    $final_services = get_children([
-                                        'post_type' => 'service',
-                                        'post_parent' => $appliance_type->ID,
-                                        'orderby' => 'title',
-                                        'order' => 'ASC',
-                                    ]);
-                                    ?>
-                                    <div class="services-accordion__sub-item">
-                                        <h3 class="services-accordion__sub-title">
-                                            <?php echo esc_html($appliance_type->post_title); ?>
-                                        </h3>
-                                        <?php if ($final_services): ?>
-                                            <ul class="services-accordion__services-list">
-                                                <?php foreach ($final_services as $service): ?>
-                                                    <li class="services-accordion__service-item">
-                                                        <a href="<?php echo esc_url(get_permalink($service->ID)); ?>" class="services-accordion__service-link">
-                                                            <?php echo esc_html($service->post_title); ?>
-                                                        </a>
-                                                    </li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        <?php endif; ?>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
+            switch ($layout) {
+                case 'service_hero':
+                    break;
+
+                case 'service_advantages':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/advantages-flexible');
+                    break;
+
+                case 'service_models':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/models-flexible');
+                    break;
+
+                case 'service_problems':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/problems-flexible');
+                    break;
+
+                case 'service_pricing_table':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/pricing-table-flexible');
+                    break;
+
+                case 'service_cta_secondary':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/cta-secondary-flexible');
+                    break;
+
+                case 'service_error_codes':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/error-codes-flexible');
+                    break;
+
+                case 'service_reviews':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/reviews-flexible');
+                    break;
+
+                case 'service_areas':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/areas-flexible');
+                    break;
+
+                case 'service_trust_cta':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/trust-cta-flexible');
+                    break;
+
+                case 'service_accent':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/accent');
+                    break;
+
+                case 'service_accent_with_buttons':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/accent_with_buttons');
+                    break;
+            }
+        endforeach; ?>
+    <?php else : ?>
+        <div class="container">
+            <?php while (have_posts()) : the_post(); ?>
+                <article class="page-content__article">
+                    <header class="page-content__header">
+                        <h1 class="page-content__title"><?php the_title(); ?></h1>
+                    </header>
+
+                    <div class="page-content__body">
+                        <?php the_content(); ?>
                     </div>
-                <?php endforeach; ?>
-            </div>
-        <?php else: ?>
-            <div class="services-page__empty">
-                <p>No services available at this time.</p>
-            </div>
-        <?php endif; ?>
-
-        <!-- CTA Section -->
-        <div class="services-page__cta">
-            <h2 class="services-page__cta-title">Can't find what you're looking for?</h2>
-            <p class="services-page__cta-text">
-                Contact us for custom solutions or urgent repairs. Our expert technicians are ready to help.
-            </p>
-            <a href="/contacts/" class="services-page__cta-button">
-                Contact Us
-            </a>
+                </article>
+            <?php endwhile; ?>
         </div>
-    </div>
+    <?php endif; ?>
 </main>
 
 <?php get_footer(); ?>

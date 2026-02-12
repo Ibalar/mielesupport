@@ -26,7 +26,7 @@ function register_service_cpt() {
         'hierarchical' => true,
         'menu_icon' => 'dashicons-admin-tools',
         'supports' => ['title', 'editor', 'thumbnail', 'page-attributes'],
-        'has_archive' => 'services',
+        'has_archive' => false,
         'rewrite' => ['slug' => 'services'],
         'show_in_rest' => true,
     ]);
