@@ -4,9 +4,10 @@
     <?php
     // Получить Flexible Content блоки для section5
     $page_sections = get_field('page_sections', 'option');
-    
-    // Остальные блоки остаются как есть (вариант A - не мигрируем)
+
     get_template_part('template-parts/home/hero');
+    get_template_part('template-parts/home/advantages');
+    get_template_part('template-parts/home/section3');
     get_template_part('template-parts/home/home-catalog');
     
     // Вывести section5 и section6 блоки если есть
