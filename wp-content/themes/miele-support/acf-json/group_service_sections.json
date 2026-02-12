@@ -1,6 +1,6 @@
 {
     "key": "group_service_sections",
-    "title": "Service — Sections (Flexible)",
+    "title": "Service \u2014 Sections (Flexible)",
     "fields": [
         {
             "key": "field_service_sections",
@@ -204,7 +204,7 @@
                             "name": "booking_link",
                             "aria-label": "",
                             "type": "url",
-                            "instructions": "Custom URL for booking button. Default: \/book-online\/",
+                            "instructions": "Custom URL for booking button. Default: /book-online/",
                             "required": false,
                             "conditional_logic": [
                                 [
@@ -370,6 +370,46 @@
                             "maxlength": 250,
                             "placeholder": "",
                             "rows": 3
+                        },
+                        {
+                            "key": "field_service_advantages_show_title",
+                            "label": "Show Title",
+                            "name": "show_title",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_service_advantages_show_subtitle",
+                            "label": "Show Description",
+                            "name": "show_subtitle",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         },
                         {
                             "key": "field_service_advantages",
