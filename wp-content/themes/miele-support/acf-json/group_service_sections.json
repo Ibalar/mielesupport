@@ -1,6 +1,6 @@
 {
     "key": "group_service_sections",
-    "title": "Service \u2014 Sections (Flexible)",
+    "title": "Service — Sections (Flexible)",
     "fields": [
         {
             "key": "field_service_sections",
@@ -204,7 +204,7 @@
                             "name": "booking_link",
                             "aria-label": "",
                             "type": "url",
-                            "instructions": "Custom URL for booking button. Default: /book-online/",
+                            "instructions": "Custom URL for booking button. Default: \/book-online\/",
                             "required": false,
                             "conditional_logic": [
                                 [
@@ -2312,5 +2312,5 @@
     "description": "Flexible content structure for service sections.",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770909992
+    "modified": 1770917096
 }
