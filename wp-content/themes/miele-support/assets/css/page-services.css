@@ -125,6 +125,23 @@
     line-height: 140%;
 }
 
+.services-accordion__sub-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.services-accordion__sub-title-link:hover {
+    color: var(--white, #ffffff);
+}
+
+.services-accordion__no-services {
+    margin: 0;
+    color: var(--grayd9, #d9d9d9);
+    font-size: 15px;
+    line-height: 140%;
+}
+
 /* Services List (Level 3 - Final Services) */
 .services-accordion__services-list {
     margin: 0;
