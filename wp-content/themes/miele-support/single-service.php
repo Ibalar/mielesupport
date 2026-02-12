@@ -151,6 +151,11 @@ if ($level === 1) {
                     get_template_part('template-parts/service/flexible/accent_with_buttons');
                     break;
 
+                case 'catalog-description':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/catalog-description');
+                    break;
+
                 case 'service_hero':
                     // Hero уже выведен выше, пропускаем
                     break;
