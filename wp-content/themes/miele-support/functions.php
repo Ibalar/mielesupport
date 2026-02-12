@@ -218,6 +218,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('header', 'header.css', ['base']);
     theme_style('hero', 'hero.css', ['base']);
     theme_style('advantages', 'advantages.css', ['base']);
+    theme_style('service-advantages', 'service-advantages.css', ['base']);
     theme_style('section5', 'section5.css', ['base']);
     theme_style('section6', 'section6.css', ['base']);
     theme_style('home-catalog', 'home-catalog.css', ['base']);
