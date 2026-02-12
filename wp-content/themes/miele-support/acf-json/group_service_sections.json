@@ -1,6 +1,6 @@
 {
     "key": "group_service_sections",
-    "title": "Service — Sections (Flexible)",
+    "title": "Service \u2014 Sections (Flexible)",
     "fields": [
         {
             "key": "field_service_sections",
@@ -204,7 +204,7 @@
                             "name": "booking_link",
                             "aria-label": "",
                             "type": "url",
-                            "instructions": "Custom URL for booking button. Default: \/book-online\/",
+                            "instructions": "Custom URL for booking button. Default: /book-online/",
                             "required": false,
                             "conditional_logic": [
                                 [
@@ -513,6 +513,26 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_service_models_block_title",
+                            "label": "Block Title",
+                            "name": "block_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional custom title for this section. Leave empty to use default title.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Leave empty for default title",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_service_models",
                             "label": "Models",
                             "name": "models",
@@ -578,6 +598,27 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
+                                    "parent_repeater": "field_service_models"
+                                },
+                                {
+                                    "key": "field_service_models_model_description",
+                                    "label": "Description",
+                                    "name": "model_description",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Short description of this model",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "Enter model description",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": "",
                                     "parent_repeater": "field_service_models"
                                 }
                             ]
