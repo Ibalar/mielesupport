@@ -78,6 +78,16 @@ if ($level === 1) {
                     set_query_var('section_data', $section);
                     get_template_part('template-parts/service/text-on-image');
                     break;
+
+                case 'services_catalog':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/services-catalog');
+                    break;
+
+                case 'catalog-description':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/catalog-description');
+                    break;
             }
         }
     } else {
@@ -87,6 +97,22 @@ if ($level === 1) {
 } elseif ($level === 2) {
     // Уровень 2: Тип прибора - показать конечные услуги
     get_template_part('template-parts/service/children-grid');
+
+    if (!empty($service_sections) && is_array($service_sections)) {
+        foreach ($service_sections as $section) {
+            $layout = $section['acf_fc_layout'] ?? '';
+
+            if ($layout === 'services_catalog') {
+                set_query_var('section_data', $section);
+                get_template_part('template-parts/service/flexible/services-catalog');
+            }
+
+            if ($layout === 'catalog-description') {
+                set_query_var('section_data', $section);
+                get_template_part('template-parts/service/flexible/catalog-description');
+            }
+        }
+    }
 
 } else {
     // Уровень 3: Конечная услуга - выводим flexible content секции
@@ -149,6 +175,11 @@ if ($level === 1) {
                 case 'service_accent_with_buttons':
                     set_query_var('section_data', $section);
                     get_template_part('template-parts/service/flexible/accent_with_buttons');
+                    break;
+
+                case 'services_catalog':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/services-catalog');
                     break;
 
                 case 'catalog-description':
