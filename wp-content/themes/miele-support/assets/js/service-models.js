@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update button text
             if (grid.classList.contains('service-models__grid--collapsed')) {
-                buttonText.textContent = 'Показать еще';
+                buttonText.textContent = 'See More';
                 buttonIcon.style.transform = 'rotate(0deg)';
             } else {
-                buttonText.textContent = 'Свернуть';
+                buttonText.textContent = 'Show Less';
                 buttonIcon.style.transform = 'rotate(180deg)';
             }
         });
