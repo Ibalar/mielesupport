@@ -131,6 +131,11 @@ if ($level === 1) {
                     get_template_part('template-parts/service/subcategory-grid');
                     break;
 
+                case 'text_block':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/text-block-flexible');
+                    break;
+
                 case 'text_image':
                     set_query_var('section_data', $section);
                     get_template_part('template-parts/service/text-image');
@@ -234,6 +239,11 @@ if ($level === 1) {
                     get_template_part('template-parts/service/subcategory-grid');
                     break;
 
+                case 'text_block':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/text-block-flexible');
+                    break;
+
                 case 'text_image':
                     set_query_var('section_data', $section);
                     get_template_part('template-parts/service/text-image');
@@ -332,6 +342,11 @@ if ($level === 1) {
                 case 'subcategory_grid':
                     set_query_var('section_data', $section);
                     get_template_part('template-parts/service/subcategory-grid');
+                    break;
+
+                case 'text_block':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/text-block-flexible');
                     break;
 
                 case 'text_image':

@@ -1,0 +1,46 @@
+/* Service Text Block Section */
+
+.service-text-block {
+    padding: 50px 0;
+    background: var(--white, #ffffff);
+    color: var(--black22, #222);
+    font-family: var(--font-family);
+}
+
+.service-text-block__title {
+    margin: 0 0 20px;
+    color: var(--black22, #222);
+    font-family: var(--font-family);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 120%;
+    text-align: center;
+}
+
+.service-text-block__description {
+    max-width: 840px;
+    margin: 0 auto;
+    color: var(--gray66, #666);
+    font-size: 16px;
+    line-height: 150%;
+}
+
+.service-text-block__description p {
+    margin: 0 0 16px;
+}
+
+.service-text-block__description p:last-child {
+    margin-bottom: 0;
+}
+
+.service-text-block__description ul,
+.service-text-block__description ol {
+    margin: 0 0 16px 20px;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .service-text-block__title {
+        font-size: 32px;
+    }
+}
