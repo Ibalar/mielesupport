@@ -817,7 +817,7 @@
                             "sub_fields": [
                                 {
                                     "key": "field_service_pricing_repair_part",
-                                    "label": "Repair/Part",
+                                    "label": "Repair\/Part",
                                     "name": "repair_part",
                                     "aria-label": "",
                                     "type": "text",
@@ -2316,5 +2316,5 @@
     "description": "Flexible content structure for service sections.",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770969808
+    "modified": 1770971498
 }
