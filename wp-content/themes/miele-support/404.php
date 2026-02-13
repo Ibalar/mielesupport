@@ -32,10 +32,6 @@ get_header();
                 </a>
             </div>
 
-            <div class="error-404__search">
-                <p><?php _e('Or try searching:', 'miele-support'); ?></p>
-                <?php get_search_form(); ?>
-            </div>
         </div>
     </div>
 </main>
