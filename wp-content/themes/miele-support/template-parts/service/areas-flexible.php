@@ -12,6 +12,7 @@ $section_data = get_query_var('section_data', []);
 $areas_title = $section_data['title'] ?? 'Service Areas';
 $areas_subtitle = $section_data['subtitle'] ?? 'We provide fast, reliable Miele appliance repair across the entire metro area.';
 $areas_list = $section_data['areas_list'] ?? '';
+$map_embed = $section_data['map_embed'] ?? '';
 
 $areas = [];
 if ($areas_list) {
@@ -55,6 +56,12 @@ if (empty($areas)) {
                     <li class="service-areas__item"><?php echo esc_html($area); ?></li>
                 <?php endforeach; ?>
             </ul>
+        <?php endif; ?>
+
+        <?php if ($map_embed) : ?>
+            <div class="service-areas__map">
+                <?php echo $map_embed; ?>
+            </div>
         <?php endif; ?>
     </div>
 </section>
