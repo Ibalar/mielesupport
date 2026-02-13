@@ -10,6 +10,7 @@ declare(strict_types=1);
 $areas_title = '';
 $areas_subtitle = '';
 $areas_list = '';
+$map_embed = '';
 
 $page_sections = get_field('page_sections', 'option');
 
@@ -19,6 +20,7 @@ if (!empty($page_sections) && is_array($page_sections)) {
             $areas_title = $section['title'] ?? '';
             $areas_subtitle = $section['subtitle'] ?? '';
             $areas_list = $section['areas_list'] ?? '';
+            $map_embed = $section['map_embed'] ?? '';
             break;
         }
     }
@@ -74,6 +76,12 @@ if (empty($areas)) {
                     <li class="service-areas__item"><?php echo esc_html($area); ?></li>
                 <?php endforeach; ?>
             </ul>
+        <?php endif; ?>
+
+        <?php if ($map_embed) : ?>
+            <div class="service-areas__map">
+                <?php echo $map_embed; ?>
+            </div>
         <?php endif; ?>
     </div>
 </section>
