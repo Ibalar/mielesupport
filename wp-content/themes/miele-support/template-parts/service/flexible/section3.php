@@ -16,6 +16,7 @@ $button_text = $section['button_text'] ?? '';
 $button_link = $section['button_link'] ?? '';
 $image = $section['image'] ?? '';
 $bg = $section['bg'] ?? '';
+$swap_order = $section['swap_order'] ?? false;
 
 $button_url = '';
 $button_target = '';
@@ -49,7 +50,7 @@ if (is_array($bg)) {
 
 ?>
 
-<section class="section3">
+<section class="section3 <?= $swap_order ? 'section3--swapped' : ''; ?>">
     <?php if ($bg_url): ?>
         <div class="section3__bg">
             <img

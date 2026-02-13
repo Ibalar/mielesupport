@@ -244,3 +244,8 @@
         font-size: 16px;
     }
 }
+
+/* Swapped state - image on left, content on right */
+.section3--swapped .section3__wrapper {
+    flex-direction: row-reverse;
+}
