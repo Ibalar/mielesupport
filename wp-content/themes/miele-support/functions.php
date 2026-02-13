@@ -229,6 +229,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('service-areas', 'service-areas.css', ['base']);
     theme_style('service-category-grid', 'service-category-grid.css', ['base']);
     theme_style('service-text-on-image', 'service-text-on-image.css', ['base']);
+    theme_style('service-text-block', 'service-text-block.css', ['base']);
     theme_style('service-models', 'service-models.css', ['base']);
     theme_style('service-problems', 'service-problems.css', ['base']);
     theme_style('service-error-codes', 'service-error-codes.css', ['base']);
