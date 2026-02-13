@@ -795,12 +795,12 @@
                             "rows": 3
                         },
                         {
-                            "key": "field_service_pricing_plans",
-                            "label": "Pricing Plans",
-                            "name": "pricing_plans",
+                            "key": "field_service_pricing_items",
+                            "label": "Price Items",
+                            "name": "price_items",
                             "aria-label": "",
                             "type": "repeater",
-                            "instructions": "Define pricing tiers.",
+                            "instructions": "Add pricing line items for the table.",
                             "required": false,
                             "conditional_logic": false,
                             "wrapper": {
@@ -811,159 +811,93 @@
                             "min": 0,
                             "max": 0,
                             "rows_per_page": 20,
-                            "layout": "block",
-                            "button_label": "Add Plan",
+                            "layout": "table",
+                            "button_label": "Add Item",
                             "collapsed": "",
                             "sub_fields": [
                                 {
-                                    "key": "field_service_pricing_plan_title",
-                                    "label": "Plan Title",
-                                    "name": "title",
+                                    "key": "field_service_pricing_repair_part",
+                                    "label": "Repair/Part",
+                                    "name": "repair_part",
                                     "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": false,
                                     "conditional_logic": false,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "25",
                                         "class": "",
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "maxlength": 100,
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_pricing_plans"
-                                },
-                                {
-                                    "key": "field_service_pricing_plan_price",
-                                    "label": "Price",
-                                    "name": "price",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "Numeric price without currency.",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "50",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": 20,
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_pricing_plans"
-                                },
-                                {
-                                    "key": "field_service_pricing_plan_featured",
-                                    "label": "Featured",
-                                    "name": "featured",
-                                    "aria-label": "",
-                                    "type": "true_false",
-                                    "instructions": "Highlight this plan.",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "50",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": 0,
-                                    "message": "",
-                                    "ui": 1,
-                                    "ui_on_text": "Yes",
-                                    "ui_off_text": "No",
-                                    "parent_repeater": "field_service_pricing_plans"
-                                },
-                                {
-                                    "key": "field_service_pricing_plan_description",
-                                    "label": "Description",
-                                    "name": "description",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "new_lines": "",
                                     "maxlength": "",
                                     "placeholder": "",
-                                    "rows": 3,
-                                    "parent_repeater": "field_service_pricing_plans"
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_service_pricing_items"
                                 },
                                 {
-                                    "key": "field_service_pricing_plan_icon",
-                                    "label": "Icon",
-                                    "name": "icon",
+                                    "key": "field_service_pricing_symptoms",
+                                    "label": "Typical Symptoms",
+                                    "name": "typical_symptoms",
                                     "aria-label": "",
                                     "type": "text",
-                                    "instructions": "Emoji or short label.",
+                                    "instructions": "",
                                     "required": false,
                                     "conditional_logic": false,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "25",
                                         "class": "",
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "maxlength": 10,
+                                    "maxlength": "",
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "parent_repeater": "field_service_pricing_plans"
+                                    "parent_repeater": "field_service_pricing_items"
                                 },
                                 {
-                                    "key": "field_service_pricing_plan_features",
-                                    "label": "Features",
-                                    "name": "features",
+                                    "key": "field_service_pricing_turnaround",
+                                    "label": "Turnaround*",
+                                    "name": "turnaround",
                                     "aria-label": "",
-                                    "type": "repeater",
-                                    "instructions": "List plan features.",
+                                    "type": "text",
+                                    "instructions": "",
                                     "required": false,
                                     "conditional_logic": false,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "25",
                                         "class": "",
                                         "id": ""
                                     },
-                                    "min": 0,
-                                    "max": 0,
-                                    "rows_per_page": 20,
-                                    "layout": "table",
-                                    "button_label": "Add Feature",
-                                    "collapsed": "",
-                                    "parent_repeater": "field_service_pricing_plans",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_service_pricing_plan_feature_text",
-                                            "label": "Feature",
-                                            "name": "feature",
-                                            "aria-label": "",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": false,
-                                            "conditional_logic": false,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "maxlength": 150,
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "parent_repeater": "field_service_pricing_plan_features"
-                                        }
-                                    ]
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_service_pricing_items"
+                                },
+                                {
+                                    "key": "field_service_pricing_price",
+                                    "label": "Price (from)",
+                                    "name": "price_from",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "25",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_service_pricing_items"
                                 }
                             ]
                         }

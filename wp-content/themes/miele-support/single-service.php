@@ -69,7 +69,7 @@ if ($level === 1) {
 
                 case 'service_pricing_table':
                     set_query_var('section_data', $section);
-                    get_template_part('template-parts/service/pricing-table-flexible');
+                    get_template_part('template-parts/service/pricing-flexible');
                     break;
 
                 case 'service_cta_secondary':
@@ -177,7 +177,7 @@ if ($level === 1) {
 
                 case 'service_pricing_table':
                     set_query_var('section_data', $section);
-                    get_template_part('template-parts/service/pricing-table-flexible');
+                    get_template_part('template-parts/service/pricing-flexible');
                     break;
 
                 case 'service_cta_secondary':
@@ -282,7 +282,7 @@ if ($level === 1) {
 
                 case 'service_pricing_table':
                     set_query_var('section_data', $section);
-                    get_template_part('template-parts/service/pricing-table-flexible');
+                    get_template_part('template-parts/service/pricing-flexible');
                     break;
 
                 case 'service_cta_secondary':
