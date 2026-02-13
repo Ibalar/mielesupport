@@ -380,3 +380,127 @@
         padding: 40px 32px;
     }
 }
+
+/* Service Pricing Table - Table Layout */
+
+.service-pricing-table {
+    padding: 80px 0;
+    background: #0b0b0b;
+    color: #f5f5f5;
+    font-family: var(--font-family);
+}
+
+.service-pricing-table__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.service-pricing-table__header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.service-pricing-table__title {
+    margin: 0 0 12px;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 120%;
+    color: var(--white, #ffffff);
+}
+
+.service-pricing-table__subtitle {
+    margin: 0 auto;
+    max-width: 760px;
+    color: #b6b6b6;
+    font-size: 16px;
+    line-height: 160%;
+}
+
+.service-pricing-table__table-wrapper {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #2b2b2b;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.service-pricing-table__table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    background: #121212;
+}
+
+.service-pricing-table__table thead {
+    background: var(--red, #cc2229);
+}
+
+.service-pricing-table__table thead th {
+    padding: 18px 20px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white, #ffffff);
+    letter-spacing: 0.2px;
+}
+
+.service-pricing-table__table tbody tr {
+    background: #121212;
+    border-bottom: 1px solid #2b2b2b;
+    transition: background-color 0.2s ease;
+}
+
+.service-pricing-table__table tbody tr:nth-child(even) {
+    background: #1c1c1c;
+}
+
+.service-pricing-table__table tbody tr:hover {
+    background: #262626;
+}
+
+.service-pricing-table__table tbody td {
+    padding: 18px 20px;
+    font-size: 15px;
+    line-height: 150%;
+    color: #f1f1f1;
+}
+
+.service-pricing-table__table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.service-pricing-table__cell--price,
+.service-pricing-table__head--price {
+    text-align: right;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.service-pricing-table__cell--turnaround,
+.service-pricing-table__head--turnaround {
+    white-space: nowrap;
+}
+
+@media (max-width: 743px) {
+    .service-pricing-table {
+        padding: 56px 0;
+    }
+
+    .service-pricing-table__container {
+        padding: 0 16px;
+    }
+
+    .service-pricing-table__title {
+        font-size: 28px;
+    }
+
+    .service-pricing-table__subtitle {
+        font-size: 14px;
+    }
+
+    .service-pricing-table__table thead th,
+    .service-pricing-table__table tbody td {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+}
