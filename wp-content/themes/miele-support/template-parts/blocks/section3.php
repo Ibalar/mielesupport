@@ -21,6 +21,7 @@ $button_text = $args['button_text'] ?? '';
 $button_link = $args['button_link'] ?? [];
 $image = $args['image'] ?? [];
 $bg = $args['bg'] ?? [];
+$swap_order = $args['swap_order'] ?? false;
 
 $button_url = '';
 $button_target = '';
@@ -58,7 +59,7 @@ if (!$title && !$description && empty($items) && !$image_url) {
 
 ?>
 
-<section class="section3">
+<section class="section3 <?= $swap_order ? 'section3--swapped' : ''; ?>">
     <?php if ($bg_url): ?>
         <div class="section3__bg">
             <img

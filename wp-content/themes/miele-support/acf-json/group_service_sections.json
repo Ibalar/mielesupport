@@ -1,6 +1,6 @@
 {
     "key": "group_service_sections",
-    "title": "Service — Sections (Flexible)",
+    "title": "Service \u2014 Sections (Flexible)",
     "fields": [
         {
             "key": "field_service_sections",
@@ -204,7 +204,7 @@
                             "name": "booking_link",
                             "aria-label": "",
                             "type": "url",
-                            "instructions": "Custom URL for booking button. Default: \/book-online\/",
+                            "instructions": "Custom URL for booking button. Default: /book-online/",
                             "required": false,
                             "conditional_logic": [
                                 [
@@ -2077,6 +2077,26 @@
                     "label": "Section 3 - Combo Block",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_service_section3_swap_order",
+                            "label": "Swap Order",
+                            "name": "swap_order",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Enable to swap the order of content and image (image on left, content on right)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
                         {
                             "key": "field_service_section3_title",
                             "label": "Title",
