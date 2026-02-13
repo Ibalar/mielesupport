@@ -2,14 +2,14 @@
 
 .service-text-block {
     padding: 50px 0;
-    background: var(--white, #ffffff);
-    color: var(--black22, #222);
+    background: var(--black, #000000);
+    color: var(--white, #ffffff);
     font-family: var(--font-family);
 }
 
 .service-text-block__title {
     margin: 0 0 20px;
-    color: var(--black22, #222);
+    color: var(--white, #ffffff);
     font-family: var(--font-family);
     font-size: 28px;
     font-weight: 600;
@@ -20,7 +20,7 @@
 .service-text-block__description {
     max-width: 840px;
     margin: 0 auto;
-    color: var(--gray66, #666);
+    color: var(--grayc5);
     font-size: 16px;
     line-height: 150%;
 }
