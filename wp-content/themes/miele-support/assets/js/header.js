@@ -105,7 +105,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const nav = document.querySelector(".main-nav");
     const megaMenu = document.querySelector("#services-mega");
-    const toggles = document.querySelectorAll(".js-nav-toggle");
+    const rootToggle = document.querySelector(
+        ".main-nav__item--has-mega .js-nav-toggle"
+    );
+    const submenuToggles = megaMenu
+        ? megaMenu.querySelectorAll(".mega-menu__item--has-sub > .js-nav-toggle")
+        : [];
+    const desktopQuery = window.matchMedia("(min-width: 1025px)");
+
+    function isDesktop() {
+        return desktopQuery.matches;
+    }
 
     function togglePanel(btn, forceOpen = null) {
         const targetSelector = btn.dataset.target;
@@ -118,42 +128,83 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
         panel.hidden = !shouldOpen;
         btn.classList.toggle("is-open", shouldOpen);
+
+        if (panel.classList.contains("mega-menu__sub")) {
+            panel.classList.toggle("mega-menu__submenu--collapsed", !shouldOpen);
+            panel.classList.toggle("mega-menu__submenu--expanded", shouldOpen);
+        }
+
+        if (panel === megaMenu && !shouldOpen) {
+            closeAllSubmenus();
+        }
     }
 
-    // клик по триггерам
-    toggles.forEach((btn) => {
-        btn.addEventListener("click", () => togglePanel(btn));
+    function closeAllSubmenus() {
+        submenuToggles.forEach((btn) => togglePanel(btn, false));
+    }
+
+    function closeSiblingSubmenus(activeBtn) {
+        submenuToggles.forEach((btn) => {
+            if (btn !== activeBtn) {
+                togglePanel(btn, false);
+            }
+        });
+    }
+
+    submenuToggles.forEach((btn) => {
+        const item = btn.closest(".mega-menu__item--has-sub");
+
+        btn.addEventListener("click", (event) => {
+            event.preventDefault();
+            closeSiblingSubmenus(btn);
+            togglePanel(btn);
+        });
+
+        if (item) {
+            item.addEventListener("mouseenter", () => {
+                if (!isDesktop()) return;
+                closeSiblingSubmenus(btn);
+                togglePanel(btn, true);
+            });
+
+            item.addEventListener("mouseleave", () => {
+                if (!isDesktop()) return;
+                togglePanel(btn, false);
+            });
+        }
     });
 
-    // ховер только для верхнего пункта (Services)
-    const rootItem = document.querySelector(".main-nav__item--has-mega");
-    if (rootItem) {
-        const rootBtn = rootItem.querySelector(".js-nav-toggle");
+    if (rootToggle) {
+        const rootItem = rootToggle.closest(".main-nav__item--has-mega");
         let hoverTimeout;
 
-        rootItem.addEventListener("mouseenter", () => {
-            clearTimeout(hoverTimeout);
-            togglePanel(rootBtn, true);
+        rootToggle.addEventListener("click", (event) => {
+            event.preventDefault();
+            togglePanel(rootToggle);
         });
 
-        rootItem.addEventListener("mouseleave", (e) => {
-            // Проверяем, не перешла ли мышь на mega-menu
-            hoverTimeout = setTimeout(() => {
-                // Если мышь не на mega-menu, закрываем
-                if (!megaMenu || !megaMenu.matches(':hover')) {
-                    togglePanel(rootBtn, false);
-                }
-            }, 100);
-        });
+        if (rootItem) {
+            rootItem.addEventListener("mouseenter", () => {
+                clearTimeout(hoverTimeout);
+                togglePanel(rootToggle, true);
+            });
 
-        // Обработчик для mega-menu
+            rootItem.addEventListener("mouseleave", () => {
+                hoverTimeout = setTimeout(() => {
+                    if (!megaMenu || !megaMenu.matches(":hover")) {
+                        togglePanel(rootToggle, false);
+                    }
+                }, 100);
+            });
+        }
+
         if (megaMenu) {
             megaMenu.addEventListener("mouseenter", () => {
                 clearTimeout(hoverTimeout);
             });
 
             megaMenu.addEventListener("mouseleave", () => {
-                togglePanel(rootBtn, false);
+                togglePanel(rootToggle, false);
             });
         }
     }
@@ -165,7 +216,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (clickInsideNav || clickInsideMega) return;
 
-        toggles.forEach((btn) => togglePanel(btn, false));
+        if (rootToggle) {
+            togglePanel(rootToggle, false);
+        }
+        closeAllSubmenus();
     });
 
     // -------- Бургер подменю --------

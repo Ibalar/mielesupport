@@ -585,6 +585,20 @@
     color: var(--red);
 }
 
+.mega-menu__sub {
+    margin-top: 6px;
+    padding-left: 12px;
+}
+
+.mega-menu__sub[hidden],
+.mega-menu__submenu--collapsed {
+    display: none;
+}
+
+.mega-menu__submenu--expanded {
+    display: block;
+}
+
 .mega-menu__sub a {
     font-family: var(--font-family);
     font-weight: 400;
