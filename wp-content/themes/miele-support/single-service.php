@@ -97,21 +97,87 @@ if ($level === 1) {
     }
 
 } elseif ($level === 2) {
-    // Уровень 2: Тип прибора - показать конечные услуги
+    // Уровень 2: Тип прибора - показать конечные услуги и flexible content секции
     get_template_part('template-parts/service/children-grid');
 
     if (!empty($service_sections) && is_array($service_sections)) {
         foreach ($service_sections as $section) {
             $layout = $section['acf_fc_layout'] ?? '';
 
-            if ($layout === 'services_catalog') {
-                set_query_var('section_data', $section);
-                get_template_part('template-parts/service/flexible/services-catalog');
-            }
+            switch ($layout) {
+                case 'service_advantages':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/advantages-flexible');
+                    break;
 
-            if ($layout === 'catalog-description') {
-                set_query_var('section_data', $section);
-                get_template_part('template-parts/service/flexible/catalog-description');
+                case 'service_models':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/models-flexible');
+                    break;
+
+                case 'service_problems':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/problems-flexible');
+                    break;
+
+                case 'service_pricing_table':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/pricing-table-flexible');
+                    break;
+
+                case 'service_cta_secondary':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/cta-secondary-flexible');
+                    break;
+
+                case 'service_error_codes':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/error-codes-flexible');
+                    break;
+
+                case 'service_reviews':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/reviews-flexible');
+                    break;
+
+                case 'service_areas':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/areas-flexible');
+                    break;
+
+                case 'service_trust_cta':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/trust-cta-flexible');
+                    break;
+
+                case 'service_accent':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/accent');
+                    break;
+
+                case 'service_accent_with_buttons':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/accent_with_buttons');
+                    break;
+
+                case 'services_catalog':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/services-catalog');
+                    break;
+
+                case 'catalog-description':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/catalog-description');
+                    break;
+
+                case 'service_hero':
+                    // Hero уже выведен выше, пропускаем
+                    break;
+
+                case 'service_section3':
+                    set_query_var('section_data', $section);
+                    get_template_part('template-parts/service/flexible/section3');
+                    break;
             }
         }
     }
