@@ -249,3 +249,10 @@
 .section3--swapped .section3__wrapper {
     flex-direction: row-reverse;
 }
+
+/* Mobile - ensure swapped layout still stacks vertically */
+@media (max-width: 743px) {
+    .section3--swapped .section3__wrapper {
+        flex-direction: column;
+    }
+}
