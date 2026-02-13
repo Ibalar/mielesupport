@@ -4,6 +4,24 @@
     padding: 80px 0;
     background: var(--bg-secondary, #1a1a1a);
     color: var(--white, #ffffff);
+    position: relative;
+}
+
+.cta-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-secondary, #1a1a1a);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.cta-secondary .container {
+    position: relative;
+    z-index: 2;
 }
 
 .cta-secondary__content {
@@ -26,6 +44,14 @@
     line-height: 138%;
     margin-bottom: 40px;
     color: var(--grayc5, #c5c5c5);
+}
+
+.cta-secondary__subtitle p {
+    margin-bottom: 0;
+}
+
+.cta-secondary__subtitle p:last-child {
+    margin-bottom: 0;
 }
 
 .cta-secondary__actions {

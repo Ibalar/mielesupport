@@ -1,2320 +1,2345 @@
 {
-    "key": "group_service_sections",
-    "title": "Service — Sections (Flexible)",
-    "fields": [
-        {
-            "key": "field_service_sections",
-            "label": "Service Sections",
-            "name": "service_sections",
-            "aria-label": "",
-            "type": "flexible_content",
-            "instructions": "Build the service page sections in the required order.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
+  "key": "group_service_sections",
+  "title": "Service — Sections (Flexible)",
+  "fields": [
+    {
+      "key": "field_service_sections",
+      "label": "Service Sections",
+      "name": "service_sections",
+      "aria-label": "",
+      "type": "flexible_content",
+      "instructions": "Build the service page sections in the required order.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layouts": {
+        "service_hero_layout": {
+          "key": "service_hero_layout",
+          "name": "service_hero",
+          "label": "Service Hero",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_hero_eyebrow",
+              "label": "Eyebrow Text",
+              "name": "eyebrow",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Small text above the title (e.g., 'Professional Service').",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
+              },
+              "default_value": "",
+              "maxlength": 100,
+              "placeholder": "e.g., Professional Repair Service",
+              "prepend": "",
+              "append": ""
             },
-            "layouts": {
-                "service_hero_layout": {
-                    "key": "service_hero_layout",
-                    "name": "service_hero",
-                    "label": "Service Hero",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_hero_eyebrow",
-                            "label": "Eyebrow Text",
-                            "name": "eyebrow",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Small text above the title (e.g., 'Professional Service').",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 100,
-                            "placeholder": "e.g., Professional Repair Service",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_hero_title",
-                            "label": "Custom Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Override the default page title. Leave empty to use the page title.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_hero_show_title",
-                            "label": "Show Title",
-                            "name": "show_title",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "Show or hide the title in hero section.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 1,
-                            "message": "",
-                            "ui": 1,
-                            "ui_on_text": "Show",
-                            "ui_off_text": "Hide"
-                        },
-                        {
-                            "key": "field_service_hero_intro_text",
-                            "label": "Intro Text",
-                            "name": "intro_text",
-                            "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "Short intro under the title.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "basic",
-                            "media_upload": 0,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_service_hero_image",
-                            "label": "Hero Image",
-                            "name": "hero_image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "Image used in service cards or hero area. Falls back to featured image if not set.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": 0,
-                            "min_height": 0,
-                            "min_size": 0,
-                            "max_width": 0,
-                            "max_height": 0,
-                            "max_size": 0,
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_service_hero_overlay_opacity",
-                            "label": "Overlay Opacity",
-                            "name": "overlay_opacity",
-                            "aria-label": "",
-                            "type": "range",
-                            "instructions": "Adjust the darkness of the overlay (0 = transparent, 100 = fully dark).",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 50,
-                            "min": 0,
-                            "max": 100,
-                            "step": 5,
-                            "prepend": "",
-                            "append": "%"
-                        },
-                        {
-                            "key": "field_service_hero_content_align",
-                            "label": "Content Alignment",
-                            "name": "content_align",
-                            "aria-label": "",
-                            "type": "select",
-                            "instructions": "Choose the alignment of hero content.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "center": "Center",
-                                "left": "Left",
-                                "right": "Right"
-                            },
-                            "default_value": "center",
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "ui": 1,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0
-                        },
-                        {
-                            "key": "field_service_hero_show_booking",
-                            "label": "Show Booking Button",
-                            "name": "show_booking",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 1,
-                            "message": "",
-                            "ui": 1,
-                            "ui_on_text": "Show",
-                            "ui_off_text": "Hide"
-                        },
-                        {
-                            "key": "field_service_hero_booking_link",
-                            "label": "Booking Link",
-                            "name": "booking_link",
-                            "aria-label": "",
-                            "type": "url",
-                            "instructions": "Custom URL for booking button. Default: \/book-online\/",
-                            "required": false,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_service_hero_show_booking",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_service_hero_show_phone",
-                            "label": "Show Phone Button",
-                            "name": "show_phone",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 1,
-                            "message": "",
-                            "ui": 1,
-                            "ui_on_text": "Show",
-                            "ui_off_text": "Hide"
-                        },
-                        {
-                            "key": "field_service_hero_phone_number",
-                            "label": "Custom Phone Number",
-                            "name": "phone_number",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Override the default phone number. Leave empty to use the default.",
-                            "required": false,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_service_hero_show_phone",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 20,
-                            "placeholder": "+1 347 894 7974",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_hero_min_height",
-                            "label": "Minimum Height",
-                            "name": "min_height",
-                            "aria-label": "",
-                            "type": "select",
-                            "instructions": "Set the minimum height of the hero section.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "small": "Small (400px)",
-                                "medium": "Medium (520px)",
-                                "large": "Large (620px)",
-                                "full": "Full Screen (100vh)"
-                            },
-                            "default_value": "large",
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "ui": 1,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0
-                        },
-                        {
-                            "key": "field_service_hero_custom_class",
-                            "label": "Custom CSS Class",
-                            "name": "custom_class",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Add custom CSS classes for additional styling.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "e.g., hero--compact hero--dark",
-                            "prepend": "",
-                            "append": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
+            {
+              "key": "field_service_hero_title",
+              "label": "Custom Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Override the default page title. Leave empty to use the page title.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_hero_show_title",
+              "label": "Show Title",
+              "name": "show_title",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "Show or hide the title in hero section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 1,
+              "message": "",
+              "ui": 1,
+              "ui_on_text": "Show",
+              "ui_off_text": "Hide"
+            },
+            {
+              "key": "field_service_hero_intro_text",
+              "label": "Intro Text",
+              "name": "intro_text",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "Short intro under the title.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "tabs": "all",
+              "toolbar": "basic",
+              "media_upload": 0,
+              "delay": 0
+            },
+            {
+              "key": "field_service_hero_image",
+              "label": "Hero Image",
+              "name": "hero_image",
+              "aria-label": "",
+              "type": "image",
+              "instructions": "Image used in service cards or hero area. Falls back to featured image if not set.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": 0,
+              "min_height": 0,
+              "min_size": 0,
+              "max_width": 0,
+              "max_height": 0,
+              "max_size": 0,
+              "mime_types": ""
+            },
+            {
+              "key": "field_service_hero_overlay_opacity",
+              "label": "Overlay Opacity",
+              "name": "overlay_opacity",
+              "aria-label": "",
+              "type": "range",
+              "instructions": "Adjust the darkness of the overlay (0 = transparent, 100 = fully dark).",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 50,
+              "min": 0,
+              "max": 100,
+              "step": 5,
+              "prepend": "",
+              "append": "%"
+            },
+            {
+              "key": "field_service_hero_content_align",
+              "label": "Content Alignment",
+              "name": "content_align",
+              "aria-label": "",
+              "type": "select",
+              "instructions": "Choose the alignment of hero content.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "center": "Center",
+                "left": "Left",
+                "right": "Right"
+              },
+              "default_value": "center",
+              "return_format": "value",
+              "multiple": 0,
+              "allow_null": 0,
+              "ui": 1,
+              "ajax": 0,
+              "placeholder": "",
+              "create_options": 0,
+              "save_options": 0
+            },
+            {
+              "key": "field_service_hero_show_booking",
+              "label": "Show Booking Button",
+              "name": "show_booking",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 1,
+              "message": "",
+              "ui": 1,
+              "ui_on_text": "Show",
+              "ui_off_text": "Hide"
+            },
+            {
+              "key": "field_service_hero_booking_link",
+              "label": "Booking Link",
+              "name": "booking_link",
+              "aria-label": "",
+              "type": "url",
+              "instructions": "Custom URL for booking button. Default: /book-online/",
+              "required": false,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_service_hero_show_booking",
+                    "operator": "==",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": ""
+            },
+            {
+              "key": "field_service_hero_show_phone",
+              "label": "Show Phone Button",
+              "name": "show_phone",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 1,
+              "message": "",
+              "ui": 1,
+              "ui_on_text": "Show",
+              "ui_off_text": "Hide"
+            },
+            {
+              "key": "field_service_hero_phone_number",
+              "label": "Custom Phone Number",
+              "name": "phone_number",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Override the default phone number. Leave empty to use the default.",
+              "required": false,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_service_hero_show_phone",
+                    "operator": "==",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 20,
+              "placeholder": "+1 347 894 7974",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_hero_min_height",
+              "label": "Minimum Height",
+              "name": "min_height",
+              "aria-label": "",
+              "type": "select",
+              "instructions": "Set the minimum height of the hero section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "small": "Small (400px)",
+                "medium": "Medium (520px)",
+                "large": "Large (620px)",
+                "full": "Full Screen (100vh)"
+              },
+              "default_value": "large",
+              "return_format": "value",
+              "multiple": 0,
+              "allow_null": 0,
+              "ui": 1,
+              "ajax": 0,
+              "placeholder": "",
+              "create_options": 0,
+              "save_options": 0
+            },
+            {
+              "key": "field_service_hero_custom_class",
+              "label": "Custom CSS Class",
+              "name": "custom_class",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Add custom CSS classes for additional styling.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": "",
+              "placeholder": "e.g., hero--compact hero--dark",
+              "prepend": "",
+              "append": ""
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_advantages_layout": {
+          "key": "service_advantages_layout",
+          "name": "service_advantages",
+          "label": "Advantages",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_advantages_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Override section title (optional).",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_advantages_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "Optional subtitle for the advantages block.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "new_lines": "",
+              "maxlength": 250,
+              "placeholder": "",
+              "rows": 3
+            },
+            {
+              "key": "field_service_advantages_show_title",
+              "label": "Show Title",
+              "name": "show_title",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "message": "",
+              "default_value": 1,
+              "ui": 1,
+              "ui_on_text": "",
+              "ui_off_text": ""
+            },
+            {
+              "key": "field_service_advantages_show_subtitle",
+              "label": "Show Description",
+              "name": "show_subtitle",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "message": "",
+              "default_value": 1,
+              "ui": 1,
+              "ui_on_text": "",
+              "ui_off_text": ""
+            },
+            {
+              "key": "field_service_advantages",
+              "label": "Advantages",
+              "name": "advantages",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "Add advantage cards.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "min": 4,
+              "max": 4,
+              "rows_per_page": 20,
+              "layout": "table",
+              "button_label": "Add Advantage",
+              "collapsed": "",
+              "sub_fields": [
+                {
+                  "key": "field_service_advantage_icon",
+                  "label": "Icon",
+                  "name": "icon",
+                  "aria-label": "",
+                  "type": "image",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "preview_size": "medium",
+                  "library": "all",
+                  "min_width": 0,
+                  "min_height": 0,
+                  "min_size": 0,
+                  "max_width": 0,
+                  "max_height": 0,
+                  "max_size": 0,
+                  "mime_types": "",
+                  "parent_repeater": "field_service_advantages"
                 },
-                "service_advantages_layout": {
-                    "key": "service_advantages_layout",
-                    "name": "service_advantages",
-                    "label": "Advantages",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_advantages_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Override section title (optional).",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_advantages_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Optional subtitle for the advantages block.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "new_lines": "",
-                            "maxlength": 250,
-                            "placeholder": "",
-                            "rows": 3
-                        },
-                        {
-                            "key": "field_service_advantages_show_title",
-                            "label": "Show Title",
-                            "name": "show_title",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 1,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_service_advantages_show_subtitle",
-                            "label": "Show Description",
-                            "name": "show_subtitle",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 1,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_service_advantages",
-                            "label": "Advantages",
-                            "name": "advantages",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Add advantage cards.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "min": 4,
-                            "max": 4,
-                            "rows_per_page": 20,
-                            "layout": "table",
-                            "button_label": "Add Advantage",
-                            "collapsed": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_advantage_icon",
-                                    "label": "Icon",
-                                    "name": "icon",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": 0,
-                                    "min_height": 0,
-                                    "min_size": 0,
-                                    "max_width": 0,
-                                    "max_height": 0,
-                                    "max_size": 0,
-                                    "mime_types": "",
-                                    "parent_repeater": "field_service_advantages"
-                                },
-                                {
-                                    "key": "field_service_advantage_title",
-                                    "label": "Title",
-                                    "name": "title",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_advantages"
-                                },
-                                {
-                                    "key": "field_service_advantage_text",
-                                    "label": "Text",
-                                    "name": "text",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "new_lines": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "rows": "",
-                                    "parent_repeater": "field_service_advantages"
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
+                {
+                  "key": "field_service_advantage_title",
+                  "label": "Title",
+                  "name": "title",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_advantages"
                 },
-                "service_models_layout": {
-                    "key": "service_models_layout",
-                    "name": "service_models",
-                    "label": "Models",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_models_block_title",
-                            "label": "Block Title",
-                            "name": "block_title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Optional custom title for this section. Leave empty to use default title.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "100",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "Leave empty for default title",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_service_models",
-                            "label": "Models",
-                            "name": "models",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Add supported models.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "min": 0,
-                            "max": 0,
-                            "rows_per_page": 20,
-                            "layout": "table",
-                            "button_label": "Add Model",
-                            "collapsed": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_model_image",
-                                    "label": "Image",
-                                    "name": "image",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": 0,
-                                    "min_height": 0,
-                                    "min_size": 0,
-                                    "max_width": 0,
-                                    "max_height": 0,
-                                    "max_size": 0,
-                                    "mime_types": "",
-                                    "parent_repeater": "field_service_models"
-                                },
-                                {
-                                    "key": "field_service_model_name",
-                                    "label": "Name",
-                                    "name": "name",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_models"
-                                },
-                                {
-                                    "key": "field_service_models_model_description",
-                                    "label": "Description",
-                                    "name": "model_description",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "Short description of this model",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "100",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "Enter model description",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": "",
-                                    "parent_repeater": "field_service_models"
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_problems_layout": {
-                    "key": "service_problems_layout",
-                    "name": "service_problems",
-                    "label": "Common Problems",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_problems_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Optional section title.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_problems",
-                            "label": "Problems",
-                            "name": "problems",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "List common problems and short descriptions.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "min": 0,
-                            "max": 0,
-                            "rows_per_page": 20,
-                            "layout": "table",
-                            "button_label": "Add Problem",
-                            "collapsed": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_problem_question",
-                                    "label": "Problem",
-                                    "name": "question",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_problems"
-                                },
-                                {
-                                    "key": "field_service_problem_answer",
-                                    "label": "Description",
-                                    "name": "answer",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "new_lines": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "rows": 3,
-                                    "parent_repeater": "field_service_problems"
-                                },
-                                {
-                                    "key": "field_service_problem_image",
-                                    "label": "Image",
-                                    "name": "image",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "Optional image for this problem (used in alternating layout).",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": 0,
-                                    "min_height": 0,
-                                    "min_size": 0,
-                                    "max_width": 0,
-                                    "max_height": 0,
-                                    "max_size": 0,
-                                    "mime_types": "",
-                                    "parent_repeater": "field_service_problems"
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_pricing_table_layout": {
-                    "key": "service_pricing_table_layout",
-                    "name": "service_pricing_table",
-                    "label": "Pricing Table",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_pricing_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Optional title for pricing section.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_pricing_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Optional subtitle for pricing section.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "new_lines": "",
-                            "maxlength": 250,
-                            "placeholder": "",
-                            "rows": 3
-                        },
-                        {
-                            "key": "field_service_pricing_items",
-                            "label": "Price Items",
-                            "name": "price_items",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Add pricing line items for the table.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "min": 0,
-                            "max": 0,
-                            "rows_per_page": 20,
-                            "layout": "table",
-                            "button_label": "Add Item",
-                            "collapsed": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_pricing_repair_part",
-                                    "label": "Repair\/Part",
-                                    "name": "repair_part",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "25",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_pricing_items"
-                                },
-                                {
-                                    "key": "field_service_pricing_symptoms",
-                                    "label": "Typical Symptoms",
-                                    "name": "typical_symptoms",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "25",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_pricing_items"
-                                },
-                                {
-                                    "key": "field_service_pricing_turnaround",
-                                    "label": "Turnaround*",
-                                    "name": "turnaround",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "25",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_pricing_items"
-                                },
-                                {
-                                    "key": "field_service_pricing_price",
-                                    "label": "Price (from)",
-                                    "name": "price_from",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "25",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_pricing_items"
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_cta_secondary_layout": {
-                    "key": "service_cta_secondary_layout",
-                    "name": "service_cta_secondary",
-                    "label": "Secondary CTA",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_cta_secondary_title",
-                            "label": "Title",
-                            "name": "cta_secondary_title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Optional override title.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_cta_secondary_subtitle",
-                            "label": "Subtitle",
-                            "name": "cta_secondary_subtitle",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Optional override subtitle.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "new_lines": "",
-                            "maxlength": 250,
-                            "placeholder": "",
-                            "rows": 3
-                        },
-                        {
-                            "key": "field_service_show_booking",
-                            "label": "Show Booking Button",
-                            "name": "show_booking",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 1,
-                            "message": "",
-                            "ui": 1,
-                            "ui_on_text": "Show",
-                            "ui_off_text": "Hide"
-                        },
-                        {
-                            "key": "field_service_booking_link",
-                            "label": "Booking Link",
-                            "name": "booking_link",
-                            "aria-label": "",
-                            "type": "url",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_service_show_booking",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_service_show_phone",
-                            "label": "Show Phone Button",
-                            "name": "show_phone",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": 1,
-                            "message": "",
-                            "ui": 1,
-                            "ui_on_text": "Show",
-                            "ui_off_text": "Hide"
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_error_codes_layout": {
-                    "key": "service_error_codes_layout",
-                    "name": "service_error_codes",
-                    "label": "Error Codes",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_error_codes_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Optional override title.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_error_codes_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Optional subtitle.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "new_lines": "",
-                            "maxlength": 250,
-                            "placeholder": "",
-                            "rows": 3
-                        },
-                        {
-                            "key": "field_service_error_codes",
-                            "label": "Error Codes",
-                            "name": "error_codes",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Add error codes with explanations.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "min": 0,
-                            "max": 0,
-                            "rows_per_page": 20,
-                            "layout": "table",
-                            "button_label": "Add Error Code",
-                            "collapsed": "",
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_error_code",
-                                    "label": "Code",
-                                    "name": "code",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "25",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": 20,
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_error_codes"
-                                },
-                                {
-                                    "key": "field_service_error_title",
-                                    "label": "Title",
-                                    "name": "title",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "75",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": 150,
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_error_codes"
-                                },
-                                {
-                                    "key": "field_service_error_description",
-                                    "label": "Description",
-                                    "name": "description",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "new_lines": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "rows": 3,
-                                    "parent_repeater": "field_service_error_codes"
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_reviews_layout": {
-                    "key": "service_reviews_layout",
-                    "name": "service_reviews",
-                    "label": "Reviews",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_reviews_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Optional override title.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_reviews_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Optional subtitle.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "new_lines": "",
-                            "maxlength": 250,
-                            "placeholder": "",
-                            "rows": 3
-                        },
-                        {
-                            "key": "field_service_reviews",
-                            "label": "Reviews",
-                            "name": "service_reviews",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Add customer reviews.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "pagination": false,
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add Review",
-                            "rows_per_page": 20,
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_review_avatar",
-                                    "label": "Avatar",
-                                    "name": "avatar",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "thumbnail",
-                                    "library": "all",
-                                    "min_width": 0,
-                                    "min_height": 0,
-                                    "min_size": 0,
-                                    "max_width": 0,
-                                    "max_height": 0,
-                                    "max_size": 0,
-                                    "mime_types": "",
-                                    "parent_repeater": "field_service_reviews"
-                                },
-                                {
-                                    "key": "field_service_review_name",
-                                    "label": "Name",
-                                    "name": "name",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": true,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "50",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "maxlength": 100,
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_reviews"
-                                },
-                                {
-                                    "key": "field_service_review_city",
-                                    "label": "City",
-                                    "name": "city",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "50",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "maxlength": 50,
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_reviews"
-                                },
-                                {
-                                    "key": "field_service_review_title",
-                                    "label": "Review Title",
-                                    "name": "review_title",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "maxlength": 150,
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_reviews"
-                                },
-                                {
-                                    "key": "field_service_review_text",
-                                    "label": "Review Text",
-                                    "name": "review_text",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": true,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "new_lines": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "rows": 4,
-                                    "parent_repeater": "field_service_reviews"
-                                },
-                                {
-                                    "key": "field_service_review_rating",
-                                    "label": "Rating",
-                                    "name": "rating",
-                                    "aria-label": "",
-                                    "type": "number",
-                                    "instructions": "Rating from 1 to 5.",
-                                    "required": true,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": 5,
-                                    "min": 1,
-                                    "max": 5,
-                                    "step": 1,
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_reviews"
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_areas_layout": {
-                    "key": "service_areas_layout",
-                    "name": "service_areas",
-                    "label": "Service Areas",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_areas_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_areas_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "rows": 3,
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_service_areas_list",
-                            "label": "Areas List",
-                            "name": "areas_list",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "One area per line.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "rows": 6,
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_service_areas_map_embed",
-                            "label": "Google Maps Embed",
-                            "name": "map_embed",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Paste iframe embed code.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "rows": 5,
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "services_catalog_layout": {
-                    "key": "services_catalog_layout",
-                    "name": "services_catalog",
-                    "label": "Services Catalog",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_catalog_title",
-                            "label": "Catalog Title",
-                            "name": "catalog_title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Section title for the services catalog.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_catalog_categories",
-                            "label": "Catalog Categories",
-                            "name": "catalog_categories",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Add service categories with items.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "pagination": false,
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add Category",
-                            "rows_per_page": 20,
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_catalog_category_title",
-                                    "label": "Category Title",
-                                    "name": "category_title",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "Name of the service category.",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "50",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_catalog_categories"
-                                },
-                                {
-                                    "key": "field_service_catalog_category_items",
-                                    "label": "Category Items",
-                                    "name": "category_items",
-                                    "aria-label": "",
-                                    "type": "repeater",
-                                    "instructions": "Add service items to this category.",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "layout": "block",
-                                    "pagination": false,
-                                    "min": 0,
-                                    "max": 0,
-                                    "collapsed": "",
-                                    "button_label": "Add Item",
-                                    "rows_per_page": 20,
-                                    "parent_repeater": "field_service_catalog_categories",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_service_catalog_item_image",
-                                            "label": "Item Image",
-                                            "name": "item_image",
-                                            "aria-label": "",
-                                            "type": "image",
-                                            "instructions": "Service item image (recommended size: 300x300px).",
-                                            "required": false,
-                                            "conditional_logic": false,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "return_format": "array",
-                                            "preview_size": "thumbnail",
-                                            "library": "all",
-                                            "min_width": 0,
-                                            "min_height": 0,
-                                            "min_size": 0,
-                                            "max_width": 0,
-                                            "max_height": 0,
-                                            "max_size": 0,
-                                            "mime_types": "",
-                                            "parent_repeater": "field_service_catalog_category_items"
-                                        },
-                                        {
-                                            "key": "field_service_catalog_item_title",
-                                            "label": "Item Title",
-                                            "name": "item_title",
-                                            "aria-label": "",
-                                            "type": "text",
-                                            "instructions": "Name of the service item.",
-                                            "required": true,
-                                            "conditional_logic": false,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "maxlength": 100,
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "parent_repeater": "field_service_catalog_category_items"
-                                        },
-                                        {
-                                            "key": "field_service_catalog_item_link",
-                                            "label": "Item Link",
-                                            "name": "item_link",
-                                            "aria-label": "",
-                                            "type": "link",
-                                            "instructions": "Link to service page or category.",
-                                            "required": true,
-                                            "conditional_logic": false,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "return_format": "array",
-                                            "parent_repeater": "field_service_catalog_category_items"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "catalog_description_layout": {
-                    "key": "catalog_description_layout",
-                    "name": "catalog-description",
-                    "label": "Catalog Description",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_catalog_description_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Section title for the catalog description.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_catalog_description_text",
-                            "label": "Description",
-                            "name": "description",
-                            "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "Main description text for the catalog section.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "basic",
-                            "media_upload": 0,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_catalog_description_background",
-                            "label": "Background Image",
-                            "name": "background_image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "Single background image for the section.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": 0,
-                            "min_height": 0,
-                            "min_size": 0,
-                            "max_width": 0,
-                            "max_height": 0,
-                            "max_size": 0,
-                            "mime_types": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_trust_cta_layout": {
-                    "key": "service_trust_cta_layout",
-                    "name": "service_trust_cta",
-                    "label": "Trust CTA",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_trust_cta_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_trust_cta_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "rows": 3,
-                            "new_lines": "",
-                            "maxlength": "",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_service_trust_cta_button_text",
-                            "label": "Button Text",
-                            "name": "button_text",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 100,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_trust_cta_button_link",
-                            "label": "Button Link",
-                            "name": "button_link",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_accent_layout": {
-                    "key": "service_accent_layout",
-                    "name": "service_accent",
-                    "label": "Accent Section",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_accent_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_accent_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "basic",
-                            "media_upload": 0,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_service_accent_button_text",
-                            "label": "Button Text",
-                            "name": "button_text",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 100,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_accent_button_link",
-                            "label": "Button Link",
-                            "name": "button_link",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_accent_with_buttons_layout": {
-                    "key": "service_accent_with_buttons_layout",
-                    "name": "service_accent_with_buttons",
-                    "label": "Accent Section with Buttons",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_accent_buttons_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_accent_buttons_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "basic",
-                            "media_upload": 0,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_service_accent_buttons_buttons",
-                            "label": "Buttons",
-                            "name": "buttons",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Add multiple action buttons (max 3 recommended).",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "table",
-                            "pagination": 0,
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add Button",
-                            "rows_per_page": 20,
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_accent_buttons_button_text",
-                                    "label": "Button Text",
-                                    "name": "button_text",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": 100,
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_accent_buttons_buttons"
-                                },
-                                {
-                                    "key": "field_service_accent_buttons_button_link",
-                                    "label": "Button Link",
-                                    "name": "button_link",
-                                    "aria-label": "",
-                                    "type": "link",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "parent_repeater": "field_service_accent_buttons_buttons"
-                                },
-                                {
-                                    "key": "field_service_accent_buttons_button_style",
-                                    "label": "Button Style",
-                                    "name": "button_style",
-                                    "aria-label": "",
-                                    "type": "select",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "choices": {
-                                        "primary": "Primary (filled)",
-                                        "outline": "Outline (transparent)"
-                                    },
-                                    "default_value": "primary",
-                                    "return_format": "value",
-                                    "multiple": 0,
-                                    "allow_null": 0,
-                                    "ui": 0,
-                                    "ajax": 0,
-                                    "placeholder": "",
-                                    "parent_repeater": "field_service_accent_buttons_buttons",
-                                    "create_options": 0,
-                                    "save_options": 0
-                                }
-                            ]
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_service_text_block": {
-                    "key": "layout_service_text_block",
-                    "name": "text_block",
-                    "label": "Text Block",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_text_block_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_text_block_description",
-                            "label": "Description",
-                            "name": "description",
-                            "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "service_section3_layout": {
-                    "key": "service_section3_layout",
-                    "name": "service_section3",
-                    "label": "Section 3 - Combo Block",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_service_section3_swap_order",
-                            "label": "Swap Order",
-                            "name": "swap_order",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "Enable to swap the order of content and image (image on left, content on right)",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        },
-                        {
-                            "key": "field_service_section3_title",
-                            "label": "Title",
-                            "name": "title",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "Section title heading.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 150,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_section3_description",
-                            "label": "Description",
-                            "name": "description",
-                            "aria-label": "",
-                            "type": "wysiwyg",
-                            "instructions": "Description text below the title.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "basic",
-                            "media_upload": 0,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_service_section3_items",
-                            "label": "List Items",
-                            "name": "items",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Add list items with icons and text.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "pagination": false,
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add List Item",
-                            "rows_per_page": 20,
-                            "sub_fields": [
-                                {
-                                    "key": "field_service_section3_item_icon",
-                                    "label": "Icon",
-                                    "name": "item_icon",
-                                    "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "Upload icon image or leave empty for default SVG.",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "thumbnail",
-                                    "library": "all",
-                                    "min_width": 0,
-                                    "min_height": 0,
-                                    "min_size": 0,
-                                    "max_width": 0,
-                                    "max_height": 0,
-                                    "max_size": 0,
-                                    "mime_types": "",
-                                    "parent_repeater": "field_service_section3_items"
-                                },
-                                {
-                                    "key": "field_service_section3_item_text",
-                                    "label": "Text",
-                                    "name": "item_text",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": false,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": 150,
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_service_section3_items"
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_service_section3_button_text",
-                            "label": "Button Text",
-                            "name": "button_text",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "If empty, will use link title.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "maxlength": 50,
-                            "placeholder": "Learn More",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_service_section3_button_link",
-                            "label": "Button Link",
-                            "name": "button_link",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        },
-                        {
-                            "key": "field_service_section3_image",
-                            "label": "Image",
-                            "name": "image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "Main image displayed in the section.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": 0,
-                            "min_height": 0,
-                            "min_size": 0,
-                            "max_width": 0,
-                            "max_height": 0,
-                            "max_size": 0,
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_service_section3_bg",
-                            "label": "Background Image",
-                            "name": "bg",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "Optional background image for the section.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": 0,
-                            "min_height": 0,
-                            "min_size": 0,
-                            "max_width": 0,
-                            "max_height": 0,
-                            "max_size": 0,
-                            "mime_types": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
+                {
+                  "key": "field_service_advantage_text",
+                  "label": "Text",
+                  "name": "text",
+                  "aria-label": "",
+                  "type": "textarea",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "new_lines": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "rows": "",
+                  "parent_repeater": "field_service_advantages"
                 }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_models_layout": {
+          "key": "service_models_layout",
+          "name": "service_models",
+          "label": "Models",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_models_block_title",
+              "label": "Block Title",
+              "name": "block_title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Optional custom title for this section. Leave empty to use default title.",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "Leave empty for default title",
+              "prepend": "",
+              "append": "",
+              "maxlength": ""
             },
-            "button_label": "Add Service Section",
-            "min": 0,
-            "max": 0,
-            "pagination": false,
-            "instructions_placement": "label"
+            {
+              "key": "field_service_models",
+              "label": "Models",
+              "name": "models",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "Add supported models.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "min": 0,
+              "max": 0,
+              "rows_per_page": 20,
+              "layout": "table",
+              "button_label": "Add Model",
+              "collapsed": "",
+              "sub_fields": [
+                {
+                  "key": "field_service_model_image",
+                  "label": "Image",
+                  "name": "image",
+                  "aria-label": "",
+                  "type": "image",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "preview_size": "medium",
+                  "library": "all",
+                  "min_width": 0,
+                  "min_height": 0,
+                  "min_size": 0,
+                  "max_width": 0,
+                  "max_height": 0,
+                  "max_size": 0,
+                  "mime_types": "",
+                  "parent_repeater": "field_service_models"
+                },
+                {
+                  "key": "field_service_model_name",
+                  "label": "Name",
+                  "name": "name",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_models"
+                },
+                {
+                  "key": "field_service_models_model_description",
+                  "label": "Description",
+                  "name": "model_description",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "Short description of this model",
+                  "required": 0,
+                  "conditional_logic": 0,
+                  "wrapper": {
+                    "width": "100",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "placeholder": "Enter model description",
+                  "prepend": "",
+                  "append": "",
+                  "maxlength": "",
+                  "parent_repeater": "field_service_models"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_problems_layout": {
+          "key": "service_problems_layout",
+          "name": "service_problems",
+          "label": "Common Problems",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_problems_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Optional section title.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_problems",
+              "label": "Problems",
+              "name": "problems",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "List common problems and short descriptions.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "min": 0,
+              "max": 0,
+              "rows_per_page": 20,
+              "layout": "table",
+              "button_label": "Add Problem",
+              "collapsed": "",
+              "sub_fields": [
+                {
+                  "key": "field_service_problem_question",
+                  "label": "Problem",
+                  "name": "question",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_problems"
+                },
+                {
+                  "key": "field_service_problem_answer",
+                  "label": "Description",
+                  "name": "answer",
+                  "aria-label": "",
+                  "type": "textarea",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "new_lines": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "rows": 3,
+                  "parent_repeater": "field_service_problems"
+                },
+                {
+                  "key": "field_service_problem_image",
+                  "label": "Image",
+                  "name": "image",
+                  "aria-label": "",
+                  "type": "image",
+                  "instructions": "Optional image for this problem (used in alternating layout).",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "preview_size": "medium",
+                  "library": "all",
+                  "min_width": 0,
+                  "min_height": 0,
+                  "min_size": 0,
+                  "max_width": 0,
+                  "max_height": 0,
+                  "max_size": 0,
+                  "mime_types": "",
+                  "parent_repeater": "field_service_problems"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_pricing_table_layout": {
+          "key": "service_pricing_table_layout",
+          "name": "service_pricing_table",
+          "label": "Pricing Table",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_pricing_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Optional title for pricing section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_pricing_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "Optional subtitle for pricing section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "new_lines": "",
+              "maxlength": 250,
+              "placeholder": "",
+              "rows": 3
+            },
+            {
+              "key": "field_service_pricing_items",
+              "label": "Price Items",
+              "name": "price_items",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "Add pricing line items for the table.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "min": 0,
+              "max": 0,
+              "rows_per_page": 20,
+              "layout": "table",
+              "button_label": "Add Item",
+              "collapsed": "",
+              "sub_fields": [
+                {
+                  "key": "field_service_pricing_repair_part",
+                  "label": "Repair/Part",
+                  "name": "repair_part",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "25",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_pricing_items"
+                },
+                {
+                  "key": "field_service_pricing_symptoms",
+                  "label": "Typical Symptoms",
+                  "name": "typical_symptoms",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "25",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_pricing_items"
+                },
+                {
+                  "key": "field_service_pricing_turnaround",
+                  "label": "Turnaround*",
+                  "name": "turnaround",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "25",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_pricing_items"
+                },
+                {
+                  "key": "field_service_pricing_price",
+                  "label": "Price (from)",
+                  "name": "price_from",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "25",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_pricing_items"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_cta_secondary_layout": {
+          "key": "service_cta_secondary_layout",
+          "name": "service_cta_secondary",
+          "label": "Secondary CTA",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_cta_secondary_title",
+              "label": "Title",
+              "name": "cta_secondary_title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Optional override title.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_cta_secondary_subtitle",
+              "label": "Subtitle",
+              "name": "cta_secondary_subtitle",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "Optional override subtitle.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": "",
+              "tabs": "all",
+              "toolbar": "basic",
+              "media_upload": 0
+            },
+            {
+              "key": "field_service_secondary_cta_bg_image",
+              "label": "Background Image",
+              "name": "bg_image",
+              "aria-label": "",
+              "type": "image",
+              "instructions": "Optional background image for the section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": 0,
+              "min_height": 0,
+              "min_size": 0,
+              "max_width": 0,
+              "max_height": 0,
+              "max_size": 0,
+              "mime_types": ""
+            },
+            {
+              "key": "field_service_show_booking",
+              "label": "Show Booking Button",
+              "name": "show_booking",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 1,
+              "message": "",
+              "ui": 1,
+              "ui_on_text": "Show",
+              "ui_off_text": "Hide"
+            },
+            {
+              "key": "field_service_booking_link",
+              "label": "Booking Link",
+              "name": "booking_link",
+              "aria-label": "",
+              "type": "url",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_service_show_booking",
+                    "operator": "==",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "placeholder": ""
+            },
+            {
+              "key": "field_service_show_phone",
+              "label": "Show Phone Button",
+              "name": "show_phone",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 1,
+              "message": "",
+              "ui": 1,
+              "ui_on_text": "Show",
+              "ui_off_text": "Hide"
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_error_codes_layout": {
+          "key": "service_error_codes_layout",
+          "name": "service_error_codes",
+          "label": "Error Codes",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_error_codes_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Optional override title.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_error_codes_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "Optional subtitle.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "new_lines": "",
+              "maxlength": 250,
+              "placeholder": "",
+              "rows": 3
+            },
+            {
+              "key": "field_service_error_codes",
+              "label": "Error Codes",
+              "name": "error_codes",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "Add error codes with explanations.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "min": 0,
+              "max": 0,
+              "rows_per_page": 20,
+              "layout": "table",
+              "button_label": "Add Error Code",
+              "collapsed": "",
+              "sub_fields": [
+                {
+                  "key": "field_service_error_code",
+                  "label": "Code",
+                  "name": "code",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "25",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": 20,
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_error_codes"
+                },
+                {
+                  "key": "field_service_error_title",
+                  "label": "Title",
+                  "name": "title",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "75",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": 150,
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_error_codes"
+                },
+                {
+                  "key": "field_service_error_description",
+                  "label": "Description",
+                  "name": "description",
+                  "aria-label": "",
+                  "type": "textarea",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "new_lines": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "rows": 3,
+                  "parent_repeater": "field_service_error_codes"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_reviews_layout": {
+          "key": "service_reviews_layout",
+          "name": "service_reviews",
+          "label": "Reviews",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_reviews_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Optional override title.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_reviews_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "Optional subtitle.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "new_lines": "",
+              "maxlength": 250,
+              "placeholder": "",
+              "rows": 3
+            },
+            {
+              "key": "field_service_reviews",
+              "label": "Reviews",
+              "name": "service_reviews",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "Add customer reviews.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "layout": "block",
+              "pagination": false,
+              "min": 0,
+              "max": 0,
+              "collapsed": "",
+              "button_label": "Add Review",
+              "rows_per_page": 20,
+              "sub_fields": [
+                {
+                  "key": "field_service_review_avatar",
+                  "label": "Avatar",
+                  "name": "avatar",
+                  "aria-label": "",
+                  "type": "image",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "preview_size": "thumbnail",
+                  "library": "all",
+                  "min_width": 0,
+                  "min_height": 0,
+                  "min_size": 0,
+                  "max_width": 0,
+                  "max_height": 0,
+                  "max_size": 0,
+                  "mime_types": "",
+                  "parent_repeater": "field_service_reviews"
+                },
+                {
+                  "key": "field_service_review_name",
+                  "label": "Name",
+                  "name": "name",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": true,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                  },
+                  "maxlength": 100,
+                  "default_value": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_reviews"
+                },
+                {
+                  "key": "field_service_review_city",
+                  "label": "City",
+                  "name": "city",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                  },
+                  "maxlength": 50,
+                  "default_value": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_reviews"
+                },
+                {
+                  "key": "field_service_review_title",
+                  "label": "Review Title",
+                  "name": "review_title",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "maxlength": 150,
+                  "default_value": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_reviews"
+                },
+                {
+                  "key": "field_service_review_text",
+                  "label": "Review Text",
+                  "name": "review_text",
+                  "aria-label": "",
+                  "type": "textarea",
+                  "instructions": "",
+                  "required": true,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "new_lines": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "rows": 4,
+                  "parent_repeater": "field_service_reviews"
+                },
+                {
+                  "key": "field_service_review_rating",
+                  "label": "Rating",
+                  "name": "rating",
+                  "aria-label": "",
+                  "type": "number",
+                  "instructions": "Rating from 1 to 5.",
+                  "required": true,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": 5,
+                  "min": 1,
+                  "max": 5,
+                  "step": 1,
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_reviews"
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_areas_layout": {
+          "key": "service_areas_layout",
+          "name": "service_areas",
+          "label": "Service Areas",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_areas_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_areas_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "rows": 3,
+              "new_lines": "",
+              "maxlength": "",
+              "placeholder": ""
+            },
+            {
+              "key": "field_service_areas_list",
+              "label": "Areas List",
+              "name": "areas_list",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "One area per line.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "rows": 6,
+              "new_lines": "",
+              "maxlength": "",
+              "placeholder": ""
+            },
+            {
+              "key": "field_service_areas_map_embed",
+              "label": "Google Maps Embed",
+              "name": "map_embed",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "Paste iframe embed code.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "rows": 5,
+              "new_lines": "",
+              "maxlength": "",
+              "placeholder": ""
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "services_catalog_layout": {
+          "key": "services_catalog_layout",
+          "name": "services_catalog",
+          "label": "Services Catalog",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_catalog_title",
+              "label": "Catalog Title",
+              "name": "catalog_title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Section title for the services catalog.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": "",
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_catalog_categories",
+              "label": "Catalog Categories",
+              "name": "catalog_categories",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "Add service categories with items.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "layout": "block",
+              "pagination": false,
+              "min": 0,
+              "max": 0,
+              "collapsed": "",
+              "button_label": "Add Category",
+              "rows_per_page": 20,
+              "sub_fields": [
+                {
+                  "key": "field_service_catalog_category_title",
+                  "label": "Category Title",
+                  "name": "category_title",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "Name of the service category.",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": "",
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_catalog_categories"
+                },
+                {
+                  "key": "field_service_catalog_category_items",
+                  "label": "Category Items",
+                  "name": "category_items",
+                  "aria-label": "",
+                  "type": "repeater",
+                  "instructions": "Add service items to this category.",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "layout": "block",
+                  "pagination": false,
+                  "min": 0,
+                  "max": 0,
+                  "collapsed": "",
+                  "button_label": "Add Item",
+                  "rows_per_page": 20,
+                  "parent_repeater": "field_service_catalog_categories",
+                  "sub_fields": [
+                    {
+                      "key": "field_service_catalog_item_image",
+                      "label": "Item Image",
+                      "name": "item_image",
+                      "aria-label": "",
+                      "type": "image",
+                      "instructions": "Service item image (recommended size: 300x300px).",
+                      "required": false,
+                      "conditional_logic": false,
+                      "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                      },
+                      "return_format": "array",
+                      "preview_size": "thumbnail",
+                      "library": "all",
+                      "min_width": 0,
+                      "min_height": 0,
+                      "min_size": 0,
+                      "max_width": 0,
+                      "max_height": 0,
+                      "max_size": 0,
+                      "mime_types": "",
+                      "parent_repeater": "field_service_catalog_category_items"
+                    },
+                    {
+                      "key": "field_service_catalog_item_title",
+                      "label": "Item Title",
+                      "name": "item_title",
+                      "aria-label": "",
+                      "type": "text",
+                      "instructions": "Name of the service item.",
+                      "required": true,
+                      "conditional_logic": false,
+                      "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                      },
+                      "default_value": "",
+                      "maxlength": 100,
+                      "placeholder": "",
+                      "prepend": "",
+                      "append": "",
+                      "parent_repeater": "field_service_catalog_category_items"
+                    },
+                    {
+                      "key": "field_service_catalog_item_link",
+                      "label": "Item Link",
+                      "name": "item_link",
+                      "aria-label": "",
+                      "type": "link",
+                      "instructions": "Link to service page or category.",
+                      "required": true,
+                      "conditional_logic": false,
+                      "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                      },
+                      "return_format": "array",
+                      "parent_repeater": "field_service_catalog_category_items"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "catalog_description_layout": {
+          "key": "catalog_description_layout",
+          "name": "catalog-description",
+          "label": "Catalog Description",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_catalog_description_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Section title for the catalog description.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_catalog_description_text",
+              "label": "Description",
+              "name": "description",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "Main description text for the catalog section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "tabs": "all",
+              "toolbar": "basic",
+              "media_upload": 0,
+              "delay": 0
+            },
+            {
+              "key": "field_catalog_description_background",
+              "label": "Background Image",
+              "name": "background_image",
+              "aria-label": "",
+              "type": "image",
+              "instructions": "Single background image for the section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": 0,
+              "min_height": 0,
+              "min_size": 0,
+              "max_width": 0,
+              "max_height": 0,
+              "max_size": 0,
+              "mime_types": ""
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_trust_cta_layout": {
+          "key": "service_trust_cta_layout",
+          "name": "service_trust_cta",
+          "label": "Trust CTA",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_trust_cta_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_trust_cta_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "rows": 3,
+              "new_lines": "",
+              "maxlength": "",
+              "placeholder": ""
+            },
+            {
+              "key": "field_service_trust_cta_button_text",
+              "label": "Button Text",
+              "name": "button_text",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 100,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_trust_cta_button_link",
+              "label": "Button Link",
+              "name": "button_link",
+              "aria-label": "",
+              "type": "link",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array"
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_accent_layout": {
+          "key": "service_accent_layout",
+          "name": "service_accent",
+          "label": "Accent Section",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_accent_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_accent_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "tabs": "all",
+              "toolbar": "basic",
+              "media_upload": 0,
+              "delay": 0
+            },
+            {
+              "key": "field_service_accent_button_text",
+              "label": "Button Text",
+              "name": "button_text",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 100,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_accent_button_link",
+              "label": "Button Link",
+              "name": "button_link",
+              "aria-label": "",
+              "type": "link",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array"
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_accent_with_buttons_layout": {
+          "key": "service_accent_with_buttons_layout",
+          "name": "service_accent_with_buttons",
+          "label": "Accent Section with Buttons",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_accent_buttons_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_accent_buttons_subtitle",
+              "label": "Subtitle",
+              "name": "subtitle",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "tabs": "all",
+              "toolbar": "basic",
+              "media_upload": 0,
+              "delay": 0
+            },
+            {
+              "key": "field_service_accent_buttons_buttons",
+              "label": "Buttons",
+              "name": "buttons",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "Add multiple action buttons (max 3 recommended).",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "layout": "table",
+              "pagination": 0,
+              "min": 0,
+              "max": 0,
+              "collapsed": "",
+              "button_label": "Add Button",
+              "rows_per_page": 20,
+              "sub_fields": [
+                {
+                  "key": "field_service_accent_buttons_button_text",
+                  "label": "Button Text",
+                  "name": "button_text",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": 100,
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_accent_buttons_buttons"
+                },
+                {
+                  "key": "field_service_accent_buttons_button_link",
+                  "label": "Button Link",
+                  "name": "button_link",
+                  "aria-label": "",
+                  "type": "link",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "parent_repeater": "field_service_accent_buttons_buttons"
+                },
+                {
+                  "key": "field_service_accent_buttons_button_style",
+                  "label": "Button Style",
+                  "name": "button_style",
+                  "aria-label": "",
+                  "type": "select",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "choices": {
+                    "primary": "Primary (filled)",
+                    "outline": "Outline (transparent)"
+                  },
+                  "default_value": "primary",
+                  "return_format": "value",
+                  "multiple": 0,
+                  "allow_null": 0,
+                  "ui": 0,
+                  "ajax": 0,
+                  "placeholder": "",
+                  "parent_repeater": "field_service_accent_buttons_buttons",
+                  "create_options": 0,
+                  "save_options": 0
+                }
+              ]
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_service_text_block": {
+          "key": "layout_service_text_block",
+          "name": "text_block",
+          "label": "Text Block",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_text_block_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": "",
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_text_block_description",
+              "label": "Description",
+              "name": "description",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "tabs": "all",
+              "toolbar": "full",
+              "media_upload": 1,
+              "delay": 0
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "service_section3_layout": {
+          "key": "service_section3_layout",
+          "name": "service_section3",
+          "label": "Section 3 - Combo Block",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_service_section3_swap_order",
+              "label": "Swap Order",
+              "name": "swap_order",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "Enable to swap the order of content and image (image on left, content on right)",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "message": "",
+              "default_value": 0,
+              "ui": 1,
+              "ui_on_text": "",
+              "ui_off_text": ""
+            },
+            {
+              "key": "field_service_section3_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Section title heading.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 150,
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_section3_description",
+              "label": "Description",
+              "name": "description",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "Description text below the title.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "tabs": "all",
+              "toolbar": "basic",
+              "media_upload": 0,
+              "delay": 0
+            },
+            {
+              "key": "field_service_section3_items",
+              "label": "List Items",
+              "name": "items",
+              "aria-label": "",
+              "type": "repeater",
+              "instructions": "Add list items with icons and text.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "layout": "block",
+              "pagination": false,
+              "min": 0,
+              "max": 0,
+              "collapsed": "",
+              "button_label": "Add List Item",
+              "rows_per_page": 20,
+              "sub_fields": [
+                {
+                  "key": "field_service_section3_item_icon",
+                  "label": "Icon",
+                  "name": "item_icon",
+                  "aria-label": "",
+                  "type": "image",
+                  "instructions": "Upload icon image or leave empty for default SVG.",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "return_format": "array",
+                  "preview_size": "thumbnail",
+                  "library": "all",
+                  "min_width": 0,
+                  "min_height": 0,
+                  "min_size": 0,
+                  "max_width": 0,
+                  "max_height": 0,
+                  "max_size": 0,
+                  "mime_types": "",
+                  "parent_repeater": "field_service_section3_items"
+                },
+                {
+                  "key": "field_service_section3_item_text",
+                  "label": "Text",
+                  "name": "item_text",
+                  "aria-label": "",
+                  "type": "text",
+                  "instructions": "",
+                  "required": false,
+                  "conditional_logic": false,
+                  "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                  },
+                  "default_value": "",
+                  "maxlength": 150,
+                  "placeholder": "",
+                  "prepend": "",
+                  "append": "",
+                  "parent_repeater": "field_service_section3_items"
+                }
+              ]
+            },
+            {
+              "key": "field_service_section3_button_text",
+              "label": "Button Text",
+              "name": "button_text",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "If empty, will use link title.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": 50,
+              "placeholder": "Learn More",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_service_section3_button_link",
+              "label": "Button Link",
+              "name": "button_link",
+              "aria-label": "",
+              "type": "link",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array"
+            },
+            {
+              "key": "field_service_section3_image",
+              "label": "Image",
+              "name": "image",
+              "aria-label": "",
+              "type": "image",
+              "instructions": "Main image displayed in the section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": 0,
+              "min_height": 0,
+              "min_size": 0,
+              "max_width": 0,
+              "max_height": 0,
+              "max_size": 0,
+              "mime_types": ""
+            },
+            {
+              "key": "field_service_section3_bg",
+              "label": "Background Image",
+              "name": "bg",
+              "aria-label": "",
+              "type": "image",
+              "instructions": "Optional background image for the section.",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": 0,
+              "min_height": 0,
+              "min_size": 0,
+              "max_width": 0,
+              "max_height": 0,
+              "max_size": 0,
+              "mime_types": ""
+            }
+          ],
+          "min": "",
+          "max": ""
         }
+      },
+      "button_label": "Add Service Section",
+      "min": 0,
+      "max": 0,
+      "pagination": false,
+      "instructions_placement": "label"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "service"
+      }
     ],
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "service"
-            }
-        ],
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "service-settings"
-            }
-        ]
-    ],
-    "menu_order": 15,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": [],
-    "active": true,
-    "description": "Flexible content structure for service sections.",
-    "show_in_rest": false,
-    "display_title": "",
-    "modified": 1770971498
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "service-settings"
+      }
+    ]
+  ],
+  "menu_order": 15,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": [],
+  "active": true,
+  "description": "Flexible content structure for service sections.",
+  "show_in_rest": false,
+  "display_title": "",
+  "modified": 1770971498
 }
