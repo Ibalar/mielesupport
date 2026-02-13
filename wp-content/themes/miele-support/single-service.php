@@ -144,8 +144,7 @@ if ($level === 1) {
         }
     }
 
-    // Затем показываем сетку подкатегорий
-    get_template_part('template-parts/service/category-grid');
+
 
 } elseif ($level === 2) {
     // Уровень 2: Тип прибора - показать конечные услуги и flexible content секции
