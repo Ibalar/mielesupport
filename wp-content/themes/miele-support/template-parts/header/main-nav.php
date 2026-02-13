@@ -81,11 +81,12 @@ $unique_counter = 0;
                                     data-target="#<?php echo esc_attr($submenu_id); ?>"
                                     aria-expanded="false"
                                     aria-haspopup="true"
+                                    aria-controls="<?php echo esc_attr($submenu_id); ?>"
                                 >
                                     <?php echo esc_html($level2_title); ?>
                                     <span class="mega-menu__arrow"></span>
                                 </button>
-                                <ul class="mega-menu__sub" id="<?php echo esc_attr($submenu_id); ?>" hidden>
+                                <ul class="mega-menu__sub mega-menu__submenu--collapsed" id="<?php echo esc_attr($submenu_id); ?>" hidden>
                                     <?php foreach ($level3_services as $level3) :
                                         $level3_id = $level3->ID;
                                         $level3_title = $level3->post_title;
