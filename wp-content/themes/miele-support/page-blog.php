@@ -53,7 +53,7 @@ if (empty($page_title)) {
 
             <?php
             // Pagination
-            $big = 999999999;
+            $big = '999999999';
             echo paginate_links([
                 'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
                 'format'    => '?paged=%#%',
