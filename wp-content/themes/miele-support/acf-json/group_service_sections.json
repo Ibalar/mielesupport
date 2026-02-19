@@ -1073,26 +1073,6 @@
                             "append": ""
                         },
                         {
-                            "key": "field_service_error_codes_subtitle",
-                            "label": "Subtitle",
-                            "name": "subtitle",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "Optional subtitle.",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "new_lines": "",
-                            "maxlength": 250,
-                            "placeholder": "",
-                            "rows": 3
-                        },
-                        {
                             "key": "field_service_error_codes",
                             "label": "Error Codes",
                             "name": "error_codes",
@@ -1114,7 +1094,7 @@
                             "collapsed": "",
                             "sub_fields": [
                                 {
-                                    "key": "field_service_error_code",
+                                    "key": "field_service_error_codes_code",
                                     "label": "Code",
                                     "name": "code",
                                     "aria-label": "",
@@ -1135,16 +1115,16 @@
                                     "parent_repeater": "field_service_error_codes"
                                 },
                                 {
-                                    "key": "field_service_error_title",
-                                    "label": "Title",
-                                    "name": "title",
+                                    "key": "field_service_error_codes_short_desc",
+                                    "label": "Short Description",
+                                    "name": "short_description",
                                     "aria-label": "",
                                     "type": "text",
-                                    "instructions": "",
+                                    "instructions": "Brief description of the error",
                                     "required": false,
                                     "conditional_logic": false,
                                     "wrapper": {
-                                        "width": "75",
+                                        "width": "25",
                                         "class": "",
                                         "id": ""
                                     },
@@ -1156,24 +1136,45 @@
                                     "parent_repeater": "field_service_error_codes"
                                 },
                                 {
-                                    "key": "field_service_error_description",
-                                    "label": "Description",
-                                    "name": "description",
+                                    "key": "field_service_error_codes_instructions",
+                                    "label": "Instructions",
+                                    "name": "instructions",
                                     "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "Steps to fix the error",
                                     "required": false,
                                     "conditional_logic": false,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "25",
                                         "class": "",
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "new_lines": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "rows": 3,
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 0,
+                                    "delay": 0,
+                                    "parent_repeater": "field_service_error_codes"
+                                },
+                                {
+                                    "key": "field_service_error_codes_if_persists",
+                                    "label": "If Error Persists",
+                                    "name": "if_error_persists",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "What to do if the error continues after following instructions",
+                                    "required": false,
+                                    "conditional_logic": false,
+                                    "wrapper": {
+                                        "width": "25",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0,
                                     "parent_repeater": "field_service_error_codes"
                                 }
                             ]

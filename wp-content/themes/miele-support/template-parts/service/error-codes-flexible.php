@@ -11,26 +11,25 @@ $section_data = get_query_var('section_data', []);
 
 $raw_error_codes = $section_data['error_codes'] ?? [];
 $section_title = !empty($section_data['title']) ? $section_data['title'] : 'Common Error Codes';
-$section_subtitle = !empty($section_data['subtitle']) ? $section_data['subtitle'] : 'Quick troubleshooting references for Miele appliances. If you see one of these codes, our certified team can help.';
 
 $error_codes = [];
 
 if (!empty($raw_error_codes) && is_array($raw_error_codes)) {
     foreach ($raw_error_codes as $item) {
         $code = $item['code'] ?? '';
-        $title = $item['title'] ?? '';
-        $description = $item['description'] ?? '';
+        $short_description = $item['short_description'] ?? '';
+        $instructions = $item['instructions'] ?? '';
+        $if_error_persists = $item['if_error_persists'] ?? '';
 
-        $label_text = $title ?: $code;
-
-        if (empty($description)) {
+        if ($code === '' && $short_description === '' && $instructions === '' && $if_error_persists === '') {
             continue;
         }
 
         $error_codes[] = [
             'code' => (string) $code,
-            'label' => (string) $label_text,
-            'description' => (string) $description,
+            'short_description' => (string) $short_description,
+            'instructions' => (string) $instructions,
+            'if_error_persists' => (string) $if_error_persists,
         ];
     }
 }
@@ -45,26 +44,29 @@ if (empty($error_codes)) {
     <div class="service-error-codes__container">
         <div class="service-error-codes__header">
             <h2 class="service-error-codes__title"><?php echo esc_html($section_title); ?></h2>
-            <p class="service-error-codes__subtitle">
-                <?php echo esc_html($section_subtitle); ?>
-            </p>
         </div>
 
-        <div class="service-error-codes__list">
-            <?php foreach ($error_codes as $item) : ?>
-                <details class="service-error-codes__item">
-                    <summary class="service-error-codes__summary">
-                        <?php if (!empty($item['code'])) : ?>
-                            <span class="service-error-codes__code"><?php echo esc_html($item['code']); ?></span>
-                        <?php endif; ?>
-                        <span class="service-error-codes__label"><?php echo esc_html($item['label']); ?></span>
-                        <span class="service-error-codes__toggle" aria-hidden="true">+</span>
-                    </summary>
-                    <div class="service-error-codes__content">
-                        <?php echo wp_kses_post($item['description']); ?>
-                    </div>
-                </details>
-            <?php endforeach; ?>
+        <div class="service-error-codes__table-wrapper">
+            <table class="service-error-codes-table">
+                <tbody>
+                    <?php foreach ($error_codes as $item) : ?>
+                        <tr class="service-error-codes-table__row">
+                            <td class="service-error-codes-table__cell service-error-codes-table__cell--code">
+                                <?php echo esc_html($item['code']); ?>
+                            </td>
+                            <td class="service-error-codes-table__cell">
+                                <?php echo esc_html($item['short_description']); ?>
+                            </td>
+                            <td class="service-error-codes-table__cell service-error-codes-table__cell--instructions">
+                                <?php echo wp_kses_post($item['instructions']); ?>
+                            </td>
+                            <td class="service-error-codes-table__cell service-error-codes-table__cell--if-persists">
+                                <?php echo wp_kses_post($item['if_error_persists']); ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
