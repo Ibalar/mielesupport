@@ -79,8 +79,8 @@
     "instruction_placement": "label",
     "hide_on_screen": [],
     "active": true,
-    "description": "Additional fields for news/blog posts",
+    "description": "Additional fields for news\/blog posts",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770646517
+    "modified": 1771527118
 }
