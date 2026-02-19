@@ -21,7 +21,7 @@ if (!$show_booking && !$show_phone) {
 $phone_label = '+1 347 894 7974';
 $phone_link = 'tel:+13478947974';
 
-$booking_label = 'Book Online';
+$booking_label = 'Easy Online Booking';
 $booking_label_default = '/book-online/';
 
 // Get title and subtitle from flexible content or use defaults from options
