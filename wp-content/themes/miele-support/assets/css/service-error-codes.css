@@ -8,7 +8,7 @@
 }
 
 .service-error-codes__container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -19,103 +19,69 @@
 }
 
 .service-error-codes__title {
-    margin: 0 0 12px;
+    margin: 0;
     font-size: 32px;
     font-weight: 600;
     line-height: 120%;
     color: var(--black22, #222);
 }
 
-.service-error-codes__subtitle {
-    margin: 0 auto;
-    max-width: 640px;
-    color: var(--gray66, #666);
-    font-size: 16px;
-    line-height: 150%;
-}
-
-.service-error-codes__list {
-    display: grid;
-    gap: 16px;
-}
-
-.service-error-codes__item {
+.service-error-codes__table-wrapper {
+    overflow-x: auto;
     border: 1px solid var(--graye5, #e5e5e5);
-    border-radius: 12px;
     background: var(--white, #ffffff);
-    padding: 0 22px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-.service-error-codes__summary {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 22px 0;
-    cursor: pointer;
-    list-style: none;
+.service-error-codes-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 880px;
 }
 
-.service-error-codes__summary::-webkit-details-marker {
-    display: none;
+.service-error-codes-table__row {
+    border-bottom: 1px solid var(--graye5, #e5e5e5);
+    background: var(--white, #ffffff);
+    transition: background-color 0.2s ease;
 }
 
-.service-error-codes__summary::marker {
-    content: '';
+.service-error-codes-table__row:nth-child(even) {
+    background: #fafafa;
 }
 
-.service-error-codes__code {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: var(--red, #cc2229);
-    color: var(--white, #ffffff);
-    font-size: 12px;
+.service-error-codes-table__row:hover {
+    background: #f1f1f1;
+}
+
+.service-error-codes-table__cell {
+    padding: 18px 20px;
+    font-size: 15px;
+    line-height: 160%;
+    color: var(--gray66, #666);
+    vertical-align: top;
+}
+
+.service-error-codes-table__cell--code {
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    color: var(--red, #cc2229);
     white-space: nowrap;
 }
 
-.service-error-codes__label {
-    font-size: 18px;
-    font-weight: 500;
+.service-error-codes-table__cell:nth-child(2) {
     color: var(--black22, #222);
+    font-weight: 500;
 }
 
-.service-error-codes__toggle {
-    margin-left: auto;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid var(--graye5, #e5e5e5);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--red, #cc2229);
-    font-size: 20px;
-    font-weight: 600;
-    transition: transform 0.2s ease;
-}
-
-.service-error-codes__item[open] .service-error-codes__toggle {
-    transform: rotate(45deg);
-}
-
-.service-error-codes__content {
-    padding-bottom: 22px;
-    color: var(--gray66, #666);
-    font-size: 15px;
-    line-height: 160%;
-}
-
-.service-error-codes__content p {
+.service-error-codes-table__cell p {
     margin: 0 0 12px;
 }
 
-.service-error-codes__content p:last-child {
+.service-error-codes-table__cell p:last-child {
     margin-bottom: 0;
+}
+
+.service-error-codes-table__row:last-child {
+    border-bottom: none;
 }
 
 @media (max-width: 743px) {
@@ -131,12 +97,13 @@
         font-size: 26px;
     }
 
-    .service-error-codes__summary {
-        gap: 12px;
+    .service-error-codes-table {
+        min-width: 720px;
     }
 
-    .service-error-codes__label {
-        font-size: 16px;
+    .service-error-codes-table__cell {
+        padding: 14px 16px;
+        font-size: 14px;
     }
 }
 
