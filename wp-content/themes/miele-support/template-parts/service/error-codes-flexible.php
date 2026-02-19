@@ -11,6 +11,7 @@ $section_data = get_query_var('section_data', []);
 
 $raw_error_codes = $section_data['error_codes'] ?? [];
 $section_title = !empty($section_data['title']) ? $section_data['title'] : 'Common Error Codes';
+$footnote = $section_data['footnote'] ?? '';
 
 $error_codes = [];
 
@@ -68,5 +69,11 @@ if (empty($error_codes)) {
                 </tbody>
             </table>
         </div>
+
+        <?php if (!empty($footnote)) : ?>
+            <div class="service-error-codes__footnote">
+                <?php echo the_content($footnote); ?>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

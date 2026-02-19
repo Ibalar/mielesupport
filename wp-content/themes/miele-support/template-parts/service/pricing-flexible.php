@@ -12,6 +12,7 @@ $section_data = get_query_var('section_data', []);
 $price_items = $section_data['price_items'] ?? [];
 $section_title = !empty($section_data['title']) ? $section_data['title'] : 'Service Pricing';
 $section_subtitle = $section_data['subtitle'] ?? '';
+$footnote = $section_data['footnote'] ?? '';
 
 $rows = [];
 
@@ -82,5 +83,11 @@ if (empty($rows)) {
                 </tbody>
             </table>
         </div>
+
+        <?php if (!empty($footnote)) : ?>
+            <div class="service-pricing-table__footnote">
+                <?php echo the_content($footnote); ?>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
