@@ -86,7 +86,7 @@ if (empty($rows)) {
 
         <?php if (!empty($footnote)) : ?>
             <div class="service-pricing-table__footnote">
-                <?php echo the_content($footnote); ?>
+                <?php echo apply_filters('the_content', $footnote); ?>
             </div>
         <?php endif; ?>
     </div>
