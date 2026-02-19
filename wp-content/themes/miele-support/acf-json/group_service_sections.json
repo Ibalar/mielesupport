@@ -1,6 +1,6 @@
 {
     "key": "group_service_sections",
-    "title": "Service — Sections (Flexible)",
+    "title": "Service \u2014 Sections (Flexible)",
     "fields": [
         {
             "key": "field_service_sections",
@@ -204,7 +204,7 @@
                             "name": "booking_link",
                             "aria-label": "",
                             "type": "url",
-                            "instructions": "Custom URL for booking button. Default: \/book-online\/",
+                            "instructions": "Custom URL for booking button. Default: /book-online/",
                             "required": false,
                             "conditional_logic": [
                                 [
@@ -817,7 +817,7 @@
                             "sub_fields": [
                                 {
                                     "key": "field_service_pricing_repair_part",
-                                    "label": "Repair\/Part",
+                                    "label": "Repair/Part",
                                     "name": "repair_part",
                                     "aria-label": "",
                                     "type": "text",
@@ -900,6 +900,26 @@
                                     "parent_repeater": "field_service_pricing_items"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_service_pricing_footnote",
+                            "label": "Footnote",
+                            "name": "footnote",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "Text to display below the table",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -1178,6 +1198,26 @@
                                     "parent_repeater": "field_service_error_codes"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_service_error_codes_footnote",
+                            "label": "Footnote",
+                            "name": "footnote",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "Text to display below the table",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
                         }
                     ],
                     "min": "",

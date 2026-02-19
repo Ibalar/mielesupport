@@ -2,8 +2,8 @@
 
 .service-error-codes {
     padding: 70px 0;
-    background: var(--whitef6, #f6f6f6);
-    color: var(--black22, #222);
+    background: #000000;
+    color: #ffffff;
     font-family: var(--font-family);
 }
 
@@ -23,57 +23,62 @@
     font-size: 32px;
     font-weight: 600;
     line-height: 120%;
-    color: var(--black22, #222);
+    color: #ffffff;
 }
 
 .service-error-codes__table-wrapper {
     overflow-x: auto;
-    border: 1px solid var(--graye5, #e5e5e5);
-    background: var(--white, #ffffff);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    background: #000000;
 }
 
 .service-error-codes-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 880px;
+    border: none;
 }
 
 .service-error-codes-table__row {
-    border-bottom: 1px solid var(--graye5, #e5e5e5);
-    background: var(--white, #ffffff);
+    background: #000000;
     transition: background-color 0.2s ease;
+    border: none;
+}
+
+.service-error-codes-table__row:nth-child(odd) {
+    background: #000000;
 }
 
 .service-error-codes-table__row:nth-child(even) {
-    background: #fafafa;
+    background: #222222;
 }
 
 .service-error-codes-table__row:hover {
-    background: #f1f1f1;
+    background: #333333;
 }
 
 .service-error-codes-table__cell {
     padding: 18px 20px;
     font-size: 15px;
     line-height: 160%;
-    color: var(--gray66, #666);
+    color: #ffffff;
     vertical-align: top;
+    border: none;
 }
 
 .service-error-codes-table__cell--code {
     font-weight: 600;
-    color: var(--red, #cc2229);
+    color: #ff6b6b;
     white-space: nowrap;
 }
 
 .service-error-codes-table__cell:nth-child(2) {
-    color: var(--black22, #222);
+    color: #ffffff;
     font-weight: 500;
 }
 
 .service-error-codes-table__cell p {
     margin: 0 0 12px;
+    color: #ffffff;
 }
 
 .service-error-codes-table__cell p:last-child {
@@ -82,6 +87,23 @@
 
 .service-error-codes-table__row:last-child {
     border-bottom: none;
+}
+
+.service-error-codes__footnote {
+    margin-top: 24px;
+    padding-top: 20px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 160%;
+}
+
+.service-error-codes__footnote p {
+    color: #ffffff;
+    margin: 0 0 8px;
+}
+
+.service-error-codes__footnote p:last-child {
+    margin-bottom: 0;
 }
 
 @media (max-width: 743px) {
