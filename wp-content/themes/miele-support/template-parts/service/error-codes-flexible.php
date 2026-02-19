@@ -72,7 +72,7 @@ if (empty($error_codes)) {
 
         <?php if (!empty($footnote)) : ?>
             <div class="service-error-codes__footnote">
-                <?php echo the_content($footnote); ?>
+                <?php echo apply_filters('the_content', $footnote); ?>
             </div>
         <?php endif; ?>
     </div>
