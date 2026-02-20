@@ -246,6 +246,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('footer', 'footer.css', ['base']);
     theme_style('news', 'news.css', ['base']);
     theme_style('news-hero', 'news-hero.css', ['base']);
+    theme_style('news-tags', 'news-tags.css', ['base']);
 
     // JS
     theme_script('header-js', 'header.js');
@@ -256,6 +257,11 @@ add_action('wp_enqueue_scripts', function () {
     theme_script('home-slider-js', 'home-slider.js');
     theme_script('page-services-js', 'page-services.js');
     theme_script('service-models-js', 'service-models.js');
+
+    // News tags script for blog/archive pages
+    if (is_home() || is_page_template('page-blog.php') || (is_archive() && get_post_type() === 'post')) {
+        theme_script('news-tags-js', 'news-tags.js');
+    }
 
 });
 

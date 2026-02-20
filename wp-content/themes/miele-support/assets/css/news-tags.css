@@ -1,0 +1,132 @@
+/* News Tags Filter Styles */
+/* Based on design references: blog_tag-1440.jpg, blog_tag-744.jpg, blog_tag-390.jpg */
+
+/* Tags Section Container */
+.news-tags {
+    padding: var(--gap-md) 0 var(--gap-lg);
+}
+
+/* Tags List - Grid Layout */
+.news-tags__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Individual Tag Item */
+.news-tags__item {
+    display: inline-flex;
+}
+
+/* Tag Link/Button */
+.news-tags__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    background: var(--gray3d);
+    border: 1px solid var(--gray3d);
+    border-radius: 8px;
+    color: var(--white);
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Tag Hover State */
+.news-tags__link:hover {
+    border-color: var(--red);
+    color: var(--white);
+}
+
+/* Active/Selected Tag */
+.news-tags__link.is-active,
+.news-tags__link[aria-current="true"] {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+}
+
+/* Active Tag Hover */
+.news-tags__link.is-active:hover,
+.news-tags__link[aria-current="true"]:hover {
+    background: var(--red-hover);
+    border-color: var(--red-hover);
+}
+
+/* "All" Tag - special styling */
+.news-tags__link[data-tag="all"] {
+    font-weight: 600;
+}
+
+/* ========================================
+   TABLET RESPONSIVE (641px - 1024px)
+   Reference: blog_tag-744.jpg
+   ======================================== */
+@media (max-width: 1024px) {
+    .news-tags {
+        padding: var(--gap-sm) 0 var(--gap-md);
+    }
+
+    .news-tags__list {
+        gap: 12px;
+    }
+
+    .news-tags__link {
+        padding: 10px 16px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE (≤640px)
+   Reference: blog_tag-390.jpg
+   ======================================== */
+@media (max-width: 640px) {
+    .news-tags {
+        padding: var(--gap-xs) 0 var(--gap-md);
+    }
+
+    .news-tags__list {
+        gap: 10px;
+    }
+
+    .news-tags__link {
+        padding: 8px 14px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.news-tags__link:focus {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+}
+
+/* Skip animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .news-tags__link {
+        transition: none;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .news-tags {
+        display: none;
+    }
+}
