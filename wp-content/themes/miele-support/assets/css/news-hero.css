@@ -1,0 +1,140 @@
+/* News Hero Section Styles */
+/* Based on design references: blog_hero-1440.jpg, blog_hero-744.jpg, blog_hero-390.jpg */
+
+.news-hero {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Default background when no image is set */
+.news-hero:not([style*="background-image"]) {
+    background: linear-gradient(135deg, var(--black-bg, #191919) 0%, var(--gray3d, #3d3d3d) 100%);
+}
+
+/* Overlay for better text readability */
+.news-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Content container */
+.news-hero .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1440px;
+    padding-inline: 80px;
+    margin-inline: auto;
+}
+
+.news-hero__content {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Title styling - Desktop (>1024px) */
+.news-hero__title {
+    color: var(--white, #ffffff);
+    font-family: var(--font-family);
+    font-size: 66px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.03;
+    margin: 0;
+    text-align: center;
+}
+
+/* ========================================
+   TABLET RESPONSIVE (641px - 1024px)
+   Reference: blog_hero-744.jpg
+   ======================================== */
+@media (max-width: 1024px) {
+    .news-hero {
+        min-height: 350px;
+    }
+
+    .news-hero .container {
+        padding-inline: 40px;
+    }
+
+    .news-hero__content {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .news-hero__title {
+        font-size: 48px;
+        line-height: 1.1;
+    }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE (≤640px)
+   Reference: blog_hero-390.jpg
+   ======================================== */
+@media (max-width: 640px) {
+    .news-hero {
+        min-height: 300px;
+    }
+
+    .news-hero .container {
+        padding-inline: 20px;
+    }
+
+    .news-hero__content {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .news-hero__title {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    .news-hero {
+        background-attachment: scroll;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .news-hero {
+        min-height: auto;
+        background: var(--white, #ffffff) !important;
+        color: var(--black, #000000);
+    }
+
+    .news-hero__overlay {
+        display: none;
+    }
+
+    .news-hero__content {
+        padding: 20px 0;
+    }
+
+    .news-hero__title {
+        color: var(--black, #000000);
+        font-size: 24px;
+    }
+}
