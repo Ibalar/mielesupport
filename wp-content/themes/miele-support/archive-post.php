@@ -14,19 +14,31 @@ get_header();
 $blog_page = get_page_by_path('blog');
 $hero_title = __('News', 'miele-support');
 $hero_bg_image = null;
+$hero_bg_image_url = null;
 
 if ($blog_page) {
-    $hero_title_field = get_field('hero_title', $blog_page->ID);
-    if ($hero_title_field) {
-        $hero_title = $hero_title_field;
+        $hero_title_field = get_field('hero_title', $blog_page->ID);
+        if ($hero_title_field) {
+            $hero_title = $hero_title_field;
+        }
+        $hero_bg_image = get_field('hero_bg_image', $blog_page->ID);
+
+        // Handle different return formats (array vs URL)
+        if ($hero_bg_image) {
+            if (is_array($hero_bg_image) && !empty($hero_bg_image['url'])) {
+                // Return format is 'array'
+                $hero_bg_image_url = $hero_bg_image['url'];
+            } elseif (is_string($hero_bg_image)) {
+                // Return format is 'url' or 'id'
+                $hero_bg_image_url = $hero_bg_image;
+            }
+        }
     }
-    $hero_bg_image = get_field('hero_bg_image', $blog_page->ID);
-}
 
 // Build inline style for background image
 $hero_style = '';
-if ($hero_bg_image && is_array($hero_bg_image) && !empty($hero_bg_image['url'])) {
-    $hero_style = ' style="background-image: url(\'' . esc_url($hero_bg_image['url']) . '\');"';
+if ($hero_bg_image_url) {
+    $hero_style = ' style="background-image: url(\'' . esc_url($hero_bg_image_url) . '\');"';
 }
 ?>
 

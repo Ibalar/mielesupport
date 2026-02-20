@@ -30,11 +30,23 @@ if (empty($hero_title)) {
 }
 
 $hero_bg_image = get_field('hero_bg_image');
+$hero_bg_image_url = null;
+
+// Handle different return formats (array vs URL)
+if ($hero_bg_image) {
+    if (is_array($hero_bg_image) && !empty($hero_bg_image['url'])) {
+        // Return format is 'array'
+        $hero_bg_image_url = $hero_bg_image['url'];
+    } elseif (is_string($hero_bg_image)) {
+        // Return format is 'url' or 'id'
+        $hero_bg_image_url = $hero_bg_image;
+    }
+}
 
 // Build inline style for background image
 $hero_style = '';
-if ($hero_bg_image && is_array($hero_bg_image) && !empty($hero_bg_image['url'])) {
-    $hero_style = ' style="background-image: url(\'' . esc_url($hero_bg_image['url']) . '\');"';
+if ($hero_bg_image_url) {
+    $hero_style = ' style="background-image: url(\'' . esc_url($hero_bg_image_url) . '\');"';
 }
 
 // Query posts for the blog page
