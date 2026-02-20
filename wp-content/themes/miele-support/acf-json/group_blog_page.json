@@ -55,6 +55,18 @@
                 "operator": "==",
                 "value": "page-blog.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "post",
+                "operator": "==",
+                "value": "blog"
+            }
         ]
     ],
     "menu_order": 0,
