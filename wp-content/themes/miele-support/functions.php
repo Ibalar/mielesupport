@@ -245,6 +245,7 @@ add_action('wp_enqueue_scripts', function () {
     theme_style('catalog-description', 'catalog-description.css', ['base']);
     theme_style('footer', 'footer.css', ['base']);
     theme_style('news', 'news.css', ['base']);
+    theme_style('news-hero', 'news-hero.css', ['base']);
 
     // JS
     theme_script('header-js', 'header.js');
