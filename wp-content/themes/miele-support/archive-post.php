@@ -104,61 +104,7 @@ if ($current_tag_slug) {
         <?php if (have_posts()) : ?>
             <div class="news-archive__grid">
                 <?php while (have_posts()) : the_post(); ?>
-                    <?php
-                    // Get post tags for data attribute
-                    $post_tags = get_the_tags();
-                    $tag_slugs = [];
-                    if ($post_tags) {
-                        foreach ($post_tags as $post_tag) {
-                            $tag_slugs[] = $post_tag->slug;
-                        }
-                    }
-                    $tags_data = implode(',', $tag_slugs);
-                    ?>
-                    <article <?php post_class('news-card'); ?> data-tags="<?php echo esc_attr($tags_data); ?>">
-                        <?php if (has_post_thumbnail()) : ?>
-                            <div class="news-card__image">
-                                <a href="<?php the_permalink(); ?>" aria-label="<?php the_title_attribute(); ?>">
-                                    <?php the_post_thumbnail('medium_large'); ?>
-                                </a>
-                            </div>
-                        <?php endif; ?>
-
-                        <div class="news-card__content">
-                            <div class="news-card__meta">
-                                <time class="news-card__date" datetime="<?php echo get_the_date('c'); ?>">
-                                    <?php echo get_the_date(); ?>
-                                </time>
-
-                                <?php if (has_category()) : ?>
-                                    <span class="news-card__category">
-                                        <?php
-                                        $categories = get_the_category();
-                                        if (!empty($categories)) {
-                                            echo esc_html($categories[0]->name);
-                                        }
-                                        ?>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-
-                            <h2 class="news-card__title">
-                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                            </h2>
-
-                            <?php if (has_excerpt()) : ?>
-                                <div class="news-archive__excerpt">
-                                    <?php the_excerpt(); ?>
-                                </div>
-                            <?php endif; ?>
-
-                            <div class="news-card__link">
-                                <a href="<?php the_permalink(); ?>" class="news-card__read-more">
-                                    <?php _e('Read more', 'miele-support'); ?>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                    <?php get_template_part('template-parts/post/news-card'); ?>
                 <?php endwhile; ?>
             </div>
 
