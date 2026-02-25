@@ -53,8 +53,16 @@ body {
     padding: 0 var(--gap-sm);
 }
 
+.container-fluid {
+    width: 100%;
+    padding-inline: 50px;
+}
+
 @media (min-width: 744px) {
     .container {
+        padding: 0 var(--gap-md);
+    }
+    .container-fluid {
         padding: 0 var(--gap-md);
     }
 }
@@ -63,4 +71,8 @@ body {
     .container {
         padding: 0 var(--gap-lg);
     }
+    .container-fluid {
+        padding: 0 var(--gap-lg);
+    }
 }
+

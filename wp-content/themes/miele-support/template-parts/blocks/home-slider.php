@@ -21,7 +21,7 @@ if (empty($slides)) {
 ?>
 
 <section class="home-slider">
-    <div class="container">
+    <div class="container-fluid">
         <?php if ($title) : ?>
             <h2 class="home-slider__title"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>

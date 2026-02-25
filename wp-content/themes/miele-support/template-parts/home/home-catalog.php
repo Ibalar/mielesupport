@@ -9,7 +9,7 @@ if (!$catalog_categories || !is_array($catalog_categories)) {
 ?>
 
 <section class="home-catalog">
-    <div class="container">
+    <div class="container-fluid">
         <?php if ($catalog_title) : ?>
             <h2 class="home-catalog__title"><?php echo esc_html($catalog_title); ?></h2>
         <?php endif; ?>

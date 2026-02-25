@@ -21,7 +21,7 @@ if (empty($reviews)) {
 ?>
 
 <section class="reviews">
-    <div class="container">
+    <div class="container-fluid">
         <?php if ($title) : ?>
             <h2 class="reviews__title"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
