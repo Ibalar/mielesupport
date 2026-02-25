@@ -28,17 +28,15 @@
     justify-content: center;
     padding: 12px 20px;
     background: var(--gray3d);
-    border: 1px solid var(--gray3d);
-    border-radius: 8px;
-    color: var(--white);
-    font-family: var(--font-family);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.4;
     text-decoration: none;
     white-space: nowrap;
     transition: all 0.3s ease;
     cursor: pointer;
+    font-family: var(--font-family), serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--white);
 }
 
 /* Tag Hover State */

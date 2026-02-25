@@ -84,12 +84,12 @@ if ($hero_bg_url) {
                     <h2 class="contact-info-block__label">HOURS OF WORK:</h2>
                     <div class="contact-info-block__content">
                         <p class="contact-info-block__line">
-                            <span class="contact-info-block__prefix">MON TO FRI:</span>
-                            <span class="contact-info-block__value"><?php echo esc_html($hours_mon_fri); ?></span>
+                            <span class="contact-info-hours-block__prefix">MON TO FRI:</span>
+                            <span class="contact-info-hours-block__value"><?php echo esc_html($hours_mon_fri); ?></span>
                         </p>
                         <p class="contact-info-block__line">
-                            <span class="contact-info-block__prefix">SATURDAY:</span>
-                            <span class="contact-info-block__value"><?php echo esc_html($hours_saturday); ?></span>
+                            <span class="contact-info-hours-block__prefix">SATURDAY:</span>
+                            <span class="contact-info-hours-block__value"><?php echo esc_html($hours_saturday); ?></span>
                         </p>
                     </div>
                 </div>
