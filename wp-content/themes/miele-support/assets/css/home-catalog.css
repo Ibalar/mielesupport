@@ -41,10 +41,10 @@
 .home-catalog__category-title {
     margin: 0;
     color: var(--white, #ffffff);
-    font-family: var(--font-family);
-    font-size: 24px;
+    font-family: var(--font-family), serif;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 130%;
+    line-height: 155%;
     text-align: center;
 }
 

@@ -60,13 +60,12 @@
 .advantages__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 40px;
 }
 
 /* Advantage Item - DESKTOP (3 КОЛОНКИ) */
 
 .advantage-item {
-    padding: 48px 32px;
+    padding: 34px;
     text-align: center;
     border-right: 1px solid #3D3D3D;
     border-bottom: 1px solid #3D3D3D;
@@ -83,13 +82,10 @@
     border-bottom: none;
 }
 
-.advantage-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-}
 
 .advantage-item__icon {
-    width: 80px;
-    height: 80px;
+    width: 68px;
+    height: 68px;
     margin: 0 auto 24px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
@@ -108,8 +104,8 @@
 
 .advantage-item__title {
     color: var(--white, #ffffff);
-    font-family: var(--font-family);
-    font-size: 20px;
+    font-family: var(--font-family), serif;
+    font-size: 22px;
     font-weight: 600;
     line-height: 127%;
     margin-bottom: 12px;
@@ -117,8 +113,8 @@
 
 .advantage-item__text {
     color: var(--grayc5, #c5c5c5);
-    font-family: var(--font-family);
-    font-size: 14px;
+    font-family: var(--font-family), serif;
+    font-size: 16px;
     font-weight: 400;
     line-height: 138%;
 }

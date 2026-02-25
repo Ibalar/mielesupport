@@ -75,18 +75,14 @@
 .header-phone {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    letter-spacing: 0.08em;
+    gap: 10px;
     text-transform: uppercase;
     white-space: nowrap;
-
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
     line-height: 88%;
     letter-spacing: 0.06em;
-    text-transform: uppercase;
     text-align: center;
     color: #fff;
 }
@@ -110,7 +106,7 @@
 
 .burger {
     width: 28px;
-    height: 22px;
+    height: 28px;
     position: relative;
     display: inline-flex;
     flex-direction: column;

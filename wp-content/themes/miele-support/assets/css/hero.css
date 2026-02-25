@@ -33,15 +33,15 @@
 
 .container {
     max-width: 1440px;
-    padding-inline: 80px;
+    padding-inline: 50px;
     margin-inline: auto;
 }
 
 .hero__content {
     position: relative;
     z-index: 1;
-    padding-top: 140px;
-    padding-bottom: 140px;
+    padding-top: 133px;
+    padding-bottom: 133px;
     display: flex;
     flex-direction: column;
     justify-content: center;
