@@ -22,33 +22,37 @@
     top: 0;
     left: 0;
     width: 555px;
-    height: 85px;
+    height: 95px;
+    background-color: transparent;
     background-image:
-            radial-gradient(
-                    circle 4.5px at 19.5px 19.5px,
-                    rgba(217, 217, 217, 0.5) 50%,
-                    transparent 50%
-            );
-    background-size: 30px 30px;
+        /* Первый ряд */
+            radial-gradient(circle 4.5px at 4.5px 4.5px, #d9d9d9 100%, transparent 100%),
+                /* Второй ряд */
+            radial-gradient(circle 4.5px at 4.5px 43.5px, #d9d9d9 100%, transparent 100%),
+                /* Третий ряд */
+            radial-gradient(circle 4.5px at 4.5px 82.5px, #d9d9d9 100%, transparent 100%);
+    background-size: 39px 39px, 39px 39px, 39px 39px;
     background-repeat: repeat;
     background-position: 0 0;
+    mix-blend-mode: multiply;
 }
 
 /* Кружки справа-снизу (3x3) */
 .section5__bg-decoration--bottom-right {
     bottom: 0;
     right: 0;
-    width: 300px;
-    height: 85px;
+    position: absolute;
+    width: 300px;  /* или 555px, если нужно как в левом верхнем */
+    height: 90px;  /* или 9px, если только один ряд */
+    background-color: transparent;
     background-image:
-            radial-gradient(
-                    circle 4.5px at 19.5px 19.5px,
-                    rgba(217, 217, 217, 0.5) 50%,
-                    transparent 50%
-            );
-    background-size: 30px 30px;
+            radial-gradient(circle 4.5px at 4.5px 4.5px, #d9d9d9 100%, transparent 100%),
+            radial-gradient(circle 4.5px at 4.5px 43.5px, #d9d9d9 100%, transparent 100%),
+            radial-gradient(circle 4.5px at 4.5px 82.5px, #d9d9d9 100%, transparent 100%);
+    background-size: 39px 39px, 39px 39px, 39px 39px;
     background-repeat: repeat;
     background-position: 0 0;
+    mix-blend-mode: multiply;
 }
 
 .section5__wrapper {

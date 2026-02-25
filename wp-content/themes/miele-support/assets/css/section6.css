@@ -47,16 +47,16 @@
     color: var(--white, #ffffff);
     font-family: var(--font-family);
     font-weight: 600;
-    line-height: 120%;
-    letter-spacing: -0.5px;
+    line-height: 106%;
 }
 
 .section6__description {
     margin: 0;
     color: var(--grayc5, #c5c5c5);
-    font-family: var(--font-family);
+    font-family: var(--font-family), serif;
     font-weight: 400;
     line-height: 150%;
+    max-width: 430px;
 }
 
 .section6__button {
@@ -107,7 +107,7 @@
     }
 
     .section6__description {
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 32px;
     }
 
@@ -161,8 +161,8 @@
     }
 
     .section6__description {
-        font-size: 17px;
-        margin-bottom: 44px;
+        font-size: 16px;
+        margin-bottom: 34px;
     }
 
     .section6__button {
@@ -208,22 +208,22 @@
 
     .section6__content {
         width: 50%;
-        padding: 100px 80px;
+        padding: 50px 55px 50px 50px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        order: 2; /* Контент справа */
+        justify-content: space-around;
+        order: 2;
         text-align: left;
     }
 
     .section6__title {
-        font-size: 48px;
-        margin-bottom: 24px;
+        font-size: 32px;
+        margin-bottom: 34px;
     }
 
     .section6__description {
-        font-size: 18px;
-        margin-bottom: 48px;
+        font-size: 16px;
+        margin-bottom: 34px;
     }
 }
 

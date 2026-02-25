@@ -61,9 +61,9 @@ if (!$title && !$description && !$image_url) {
                 <?php endif; ?>
 
                 <?php if ($description): ?>
-                    <p class="section6__description">
+                    <div class="section6__description">
                         <?php echo wp_kses_post($description); ?>
-                    </p>
+                    </div>
                 <?php endif; ?>
 
                 <?php if ($button_text && $link_url): ?>
