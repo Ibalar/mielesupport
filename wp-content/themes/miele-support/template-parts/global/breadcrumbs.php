@@ -31,7 +31,7 @@ if (count($breadcrumbs) <= 1) {
 
 ?>
 
-<div class="container">
+<div class="container-fluid">
     <nav class="breadcrumbs" aria-label="<?php echo esc_attr__('Breadcrumb', 'miele-support'); ?>">
         <ol class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
         <?php foreach ($breadcrumbs as $index => $crumb) : ?>
