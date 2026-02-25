@@ -1,0 +1,136 @@
+/*
+Theme Name: Mielle Support
+Theme URI: https://example.com/mielle-support
+Author: Mielle Support Team
+Author URI: https://example.com
+Description: A WordPress theme for Mielle Support with contact page template, Hero section, breadcrumbs, and contact info blocks.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mielle-support
+*/
+
+/* Base Styles */
+:root {
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --white-100: #FFF;
+    --gray-dark: #1a1a1a;
+    --gray-66: #666;
+    --grayc5: #c5c5c5;
+    --gray-bg: #fafafa;
+    --gray-light: #f5f5f5;
+    --gray-border: #e5e5e5;
+    --Red: #CC2229;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--gray-dark);
+    background-color: var(--white-100);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: var(--white-100);
+    border-bottom: 1px solid var(--gray-border);
+    padding: 20px 0;
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-header__logo-link {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-dark);
+}
+
+.primary-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.primary-menu a {
+    color: var(--gray-dark);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.primary-menu a:hover {
+    color: var(--Red);
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: var(--gray-dark);
+    color: var(--white-100);
+    padding: 60px 0 30px;
+    margin-top: auto;
+}
+
+.site-footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.site-footer__logo-link {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white-100);
+}
+
+.footer-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.footer-menu a {
+    color: var(--grayc5);
+    transition: color 0.2s ease;
+}
+
+.footer-menu a:hover {
+    color: var(--white-100);
+}
+
+.site-footer__copyright {
+    color: var(--grayc5);
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Main Content */
+.site-main {
+    min-height: calc(100vh - 300px);
+}
