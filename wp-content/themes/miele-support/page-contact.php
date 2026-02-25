@@ -16,27 +16,32 @@ $service_line = get_field('service_line') ?: '+1 (929) 351 32 30';
 $hours_mon_fri = get_field('hours_mon_fri') ?: '8:00 AM - 6:00 PM';
 $hours_saturday = get_field('hours_saturday') ?: '9:00 AM - 4:00 PM';
 
-// Hero background image URL
+// Hero background image URL - handle different return formats
 $hero_bg_url = '';
-if ($hero_bg_image && is_array($hero_bg_image)) {
-    $hero_bg_url = $hero_bg_image['url'];
-} elseif ($hero_bg_image) {
-    $hero_bg_url = wp_get_attachment_image_url($hero_bg_image, 'full');
+if ($hero_bg_image) {
+    if (is_array($hero_bg_image) && !empty($hero_bg_image['url'])) {
+        // Return format is 'array'
+        $hero_bg_url = $hero_bg_image['url'];
+    } elseif (is_string($hero_bg_image)) {
+        // Return format is 'url' or 'id'
+        $hero_bg_url = $hero_bg_image;
+    }
+}
+
+// Build inline style for background image
+$hero_style = '';
+if ($hero_bg_url) {
+    $hero_style = ' style="background-image: url(\'' . esc_url($hero_bg_url) . '\');"';
 }
 ?>
 
 <main class="page-content page-content--contact">
     <!-- Hero Section -->
-    <section class="contact-hero">
-        <?php if ($hero_bg_url) : ?>
-            <div class="contact-hero__bg">
-                <img src="<?php echo esc_url($hero_bg_url); ?>" alt="" loading="eager">
-            </div>
-            <div class="contact-hero__overlay"></div>
-        <?php endif; ?>
+    <section class="news-hero"<?php echo $hero_style; ?>>
+        <div class="news-hero__overlay"></div>
         <div class="container">
-            <div class="contact-hero__content">
-                <h1 class="contact-hero__title"><?php echo esc_html($hero_title); ?></h1>
+            <div class="news-hero__content">
+                <h1 class="news-hero__title"><?php echo esc_html($hero_title); ?></h1>
             </div>
         </div>
     </section>

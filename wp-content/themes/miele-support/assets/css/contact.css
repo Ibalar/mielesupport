@@ -1,53 +1,6 @@
 /* Contact Page Styles */
 /* ================================ */
 
-/* Hero Section */
-.contact-hero {
-    position: relative;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: var(--gray-dark, #1a1a1a);
-}
-
-.contact-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.contact-hero__bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.contact-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.contact-hero__content {
-    position: relative;
-    z-index: 2;
-    padding: 100px 0;
-    text-align: center;
-}
-
-.contact-hero__title {
-    color: var(--white-100, #FFF);
-    font-family: var(--font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
-    font-size: 56px;
-    font-weight: 600;
-    line-height: 1.1;
-    margin: 0;
-}
-
 /* Container */
 .container {
     max-width: 1440px;
@@ -199,14 +152,6 @@ a.contact-info-block__value:hover {
         padding-inline: 40px;
     }
 
-    .contact-hero__title {
-        font-size: 48px;
-    }
-
-    .contact-hero__content {
-        padding: 80px 0;
-    }
-
     .contact-form-section {
         padding: 60px 0;
     }
@@ -223,18 +168,6 @@ a.contact-info-block__value:hover {
 @media (max-width: 768px) {
     .container {
         padding-inline: 20px;
-    }
-
-    .contact-hero {
-        min-height: 300px;
-    }
-
-    .contact-hero__title {
-        font-size: 36px;
-    }
-
-    .contact-hero__content {
-        padding: 60px 0;
     }
 
     .contact-form-section {
@@ -284,21 +217,6 @@ a.contact-info-block__value:hover {
 
 /* Print Styles */
 @media print {
-    .contact-hero {
-        min-height: auto;
-        background: #fff;
-        color: #000;
-    }
-
-    .contact-hero__bg,
-    .contact-hero__overlay {
-        display: none;
-    }
-
-    .contact-hero__title {
-        color: #000;
-    }
-
     .contact-info-section {
         background: #fff;
         border: 1px solid #ccc;
