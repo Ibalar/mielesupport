@@ -1,0 +1,131 @@
+{
+    "key": "group_page_contact",
+    "title": "Contact Page Settings",
+    "fields": [
+        {
+            "key": "field_contact_hero_title",
+            "label": "Hero Title",
+            "name": "hero_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Main title for the Hero section",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Contact Us",
+            "maxlength": 200,
+            "placeholder": "Enter hero title...",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contact_hero_bg_image",
+            "label": "Hero Background Image",
+            "name": "hero_bg_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Background image for Hero section (recommended size: 1920x600px)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_contact_service_line",
+            "label": "Service Line",
+            "name": "service_line",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Phone number for customer service",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "+1 (929) 351 32 30",
+            "maxlength": 50,
+            "placeholder": "+1 (000) 000 00 00",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contact_hours_mon_fri",
+            "label": "Hours Mon-Fri",
+            "name": "hours_mon_fri",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Working hours for Monday to Friday",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "8:00 AM - 6:00 PM",
+            "maxlength": 50,
+            "placeholder": "9:00 AM - 5:00 PM",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contact_hours_saturday",
+            "label": "Hours Saturday",
+            "name": "hours_saturday",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Working hours for Saturday",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "9:00 AM - 4:00 PM",
+            "maxlength": 50,
+            "placeholder": "9:00 AM - 1:00 PM",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-contact.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Contact page settings for Hero section and contact information",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1771570932
+}
