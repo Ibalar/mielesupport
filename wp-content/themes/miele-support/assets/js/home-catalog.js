@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
             grid.scrollLeft = scrollLeft - walk;
         });
         
-        // Wheel scroll - horizontal scroll with mouse wheel
+        // Wheel scroll - horizontal scroll with Shift+wheel only
         grid.addEventListener('wheel', function(e) {
-            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            if (e.shiftKey) {
                 e.preventDefault();
                 grid.scrollLeft += e.deltaY;
             }
