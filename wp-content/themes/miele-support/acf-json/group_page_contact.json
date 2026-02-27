@@ -106,6 +106,175 @@
             "placeholder": "9:00 AM - 1:00 PM",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_contact_form_tab",
+            "label": "Form Settings",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_form_categories",
+            "label": "Form Categories",
+            "name": "form_categories",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add categories for the contact form dropdown. If empty, default categories will be used.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Category",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_category_value",
+                    "label": "Value",
+                    "name": "value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Internal value (lowercase, no spaces)",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., refrigerator",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_form_categories"
+                },
+                {
+                    "key": "field_category_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Display label",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., Refrigerator",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_form_categories"
+                }
+            ]
+        },
+        {
+            "key": "field_form_brands",
+            "label": "Form Brands",
+            "name": "form_brands",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add brands for the contact form dropdown. If empty, default brands will be used.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Brand",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_brand_value",
+                    "label": "Value",
+                    "name": "value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Internal value (lowercase, no spaces)",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., miele",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_form_brands"
+                },
+                {
+                    "key": "field_brand_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Display label",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., Miele",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_form_brands"
+                }
+            ]
+        },
+        {
+            "key": "field_form_admin_email",
+            "label": "Admin Email",
+            "name": "form_admin_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "Email address where form submissions will be sent. If empty, WordPress admin email will be used.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "admin@example.com",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -124,7 +293,7 @@
     "instruction_placement": "label",
     "hide_on_screen": [],
     "active": true,
-    "description": "Contact page settings for Hero section and contact information",
+    "description": "Contact page settings for Hero section, contact information, and form configuration",
     "show_in_rest": false,
     "display_title": "",
     "modified": 1772019004

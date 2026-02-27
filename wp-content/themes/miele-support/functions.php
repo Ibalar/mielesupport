@@ -182,6 +182,103 @@ function get_service_children($parent_id, $check_visibility = true) {
     return $children;
 }
 
+/* CONTACT FORM AJAX HANDLER */
+add_action('wp_ajax_contact_form_submit', 'handle_contact_form_submit');
+add_action('wp_ajax_nopriv_contact_form_submit', 'handle_contact_form_submit');
+
+function handle_contact_form_submit() {
+    // Verify nonce
+    if (!wp_verify_nonce($_POST['contact_form_nonce'] ?? '', 'contact_form_submit')) {
+        wp_send_json_error(['message' => 'Security check failed.']);
+    }
+
+    // Sanitize input data
+    $category = sanitize_text_field($_POST['category'] ?? '');
+    $brand = sanitize_text_field($_POST['brand'] ?? '');
+    $problem_description = sanitize_textarea_field($_POST['problem_description'] ?? '');
+    $contact_name = sanitize_text_field($_POST['contact_name'] ?? '');
+    $contact_phone = sanitize_text_field($_POST['contact_phone'] ?? '');
+    $contact_email = sanitize_email($_POST['contact_email'] ?? '');
+
+    // Validate required fields
+    $errors = [];
+
+    if (empty($category)) {
+        $errors[] = 'Category is required.';
+    }
+    if (empty($brand)) {
+        $errors[] = 'Brand is required.';
+    }
+    if (empty($problem_description)) {
+        $errors[] = 'Problem description is required.';
+    }
+    if (empty($contact_name)) {
+        $errors[] = 'Name is required.';
+    }
+    if (empty($contact_phone)) {
+        $errors[] = 'Phone number is required.';
+    }
+    if (empty($contact_email) || !is_email($contact_email)) {
+        $errors[] = 'Valid email is required.';
+    }
+
+    if (!empty($errors)) {
+        wp_send_json_error(['message' => implode(' ', $errors)]);
+    }
+
+    // Get admin email from ACF or use WordPress admin email
+    $admin_email = get_field('form_admin_email') ?: get_option('admin_email');
+
+    // Build email subject
+    $subject = sprintf(
+        '[%s] New Service Request: %s - %s',
+        get_bloginfo('name'),
+        $category,
+        $brand
+    );
+
+    // Build email message
+    $message = "New Service Request\n";
+    $message .= "========================\n\n";
+    $message .= "Category: " . ucfirst($category) . "\n";
+    $message .= "Brand: " . ucfirst($brand) . "\n\n";
+    $message .= "Problem Description:\n";
+    $message .= $problem_description . "\n\n";
+    $message .= "Contact Information:\n";
+    $message .= "------------------------\n";
+    $message .= "Name: " . $contact_name . "\n";
+    $message .= "Phone: " . $contact_phone . "\n";
+    $message .= "Email: " . $contact_email . "\n\n";
+    $message .= "Submitted from: " . get_bloginfo('name') . "\n";
+    $message .= "Date: " . current_time('mysql') . "\n";
+
+    // Set email headers
+    $headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . get_bloginfo('name') . ' <' . $admin_email . '>',
+        'Reply-To: ' . $contact_name . ' <' . $contact_email . '>',
+    ];
+
+    // Send email
+    $sent = wp_mail($admin_email, $subject, $message, $headers);
+
+    if ($sent) {
+        // Optionally save to database as backup
+        $post_data = [
+            'post_title'   => sprintf('%s - %s (%s)', $category, $brand, $contact_name),
+            'post_content' => $problem_description,
+            'post_status'  => 'private',
+            'post_type'    => 'contact_request',
+        ];
+
+        wp_send_json_success([
+            'message' => 'Your request has been submitted successfully.',
+        ]);
+    } else {
+        wp_send_json_error(['message' => 'Failed to send email. Please try again later.']);
+    }
+}
+
 /* JS */
 
 function theme_script($handle, $file, $deps = [], $in_footer = true) {
@@ -262,6 +359,15 @@ add_action('wp_enqueue_scripts', function () {
     // News tags script for blog/archive pages
     if (is_home() || is_page_template('page-blog.php') || (is_archive() && get_post_type() === 'post')) {
         theme_script('news-tags-js', 'news-tags.js');
+    }
+
+    // Contact form script for contact page
+    if (is_page_template('page-contact.php')) {
+        theme_script('contact-form-js', 'contact-form.js');
+        wp_localize_script('contact-form-js', 'mieleSupportAjax', [
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'nonce'   => wp_create_nonce('contact_form_submit'),
+        ]);
     }
 
 });
