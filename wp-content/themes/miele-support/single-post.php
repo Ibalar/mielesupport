@@ -145,16 +145,62 @@ function miele_get_updated_time_ago(int $post_id): string
                     </button>
                 </div>
 
-                <?php if (has_post_thumbnail()) : ?>
-                    <div class="news-single__thumbnail">
-                        <?php the_post_thumbnail('large'); ?>
-                        <?php 
+                <?php
+                // Media block: featured image + secondary image
+                $has_thumbnail = has_post_thumbnail();
+                $secondary_image = get_field('secondary_image');
+                $has_secondary = !empty($secondary_image);
+
+                if ($has_thumbnail || $has_secondary) :
+                    $thumbnail_id = get_post_thumbnail_id(get_the_ID());
+                    $thumbnail_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true) ?: get_the_title();
+                ?>
+                    <div class="news-single__media<?php echo $has_secondary ? ' news-single__media--dual' : ''; ?>">
+                        <?php if ($has_thumbnail) : ?>
+                            <div class="news-single__media-item news-single__media-item--primary">
+                                <?php
+                                echo wp_get_attachment_image(
+                                    $thumbnail_id,
+                                    'large',
+                                    false,
+                                    [
+                                        'srcset' => wp_get_attachment_image_srcset($thumbnail_id, 'large'),
+                                        'sizes' => '(max-width: 744px) 100vw, 50vw',
+                                        'alt' => esc_attr($thumbnail_alt),
+                                        'loading' => 'eager',
+                                    ]
+                                );
+                                ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($has_secondary) : ?>
+                            <div class="news-single__media-item news-single__media-item--secondary">
+                                <?php
+                                $secondary_id = is_array($secondary_image) ? $secondary_image['ID'] : $secondary_image;
+                                $secondary_alt = get_post_meta($secondary_id, '_wp_attachment_image_alt', true) ?: get_the_title();
+                                echo wp_get_attachment_image(
+                                    $secondary_id,
+                                    'large',
+                                    false,
+                                    [
+                                        'srcset' => wp_get_attachment_image_srcset($secondary_id, 'large'),
+                                        'sizes' => '(max-width: 744px) 100vw, 50vw',
+                                        'alt' => esc_attr($secondary_alt),
+                                        'loading' => 'lazy',
+                                    ]
+                                );
+                                ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php
                         $caption = get_the_post_thumbnail_caption();
                         if (!$caption) {
                             $caption = get_field('featured_image_caption');
                         }
                         if ($caption) : ?>
-                            <p class="news-single__thumbnail-caption"><?php echo esc_html($caption); ?></p>
+                            <p class="news-single__media-caption"><?php echo esc_html($caption); ?></p>
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
