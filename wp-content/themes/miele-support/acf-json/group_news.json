@@ -3,6 +3,24 @@
     "title": "News Post Fields",
     "fields": [
         {
+            "key": "field_news_content_tab",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_news_subtitle",
             "label": "Subtitle",
             "name": "subtitle",
@@ -19,26 +37,6 @@
             "default_value": "",
             "maxlength": 200,
             "placeholder": "Enter subtitle...",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_news_author_name",
-            "label": "Author Name",
-            "name": "author_name",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Custom author name (if different from WordPress user)",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": 100,
-            "placeholder": "e.g., John Smith",
             "prepend": "",
             "append": ""
         },
@@ -61,6 +59,289 @@
             "placeholder": "Image credit or description...",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_news_content_before_media",
+            "label": "Content Before Media",
+            "name": "content_before_media",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Optional content to display before the secondary media block (image/video/table)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "text",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_news_secondary_image",
+            "label": "Secondary Image",
+            "name": "secondary_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Second image displayed in the desktop content block (below main content, before video/table)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_news_secondary_image_caption",
+            "label": "Secondary Image Caption",
+            "name": "secondary_image_caption",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional caption for the secondary image",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_news_secondary_image",
+                        "operator": "!=",
+                        "value": ""
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 200,
+            "placeholder": "Caption for secondary image...",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_news_video",
+            "label": "Video",
+            "name": "video",
+            "aria-label": "",
+            "type": "oembed",
+            "instructions": "Embed a video from YouTube, Vimeo, or other supported platforms. Paste the video URL here.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": 1280,
+            "height": 720
+        },
+        {
+            "key": "field_news_table",
+            "label": "Data Table",
+            "name": "table",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Create a structured data table. Each row will be rendered safely without raw HTML.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": false,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_news_table_cells",
+                    "label": "Row Cells",
+                    "name": "cells",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Add cells to this row. Use header cells for column titles.",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": false,
+                    "min": 1,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Cell",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_news_table_cell_content",
+                            "label": "Content",
+                            "name": "content",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Cell content",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "70",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Cell text...",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_news_table_cells"
+                        },
+                        {
+                            "key": "field_news_table_cell_is_header",
+                            "label": "Header Cell",
+                            "name": "is_header",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Check if this is a header cell (th instead of td)",
+                            "required": false,
+                            "conditional_logic": false,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Header cell",
+                            "default_value": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "parent_repeater": "field_news_table_cells"
+                        }
+                    ],
+                    "parent_repeater": "field_news_table"
+                }
+            ]
+        },
+        {
+            "key": "field_news_content_after_media",
+            "label": "Content After Media",
+            "name": "content_after_media",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Optional content to display after the secondary media block (image/video/table)",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "text",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_news_author_tab",
+            "label": "Author",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_news_author_name",
+            "label": "Author Name Override",
+            "name": "author_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Custom author name (overrides the WordPress user display name). Leave empty to use the post author's name.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 100,
+            "placeholder": "e.g., John Smith",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_news_author_avatar",
+            "label": "Author Avatar",
+            "name": "author_avatar",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Custom author avatar image. Leave empty to use the WordPress user's Gravatar.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 150,
+            "max_height": 150,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_news_author_description",
+            "label": "Author Description",
+            "name": "author_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Custom author bio/description. Leave empty to use the WordPress user's biography.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "br",
+            "maxlength": 500,
+            "placeholder": "Brief author biography...",
+            "rows": 4
         }
     ],
     "location": [
@@ -73,13 +354,13 @@
         ]
     ],
     "menu_order": 10,
-    "position": "side",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [],
     "active": true,
-    "description": "Additional fields for news\/blog posts",
+    "description": "Additional fields for news/blog posts. All fields are optional - existing posts will continue to work without changes.",
     "show_in_rest": false,
     "display_title": "",
     "modified": 1771527144
