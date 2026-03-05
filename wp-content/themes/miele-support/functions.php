@@ -192,33 +192,88 @@ function handle_contact_form_submit() {
         wp_send_json_error(['message' => 'Security check failed.']);
     }
 
-    // Sanitize input data
+    // Sanitize input data - Step 1
     $category = sanitize_text_field($_POST['category'] ?? '');
-    $brand = sanitize_text_field($_POST['brand'] ?? '');
     $problem_description = sanitize_textarea_field($_POST['problem_description'] ?? '');
-    $contact_name = sanitize_text_field($_POST['contact_name'] ?? '');
-    $contact_phone = sanitize_text_field($_POST['contact_phone'] ?? '');
-    $contact_email = sanitize_email($_POST['contact_email'] ?? '');
+    $coi = sanitize_text_field($_POST['coi'] ?? '');
+
+    // Sanitize input data - Step 2
+    $appointment_date = sanitize_text_field($_POST['appointment_date'] ?? '');
+    $appointment_time = sanitize_text_field($_POST['appointment_time'] ?? '');
+
+    // Sanitize input data - Step 3
+    $full_name = sanitize_text_field($_POST['full_name'] ?? '');
+    $address = sanitize_textarea_field($_POST['address'] ?? '');
+    $city = sanitize_text_field($_POST['city'] ?? '');
+    $postcode = sanitize_text_field($_POST['postcode'] ?? '');
+    $phone = sanitize_text_field($_POST['phone'] ?? '');
+    $email = sanitize_email($_POST['email'] ?? '');
+
+    // Handle file upload
+    $coi_file = null;
+    $coi_file_path = '';
+    if (!empty($_FILES['coi_file']) && $_FILES['coi_file']['error'] === UPLOAD_ERR_OK) {
+        $uploaded_file = $_FILES['coi_file'];
+        
+        // Validate file type
+        $allowed_types = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        $file_type = wp_check_filetype_and_ext($uploaded_file['tmp_name'], $uploaded_file['name']);
+        
+        if (in_array($file_type['type'], $allowed_types)) {
+            // Validate file size (5MB max)
+            $max_size = 5 * 1024 * 1024;
+            if ($uploaded_file['size'] <= $max_size) {
+                // Upload to WordPress uploads directory
+                $upload = wp_handle_upload($uploaded_file, ['test_form' => false]);
+                if (!isset($upload['error'])) {
+                    $coi_file = $upload['url'];
+                    $coi_file_path = $upload['file'];
+                }
+            }
+        }
+    }
 
     // Validate required fields
     $errors = [];
 
+    // Step 1 validation
     if (empty($category)) {
         $errors[] = 'Category is required.';
-    }
-    if (empty($brand)) {
-        $errors[] = 'Brand is required.';
     }
     if (empty($problem_description)) {
         $errors[] = 'Problem description is required.';
     }
-    if (empty($contact_name)) {
-        $errors[] = 'Name is required.';
+    if (empty($coi)) {
+        $errors[] = 'COI selection is required.';
     }
-    if (empty($contact_phone)) {
+
+    // Step 2 validation
+    if (empty($appointment_date)) {
+        $errors[] = 'Appointment date is required.';
+    }
+    if (empty($appointment_time)) {
+        $errors[] = 'Appointment time is required.';
+    } elseif (!in_array($appointment_time, ['8am-12pm', '12pm-4pm', '4pm-8pm'])) {
+        $errors[] = 'Invalid appointment time selected.';
+    }
+
+    // Step 3 validation
+    if (empty($full_name)) {
+        $errors[] = 'Full name is required.';
+    }
+    if (empty($address)) {
+        $errors[] = 'Address is required.';
+    }
+    if (empty($city)) {
+        $errors[] = 'City is required.';
+    }
+    if (empty($postcode)) {
+        $errors[] = 'Postcode is required.';
+    }
+    if (empty($phone)) {
         $errors[] = 'Phone number is required.';
     }
-    if (empty($contact_email) || !is_email($contact_email)) {
+    if (empty($email) || !is_email($email)) {
         $errors[] = 'Valid email is required.';
     }
 
@@ -229,26 +284,59 @@ function handle_contact_form_submit() {
     // Get admin email from ACF or use WordPress admin email
     $admin_email = get_field('form_admin_email') ?: get_option('admin_email');
 
+    // Format COI for display
+    $coi_display = [
+        'yes' => 'Yes',
+        'no' => 'No',
+        'not_sure' => 'Not Sure',
+    ];
+    $coi_text = $coi_display[$coi] ?? $coi;
+
+    // Format appointment time for display
+    $time_display = [
+        '8am-12pm' => '8:00 AM - 12:00 PM',
+        '12pm-4pm' => '12:00 PM - 4:00 PM',
+        '4pm-8pm' => '4:00 PM - 8:00 PM',
+    ];
+    $appointment_time_text = $time_display[$appointment_time] ?? $appointment_time;
+
     // Build email subject
     $subject = sprintf(
         '[%s] New Service Request: %s - %s',
         get_bloginfo('name'),
-        $category,
-        $brand
+        ucfirst($category),
+        $full_name
     );
 
     // Build email message
     $message = "New Service Request\n";
     $message .= "========================\n\n";
-    $message .= "Category: " . ucfirst($category) . "\n";
-    $message .= "Brand: " . ucfirst($brand) . "\n\n";
-    $message .= "Problem Description:\n";
-    $message .= $problem_description . "\n\n";
-    $message .= "Contact Information:\n";
+    
+    $message .= "APPLIANCE DETAILS:\n";
     $message .= "------------------------\n";
-    $message .= "Name: " . $contact_name . "\n";
-    $message .= "Phone: " . $contact_phone . "\n";
-    $message .= "Email: " . $contact_email . "\n\n";
+    $message .= "Category: " . ucfirst($category) . "\n";
+    $message .= "Problem Description:\n" . $problem_description . "\n";
+    $message .= "Certificate of Insurance: " . $coi_text . "\n";
+    if ($coi_file) {
+        $message .= "COI File: " . $coi_file . "\n";
+    }
+    $message .= "\n";
+    
+    $message .= "APPOINTMENT DETAILS:\n";
+    $message .= "------------------------\n";
+    $message .= "Date: " . $appointment_date . "\n";
+    $message .= "Time: " . $appointment_time_text . "\n";
+    $message .= "\n";
+    
+    $message .= "CONTACT INFORMATION:\n";
+    $message .= "------------------------\n";
+    $message .= "Name: " . $full_name . "\n";
+    $message .= "Address: " . $address . "\n";
+    $message .= "City: " . $city . "\n";
+    $message .= "Postcode: " . $postcode . "\n";
+    $message .= "Phone: " . $phone . "\n";
+    $message .= "Email: " . $email . "\n\n";
+    
     $message .= "Submitted from: " . get_bloginfo('name') . "\n";
     $message .= "Date: " . current_time('mysql') . "\n";
 
@@ -256,21 +344,19 @@ function handle_contact_form_submit() {
     $headers = [
         'Content-Type: text/plain; charset=UTF-8',
         'From: ' . get_bloginfo('name') . ' <' . $admin_email . '>',
-        'Reply-To: ' . $contact_name . ' <' . $contact_email . '>',
+        'Reply-To: ' . $full_name . ' <' . $email . '>',
     ];
 
+    // Prepare attachments if file exists
+    $attachments = [];
+    if ($coi_file_path && file_exists($coi_file_path)) {
+        $attachments[] = $coi_file_path;
+    }
+
     // Send email
-    $sent = wp_mail($admin_email, $subject, $message, $headers);
+    $sent = wp_mail($admin_email, $subject, $message, $headers, $attachments);
 
     if ($sent) {
-        // Optionally save to database as backup
-        $post_data = [
-            'post_title'   => sprintf('%s - %s (%s)', $category, $brand, $contact_name),
-            'post_content' => $problem_description,
-            'post_status'  => 'private',
-            'post_type'    => 'contact_request',
-        ];
-
         wp_send_json_success([
             'message' => 'Your request has been submitted successfully.',
         ]);

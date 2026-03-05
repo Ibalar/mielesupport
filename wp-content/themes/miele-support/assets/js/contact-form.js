@@ -17,17 +17,26 @@
     // Buttons
     const nextButtons = form.querySelectorAll('.contact-form__btn-next');
     const backButtons = form.querySelectorAll('.contact-form__btn-back');
-    const previewButton = form.querySelector('.contact-form__btn-preview');
     const submitButton = form.querySelector('.contact-form__btn-submit');
     const resetButton = form.querySelector('.contact-form__btn-reset');
 
-    // Form fields
+    // Step 1 fields
     const categorySelect = document.getElementById('category');
-    const brandSelect = document.getElementById('brand');
     const problemTextarea = document.getElementById('problem_description');
-    const nameInput = document.getElementById('contact_name');
-    const phoneInput = document.getElementById('contact_phone');
-    const emailInput = document.getElementById('contact_email');
+    const coiSelect = document.getElementById('coi');
+    const coiFileInput = document.getElementById('coi_file');
+
+    // Step 2 fields
+    const appointmentDate = document.getElementById('appointment_date');
+    const appointmentTimeRadios = form.querySelectorAll('input[name="appointment_time"]');
+
+    // Step 3 fields
+    const fullNameInput = document.getElementById('full_name');
+    const addressTextarea = document.getElementById('address');
+    const cityInput = document.getElementById('city');
+    const postcodeInput = document.getElementById('postcode');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
 
     // Current step tracking
     let currentStep = 1;
@@ -39,6 +48,17 @@
     function init() {
         bindEvents();
         updateStepIndicators();
+        setMinDate();
+    }
+
+    /**
+     * Set minimum date to today for appointment date
+     */
+    function setMinDate() {
+        if (appointmentDate) {
+            const today = new Date().toISOString().split('T')[0];
+            appointmentDate.setAttribute('min', today);
+        }
     }
 
     /**
@@ -55,11 +75,6 @@
             button.addEventListener('click', handleBackClick);
         });
 
-        // Preview button
-        if (previewButton) {
-            previewButton.addEventListener('click', handlePreviewClick);
-        }
-
         // Form submission
         form.addEventListener('submit', handleSubmit);
 
@@ -73,7 +88,38 @@
         inputs.forEach(input => {
             input.addEventListener('blur', () => validateField(input));
             input.addEventListener('input', () => clearFieldError(input));
+            input.addEventListener('change', () => clearFieldError(input));
         });
+
+        // File input display
+        if (coiFileInput) {
+            coiFileInput.addEventListener('change', handleFileChange);
+        }
+    }
+
+    /**
+     * Handle file input change
+     */
+    function handleFileChange(e) {
+        const file = e.target.files[0];
+        const fileNameDisplay = document.querySelector('.contact-form__file-name');
+        const fileText = document.querySelector('.contact-form__file-text');
+
+        if (file) {
+            if (fileNameDisplay) {
+                fileNameDisplay.textContent = file.name;
+            }
+            if (fileText) {
+                fileText.style.display = 'none';
+            }
+        } else {
+            if (fileNameDisplay) {
+                fileNameDisplay.textContent = '';
+            }
+            if (fileText) {
+                fileText.style.display = '';
+            }
+        }
     }
 
     /**
@@ -88,11 +134,6 @@
             return;
         }
 
-        // If going to step 3 from step 2, update review data
-        if (currentStep === 2 && nextStep === 3) {
-            updateReviewData();
-        }
-
         goToStep(nextStep);
     }
 
@@ -103,17 +144,6 @@
         const button = e.target;
         const backStep = parseInt(button.dataset.back, 10);
         goToStep(backStep);
-    }
-
-    /**
-     * Handle Preview button click (go to step 2)
-     */
-    function handlePreviewClick() {
-        if (!validateStep(1)) {
-            return;
-        }
-        updateReviewData();
-        goToStep(2);
     }
 
     /**
@@ -175,16 +205,75 @@
         if (step === 1) {
             // Validate Step 1 fields
             isValid = validateField(categorySelect) && isValid;
-            isValid = validateField(brandSelect) && isValid;
             isValid = validateField(problemTextarea) && isValid;
+            isValid = validateField(coiSelect) && isValid;
+            // File is optional, but if provided validate it
+            if (coiFileInput && coiFileInput.files.length > 0) {
+                isValid = validateFile(coiFileInput) && isValid;
+            }
+        } else if (step === 2) {
+            // Validate Step 2 fields
+            isValid = validateField(appointmentDate) && isValid;
+            isValid = validateAppointmentTime() && isValid;
         } else if (step === 3) {
             // Validate Step 3 fields
-            isValid = validateField(nameInput) && isValid;
+            isValid = validateField(fullNameInput) && isValid;
+            isValid = validateField(addressTextarea) && isValid;
+            isValid = validateField(cityInput) && isValid;
+            isValid = validateField(postcodeInput) && isValid;
             isValid = validateField(phoneInput) && isValid;
             isValid = validateField(emailInput) && isValid;
         }
 
         return isValid;
+    }
+
+    /**
+     * Validate appointment time radio buttons
+     */
+    function validateAppointmentTime() {
+        const isSelected = Array.from(appointmentTimeRadios).some(radio => radio.checked);
+        
+        if (!isSelected) {
+            const errorElement = document.querySelector('.contact-form__error[data-field="appointment_time"]');
+            if (errorElement) {
+                errorElement.textContent = 'Please select a preferred time';
+            }
+            return false;
+        }
+        
+        return true;
+    }
+
+    /**
+     * Validate file upload
+     */
+    function validateFile(fileInput) {
+        const file = fileInput.files[0];
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        const allowedTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        
+        if (file) {
+            // Check file size
+            if (file.size > maxSize) {
+                const errorElement = document.querySelector('.contact-form__error[data-field="coi_file"]');
+                if (errorElement) {
+                    errorElement.textContent = 'File size must be less than 5MB';
+                }
+                return false;
+            }
+            
+            // Check file type
+            if (!allowedTypes.includes(file.type)) {
+                const errorElement = document.querySelector('.contact-form__error[data-field="coi_file"]');
+                if (errorElement) {
+                    errorElement.textContent = 'Invalid file format. Please upload PDF, JPG, PNG, or DOC file';
+                }
+                return false;
+            }
+        }
+        
+        return true;
     }
 
     /**
@@ -199,13 +288,21 @@
         let errorMessage = '';
 
         // Required validation
-        if (field.hasAttribute('required') && !value) {
-            isValid = false;
-            errorMessage = 'This field is required';
+        if (field.hasAttribute('required') && !value && field.type !== 'radio') {
+            // For checkboxes and radios, check differently
+            if (field.type === 'checkbox') {
+                if (!field.checked) {
+                    isValid = false;
+                    errorMessage = 'This field is required';
+                }
+            } else if (!value) {
+                isValid = false;
+                errorMessage = 'This field is required';
+            }
         }
 
         // Email validation
-        if (isValid && fieldName === 'contact_email' && value) {
+        if (isValid && fieldName === 'email' && value) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(value)) {
                 isValid = false;
@@ -214,11 +311,32 @@
         }
 
         // Phone validation
-        if (isValid && fieldName === 'contact_phone' && value) {
+        if (isValid && fieldName === 'phone' && value) {
             const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
             if (!phoneRegex.test(value)) {
                 isValid = false;
                 errorMessage = 'Please enter a valid phone number';
+            }
+        }
+
+        // Postcode validation
+        if (isValid && fieldName === 'postcode' && value) {
+            const postcodeRegex = /^[A-Za-z0-9\s\-]{3,10}$/;
+            if (!postcodeRegex.test(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid postcode';
+            }
+        }
+
+        // Date validation
+        if (isValid && fieldName === 'appointment_date' && value) {
+            const selectedDate = new Date(value);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            
+            if (selectedDate < today) {
+                isValid = false;
+                errorMessage = 'Please select a future date';
             }
         }
 
@@ -253,26 +371,6 @@
         if (errorElement) {
             errorElement.textContent = '';
         }
-    }
-
-    /**
-     * Update review data on step 2
-     */
-    function updateReviewData() {
-        // Category
-        const categoryValue = categorySelect?.value || '';
-        const categoryOption = categorySelect?.querySelector(`option[value="${categoryValue}"]`);
-        const categoryLabel = categoryOption?.textContent || categoryValue;
-        document.querySelector('[data-review="category"]').textContent = categoryLabel;
-
-        // Brand
-        const brandValue = brandSelect?.value || '';
-        const brandOption = brandSelect?.querySelector(`option[value="${brandValue}"]`);
-        const brandLabel = brandOption?.textContent || brandValue;
-        document.querySelector('[data-review="brand"]').textContent = brandLabel;
-
-        // Problem Description
-        document.querySelector('[data-review="problem_description"]').textContent = problemTextarea?.value || '';
     }
 
     /**
@@ -350,6 +448,16 @@
 
         const errorElements = form.querySelectorAll('.contact-form__error');
         errorElements.forEach(el => el.textContent = '');
+
+        // Reset file display
+        const fileNameDisplay = document.querySelector('.contact-form__file-name');
+        const fileText = document.querySelector('.contact-form__file-text');
+        if (fileNameDisplay) {
+            fileNameDisplay.textContent = '';
+        }
+        if (fileText) {
+            fileText.style.display = '';
+        }
 
         // Go back to step 1
         goToStep(1);

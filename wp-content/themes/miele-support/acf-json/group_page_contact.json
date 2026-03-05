@@ -192,72 +192,6 @@
             ]
         },
         {
-            "key": "field_form_brands",
-            "label": "Form Brands",
-            "name": "form_brands",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Add brands for the contact form dropdown. If empty, default brands will be used.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Add Brand",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_brand_value",
-                    "label": "Value",
-                    "name": "value",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Internal value (lowercase, no spaces)",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "e.g., miele",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_form_brands"
-                },
-                {
-                    "key": "field_brand_label",
-                    "label": "Label",
-                    "name": "label",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Display label",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "e.g., Miele",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_form_brands"
-                }
-            ]
-        },
-        {
             "key": "field_form_admin_email",
             "label": "Admin Email",
             "name": "form_admin_email",
@@ -296,5 +230,5 @@
     "description": "Contact page settings for Hero section, contact information, and form configuration",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1772189953
+    "modified": 1772189954
 }

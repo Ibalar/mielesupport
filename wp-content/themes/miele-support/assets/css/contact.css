@@ -223,6 +223,147 @@
     color: var(--grayc5, #c5c5c5);
 }
 
+.contact-form__textarea--small {
+    min-height: 80px;
+}
+
+/* File Upload */
+.contact-form__field--file {
+    margin-top: 8px;
+}
+
+.contact-form__file-wrapper {
+    position: relative;
+}
+
+.contact-form__file-input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.contact-form__file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px 24px;
+    background-color: var(--white, #fff);
+    border: 2px dashed var(--grayd9, #d9d9d9);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-form__file-label:hover {
+    border-color: var(--red, #cc2229);
+    background-color: rgba(204, 34, 41, 0.02);
+}
+
+.contact-form__file-input:focus + .contact-form__file-label {
+    border-color: var(--red, #cc2229);
+    box-shadow: 0 0 0 3px rgba(204, 34, 41, 0.1);
+}
+
+.contact-form__file-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--grayc5, #c5c5c5);
+    transition: color 0.2s ease;
+}
+
+.contact-form__file-label:hover .contact-form__file-icon {
+    color: var(--red, #cc2229);
+}
+
+.contact-form__file-text {
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray3d, #3d3d3d);
+}
+
+.contact-form__file-name {
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black19, #191919);
+}
+
+.contact-form__hint {
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--grayc5, #c5c5c5);
+    margin-top: 4px;
+}
+
+/* Date Input */
+.contact-form__input--date {
+    cursor: pointer;
+}
+
+.contact-form__input--date::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.contact-form__input--date::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* Radio Group */
+.contact-form__radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form__radio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background-color: var(--white, #fff);
+    border: 1px solid var(--grayd9, #d9d9d9);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-form__radio:hover {
+    border-color: var(--grayc5, #c5c5c5);
+}
+
+.contact-form__radio input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--red, #cc2229);
+}
+
+.contact-form__radio input[type="radio"]:checked + .contact-form__radio-label {
+    color: var(--black19, #191919);
+}
+
+.contact-form__radio:has(input[type="radio"]:checked) {
+    border-color: var(--red, #cc2229);
+    background-color: rgba(204, 34, 41, 0.02);
+}
+
+.contact-form__radio-label {
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gray3d, #3d3d3d);
+    cursor: pointer;
+}
+
 /* Input Field */
 .contact-form__input {
     width: 100%;
@@ -768,6 +909,34 @@ a.contact-info-block__value:hover {
         min-height: 100px;
     }
 
+    .contact-form__textarea--small {
+        min-height: 80px;
+    }
+
+    /* File Upload Mobile */
+    .contact-form__file-label {
+        padding: 24px 16px;
+    }
+
+    .contact-form__file-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .contact-form__file-text {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    /* Radio Group Mobile */
+    .contact-form__radio {
+        padding: 14px 16px;
+    }
+
+    .contact-form__radio-label {
+        font-size: 15px;
+    }
+
     .contact-form__actions {
         flex-direction: column;
         gap: 12px;
@@ -936,11 +1105,17 @@ a.contact-info-block__value:hover {
     .contact-form__step-number,
     .contact-form__select,
     .contact-form__textarea,
-    .contact-form__input {
+    .contact-form__input,
+    .contact-form__file-label,
+    .contact-form__radio {
         transition: none;
     }
 
     .contact-form__step-label {
+        transition: none;
+    }
+
+    .contact-form__file-icon {
         transition: none;
     }
 
