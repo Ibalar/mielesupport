@@ -618,34 +618,64 @@
 
 .news-single__media-item {
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .news-single__media-item img {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: cover;
 }
 
-/* Desktop: Two images side by side (default: > 744px) */
+/* Desktop (1440px+): Two images side by side */
 .news-single__media--dual {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--gap-sm);
+    gap: var(--gap-md);
 }
 
-/* Tablet/Mobile: Show only primary image (≤744px) */
+/* Tablet (744px) and Mobile (390px): Show only primary image */
 @media (max-width: 744px) {
     .news-single__media--dual {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .news-single__media-item--secondary {
         display: none;
     }
+
+    /* Ensure single image takes full width */
+    .news-single__media-item--primary {
+        width: 100%;
+    }
+
+    /* Adjust media margin for mobile */
+    .news-single__media {
+        margin-bottom: var(--gap-md);
+    }
+}
+
+/* Mobile (390px) specific adjustments */
+@media (max-width: 390px) {
+    .news-single__media {
+        margin-bottom: var(--gap-sm);
+    }
+
+    .news-single__media-item {
+        border-radius: 4px;
+    }
 }
 
 /* Single image fallback - when no secondary image */
 .news-single__media:not(.news-single__media--dual) .news-single__media-item {
+    width: 100%;
+}
+
+/* Media caption wrapper - spans full width in dual mode */
+.news-single__media-caption-wrapper {
+    grid-column: 1 / -1;
     width: 100%;
 }
 

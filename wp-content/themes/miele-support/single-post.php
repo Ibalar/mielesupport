@@ -147,6 +147,8 @@ function miele_get_updated_time_ago(int $post_id): string
 
                 <?php
                 // Media block: featured image + secondary image
+                // Desktop (1440): 2 images side by side
+                // Tablet/Mobile (744/390): only primary (featured) image visible
                 $has_thumbnail = has_post_thumbnail();
                 $secondary_image = get_field('secondary_image');
                 $has_secondary = !empty($secondary_image);
@@ -172,9 +174,30 @@ function miele_get_updated_time_ago(int $post_id): string
                                 );
                                 ?>
                             </div>
+                        <?php elseif ($has_secondary) : ?>
+                            <?php
+                            // Fallback: if no featured image but secondary exists, show secondary as primary
+                            $secondary_id = is_array($secondary_image) ? $secondary_image['ID'] : $secondary_image;
+                            $secondary_alt = get_post_meta($secondary_id, '_wp_attachment_image_alt', true) ?: get_the_title();
+                            ?>
+                            <div class="news-single__media-item news-single__media-item--primary">
+                                <?php
+                                echo wp_get_attachment_image(
+                                    $secondary_id,
+                                    'large',
+                                    false,
+                                    [
+                                        'srcset' => wp_get_attachment_image_srcset($secondary_id, 'large'),
+                                        'sizes' => '100vw',
+                                        'alt' => esc_attr($secondary_alt),
+                                        'loading' => 'eager',
+                                    ]
+                                );
+                                ?>
+                            </div>
                         <?php endif; ?>
 
-                        <?php if ($has_secondary) : ?>
+                        <?php if ($has_secondary && $has_thumbnail) : ?>
                             <div class="news-single__media-item news-single__media-item--secondary">
                                 <?php
                                 $secondary_id = is_array($secondary_image) ? $secondary_image['ID'] : $secondary_image;
@@ -195,12 +218,18 @@ function miele_get_updated_time_ago(int $post_id): string
                         <?php endif; ?>
 
                         <?php
-                        $caption = get_the_post_thumbnail_caption();
-                        if (!$caption) {
-                            $caption = get_field('featured_image_caption');
+                        // Caption: featured image caption or secondary image caption based on context
+                        $caption = '';
+                        if ($has_thumbnail) {
+                            $caption = get_the_post_thumbnail_caption();
+                            if (!$caption) {
+                                $caption = get_field('featured_image_caption');
+                            }
                         }
                         if ($caption) : ?>
-                            <p class="news-single__media-caption"><?php echo esc_html($caption); ?></p>
+                            <div class="news-single__media-caption-wrapper">
+                                <p class="news-single__media-caption"><?php echo esc_html($caption); ?></p>
+                            </div>
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
