@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const quickFormClose = document.querySelector(".quick-form-modal__close");
 
+    // Support for additional quick form triggers (e.g., on single posts)
+    const quickFormTriggers = document.querySelectorAll(".js-quick-form-trigger");
+
     // helper: блокируем скролл страницы
     function lockBodyScroll() {
         document.documentElement.style.overflow = "hidden";
@@ -75,6 +78,16 @@ document.addEventListener("DOMContentLoaded", function () {
         cta.addEventListener("click", function (e) {
             e.preventDefault();
             openQuickForm();
+        });
+    }
+
+    // Bind additional quick form triggers
+    if (quickFormTriggers.length > 0 && quickFormModal) {
+        quickFormTriggers.forEach(function(trigger) {
+            trigger.addEventListener("click", function (e) {
+                e.preventDefault();
+                openQuickForm();
+            });
         });
     }
 

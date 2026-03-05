@@ -320,17 +320,139 @@
     color: var(--grayc5);
 }
 
+.news-single__updated {
+    color: var(--grayc5);
+    font-size: 0.875rem;
+}
+
+.news-single__updated::before {
+    content: '•';
+    margin-right: var(--gap-sm);
+    color: var(--grayc5);
+}
+
 .news-single__categories {
     color: var(--red);
 }
 
-.news-single__author {
+.news-single__categories::before {
+    content: '•';
+    margin-right: var(--gap-sm);
     color: var(--grayc5);
 }
 
-.news-single__author::before {
-    content: '•';
-    margin-right: var(--gap-sm);
+/* Author Block */
+.news-single__author-block {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gap-md);
+    margin-top: var(--gap-lg);
+    padding: var(--gap-md);
+    background: var(--black22);
+    border: 1px solid var(--gray3d);
+    border-radius: 8px;
+}
+
+.news-single__author-avatar {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--black19);
+}
+
+.news-single__author-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-single__author-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.news-single__author-name {
+    display: block;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--gap-xs);
+}
+
+.news-single__author-description {
+    font-size: 0.875rem;
+    color: var(--grayc5);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Booking Button */
+.news-single__booking {
+    margin-top: var(--gap-lg);
+    margin-bottom: var(--gap-md);
+}
+
+.news-single__booking-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-family);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.news-single__booking-btn:hover {
+    background: var(--red-hover);
+}
+
+/* Quick Form Modal Subtitle */
+.quick-form__subtitle {
+    color: var(--grayc5);
+    font-size: 0.875rem;
+    margin-bottom: var(--gap-md);
+}
+
+.quick-form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 2px;
+    border: 1px solid #444;
+    background: #000;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.875rem;
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Mobile styles for author block */
+@media (max-width: 480px) {
+    .news-single__author-block {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .news-single__author-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .news-single__booking-btn {
+        width: 100%;
+    }
 }
 
 .news-single__thumbnail {
