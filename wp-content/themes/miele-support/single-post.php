@@ -234,15 +234,78 @@ function miele_get_updated_time_ago(int $post_id): string
                     </div>
                 <?php endif; ?>
 
-                <?php 
+                <?php
                 $subtitle = get_field('subtitle');
                 if ($subtitle) : ?>
                     <p class="news-single__subtitle"><?php echo esc_html($subtitle); ?></p>
                 <?php endif; ?>
 
-                <div class="news-single__content">
-                    <?php the_content(); ?>
-                </div>
+                <?php
+                // Get ACF content fields
+                $content_before = get_field('content_before_media');
+                $content_after = get_field('content_after_media');
+                $video_url = get_field('video');
+                $table_rows = get_field('table');
+
+                // Check if new ACF structure exists
+                $has_acf_content = $content_before || $content_after || $video_url || $table_rows;
+
+                if ($has_acf_content) :
+                    // New structured content layout
+                    ?>
+
+                    <?php if ($content_before) : ?>
+                        <div class="news-single__content news-single__content--before">
+                            <?php echo wp_kses_post($content_before); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($video_url) : ?>
+                        <div class="news-single__video">
+                            <?php echo wp_oembed_get($video_url, ['width' => 800, 'height' => 450]); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($table_rows && is_array($table_rows) && !empty($table_rows)) : ?>
+                        <div class="news-single__table-wrapper">
+                            <table class="news-single__table">
+                                <?php foreach ($table_rows as $row_index => $row) : ?>
+                                    <?php
+                                    $cells = $row['cells'] ?? [];
+                                    if (empty($cells)) {
+                                        continue;
+                                    }
+                                    ?>
+                                    <tr>
+                                        <?php foreach ($cells as $cell) : ?>
+                                            <?php
+                                            $cell_content = $cell['content'] ?? '';
+                                            $is_header = !empty($cell['is_header']);
+                                            ?>
+                                            <?php if ($is_header) : ?>
+                                                <th><?php echo esc_html($cell_content); ?></th>
+                                            <?php else : ?>
+                                                <td><?php echo esc_html($cell_content); ?></td>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if ($content_after) : ?>
+                        <div class="news-single__content news-single__content--after">
+                            <?php echo wp_kses_post($content_after); ?>
+                        </div>
+                    <?php endif; ?>
+
+                <?php else : ?>
+                    <!-- Legacy fallback: standard content for old posts -->
+                    <div class="news-single__content">
+                        <?php the_content(); ?>
+                    </div>
+                <?php endif; ?>
 
                 <?php if (has_tag()) : ?>
                     <footer class="news-single__footer">
