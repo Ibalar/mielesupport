@@ -66,7 +66,7 @@
             "name": "content_before_media",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "Optional content to display before the secondary media block (image/video/table)",
+            "instructions": "Optional content to display before the secondary media block (image\/video\/table)",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -86,7 +86,7 @@
             "name": "secondary_image",
             "aria-label": "",
             "type": "image",
-            "instructions": "Second image displayed in the desktop content block (below main content, before video/table)",
+            "instructions": "Second image displayed in the desktop content block (below main content, before video\/table)",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -193,6 +193,7 @@
                     "collapsed": "",
                     "button_label": "Add Cell",
                     "rows_per_page": 20,
+                    "parent_repeater": "field_news_table",
                     "sub_fields": [
                         {
                             "key": "field_news_table_cell_content",
@@ -233,10 +234,10 @@
                             "default_value": 0,
                             "ui_on_text": "",
                             "ui_off_text": "",
-                            "parent_repeater": "field_news_table_cells"
+                            "parent_repeater": "field_news_table_cells",
+                            "ui": 0
                         }
-                    ],
-                    "parent_repeater": "field_news_table"
+                    ]
                 }
             ]
         },
@@ -246,7 +247,7 @@
             "name": "content_after_media",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "Optional content to display after the secondary media block (image/video/table)",
+            "instructions": "Optional content to display after the secondary media block (image\/video\/table)",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -329,7 +330,7 @@
             "name": "author_description",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Custom author bio/description. Leave empty to use the WordPress user's biography.",
+            "instructions": "Custom author bio\/description. Leave empty to use the WordPress user's biography.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -360,8 +361,8 @@
     "instruction_placement": "label",
     "hide_on_screen": [],
     "active": true,
-    "description": "Additional fields for news/blog posts. All fields are optional - existing posts will continue to work without changes.",
+    "description": "Additional fields for news\/blog posts. All fields are optional - existing posts will continue to work without changes.",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1771527144
+    "modified": 1772705635
 }
