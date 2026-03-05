@@ -345,10 +345,12 @@
     margin-bottom: 12px;
 }
 
-.quick-form__field span {
+.quick-form__field span,
+.quick-form__field label {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    color: #fff;
 }
 
 .quick-form__field input {
