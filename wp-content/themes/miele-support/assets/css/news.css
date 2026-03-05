@@ -437,24 +437,6 @@
     min-height: 80px;
 }
 
-/* Mobile styles for author block */
-@media (max-width: 480px) {
-    .news-single__author-block {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .news-single__author-avatar {
-        width: 60px;
-        height: 60px;
-    }
-
-    .news-single__booking-btn {
-        width: 100%;
-    }
-}
-
 .news-single__thumbnail {
     margin-bottom: var(--gap-lg);
     border-radius: 8px;
@@ -514,33 +496,46 @@
     color: var(--red-hover);
 }
 
+/* Tags Footer Block */
 .news-single__footer {
     margin-top: var(--gap-lg);
     padding-top: var(--gap-lg);
     border-top: 1px solid var(--gray3d);
 }
 
+/* Tags Container - flex wrap for pill badges */
 .news-single__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap-xs);
+    gap: 12px;
 }
 
-.news-single__tags a {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background: var(--black-bg);
-    border: 1px solid var(--gray3d);
-    border-radius: 4px;
-    color: var(--grayc5);
-    font-size: 0.875rem;
+/* Individual Tag Pill Badge */
+.news-single__tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    background: var(--gray3d);
+    color: var(--white);
+    font-family: var(--font-family), serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
     text-decoration: none;
+    white-space: nowrap;
     transition: all 0.3s ease;
 }
 
-.news-single__tags a:hover {
-    border-color: var(--red);
-    color: var(--red);
+.news-single__tag:hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+/* Accessibility focus state */
+.news-single__tag:focus {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
 }
 
 /* Post Navigation */
@@ -805,5 +800,168 @@
 
     .news-single__table th {
         font-size: 0.75rem;
+    }
+}
+
+/* ========================================
+   SINGLE PAGE RESPONSIVE (1440/744/390)
+   ======================================== */
+
+/* Tablet (744px) Responsive Styles */
+@media (max-width: 744px) {
+    /* Title */
+    .news-single__title {
+        font-size: 2rem;
+    }
+
+    /* Author block */
+    .news-single__author-block {
+        padding: var(--gap-sm);
+    }
+
+    .news-single__author-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Booking button */
+    .news-single__booking-btn {
+        padding: 12px 24px;
+        font-size: 0.8125rem;
+    }
+
+    /* Content */
+    .news-single__content {
+        font-size: 1rem;
+    }
+
+    .news-single__subtitle {
+        font-size: 1.125rem;
+    }
+
+    /* Tags - pill badges */
+    .news-single__tags {
+        gap: 10px;
+    }
+
+    .news-single__tag {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    /* Footer */
+    .news-single__footer {
+        margin-top: var(--gap-md);
+        padding-top: var(--gap-md);
+    }
+
+    /* Navigation */
+    .news-single__navigation {
+        flex-direction: column;
+        gap: var(--gap-sm);
+    }
+
+    .news-single__nav-prev,
+    .news-single__nav-next {
+        text-align: left;
+    }
+}
+
+/* Mobile (390px) Responsive Styles */
+@media (max-width: 390px) {
+    /* Main container */
+    .news-single {
+        padding-top: var(--gap-md);
+        padding-bottom: var(--gap-lg);
+    }
+
+    /* Title */
+    .news-single__title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    /* Meta */
+    .news-single__meta {
+        font-size: 0.8125rem;
+        gap: var(--gap-xs);
+    }
+
+    /* Author block - vertical stack */
+    .news-single__author-block {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--gap-sm);
+        gap: var(--gap-sm);
+    }
+
+    .news-single__author-avatar {
+        width: 48px;
+        height: 48px;
+    }
+
+    .news-single__author-name {
+        font-size: 0.9375rem;
+    }
+
+    .news-single__author-description {
+        font-size: 0.8125rem;
+    }
+
+    /* Booking button - full width */
+    .news-single__booking {
+        margin-top: var(--gap-md);
+        margin-bottom: var(--gap-sm);
+    }
+
+    .news-single__booking-btn {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.75rem;
+    }
+
+    /* Content */
+    .news-single__content {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+
+    .news-single__subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--gap-md);
+    }
+
+    /* Tags - smaller pills */
+    .news-single__tags {
+        gap: 8px;
+    }
+
+    .news-single__tag {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    /* Footer */
+    .news-single__footer {
+        margin-top: var(--gap-sm);
+        padding-top: var(--gap-sm);
+    }
+
+    /* Navigation */
+    .news-single__navigation {
+        margin-top: var(--gap-md);
+        padding-top: var(--gap-md);
+    }
+
+    .news-single__navigation a {
+        font-size: 0.875rem;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .news-single__tag {
+        transition: none;
     }
 }

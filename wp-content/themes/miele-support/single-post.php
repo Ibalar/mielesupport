@@ -307,10 +307,18 @@ function miele_get_updated_time_ago(int $post_id): string
                     </div>
                 <?php endif; ?>
 
-                <?php if (has_tag()) : ?>
+                <?php
+                // Tags block - displayed as pill badges
+                $tags = get_the_tags();
+                if ($tags && !is_wp_error($tags) && !empty($tags)) :
+                ?>
                     <footer class="news-single__footer">
                         <div class="news-single__tags">
-                            <?php the_tags('', ', '); ?>
+                            <?php foreach ($tags as $tag) : ?>
+                                <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" class="news-single__tag" rel="tag">
+                                    <?php echo esc_html($tag->name); ?>
+                                </a>
+                            <?php endforeach; ?>
                         </div>
                     </footer>
                 <?php endif; ?>
