@@ -75,7 +75,7 @@ function miele_get_updated_time_ago(int $post_id): string
 ?>
 
 <main class="news-single">
-    <div class="container">
+    <div class="container-fluid">
         <?php render_breadcrumbs(); ?>
 
         <?php while (have_posts()) : the_post(); ?>
