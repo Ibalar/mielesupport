@@ -34,6 +34,12 @@
     text-transform: uppercase;
     border-radius: 2px;
     white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header-cta:hover {
+    background: #b01c1c;
 }
 
 .header-cta__icon {
