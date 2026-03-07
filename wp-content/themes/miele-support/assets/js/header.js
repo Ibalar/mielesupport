@@ -282,6 +282,40 @@ document.addEventListener("DOMContentLoaded", function () {
         closeAllSubmenus();
     });
 
+    // -------- Mega Menu Column Toggle --------
+    // Handles collapsible columns in the mega menu (Level 1 with children)
+    if (megaMenu) {
+        megaMenu.addEventListener("click", (e) => {
+            const toggleLink = e.target.closest(".js-mega-col-toggle");
+            if (!toggleLink) return;
+
+            const col = toggleLink.closest(".mega-menu__col--has-children");
+            if (!col) return;
+
+            e.preventDefault();
+
+            const isOpen = col.classList.contains("is-open");
+            const listId = toggleLink.getAttribute("aria-controls");
+            const list = listId ? document.getElementById(listId) : null;
+
+            // Close sibling columns (accordion behavior)
+            const siblingCols = megaMenu.querySelectorAll(".mega-menu__col--has-children");
+            siblingCols.forEach((siblingCol) => {
+                if (siblingCol !== col) {
+                    siblingCol.classList.remove("is-open");
+                    const siblingToggle = siblingCol.querySelector(".js-mega-col-toggle");
+                    if (siblingToggle) {
+                        siblingToggle.setAttribute("aria-expanded", "false");
+                    }
+                }
+            });
+
+            // Toggle current column
+            col.classList.toggle("is-open", !isOpen);
+            toggleLink.setAttribute("aria-expanded", isOpen ? "false" : "true");
+        });
+    }
+
     // -------- Бургер подменю --------
 
     const burgerToggles = document.querySelectorAll(".js-burger-toggle");
