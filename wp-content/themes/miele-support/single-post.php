@@ -75,8 +75,9 @@ function miele_get_updated_time_ago(int $post_id): string
 ?>
 
 <main class="news-single">
+    <?php render_breadcrumbs(); ?>
     <div class="container-fluid">
-        <?php render_breadcrumbs(); ?>
+
 
         <?php while (have_posts()) : the_post(); ?>
             <?php
@@ -84,8 +85,8 @@ function miele_get_updated_time_ago(int $post_id): string
             $author_id = get_the_author_meta('ID');
             $custom_author_name = get_field('author_name');
             $author_name = $custom_author_name ? $custom_author_name : get_the_author();
-            $author_avatar = get_avatar($author_id, 80, '', esc_attr($author_name), ['class' => 'news-single__author-avatar-img']);
-            $author_description = get_the_author_meta('description', $author_id);
+            $author_avatar = get_field('author_avatar');
+            $author_description = get_field('author_description');
 
             // Get updated time
             $updated_time_ago = miele_get_updated_time_ago(get_the_ID());
@@ -120,7 +121,11 @@ function miele_get_updated_time_ago(int $post_id): string
                     <div class="news-single__author-block">
                         <?php if ($author_avatar) : ?>
                             <div class="news-single__author-avatar">
-                                <?php echo $author_avatar; ?>
+                                <img
+                                        src="<?php echo esc_url($author_avatar['url']); ?>"
+                                        alt="<?php echo esc_attr($author_name); ?>"
+                                        class="news-single__author-avatar-img"
+                                >
                             </div>
                         <?php endif; ?>
 

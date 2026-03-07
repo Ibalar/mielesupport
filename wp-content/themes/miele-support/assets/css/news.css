@@ -285,7 +285,6 @@
 
 .news-single__article {
     margin: 0 auto;
-    padding: 0 50px;
 }
 
 .news-single__header {
@@ -471,6 +470,10 @@
 
 .news-single__content p {
     margin-bottom: var(--gap-md);
+}
+
+.news-single__content p strong{
+    font-weight: 700;
 }
 
 .news-single__content h2,
