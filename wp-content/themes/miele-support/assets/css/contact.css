@@ -425,7 +425,7 @@
 }
 
 /* Buttons */
-.btn {
+.btn_contact {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -459,19 +459,19 @@
     transform: none;
 }
 
-.btn--outline {
+.btn--outline_contact {
     background: transparent;
     border: 1px solid var(--gray3d, #3d3d3d);
     color: var(--gray3d, #3d3d3d);
 }
 
-.btn--outline:hover {
+.btn--outline_contact:hover {
     background-color: var(--gray3d, #3d3d3d);
     color: var(--white, #ffffff);
     transform: translateY(-1px);
 }
 
-.btn--outline:disabled {
+.btn--outline_contact:disabled {
     border-color: var(--grayc5, #c5c5c5);
     color: var(--grayc5, #c5c5c5);
     cursor: not-allowed;
@@ -948,7 +948,7 @@ a.contact-info-block__value:hover {
         flex-direction: column-reverse;
     }
 
-    .btn {
+    .btn_contact {
         width: 100%;
         padding: 16px 24px;
     }
@@ -1101,7 +1101,7 @@ a.contact-info-block__value:hover {
    REDUCED MOTION
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
-    .btn,
+    .btn_contact,
     .contact-form__step-number,
     .contact-form__select,
     .contact-form__textarea,

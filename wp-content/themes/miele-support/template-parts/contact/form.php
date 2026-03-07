@@ -166,7 +166,7 @@ $form_nonce = wp_create_nonce('contact_form_submit');
 
             <!-- Step 1 Buttons -->
             <div class="contact-form__actions contact-form__actions--step1">
-                <button type="button" class="btn btn--primary contact-form__btn-next" data-next="2">
+                <button type="button" class="btn_contact btn--primary contact-form__btn-next" data-next="2">
                     Next
                 </button>
             </div>
@@ -233,10 +233,10 @@ $form_nonce = wp_create_nonce('contact_form_submit');
 
             <!-- Step 2 Buttons -->
             <div class="contact-form__actions contact-form__actions--step2">
-                <button type="button" class="btn btn--outline contact-form__btn-back" data-back="1">
+                <button type="button" class="btn_contact btn--outline_contact contact-form__btn-back" data-back="1">
                     Previous
                 </button>
-                <button type="button" class="btn btn--primary contact-form__btn-next" data-next="3">
+                <button type="button" class="btn_contact btn--primary contact-form__btn-next" data-next="3">
                     Next
                 </button>
             </div>
@@ -349,10 +349,10 @@ $form_nonce = wp_create_nonce('contact_form_submit');
 
             <!-- Step 3 Buttons -->
             <div class="contact-form__actions contact-form__actions--step3">
-                <button type="button" class="btn btn--outline contact-form__btn-back" data-back="2">
+                <button type="button" class="btn_contact btn--outline_contact contact-form__btn-back" data-back="2">
                     Previous
                 </button>
-                <button type="submit" class="btn btn--primary contact-form__btn-submit">
+                <button type="submit" class="btn_contact btn--primary contact-form__btn-submit">
                     Send
                 </button>
             </div>
@@ -371,7 +371,7 @@ $form_nonce = wp_create_nonce('contact_form_submit');
                 <p class="contact-form__success-text">
                     Your request has been submitted successfully. Our team will contact you shortly.
                 </p>
-                <button type="button" class="btn btn--primary contact-form__btn-reset">
+                <button type="button" class="btn_contact btn--primary contact-form__btn-reset">
                     Submit Another Request
                 </button>
             </div>
@@ -391,7 +391,7 @@ $form_nonce = wp_create_nonce('contact_form_submit');
                 <p class="contact-form__error-text">
                     We couldn't submit your request. Please try again later.
                 </p>
-                <button type="button" class="btn btn--primary contact-form__btn-back" data-back="3">
+                <button type="button" class="btn_contact btn--primary contact-form__btn-back" data-back="3">
                     Go Back
                 </button>
             </div>
