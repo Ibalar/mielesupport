@@ -25,6 +25,7 @@ if (empty($level1_services)) {
 
 // Counter for unique IDs
 $unique_counter = 0;
+$col_counter = 0;
 ?>
 
 <div class="mega-menu" id="services-mega" hidden>
@@ -32,6 +33,8 @@ $unique_counter = 0;
         $level1_id = $level1->ID;
         $level1_title = $level1->post_title;
         $level1_link = get_permalink($level1_id);
+        $col_counter++;
+        $col_list_id = 'mega-col-list-' . $level1_id . '-' . $col_counter;
 
         // Get custom menu label if set
         $menu_label = get_field('menu_label', $level1_id);
@@ -47,14 +50,29 @@ $unique_counter = 0;
                 'order' => 'ASC',
                 'posts_per_page' => -1,
             ]);
+
+        $has_children = !empty($level2_services);
+        $col_class = $has_children ? 'mega-menu__col mega-menu__col--has-children' : 'mega-menu__col';
+        $title_class = $has_children ? 'mega-menu__title mega-menu__title--toggle' : 'mega-menu__title';
         ?>
-        <div class="mega-menu__col">
-            <div class="mega-menu__title">
-                <a href="<?php echo esc_url($level1_link); ?>"><?php echo esc_html($display_title); ?></a>
+        <div class="<?php echo esc_attr($col_class); ?>">
+            <div class="<?php echo esc_attr($title_class); ?>">
+                <?php if ($has_children) : ?>
+                    <a
+                        href="<?php echo esc_url($level1_link); ?>"
+                        class="js-mega-col-toggle"
+                        aria-expanded="false"
+                        aria-controls="<?php echo esc_attr($col_list_id); ?>"
+                    >
+                        <?php echo esc_html($display_title); ?>
+                    </a>
+                <?php else : ?>
+                    <a href="<?php echo esc_url($level1_link); ?>"><?php echo esc_html($display_title); ?></a>
+                <?php endif; ?>
             </div>
 
-            <?php if (!empty($level2_services)) : ?>
-                <ul class="mega-menu__list">
+            <?php if ($has_children) : ?>
+                <ul class="mega-menu__list mega-menu__list--collapsible" id="<?php echo esc_attr($col_list_id); ?>">
                     <?php foreach ($level2_services as $level2) :
                         $level2_id = $level2->ID;
                         $level2_title = $level2->post_title;

@@ -571,6 +571,51 @@
     margin-bottom: 10px;
 }
 
+/* Toggle title for columns with children - red color and arrow */
+.mega-menu__title--toggle > a {
+    color: var(--red);
+    position: relative;
+    padding-right: 20px;
+    display: inline-block;
+}
+
+/* Arrow indicator for collapsible column titles */
+.mega-menu__title--toggle > a::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border: 2px solid currentColor;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+}
+
+/* Arrow rotation when column is open */
+.mega-menu__col.is-open .mega-menu__title--toggle > a::after {
+    transform: rotate(225deg);
+    margin-top: -2px;
+}
+
+/* Collapsible list for column children - hidden by default */
+.mega-menu__list--collapsible {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* Show list when column is open */
+.mega-menu__col.is-open .mega-menu__list--collapsible {
+    max-height: 2000px;
+    opacity: 1;
+}
+
 .mega-menu__item {
     margin-bottom: 10px;
 }
