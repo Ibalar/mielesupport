@@ -585,8 +585,20 @@
     position: relative;
 }
 
-.mega-menu__item--has-sub button{
+/* Пункты 2-го уровня с дочерними элементами (3-й уровень) */
+.mega-menu__item--has-sub > .mega-menu__link {
     color: var(--red);
+    padding-right: 20px;
+}
+
+/* Пункты 2-го уровня без дочерних элементов - белый цвет */
+.mega-menu__item:not(.mega-menu__item--has-sub) > .mega-menu__link {
+    color: var(--white);
+}
+
+/* Стрелка для раскрывающихся пунктов 2-го уровня */
+.mega-menu__item--has-sub .mega-menu__arrow {
+    right: 0;
 }
 
 .mega-menu__sub {
