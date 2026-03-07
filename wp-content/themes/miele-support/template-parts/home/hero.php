@@ -42,7 +42,7 @@ $bg = get_field('hero_bg', 'option');
             <?php endif; ?>
             
             <div class="hero__actions">
-                <a href="#" class="btn btn--primary">
+                <a href="#quick-form" class="btn btn--primary">
                     Easy Online Booking
                 </a>
                 
