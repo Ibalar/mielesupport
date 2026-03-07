@@ -4,6 +4,9 @@
  * Footer template
  */
 
+// Check if we're on single-post page - don't duplicate modal
+$is_single_post = is_singular('post');
+
 ?>
 
 <footer class="footer">
@@ -99,5 +102,37 @@
 </footer>
 
 <?php wp_footer(); ?>
+
+<!-- Quick Form Modal - Global (rendered on all pages except single-post which has its own) -->
+<?php if (!$is_single_post) : ?>
+<div class="quick-form-modal" id="quick-form-modal-global" aria-hidden="true">
+    <div class="quick-form-modal__overlay"></div>
+    <div class="quick-form-modal__panel">
+        <button class="quick-form-modal__close" type="button" aria-label="<?php echo esc_attr__('Close', 'miele-support'); ?>">&times;</button>
+        <h3 class="quick-form__title"><?php echo esc_html__('Book Online Appointment', 'miele-support'); ?></h3>
+        <p class="quick-form__subtitle"><?php echo esc_html__('Fill out the form and we will contact you shortly', 'miele-support'); ?></p>
+        <form class="quick-form" id="quick-booking-form" method="post">
+            <div class="quick-form__field">
+                <label for="quick_name"><?php echo esc_html__('Your Name', 'miele-support'); ?></label>
+                <input type="text" id="quick_name" name="quick_name" required>
+            </div>
+            <div class="quick-form__field">
+                <label for="quick_phone"><?php echo esc_html__('Phone Number', 'miele-support'); ?></label>
+                <input type="tel" id="quick_phone" name="quick_phone" required>
+            </div>
+            <div class="quick-form__field">
+                <label for="quick_email"><?php echo esc_html__('Email', 'miele-support'); ?></label>
+                <input type="email" id="quick_email" name="quick_email" required>
+            </div>
+            <div class="quick-form__field">
+                <label for="quick_message"><?php echo esc_html__('Message (Optional)', 'miele-support'); ?></label>
+                <textarea id="quick_message" name="quick_message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="quick-form__submit"><?php echo esc_html__('Submit Request', 'miele-support'); ?></button>
+        </form>
+    </div>
+</div>
+<?php endif; ?>
+
 </body>
 </html>

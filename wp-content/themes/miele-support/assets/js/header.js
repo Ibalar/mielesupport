@@ -99,6 +99,53 @@ document.addEventListener("DOMContentLoaded", function () {
         quickFormClose.addEventListener("click", closeQuickForm);
     }
 
+    // -------- Global anchor trigger #quick-form --------
+    // Delegate click handler to catch any link with #quick-form hash
+    // Skip if the click target is already handled by existing triggers (.header-cta, .js-quick-form-trigger)
+    document.addEventListener("click", function (e) {
+        // Check if clicked element or ancestor is already a handled trigger
+        const target = e.target;
+        const isHandledTrigger = target.closest('.header-cta') || target.closest('.js-quick-form-trigger');
+        if (isHandledTrigger) return;
+
+        // Find closest anchor element
+        const anchor = target.closest("a");
+        if (!anchor) return;
+
+        const href = anchor.getAttribute("href");
+        if (!href) return;
+
+        // Normalize URL to handle relative paths like "#quick-form", "/#quick-form"
+        let anchorHash = "";
+        try {
+            const url = new URL(href, window.location.origin);
+            anchorHash = url.hash;
+        } catch (err) {
+            // If URL parsing fails, check if it's a direct hash
+            if (href.startsWith("#")) {
+                anchorHash = href;
+            }
+        }
+
+        // Check if this is a #quick-form trigger
+        if (anchorHash === "#quick-form" && quickFormModal) {
+            e.preventDefault();
+            openQuickForm();
+        }
+    });
+
+    // Also handle page load with hash (direct navigation like example.com/#quick-form)
+    if (window.location.hash === "#quick-form" && quickFormModal) {
+        // Small delay to ensure modal is rendered
+        setTimeout(function () {
+            openQuickForm();
+            // Clear hash without scrolling
+            if (window.history.replaceState) {
+                window.history.replaceState(null, "", window.location.pathname + window.location.search);
+            }
+        }, 100);
+    }
+
     // закрытие по Esc
     document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") {
