@@ -11,7 +11,7 @@
 /* Contact Form Section */
 .contact-form-section {
     padding: 80px 0;
-    background-color: var(--white-100, #FFF);
+    background-color: var(--black, #000);
 }
 
 .contact-form-section__inner {

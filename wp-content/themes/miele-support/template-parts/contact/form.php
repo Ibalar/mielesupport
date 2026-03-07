@@ -45,17 +45,14 @@ $form_nonce = wp_create_nonce('contact_form_submit');
     <div class="contact-form__steps">
         <div class="contact-form__step-indicator active" data-step="1">
             <span class="contact-form__step-number">1</span>
-            <span class="contact-form__step-label">Details</span>
         </div>
         <div class="contact-form__step-line"></div>
         <div class="contact-form__step-indicator" data-step="2">
             <span class="contact-form__step-number">2</span>
-            <span class="contact-form__step-label">Schedule</span>
         </div>
         <div class="contact-form__step-line"></div>
         <div class="contact-form__step-indicator" data-step="3">
             <span class="contact-form__step-number">3</span>
-            <span class="contact-form__step-label">Contact</span>
         </div>
     </div>
 
