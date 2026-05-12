@@ -125,7 +125,7 @@
 
 /* Tablet: 1024px - 2 Columns */
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .container {
         padding-inline: 63px;
     }
@@ -167,7 +167,7 @@
 
 /* Mobile: 640px - 1 Column */
 
-@media (max-width: 640px) {
+@media (max-width: 639px) {
     .container {
         padding-inline: 53px;
     }

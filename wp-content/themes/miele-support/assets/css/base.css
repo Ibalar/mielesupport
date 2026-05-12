@@ -76,3 +76,10 @@ body {
     }
 }
 
+@media (max-width: 639px) {
+    .service-page {
+        width: 100%;
+        overflow-x: clip;
+    }
+}
+

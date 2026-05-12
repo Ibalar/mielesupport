@@ -56,7 +56,7 @@ $current_tag_slug = isset($_GET['tag']) ? sanitize_text_field($_GET['tag']) : ''
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $query_args = [
     'post_type'      => 'post',
-    'posts_per_page' => 9,
+    'posts_per_page' => -1,
     'paged'          => $paged,
     'orderby'        => 'date',
     'order'          => 'DESC',
@@ -90,54 +90,50 @@ $all_tags = get_tags([
 </section>
 
 <main class="news-archive">
+    <?php render_breadcrumbs(); ?>
     <div class="container">
-        <?php render_breadcrumbs(); ?>
-
         <?php if (!empty($all_tags)) : ?>
-            <nav class="news-tags" aria-label="<?php esc_attr_e('Filter by tag', 'miele-support'); ?>">
-                <ul class="news-tags__list">
-                    <li class="news-tags__item">
-                        <a href="<?php echo esc_url(remove_query_arg('tag')); ?>"
-                           class="news-tags__link <?php echo empty($current_tag_slug) ? 'is-active' : ''; ?>"
-                           data-tag="all"
-                           aria-current="<?php echo empty($current_tag_slug) ? 'true' : 'false'; ?>">
-                            <?php _e('All', 'miele-support'); ?>
-                        </a>
-                    </li>
-                    <?php foreach ($all_tags as $tag) : ?>
+    </div>
+            <div class="container-fluid">
+                <nav class="news-tags" aria-label="<?php esc_attr_e('Filter by tag', 'miele-support'); ?>">
+                    <ul class="news-tags__list">
                         <li class="news-tags__item">
-                            <a href="<?php echo esc_url(add_query_arg('tag', $tag->slug)); ?>"
-                               class="news-tags__link <?php echo $current_tag_slug === $tag->slug ? 'is-active' : ''; ?>"
-                               data-tag="<?php echo esc_attr($tag->slug); ?>"
-                               aria-current="<?php echo $current_tag_slug === $tag->slug ? 'true' : 'false'; ?>">
-                                <?php echo esc_html($tag->name); ?>
+                            <a href="<?php echo esc_url(remove_query_arg('tag')); ?>"
+                               class="news-tags__link <?php echo empty($current_tag_slug) ? 'is-active' : ''; ?>"
+                               data-tag="all"
+                               aria-current="<?php echo empty($current_tag_slug) ? 'true' : 'false'; ?>">
+                                <?php _e('All', 'miele-support'); ?>
                             </a>
                         </li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
+                        <?php foreach ($all_tags as $tag) : ?>
+                            <li class="news-tags__item">
+                                <a href="<?php echo esc_url(add_query_arg('tag', $tag->slug)); ?>"
+                                   class="news-tags__link <?php echo $current_tag_slug === $tag->slug ? 'is-active' : ''; ?>"
+                                   data-tag="<?php echo esc_attr($tag->slug); ?>"
+                                   aria-current="<?php echo $current_tag_slug === $tag->slug ? 'true' : 'false'; ?>">
+                                    <?php echo esc_html($tag->name); ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </nav>
+            </div>
+    <div class="container">
         <?php endif; ?>
 
         <?php if ($blog_query->have_posts()) : ?>
-            <div class="news-archive__grid">
-                <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
-                    <?php get_template_part('template-parts/post/news-card'); ?>
-                <?php endwhile; ?>
+    </div>
+            <div class="container-fluid">
+                <div class="news-archive__grid js-news-archive-grid">
+                    <?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
+                        <?php get_template_part('template-parts/post/news-card'); ?>
+                    <?php endwhile; ?>
+                </div>
+                <div class="news-archive__load-more-wrap">
+                    <button type="button" class="news-archive__load-more js-news-archive-load-more">View All Post</button>
+                </div>
             </div>
-
-            <?php
-            // Pagination
-            $big = '999999999';
-            echo paginate_links([
-                'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-                'format'    => '?paged=%#%',
-                'current'   => max(1, $paged),
-                'total'     => $blog_query->max_num_pages,
-                'prev_text' => __('Previous', 'miele-support'),
-                'next_text' => __('Next', 'miele-support'),
-                'add_args'  => $current_tag_slug ? ['tag' => $current_tag_slug] : [],
-            ]);
-            ?>
+    <div class="container">
 
         <?php else : ?>
             <div class="news-archive__empty">

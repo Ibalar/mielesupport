@@ -8,9 +8,8 @@
 }
 
 .service-error-codes__container {
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 50px;
 }
 
 .service-error-codes__header {

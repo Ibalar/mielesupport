@@ -105,7 +105,7 @@
     padding: 18px 81px;
 }
 
-@media (min-width: 743px) {
+@media (min-width: 744px) {
     .section3__button {
         width: auto;
     }
@@ -147,7 +147,7 @@
     }
 }
 
-@media (max-width: 391px) {
+@media (max-width: 390px) {
     .section3__image {
         height: 370px;
     }
@@ -208,13 +208,13 @@
 
     .section3__wrapper {
         flex-direction: row;
-        min-height: 600px; /* Минимальная высота */
+        min-height: 600px;
     }
 
     .section3__content {
         width: 50%;
-        padding: 34px 50px; /* Padding внутри контента */
-        justify-content: space-around;
+        padding: 34px 50px;
+        justify-content: center;
         gap: 24px;
     }
 

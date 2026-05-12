@@ -445,6 +445,7 @@ add_action('wp_enqueue_scripts', function () {
     // News tags script for blog/archive pages
     if (is_home() || is_page_template('page-blog.php') || (is_archive() && get_post_type() === 'post')) {
         theme_script('news-tags-js', 'news-tags.js');
+        theme_script('news-archive-js', 'news-archive.js');
     }
 
     // Contact form script for contact page

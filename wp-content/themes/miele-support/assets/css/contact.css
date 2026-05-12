@@ -765,7 +765,7 @@ a.contact-info-block__value:hover {
 /* ========================================
    RESPONSIVE STYLES - TABLET (641px - 1024px)
    ======================================== */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .container {
         padding-inline: 40px;
     }
@@ -847,7 +847,7 @@ a.contact-info-block__value:hover {
 /* ========================================
    RESPONSIVE STYLES - MOBILE (≤640px)
    ======================================== */
-@media (max-width: 640px) {
+@media (max-width: 639px) {
     .container {
         padding-inline: 16px;
     }
@@ -1043,7 +1043,7 @@ a.contact-info-block__value:hover {
 /* ========================================
    RESPONSIVE STYLES - DESKTOP (>1024px)
    ======================================== */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
     .contact-info-section {
         padding: 48px 0;
     }
@@ -1296,7 +1296,7 @@ a.contact-info-block__value:hover {
     color: #fff;
 }
 
-@media (max-width: 744px) {
+@media (max-width: 743px) {
     .page-content--contact .contact-form-section {
         padding: 96px 0 110px;
     }

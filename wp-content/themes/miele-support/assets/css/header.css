@@ -13,6 +13,9 @@
 
 .header-inner {
     margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+    box-sizing: border-box;
     padding: 18.5px 20px;
     display: flex;
     justify-content: space-between;
@@ -65,6 +68,7 @@
     align-items: center;
     justify-content: center;
     row-gap: 8px;
+    min-width: 0;
 }
 
 
@@ -76,6 +80,7 @@
     align-items: center;
     gap: 24px;
     justify-content: flex-end;
+    min-width: 0;
 }
 
 .header-phone {
@@ -91,6 +96,7 @@
     letter-spacing: 0.06em;
     text-align: center;
     color: #fff;
+    min-width: 0;
 }
 
 .header-phone__icon {
@@ -387,7 +393,7 @@
 /* ---------- Адаптив ---------- */
 
 /* Мобильный (до 480, макет 390) */
-@media (max-width: 480px) {
+@media (max-width: 390px) {
     .header-inner {
         grid-template-columns: 1fr auto;
         column-gap: 12px;
@@ -425,8 +431,29 @@
     }
 }
 
+/* Mobile (391-639): keep header compact to prevent horizontal overflow */
+@media (max-width: 639px) {
+    .header-inner {
+        padding: 10px 12px;
+        column-gap: 12px;
+    }
+
+    .header-cta {
+        display: none;
+    }
+
+    .header-right {
+        gap: 12px;
+    }
+
+    .header-phone__label,
+    .header-phone__number {
+        display: none;
+    }
+}
+
 /* Планшет (481–1024, макет 744) */
-@media (min-width: 481px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1023px) {
     .header-inner {
         grid-template-columns: auto 1fr auto;
         padding: 12px 24px;
@@ -449,19 +476,19 @@
 }
 
 /* Десктоп (от 1170, макет 1440) */
-@media (min-width: 1170px) {
+@media (min-width: 1440px) {
     .header-inner {
         padding-inline: 40px;
     }
 }
 
-@media (max-width: 1110px) {
+@media (max-width: 1023px) {
     .main-nav {
         display: none;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 390px) {
     .header-phone__number {
         display: none;
     }
@@ -670,7 +697,7 @@
     padding: 10px 0;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
     .mega-menu {
         position: fixed;      /* шапка обычная, не fixed */
         left: 0;

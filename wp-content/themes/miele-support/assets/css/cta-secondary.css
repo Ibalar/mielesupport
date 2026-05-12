@@ -62,7 +62,7 @@
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .cta-secondary {
         padding: 60px 0;
     }
@@ -77,7 +77,7 @@
 }
 
 /* Mobile */
-@media (max-width: 640px) {
+@media (max-width: 639px) {
     .cta-secondary {
         padding: 50px 0;
     }

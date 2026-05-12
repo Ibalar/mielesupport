@@ -39,7 +39,7 @@
     padding: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 744px) {
     .service-text-block__title {
         font-size: 32px;
     }

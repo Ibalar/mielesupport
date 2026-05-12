@@ -62,7 +62,7 @@
    TABLET RESPONSIVE (641px - 1024px)
    Reference: blog_hero-744.jpg
    ======================================== */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .news-hero {
         min-height: 350px;
     }
@@ -86,7 +86,7 @@
    MOBILE RESPONSIVE (≤640px)
    Reference: blog_hero-390.jpg
    ======================================== */
-@media (max-width: 640px) {
+@media (max-width: 639px) {
     .news-hero {
         min-height: 300px;
     }

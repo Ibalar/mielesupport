@@ -368,7 +368,7 @@
 }
 
 /* Large Desktop - Better spacing */
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
     .pricing-table__grid {
         gap: 32px;
     }
@@ -388,8 +388,8 @@
 }
 
 .service-pricing-table__container {
-    margin: 60px 50px;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 0 50px;
 }
 
 .service-pricing-table__header {
@@ -415,14 +415,18 @@
 
 .service-pricing-table__table-wrapper {
     overflow-x: auto;
-    border: 1px solid #2b2b2b;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    overflow-y: hidden;
+    border: 0;
+    box-shadow: none;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #6a6a6a transparent;
 }
 
 .service-pricing-table__table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 720px;
+    min-width: 1180px;
     background: #121212;
 }
 
@@ -437,6 +441,7 @@
     font-weight: 600;
     color: var(--white, #ffffff);
     letter-spacing: 0.2px;
+    white-space: nowrap;
 }
 
 .service-pricing-table__table tbody tr {
@@ -476,14 +481,24 @@
     white-space: nowrap;
 }
 
+@media (max-width: 1023px) {
+    .service-pricing-table__container {
+        padding: 0;
+    }
+
+    .service-pricing-table__header {
+        padding-inline: 20px;
+    }
+}
+
 @media (max-width: 743px) {
     .service-pricing-table {
         padding: 56px 0;
     }
 
     .service-pricing-table__container {
-        padding: 0 16px;
-        margin: 10px 0;
+        padding: 0;
+        margin: 0;
     }
 
     .service-pricing-table__title {
@@ -498,5 +513,9 @@
     .service-pricing-table__table tbody td {
         padding: 14px 16px;
         font-size: 14px;
+    }
+
+    .service-pricing-table__table {
+        min-width: 1320px;
     }
 }

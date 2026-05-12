@@ -24,49 +24,54 @@ $current_tag_slug = isset($_GET['tag']) ? sanitize_text_field($_GET['tag']) : ''
 ?>
 
 <main class="news-archive">
+    <?php render_breadcrumbs(); ?>
     <div class="container">
-        <?php render_breadcrumbs(); ?>
-
         <header class="news-archive__header">
             <h1 class="news-archive__title"><?php echo esc_html($page_title); ?></h1>
         </header>
 
         <?php if (!empty($all_tags)) : ?>
-            <nav class="news-tags" aria-label="<?php esc_attr_e('Filter by tag', 'miele-support'); ?>">
-                <ul class="news-tags__list">
-                    <li class="news-tags__item">
-                        <a href="<?php echo esc_url(remove_query_arg('tag')); ?>"
-                           class="news-tags__link <?php echo empty($current_tag_slug) ? 'is-active' : ''; ?>"
-                           data-tag="all"
-                           aria-current="<?php echo empty($current_tag_slug) ? 'true' : 'false'; ?>">
-                            <?php _e('All', 'miele-support'); ?>
-                        </a>
-                    </li>
-                    <?php foreach ($all_tags as $tag) : ?>
+    </div>
+            <div class="container-fluid">
+                <nav class="news-tags" aria-label="<?php esc_attr_e('Filter by tag', 'miele-support'); ?>">
+                    <ul class="news-tags__list">
                         <li class="news-tags__item">
-                            <a href="<?php echo esc_url(add_query_arg('tag', $tag->slug)); ?>"
-                               class="news-tags__link <?php echo $current_tag_slug === $tag->slug ? 'is-active' : ''; ?>"
-                               data-tag="<?php echo esc_attr($tag->slug); ?>"
-                               aria-current="<?php echo $current_tag_slug === $tag->slug ? 'true' : 'false'; ?>">
-                                <?php echo esc_html($tag->name); ?>
+                            <a href="<?php echo esc_url(remove_query_arg('tag')); ?>"
+                               class="news-tags__link <?php echo empty($current_tag_slug) ? 'is-active' : ''; ?>"
+                               data-tag="all"
+                               aria-current="<?php echo empty($current_tag_slug) ? 'true' : 'false'; ?>">
+                                <?php _e('All', 'miele-support'); ?>
                             </a>
                         </li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
+                        <?php foreach ($all_tags as $tag) : ?>
+                            <li class="news-tags__item">
+                                <a href="<?php echo esc_url(add_query_arg('tag', $tag->slug)); ?>"
+                                   class="news-tags__link <?php echo $current_tag_slug === $tag->slug ? 'is-active' : ''; ?>"
+                                   data-tag="<?php echo esc_attr($tag->slug); ?>"
+                                   aria-current="<?php echo $current_tag_slug === $tag->slug ? 'true' : 'false'; ?>">
+                                    <?php echo esc_html($tag->name); ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </nav>
+            </div>
+    <div class="container">
         <?php endif; ?>
 
         <?php if (have_posts()) : ?>
-            <div class="news-archive__grid">
-                <?php while (have_posts()) : the_post(); ?>
-                    <?php get_template_part('template-parts/post/news-card'); ?>
-                <?php endwhile; ?>
+    </div>
+            <div class="container-fluid">
+                <div class="news-archive__grid js-news-archive-grid">
+                    <?php while (have_posts()) : the_post(); ?>
+                        <?php get_template_part('template-parts/post/news-card'); ?>
+                    <?php endwhile; ?>
+                </div>
+                <div class="news-archive__load-more-wrap">
+                    <button type="button" class="news-archive__load-more js-news-archive-load-more">View All Post</button>
+                </div>
             </div>
-
-            <?php the_posts_pagination([
-                'prev_text' => __('Previous', 'miele-support'),
-                'next_text' => __('Next', 'miele-support'),
-            ]); ?>
+    <div class="container">
 
         <?php else : ?>
             <div class="news-archive__empty">

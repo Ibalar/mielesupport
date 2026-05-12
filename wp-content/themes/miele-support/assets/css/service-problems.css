@@ -137,7 +137,7 @@
 }
 
 /* Large Desktop - 4 columns if many problems */
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
     .service-problems__grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -235,7 +235,7 @@
 }
 
 /* Mobile: Stack vertically */
-@media (max-width: 767px) {
+@media (max-width: 743px) {
     .service-problems--alternating {
         padding: 50px 0;
     }
@@ -273,7 +273,7 @@
 }
 
 /* Tablet: Reduce gaps */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 744px) and (max-width: 1023px) {
     .service-problems--alternating {
         padding: 60px 0;
     }

@@ -1,70 +1,51 @@
 /**
- * Service models grid - See More toggle and drag/wheel scroll
+ * Service models:
+ * - Tablet (744-1023): "See More" loads cards in batches when total > 12
+ * - Mobile (<744): horizontal slider via CSS only
  */
-document.addEventListener('DOMContentLoaded', function() {
-    // See More button functionality
-    const seeMoreButtons = document.querySelectorAll('.service-models__see-more');
-    
-    seeMoreButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            const grid = this.closest('.service-models').querySelector('.service-models__grid');
-            const buttonText = this.querySelector('.service-models__see-more-text');
-            const buttonIcon = this.querySelector('.service-models__see-more-icon');
-            
-            // Toggle collapsed class
-            grid.classList.toggle('service-models__grid--collapsed');
-            
-            // Update button text
-            if (grid.classList.contains('service-models__grid--collapsed')) {
-                buttonText.textContent = 'See More';
-                buttonIcon.style.transform = 'rotate(0deg)';
-            } else {
-                buttonText.textContent = 'Show Less';
-                buttonIcon.style.transform = 'rotate(180deg)';
-            }
-        });
-    });
+document.addEventListener('DOMContentLoaded', function () {
+    const TABLET_QUERY = '(min-width: 744px) and (max-width: 1023px)';
+    const INITIAL_VISIBLE = 12;
+    const LOAD_STEP = 6;
 
-    // Legacy drag/wheel scroll (if wrapper exists)
-    const wrappers = document.querySelectorAll('.service-models__wrapper');
-    
-    wrappers.forEach(function(wrapper) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        
-        // Mouse events for drag scroll
-        wrapper.addEventListener('mousedown', function(e) {
-            isDown = true;
-            wrapper.classList.add('active');
-            startX = e.pageX - wrapper.offsetLeft;
-            scrollLeft = wrapper.scrollLeft;
-        }, { passive: true });
-        
-        wrapper.addEventListener('mouseleave', function() {
-            isDown = false;
-            wrapper.classList.remove('active');
-        }, { passive: true });
-        
-        wrapper.addEventListener('mouseup', function() {
-            isDown = false;
-            wrapper.classList.remove('active');
-        }, { passive: true });
-        
-        wrapper.addEventListener('mousemove', function(e) {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - wrapper.offsetLeft;
-            const walk = (x - startX) * 2; // Scroll speed multiplier
-            wrapper.scrollLeft = scrollLeft - walk;
-        });
-        
-        // Wheel scroll - horizontal scroll with mouse wheel
-        wrapper.addEventListener('wheel', function(e) {
-            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-                e.preventDefault();
-                wrapper.scrollLeft += e.deltaY;
+    function applyTabletMode(section) {
+        const grid = section.querySelector('.service-models__grid');
+        const button = section.querySelector('.service-models__see-more');
+        if (!grid || !button) return;
+
+        const items = Array.from(grid.querySelectorAll('.service-models__item'));
+        const total = items.length;
+        const isTablet = window.matchMedia(TABLET_QUERY).matches;
+
+        items.forEach((item) => item.classList.remove('service-models__item--tablet-hidden'));
+
+        if (!isTablet || total <= INITIAL_VISIBLE) {
+            button.hidden = true;
+            button.disabled = true;
+            return;
+        }
+
+        button.hidden = false;
+        button.disabled = false;
+
+        let visibleCount = INITIAL_VISIBLE;
+        items.slice(visibleCount).forEach((item) => item.classList.add('service-models__item--tablet-hidden'));
+
+        button.onclick = function () {
+            visibleCount = Math.min(visibleCount + LOAD_STEP, total);
+            items.slice(0, visibleCount).forEach((item) => item.classList.remove('service-models__item--tablet-hidden'));
+
+            if (visibleCount >= total) {
+                button.hidden = true;
+                button.disabled = true;
             }
-        }, { passive: false });
-    });
+        };
+    }
+
+    function init() {
+        document.querySelectorAll('.service-models').forEach(applyTabletMode);
+    }
+
+    init();
+    window.addEventListener('resize', init);
 });
