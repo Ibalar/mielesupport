@@ -119,6 +119,59 @@ if (function_exists('acf_register_block_type')) {
     });
 }
 
+/* ADMIN GUIDE PAGE */
+add_action('admin_menu', function () {
+    add_menu_page(
+        'Руководство администратора',
+        'Admin Guide',
+        'manage_options',
+        'admin-guide',
+        'render_admin_guide_page',
+        'dashicons-book',
+        80
+    );
+});
+
+function render_admin_guide_page() {
+    $file = get_template_directory() . '/ADMIN-GUIDE.md';
+    if (!file_exists($file)) {
+        echo '<div class="notice notice-error"><p>Файл ADMIN-GUIDE.md не найден.</p></div>';
+        return;
+    }
+    $md = file_get_contents($file);
+    $md_escaped = esc_js($md);
+    ?>
+    <style>
+        .admin-guide-wrap { max-width: 960px; margin: 20px auto; background: #fff; padding: 40px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+        .admin-guide-wrap h1 { font-size: 28px; border-bottom: 1px solid #ddd; padding-bottom: 12px; }
+        .admin-guide-wrap h2 { font-size: 22px; margin-top: 32px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
+        .admin-guide-wrap h3 { font-size: 18px; margin-top: 24px; }
+        .admin-guide-wrap table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        .admin-guide-wrap th, .admin-guide-wrap td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; font-size: 14px; }
+        .admin-guide-wrap th { background: #f9f9f9; font-weight: 600; }
+        .admin-guide-wrap tr:nth-child(even) { background: #fafafa; }
+        .admin-guide-wrap code { background: #f0f0f1; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+        .admin-guide-wrap pre { background: #f0f0f1; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 13px; line-height: 1.5; }
+        .admin-guide-wrap pre code { background: none; padding: 0; }
+        .admin-guide-wrap blockquote { border-left: 4px solid #cc2229; margin: 16px 0; padding: 8px 16px; background: #fdf5f5; }
+        .admin-guide-wrap ul, .admin-guide-wrap ol { padding-left: 24px; }
+        .admin-guide-wrap li { margin-bottom: 4px; }
+        .admin-guide-wrap a { color: #cc2229; }
+        .admin-guide-wrap hr { border: none; border-top: 1px solid #ddd; margin: 24px 0; }
+    </style>
+    <div class="admin-guide-wrap">
+        <div id="admin-guide-content">Загрузка…</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var md = <?php echo '"' . $md_escaped . '"'; ?>;
+        document.getElementById('admin-guide-content').innerHTML = marked.parse(md);
+    });
+    </script>
+    <?php
+}
+
 /* MEGA MENU CACHE */
 define('MEGA_MENU_CACHE_KEY', 'miele_mega_menu_cache');
 define('MEGA_MENU_CACHE_TIME', 2 * HOUR_IN_SECONDS);

@@ -113,41 +113,43 @@ function miele_get_updated_time_ago(int $post_id): string
                     </div>
                 </header>
 
-                <?php
-                // Author block - show if we have avatar or name or description
-                $has_author_data = $author_avatar || $author_name || $author_description;
-                if ($has_author_data) :
-                ?>
-                    <div class="news-single__author-block">
-                        <?php if ($author_avatar) : ?>
-                            <div class="news-single__author-avatar">
-                                <img
-                                        src="<?php echo esc_url($author_avatar['url']); ?>"
-                                        alt="<?php echo esc_attr($author_name); ?>"
-                                        class="news-single__author-avatar-img"
-                                >
+                <div class="news-single__author-booking">
+                    <?php
+                    // Author block - show if we have avatar or name or description
+                    $has_author_data = $author_avatar || $author_name || $author_description;
+                    if ($has_author_data) :
+                    ?>
+                        <div class="news-single__author-block">
+                            <?php if ($author_avatar) : ?>
+                                <div class="news-single__author-avatar">
+                                    <img
+                                            src="<?php echo esc_url($author_avatar['url']); ?>"
+                                            alt="<?php echo esc_attr($author_name); ?>"
+                                            class="news-single__author-avatar-img"
+                                    >
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="news-single__author-info">
+                                <?php if ($author_name) : ?>
+                                    <span class="news-single__author-name"><?php echo esc_html($author_name); ?></span>
+                                <?php endif; ?>
+
+                                <?php if ($author_description) : ?>
+                                    <p class="news-single__author-description"><?php echo esc_html($author_description); ?></p>
+                                <?php endif; ?>
                             </div>
-                        <?php endif; ?>
-
-                        <div class="news-single__author-info">
-                            <?php if ($author_name) : ?>
-                                <span class="news-single__author-name"><?php echo esc_html($author_name); ?></span>
-                            <?php endif; ?>
-
-                            <?php if ($author_description) : ?>
-                                <p class="news-single__author-description"><?php echo esc_html($author_description); ?></p>
-                            <?php endif; ?>
                         </div>
-                    </div>
-                <?php endif; ?>
+                    <?php endif; ?>
 
-                <?php
-                // Online booking button with modal
-                ?>
-                <div class="news-single__booking">
-                    <button type="button" class="news-single__booking-btn js-quick-form-trigger">
-                        <?php echo esc_html__('Book Online Appointment', 'miele-support'); ?>
-                    </button>
+                    <?php
+                    // Online booking button with modal
+                    ?>
+                    <div class="news-single__booking">
+                        <button type="button" class="news-single__booking-btn js-quick-form-trigger">
+                            <?php echo esc_html__('Book Online Appointment', 'miele-support'); ?>
+                        </button>
+                    </div>
                 </div>
 
                 <?php

@@ -47,11 +47,9 @@ if ($hero_bg_url) {
     </section>
 
     <!-- Breadcrumbs -->
-    <div class="container">
-        <?php if (function_exists('render_breadcrumbs')) : ?>
-            <?php render_breadcrumbs(); ?>
-        <?php endif; ?>
-    </div>
+    <?php if (function_exists('render_breadcrumbs')) : ?>
+        <?php render_breadcrumbs(); ?>
+    <?php endif; ?>
 
     <!-- Contact Form Section -->
     <section class="contact-form-section">

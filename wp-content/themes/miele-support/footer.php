@@ -10,7 +10,7 @@ $is_single_post = is_singular('post');
 ?>
 
 <footer class="footer">
-    <div class="container">
+    <div class="container-fluid">
         <!-- Логотип -->
         <div class="footer__logo">
             <a href="<?php echo esc_url(home_url('/')); ?>">
