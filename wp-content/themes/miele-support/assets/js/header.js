@@ -168,9 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const rootToggle = document.querySelector(
         ".main-nav__item--has-mega .js-nav-toggle"
     );
-    const submenuToggles = megaMenu
-        ? megaMenu.querySelectorAll(".mega-menu__item--has-sub > .js-nav-toggle")
-        : [];
     const desktopQuery = window.matchMedia("(min-width: 1025px)");
 
     function isDesktop() {
@@ -189,7 +186,13 @@ document.addEventListener("DOMContentLoaded", function () {
         panel.hidden = !shouldOpen;
         btn.classList.toggle("is-open", shouldOpen);
 
-        if (panel.classList.contains("mega-menu__sub")) {
+        // Toggle arrow rotation
+        const arrow = btn.querySelector(".mega-menu__arrow");
+        if (arrow) {
+            arrow.style.transform = shouldOpen ? "rotate(225deg)" : "rotate(45deg)";
+        }
+
+        if (panel.classList.contains("mega-menu__sub") || panel.classList.contains("mega-menu__sub3")) {
             panel.classList.toggle("mega-menu__submenu--collapsed", !shouldOpen);
             panel.classList.toggle("mega-menu__submenu--expanded", shouldOpen);
         }
@@ -200,40 +203,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function closeAllSubmenus() {
-        submenuToggles.forEach((btn) => togglePanel(btn, false));
+        megaMenu.querySelectorAll(".js-nav-toggle").forEach((btn) => {
+            if (btn !== rootToggle) {
+                togglePanel(btn, false);
+            }
+        });
     }
 
     function closeSiblingSubmenus(activeBtn) {
-        submenuToggles.forEach((btn) => {
+        const parent = activeBtn.closest("ul");
+        if (!parent) return;
+        parent.querySelectorAll(":scope > .mega-menu__item > .js-nav-toggle, :scope > .mega-menu__subitem > .js-nav-toggle").forEach((btn) => {
             if (btn !== activeBtn) {
                 togglePanel(btn, false);
             }
         });
     }
 
-    submenuToggles.forEach((btn) => {
-        const item = btn.closest(".mega-menu__item--has-sub");
-
-        btn.addEventListener("click", (event) => {
-            event.preventDefault();
-            closeSiblingSubmenus(btn);
-            togglePanel(btn);
-        });
-
-        if (item) {
-            item.addEventListener("mouseenter", () => {
-                if (!isDesktop()) return;
-                closeSiblingSubmenus(btn);
-                togglePanel(btn, true);
-            });
-
-            item.addEventListener("mouseleave", () => {
-                if (!isDesktop()) return;
-                togglePanel(btn, false);
-            });
-        }
+    // Level 2 and Level 3 toggle handlers - click only
+    megaMenu.addEventListener("click", (e) => {
+        const toggleBtn = e.target.closest(".js-nav-toggle");
+        if (!toggleBtn || toggleBtn === rootToggle) return;
+        e.preventDefault();
+        closeSiblingSubmenus(toggleBtn);
+        togglePanel(toggleBtn);
     });
 
+    // Root toggle (Services button)
     if (rootToggle) {
         const rootItem = rootToggle.closest(".main-nav__item--has-mega");
         let hoverTimeout;
@@ -269,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // клик вне меню и мега-меню — закрыть
+    // Close mega menu when clicking outside
     document.addEventListener("click", (e) => {
         const clickInsideNav = nav && nav.contains(e.target);
         const clickInsideMega = megaMenu && megaMenu.contains(e.target);
@@ -281,40 +277,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         closeAllSubmenus();
     });
-
-    // -------- Mega Menu Column Toggle --------
-    // Handles collapsible columns in the mega menu (Level 1 with children)
-    if (megaMenu) {
-        megaMenu.addEventListener("click", (e) => {
-            const toggleLink = e.target.closest(".js-mega-col-toggle");
-            if (!toggleLink) return;
-
-            const col = toggleLink.closest(".mega-menu__col--has-children");
-            if (!col) return;
-
-            e.preventDefault();
-
-            const isOpen = col.classList.contains("is-open");
-            const listId = toggleLink.getAttribute("aria-controls");
-            const list = listId ? document.getElementById(listId) : null;
-
-            // Close sibling columns (accordion behavior)
-            const siblingCols = megaMenu.querySelectorAll(".mega-menu__col--has-children");
-            siblingCols.forEach((siblingCol) => {
-                if (siblingCol !== col) {
-                    siblingCol.classList.remove("is-open");
-                    const siblingToggle = siblingCol.querySelector(".js-mega-col-toggle");
-                    if (siblingToggle) {
-                        siblingToggle.setAttribute("aria-expanded", "false");
-                    }
-                }
-            });
-
-            // Toggle current column
-            col.classList.toggle("is-open", !isOpen);
-            toggleLink.setAttribute("aria-expanded", isOpen ? "false" : "true");
-        });
-    }
 
     // -------- Бургер подменю --------
 

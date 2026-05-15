@@ -198,7 +198,8 @@
     transition: transform 0.25s ease;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 5px;
+
 }
 
 .offcanvas__close {
@@ -221,34 +222,30 @@
     font-size: 15px;
 }
 
-.offcanvas__block--services .offcanvas__services-title {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+/* Hide services block on large screens (main nav is visible) */
+@media (min-width: 1024px) {
+    .offcanvas__block--services-mobile {
+        display: none;
+    }
 }
 
-.offcanvas__list--sub a {
-    display: block;
-    font-size: 14px;
-    padding: 6px 0;
-    opacity: 0.9;
-}
-
-/* Burger submenu toggle button */
-.offcanvas__sub-toggle {
+/* Mobile services block */
+.offcanvas__services-toggle {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 10px;
     width: 100%;
     background: none;
     border: none;
     color: #fff;
-    font-size: 14px;
-    padding: 6px 0;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0;
     cursor: pointer;
     text-align: left;
+    border-bottom: 1px solid #333;
 }
 
 .offcanvas__sub-arrow {
@@ -260,31 +257,93 @@
     border-top: none;
     transform: rotate(45deg);
     transition: transform 0.2s;
-    margin-left: 8px;
 }
 
-.offcanvas__sub-toggle.is-open .offcanvas__sub-arrow {
+.offcanvas__services-toggle.is-open .offcanvas__sub-arrow {
     transform: rotate(225deg);
 }
 
-/* Burger sub-list */
-.offcanvas__sub-list {
-    padding-left: 16px;
-    margin-top: 4px;
+.offcanvas__services-panel {
+    padding: 60px 0 16px;
 }
 
-.offcanvas__sub-list[hidden] {
+.offcanvas__services-group {
+    margin-bottom: 24px;
+}
+
+.offcanvas__services-group:last-child {
+    margin-bottom: 0;
+}
+
+.offcanvas__services-header {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.offcanvas__service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    font-family: var(--font-family);
+    font-size: 15px;
+    padding: 6px 0;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+}
+
+.offcanvas__service-item--parent {
+    color: #cc2229;
+}
+
+.offcanvas__service-item--parent:hover {
+    opacity: 0.8;
+}
+
+.offcanvas__service-item--leaf {
+    color: #fff;
+    display: block;
+}
+
+.offcanvas__service-item--leaf:hover {
+    opacity: 0.8;
+}
+
+.offcanvas__service-dash {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 6px;
+    border-color: transparent transparent transparent currentColor;
+    margin-left: 6px;
+    transition: transform 0.2s;
+}
+
+.offcanvas__service-item--parent.is-open .offcanvas__service-dash {
+    transform: rotate(90deg);
+}
+
+.offcanvas__service-sub {
+    list-style: none;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.offcanvas__service-sub[hidden] {
     display: none;
 }
 
-.offcanvas__sub-list li {
-    margin-bottom: 4px;
-}
-
-.offcanvas__sub-list a {
-    font-size: 13px;
-    padding: 4px 0;
-    opacity: 0.8;
+.offcanvas__service-sub li {
+    margin: 0;
 }
 
 /* Состояние открытого меню */
@@ -518,25 +577,26 @@
     transition: transform .2s;
     position: absolute;
     right: -15px;
-    bottom: 6px;
+    top: 50%;
+    margin-top: -3px;
 }
 
 .mega-menu__arrow {
     display: inline-block;
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentColor;
+    width: 5px;
+    height: 5px;
+    border: 1.5px solid currentColor;
     border-left: none;
     border-top: none;
     transform: rotate(45deg);
     transition: transform .2s;
-    position: absolute;
-    right: -15px;
-    bottom: 9px;
+    flex-shrink: 0;
+    vertical-align: middle;
 }
 
 .js-nav-toggle.is-open .main-nav__arrow {
     transform: rotate(225deg);
+    margin-top: -3px;
 }
 
 .js-nav-toggle.is-open .mega-menu__arrow {
@@ -549,7 +609,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    top: 134px;
+    top: 154px;
     bottom: 0;
     background: #000;
     color: #fff;
@@ -557,10 +617,20 @@
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Invisible bridge: 20px zone between main-nav and mega-menu so it won't collapse on mouse travel */
+.mega-menu::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
 }
 
 /* Показываем меню когда не hidden */
@@ -571,111 +641,97 @@
 
 /* внутренняя «решётка» с колонками, ограниченная по ширине */
 .mega-menu__inner {
-    max-width: 1200px;
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
-    padding: 40px 20px 60px;
-    column-gap: 60px;
+    padding: 30px 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
 }
 
+/* Column */
 .mega-menu__col {
-    flex: 0 1 30%;
-    border-right: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 20px;
+    padding: 0 30px;
+    border-left: 1px solid #333;
+}
+
+.mega-menu__col:first-child {
+    border-left: none;
+    padding-left: 0;
 }
 
 .mega-menu__col:last-child {
-    border-right: none;
+    padding-right: 0;
 }
 
-.mega-menu__title {
+/* Column header */
+.mega-menu__col-header {
     font-family: var(--font-family);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
-    line-height: 186%;
+    line-height: 1.4;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--whitef6);
-    margin-bottom: 10px;
+    color: #fff;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
 }
 
-/* Toggle title for columns with children - red color and arrow */
-.mega-menu__title--toggle > a {
-    color: var(--red);
-    position: relative;
-    padding-right: 20px;
-    display: inline-block;
-}
-
-/* Arrow indicator for collapsible column titles */
-.mega-menu__title--toggle > a::after {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentColor;
-    border-left: none;
-    border-top: none;
-    transform: rotate(45deg);
-    transition: transform 0.2s ease;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    margin-top: -5px;
-}
-
-/* Arrow rotation when column is open */
-.mega-menu__col.is-open .mega-menu__title--toggle > a::after {
-    transform: rotate(225deg);
-    margin-top: -2px;
-}
-
-/* Collapsible list for column children - hidden by default */
-.mega-menu__list--collapsible {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-}
-
-/* Show list when column is open */
-.mega-menu__col.is-open .mega-menu__list--collapsible {
-    max-height: 2000px;
-    opacity: 1;
+/* List */
+.mega-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .mega-menu__item {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
+/* Level 1 links */
 .mega-menu__link {
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 14px;
-    line-height: 186%;
-    letter-spacing: 0.07em;
-    color: var(--white);
+    line-height: 1.86;
+    letter-spacing: 0.04em;
+    color: #fff;
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
 }
 
-/* Пункты 2-го уровня с дочерними элементами (3-й уровень) */
-.mega-menu__item--has-sub > .mega-menu__link {
-    color: var(--red);
-    padding-right: 20px;
+.mega-menu__link:hover {
+    color: #cc2229;
 }
 
-/* Пункты 2-го уровня без дочерних элементов - белый цвет */
-.mega-menu__item:not(.mega-menu__item--has-sub) > .mega-menu__link {
-    color: var(--white);
+/* Plain link (no children) */
+.mega-menu__link--plain {
+    color: #fff;
 }
 
-/* Стрелка для раскрывающихся пунктов 2-го уровня */
-.mega-menu__item--has-sub .mega-menu__arrow {
-    right: 0;
+.mega-menu__link--plain:hover {
+    color: #cc2229;
 }
 
+/* Arrow for expandable items */
+.mega-menu__arrow--sub {
+    width: 4px;
+    height: 4px;
+}
+
+/* Level 2 submenu */
 .mega-menu__sub {
-    margin-top: 6px;
-    padding-left: 12px;
+    list-style: none;
+    margin: 2px 0 8px 16px;
+    padding: 0;
 }
 
 .mega-menu__sub[hidden],
@@ -683,40 +739,59 @@
     display: none;
 }
 
-.mega-menu__submenu--expanded {
-    display: block;
+/* Level 2 items */
+.mega-menu__subitem {
+    margin-bottom: 2px;
 }
 
-.mega-menu__sub a {
+/* Level 2 links */
+.mega-menu__sublink {
     font-family: var(--font-family);
     font-weight: 400;
-    font-size: 14px;
-    line-height: 186%;
-    letter-spacing: 0.07em;
-    color: var(--grayc5);
-    padding: 10px 0;
+    font-size: 13px;
+    line-height: 1.86;
+    letter-spacing: 0.04em;
+    color: #999;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
 }
 
-@media (min-width: 1024px) {
-    .mega-menu {
-        position: fixed;      /* шапка обычная, не fixed */
-        left: 0;
-        right: 0;
-        top: 134px;           /* высота твоего header'а; подгони под фактическую */
-        bottom: 0;            /* если нужно только по контенту — просто убери */
-        background: #000;
-        color: #fff;
-        z-index: 1000;
-    }
+.mega-menu__sublink:hover {
+    color: #fff;
+}
 
-    .mega-menu__inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px 20px 60px;
-        display: grid;
-        grid-template-columns: 2fr 2fr 1.5fr;
-        column-gap: 60px;
-    }
+/* Level 3 submenu */
+.mega-menu__sub3 {
+    list-style: none;
+    margin: 2px 0 6px 16px;
+    padding: 0;
+}
+
+.mega-menu__sub3[hidden] {
+    display: none;
+}
+
+/* Level 3 links */
+.mega-menu__sub3link {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.86;
+    letter-spacing: 0.04em;
+    color: #666;
+    display: block;
+    padding: 1px 0;
+    text-decoration: none;
+}
+
+.mega-menu__sub3link:hover {
+    color: #999;
 }
 
 /* скрыто по умолчанию */

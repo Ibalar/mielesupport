@@ -37,6 +37,83 @@ add_action('after_switch_theme', function () {
     flush_rewrite_rules();
 });
 
+/* DUPLICATE SERVICE */
+add_filter('page_row_actions', 'add_duplicate_service_link', 10, 2);
+add_filter('post_row_actions', 'add_duplicate_service_link', 10, 2);
+
+function add_duplicate_service_link($actions, $post) {
+    if ($post->post_type !== 'service') return $actions;
+
+    $url = wp_nonce_url(
+        admin_url('admin.php?action=duplicate_service&post=' . $post->ID),
+        'duplicate_service_' . $post->ID
+    );
+
+    $actions['duplicate'] = '<a href="' . esc_url($url) . '" title="Duplicate this service" onclick="return confirm(\'Duplicate this service?\')">Duplicate</a>';
+
+    return $actions;
+}
+
+add_action('admin_action_duplicate_service', 'handle_duplicate_service');
+
+function handle_duplicate_service() {
+    if (!isset($_GET['post']) || !isset($_GET['_wpnonce'])) {
+        wp_die('Invalid request.');
+    }
+
+    $post_id = intval($_GET['post']);
+
+    if (!wp_verify_nonce($_GET['_wpnonce'], 'duplicate_service_' . $post_id)) {
+        wp_die('Security check failed.');
+    }
+
+    if (!current_user_can('edit_posts')) {
+        wp_die('You do not have permission to do this.');
+    }
+
+    $original = get_post($post_id);
+    if (!$original || $original->post_type !== 'service') {
+        wp_die('Service not found.');
+    }
+
+    // Copy the post
+    $new_post_data = [
+        'post_title'    => $original->post_title . ' (Copy)',
+        'post_status'   => 'draft',
+        'post_type'     => 'service',
+        'post_parent'   => $original->post_parent,
+        'menu_order'    => $original->menu_order,
+        'post_content'  => $original->post_content,
+        'post_excerpt'  => $original->post_excerpt,
+    ];
+
+    $new_post_id = wp_insert_post($new_post_data);
+
+    if (is_wp_error($new_post_id)) {
+        wp_die('Failed to duplicate service.');
+    }
+
+    // Copy featured image
+    $thumbnail_id = get_post_thumbnail_id($post_id);
+    if ($thumbnail_id) {
+        set_post_thumbnail($new_post_id, $thumbnail_id);
+    }
+
+    // Copy all ACF fields
+    if (function_exists('get_field')) {
+        $fields = get_fields($post_id);
+        if ($fields) {
+            foreach ($fields as $key => $value) {
+                update_field($key, $value, $new_post_id);
+            }
+        }
+    }
+
+    // Redirect to edit screen
+    wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
+    exit;
+}
+
 /* ACF OPTIONS */
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page([

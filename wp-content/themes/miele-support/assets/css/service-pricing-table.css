@@ -253,6 +253,10 @@
     margin-top: 2px;
 }
 
+.service-pricing-table__footnote {
+    padding: 34px 0;
+}
+
 /* Mobile - 1 column */
 @media (max-width: 743px) {
     .pricing-table {

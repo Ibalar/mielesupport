@@ -198,6 +198,7 @@ Kitchen Appliances          ← Уровень 1
 
 | Поле | Тип | Описание |
 |---|---|---|
+| **Mega Menu Column** | select | **Обязательное.** К какому столбцу мега-меню относится: KITCHEN, LAUNDRY или VACUUM CLEANERS |
 | Category Icon | image | Иконка для мега-меню |
 | Category Description | textarea | Описание категории (макс. 200 символов) |
 | Category Banner | image | Баннерное изображение |

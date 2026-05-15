@@ -3,6 +3,30 @@
     "title": "Service — Level 1 (Category)",
     "fields": [
         {
+            "key": "field_level1_column_group",
+            "label": "Mega Menu Column",
+            "name": "column_group",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Which column this category belongs to in the mega menu dropdown",
+            "required": true,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "kitchen": "KITCHEN",
+                "laundry": "LAUNDRY",
+                "vacuum_cleaners": "VACUUM CLEANERS"
+            },
+            "default_value": "kitchen",
+            "return_format": "value",
+            "multiple": false,
+            "allow_null": false
+        },
+        {
             "key": "field_level1_icon",
             "label": "Category Icon",
             "name": "category_icon",
