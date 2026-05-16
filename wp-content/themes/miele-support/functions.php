@@ -3,6 +3,7 @@ defined('ABSPATH') || exit;
 
 /* INCLUDES */
 require_once get_template_directory() . '/inc/breadcrumbs.php';
+require_once get_template_directory() . '/inc/migration.php';
 
 /* THEME SETUP */
 add_action('after_setup_theme', function () {
@@ -151,19 +152,7 @@ function load_more_posts() {
     wp_die();
 }
 
-/* SCHEMA */
-add_action('wp_head', function () {
-    if (is_singular('service')) {
-        get_template_part('template-parts/schema/service');
-        if (get_field('faq')) {
-            get_template_part('template-parts/schema/faq');
-        }
-    }
-
-    if (is_single() && get_post_type() === 'post') {
-        get_template_part('template-parts/schema/article');
-    }
-});
+/* SCHEMA - handled by rank-math.php */
 
 
 add_filter('acf/settings/save_json', function() {
