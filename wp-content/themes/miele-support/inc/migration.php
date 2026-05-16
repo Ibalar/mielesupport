@@ -422,24 +422,29 @@ function export_database($output_file) {
     // Try mysqldump first (most reliable)
     $mysql_path = find_mysql_path();
 
-    if ($mysql_path) {
+    if ($mysql_path && is_callable('exec')) {
+        $tmp_file = $output_file . '.tmp';
+
         $command = sprintf(
-            '%s --host=%s --user=%s --password=%s %s > %s 2>&1',
+            '%s --host=%s --user=%s %s --result-file=%s %s',
             escapeshellcmd($mysql_path),
             escapeshellarg(DB_HOST),
             escapeshellarg(DB_USER),
-            escapeshellarg(DB_PASSWORD),
-            escapeshellarg(DB_NAME),
-            escapeshellarg($output_file)
+            defined('DB_PASSWORD') && DB_PASSWORD ? '--password=' . escapeshellarg(DB_PASSWORD) : '',
+            escapeshellarg($tmp_file),
+            escapeshellarg(DB_NAME)
         );
-
-        // Remove --password= if empty
-        $command = str_replace("--password=''", '', $command);
 
         exec($command, $output, $return_code);
 
-        if ($return_code === 0 && file_exists($output_file) && filesize($output_file) > 0) {
+        if ($return_code === 0 && file_exists($tmp_file) && filesize($tmp_file) > 0) {
+            rename($tmp_file, $output_file);
             return true;
+        }
+
+        // Cleanup failed attempt
+        if (file_exists($tmp_file)) {
+            unlink($tmp_file);
         }
     }
 
@@ -453,7 +458,8 @@ function export_database($output_file) {
 function export_database_php($output_file) {
     global $wpdb;
 
-    $tables = $wpdb->get_results("SHOW TABLES LIKE '" . DB_NAME . "%'", ARRAY_N);
+    // Get all tables from current database
+    $tables = $wpdb->get_results("SHOW TABLES", ARRAY_N);
     if (empty($tables)) {
         return new WP_Error('no_tables', 'No tables found.');
     }
