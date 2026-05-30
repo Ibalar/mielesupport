@@ -174,6 +174,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return desktopQuery.matches;
     }
 
+    function updateMegaMenuPosition() {
+        if (!megaMenu || !nav || !isDesktop()) return;
+        const navRect = nav.getBoundingClientRect();
+        megaMenu.style.setProperty("--mega-menu-top", `${Math.round(navRect.bottom)}px`);
+    }
+
     function togglePanel(btn, forceOpen = null) {
         const targetSelector = btn.dataset.target;
         const panel = document.querySelector(targetSelector);
@@ -242,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (rootItem) {
             rootItem.addEventListener("mouseenter", () => {
                 clearTimeout(hoverTimeout);
+                updateMegaMenuPosition();
                 togglePanel(rootToggle, true);
             });
 
@@ -263,6 +270,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 togglePanel(rootToggle, false);
             });
         }
+    }
+
+    if (isDesktop()) {
+        updateMegaMenuPosition();
+        window.addEventListener("resize", updateMegaMenuPosition);
+        window.addEventListener("scroll", updateMegaMenuPosition, { passive: true });
     }
 
     // Close mega menu when clicking outside

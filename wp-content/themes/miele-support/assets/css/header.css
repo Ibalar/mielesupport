@@ -609,7 +609,9 @@
     position: fixed;
     left: 0;
     right: 0;
-    top: 154px;
+    --mega-menu-top: 154px;
+    --mega-menu-gap: 10px;
+    top: calc(var(--mega-menu-top) + var(--mega-menu-gap));
     bottom: 0;
     background: #000;
     color: #fff;
@@ -627,10 +629,10 @@
 .mega-menu::before {
     content: '';
     position: absolute;
-    top: -20px;
+    top: calc((var(--mega-menu-gap) + 12px) * -1);
     left: 0;
     right: 0;
-    height: 20px;
+    height: calc(var(--mega-menu-gap) + 12px);
 }
 
 /* Показываем меню когда не hidden */
