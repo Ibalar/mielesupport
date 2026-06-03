@@ -47,8 +47,15 @@
 
                     </li>
 
-                    <li class="main-nav__item"><a href="/contact-us" class="main-nav__link">Contact Us</a></li>
-                    <li class="main-nav__item"><a href="/areas" class="main-nav__link">Areas</a></li>
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'primary',
+                        'container'      => false,
+                        'items_wrap'     => '%3$s',
+                        'depth'          => 1,
+                        'fallback_cb'    => false,
+                    ]);
+                    ?>
                 </ul>
             </nav>
 

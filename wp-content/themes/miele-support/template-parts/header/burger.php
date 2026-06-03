@@ -153,15 +153,18 @@ $burger_counter = 0;
         <?php endif; ?>
 
         <!-- Pages block -->
-        <nav class="offcanvas__block offcanvas__block--primary">
-            <ul class="offcanvas__list">
-                <li><a href="/about-us">About Us</a></li>
-                <li><a href="/areas">Areas</a></li>
-                <li><a href="/gallery">Gallery</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/contact-us">Contact Us</a></li>
-            </ul>
-        </nav>
+        <?php if (has_nav_menu('burger_main')) : ?>
+            <nav class="offcanvas__block offcanvas__block--primary">
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'burger_main',
+                    'container'      => false,
+                    'menu_class'     => 'offcanvas__list',
+                    'depth'          => 1,
+                    'fallback_cb'    => false,
+                ]);
+                ?>
+            </nav>
+        <?php endif; ?>
     </aside>
 </div>

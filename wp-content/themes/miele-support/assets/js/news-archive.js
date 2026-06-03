@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!grids.length) return;
 
     const desktopMq = window.matchMedia('(min-width: 1024px)');
-    const tabletMq = window.matchMedia('(min-width: 744px) and (max-width: 1023px)');
+    const tabletMq = window.matchMedia('(min-width: 640px) and (max-width: 1023px)');
 
     function getLimit() {
         if (desktopMq.matches) return 9;

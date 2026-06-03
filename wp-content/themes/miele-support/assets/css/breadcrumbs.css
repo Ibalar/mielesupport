@@ -2,7 +2,7 @@
 /* Breadcrumbs navigation styles - Supports all hierarchy levels */
 
 .breadcrumbs {
-    padding: var(--gap-sm) 0;
+    padding: 65px 0;
     background: transparent;
 }
 
@@ -45,9 +45,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--grayc5);
     user-select: none;
     flex-shrink: 0;
+    opacity: 0.5;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 88%;
+    letter-spacing: 0.07em;
+    color: var(--whitef6);
+    padding: 0 10px;
 }
 
 .breadcrumbs__separator-icon {
@@ -63,9 +70,6 @@
 
 /* Mobile styles */
 @media (max-width: 743px) {
-    .breadcrumbs {
-        padding: var(--gap-xs) 0;
-    }
 
     .breadcrumbs__link,
     .breadcrumbs__current {
@@ -78,22 +82,16 @@
 
     /* Truncate very long breadcrumbs on mobile */
     .breadcrumbs__item {
-        max-width: 200px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
 
-    .breadcrumbs__item--current {
-        max-width: 150px;
-    }
+
 }
 
 /* Tablet styles */
 @media (min-width: 744px) and (max-width: 1439px) {
-    .breadcrumbs {
-        padding: var(--gap-md) 0;
-    }
 
     .breadcrumbs__link,
     .breadcrumbs__current {
@@ -101,7 +99,6 @@
     }
 
     .breadcrumbs__item {
-        max-width: 250px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -110,9 +107,6 @@
 
 /* Desktop styles */
 @media (min-width: 1440px) {
-    .breadcrumbs {
-        padding: var(--gap-lg) 0;
-    }
 
     .breadcrumbs__link,
     .breadcrumbs__current {
@@ -120,7 +114,6 @@
     }
 
     .breadcrumbs__item {
-        max-width: 300px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

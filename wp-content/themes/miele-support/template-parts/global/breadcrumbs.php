@@ -57,9 +57,7 @@ if (count($breadcrumbs) <= 1) {
 
             <?php if ($index < count($breadcrumbs) - 1) : ?>
                 <li class="breadcrumbs__separator" aria-hidden="true">
-                    <svg class="breadcrumbs__separator-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    /
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>

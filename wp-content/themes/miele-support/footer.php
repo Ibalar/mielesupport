@@ -7,6 +7,14 @@
 // Check if we're on single-post page - don't duplicate modal
 $is_single_post = is_singular('post');
 
+$footer_menus = [
+    'footer_navigation' => 'Navigation',
+    'footer_services' => 'Services',
+    'footer_kitchen' => 'Kitchen',
+    'footer_laundry' => 'Laundry',
+    'footer_vacuum_cleaners' => 'Vacuum Cleaners',
+];
+
 ?>
 
 <footer class="footer">
@@ -20,59 +28,22 @@ $is_single_post = is_singular('post');
 
         <!-- Меню в 5 колонок -->
         <div class="footer__columns">
-            <!-- Navigation -->
-            <div class="footer__column">
-                <h4 class="footer__column-title">Navigation</h4>
-                <ul class="footer__menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Services -->
-            <div class="footer__column">
-                <h4 class="footer__column-title">Services</h4>
-                <ul class="footer__menu">
-                    <li><a href="/repair">Repair</a></li>
-                    <li><a href="/maintenance">Maintenance</a></li>
-                    <li><a href="/installation">Installation</a></li>
-                    <li><a href="/diagnostics">Diagnostics</a></li>
-                </ul>
-            </div>
-
-            <!-- KITCHEN -->
-            <div class="footer__column">
-                <h4 class="footer__column-title">KITCHEN</h4>
-                <ul class="footer__menu">
-                    <li><a href="/kitchen/ovens">Ovens</a></li>
-                    <li><a href="/kitchen/cooktops">Cooktops</a></li>
-                    <li><a href="/kitchen/dishwashers">Dishwashers</a></li>
-                    <li><a href="/kitchen/refrigerators">Refrigerators</a></li>
-                </ul>
-            </div>
-
-            <!-- LAUNDRY -->
-            <div class="footer__column">
-                <h4 class="footer__column-title">LAUNDRY</h4>
-                <ul class="footer__menu">
-                    <li><a href="/laundry/washing-machines">Washing Machines</a></li>
-                    <li><a href="/laundry/dryers">Dryers</a></li>
-                    <li><a href="/laundry/irons">Irons</a></li>
-                </ul>
-            </div>
-
-            <!-- VACUUM CLEANERS -->
-            <div class="footer__column">
-                <h4 class="footer__column-title">VACUUM CLEANERS</h4>
-                <ul class="footer__menu">
-                    <li><a href="/vacuum/cordless">Cordless</a></li>
-                    <li><a href="/vacuum/bagless">Bagless</a></li>
-                    <li><a href="/vacuum/bagged">Bagged</a></li>
-                    <li><a href="/vacuum/robot">Robot</a></li>
-                </ul>
-            </div>
+            <?php foreach ($footer_menus as $theme_location => $menu_title) : ?>
+                <?php if (has_nav_menu($theme_location)) : ?>
+                    <div class="footer__column">
+                        <h4 class="footer__column-title"><?php echo esc_html($menu_title); ?></h4>
+                        <?php
+                        wp_nav_menu([
+                            'theme_location' => $theme_location,
+                            'container'      => false,
+                            'menu_class'     => 'footer__menu',
+                            'depth'          => 1,
+                            'fallback_cb'    => false,
+                        ]);
+                        ?>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </div>
 
         <!-- Нижняя часть футера -->

@@ -15,9 +15,30 @@ add_action('after_setup_theme', function () {
 
 /* MENUS */
 register_nav_menus([
-    'primary'        => 'Primary Menu',
-    'burger_main'    => 'Burger Main',
+    'primary'                => 'Primary Menu',
+    'burger_main'            => 'Burger Main',
+    'footer_navigation'      => 'Navigation',
+    'footer_services'        => 'Services',
+    'footer_kitchen'         => 'Kitchen',
+    'footer_laundry'         => 'Laundry',
+    'footer_vacuum_cleaners' => 'Vacuum Cleaners',
 ]);
+
+add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
+    if (($args->theme_location ?? '') === 'primary') {
+        $classes[] = 'main-nav__item';
+    }
+
+    return $classes;
+}, 10, 4);
+
+add_filter('nav_menu_link_attributes', function ($atts, $item, $args, $depth) {
+    if (($args->theme_location ?? '') === 'primary') {
+        $atts['class'] = trim(($atts['class'] ?? '') . ' main-nav__link');
+    }
+
+    return $atts;
+}, 10, 4);
 
 /* CPT: SERVICE */
 function register_service_cpt() {
@@ -38,79 +59,91 @@ add_action('after_switch_theme', function () {
     flush_rewrite_rules();
 });
 
-/* DUPLICATE SERVICE */
-add_filter('page_row_actions', 'add_duplicate_service_link', 10, 2);
-add_filter('post_row_actions', 'add_duplicate_service_link', 10, 2);
+/* DUPLICATE POSTS */
+add_filter('page_row_actions', 'add_miele_duplicate_post_link', 10, 2);
+add_filter('post_row_actions', 'add_miele_duplicate_post_link', 10, 2);
 
-function add_duplicate_service_link($actions, $post) {
-    if ($post->post_type !== 'service') return $actions;
+function add_miele_duplicate_post_link($actions, $post) {
+    if (!in_array($post->post_type, ['post', 'service'], true) || !current_user_can('edit_post', $post->ID)) {
+        return $actions;
+    }
 
     $url = wp_nonce_url(
-        admin_url('admin.php?action=duplicate_service&post=' . $post->ID),
-        'duplicate_service_' . $post->ID
+        admin_url('admin.php?action=miele_duplicate_post&post=' . $post->ID),
+        'miele_duplicate_post_' . $post->ID
     );
 
-    $actions['duplicate'] = '<a href="' . esc_url($url) . '" title="Duplicate this service" onclick="return confirm(\'Duplicate this service?\')">Duplicate</a>';
+    $actions['duplicate'] = '<a href="' . esc_url($url) . '" title="Duplicate this item">Duplicate</a>';
 
     return $actions;
 }
 
-add_action('admin_action_duplicate_service', 'handle_duplicate_service');
+add_action('admin_action_miele_duplicate_post', 'handle_miele_duplicate_post');
 
-function handle_duplicate_service() {
+function handle_miele_duplicate_post() {
     if (!isset($_GET['post']) || !isset($_GET['_wpnonce'])) {
         wp_die('Invalid request.');
     }
 
     $post_id = intval($_GET['post']);
 
-    if (!wp_verify_nonce($_GET['_wpnonce'], 'duplicate_service_' . $post_id)) {
+    if (!wp_verify_nonce($_GET['_wpnonce'], 'miele_duplicate_post_' . $post_id)) {
         wp_die('Security check failed.');
     }
 
-    if (!current_user_can('edit_posts')) {
+    if (!current_user_can('edit_post', $post_id)) {
         wp_die('You do not have permission to do this.');
     }
 
     $original = get_post($post_id);
-    if (!$original || $original->post_type !== 'service') {
-        wp_die('Service not found.');
+    if (!$original || !in_array($original->post_type, ['post', 'service'], true)) {
+        wp_die('Post not found.');
     }
 
-    // Copy the post
     $new_post_data = [
         'post_title'    => $original->post_title . ' (Copy)',
         'post_status'   => 'draft',
-        'post_type'     => 'service',
+        'post_type'     => $original->post_type,
+        'post_author'   => get_current_user_id(),
         'post_parent'   => $original->post_parent,
         'menu_order'    => $original->menu_order,
         'post_content'  => $original->post_content,
         'post_excerpt'  => $original->post_excerpt,
+        'comment_status'=> $original->comment_status,
+        'ping_status'   => $original->ping_status,
     ];
 
     $new_post_id = wp_insert_post($new_post_data);
 
     if (is_wp_error($new_post_id)) {
-        wp_die('Failed to duplicate service.');
+        wp_die('Failed to duplicate post.');
     }
 
-    // Copy featured image
+    $taxonomies = get_object_taxonomies($original->post_type);
+    foreach ($taxonomies as $taxonomy) {
+        $terms = wp_get_object_terms($post_id, $taxonomy, ['fields' => 'ids']);
+        if (!is_wp_error($terms)) {
+            wp_set_object_terms($new_post_id, $terms, $taxonomy);
+        }
+    }
+
+    $meta = get_post_meta($post_id);
+    $skip_meta_keys = ['_edit_lock', '_edit_last', '_wp_old_slug'];
+    foreach ($meta as $meta_key => $meta_values) {
+        if (in_array($meta_key, $skip_meta_keys, true)) {
+            continue;
+        }
+
+        foreach ($meta_values as $meta_value) {
+            add_post_meta($new_post_id, $meta_key, maybe_unserialize($meta_value));
+        }
+    }
+
     $thumbnail_id = get_post_thumbnail_id($post_id);
     if ($thumbnail_id) {
         set_post_thumbnail($new_post_id, $thumbnail_id);
     }
 
-    // Copy all ACF fields
-    if (function_exists('get_field')) {
-        $fields = get_fields($post_id);
-        if ($fields) {
-            foreach ($fields as $key => $value) {
-                update_field($key, $value, $new_post_id);
-            }
-        }
-    }
-
-    // Redirect to edit screen
     wp_redirect(admin_url('post.php?action=edit&post=' . $new_post_id));
     exit;
 }

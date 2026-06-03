@@ -203,6 +203,14 @@ document.addEventListener("DOMContentLoaded", function () {
             panel.classList.toggle("mega-menu__submenu--expanded", shouldOpen);
         }
 
+        if (panel === megaMenu) {
+            if (shouldOpen && isDesktop()) {
+                lockBodyScroll();
+            } else {
+                unlockBodyScroll();
+            }
+        }
+
         if (panel === megaMenu && !shouldOpen) {
             closeAllSubmenus();
         }

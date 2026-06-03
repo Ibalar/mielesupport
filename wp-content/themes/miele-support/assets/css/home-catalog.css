@@ -2,7 +2,7 @@
 
 .home-catalog {
     position: relative;
-    padding: 100px 0;
+    padding: 0;
     color: var(--white, #ffffff);
     font-family: var(--font-family);
     background: var(--black-bg, #000000);
@@ -141,9 +141,6 @@
 
 /* Tablet */
 @media (min-width: 640px) {
-    .home-catalog {
-        padding: 120px 0;
-    }
 
     .home-catalog .container,
     .home-catalog .container-fluid {
@@ -200,9 +197,6 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
-    .home-catalog {
-        padding: 120px 0;
-    }
 
     .home-catalog .container,
     .home-catalog .container-fluid {
